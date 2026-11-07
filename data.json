@@ -1,0 +1,2487 @@
+{
+  "meta": {
+    "cards": 88,
+    "monsters": 90,
+    "maps": 18,
+    "source": "https://lumivaraonline.com/wiki/",
+    "cardIndex": "https://lumivaraonline.com/wiki/cards/",
+    "monsterIndex": "https://lumivaraonline.com/wiki/monsters/",
+    "mapIndex": "https://lumivaraonline.com/wiki/maps/",
+    "checked": "2026-11-07",
+    "version": "0.1.0"
+  },
+  "cards": [
+    {
+      "id": "card-prism-hopper",
+      "name": "Prism Hopper Card",
+      "effect": "LUK +3",
+      "effectOriginal": "LUK +3",
+      "special": false,
+      "mapHint": "Verdant Forest",
+      "relatedMonsters": [
+        "monster-prism-hopper"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-hollow",
+      "name": "Hollow Card",
+      "effect": "INT +2, MDEF +2",
+      "effectOriginal": "INT +2, MDEF +2",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-crowned-prism-hopper",
+      "name": "Crowned Prism Hopper Card",
+      "effect": "ATK +10, LUK +3, ATK +3%, MATK +3%",
+      "effectOriginal": "ATK +10, LUK +3, ATK +3%, MATK +3%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-moss-mushroom",
+      "name": "Moss Mushroom Card",
+      "effect": "VIT +2",
+      "effectOriginal": "VIT +2",
+      "special": false,
+      "mapHint": "Verdant Forest",
+      "relatedMonsters": [
+        "monster-moss-mushroom"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-cave-bat",
+      "name": "Cave Bat Card",
+      "effect": "AGI +4",
+      "effectOriginal": "AGI +4",
+      "special": false,
+      "mapHint": "Frostfang Glacier",
+      "relatedMonsters": [
+        "monster-cave-bat"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-amber-beetle",
+      "name": "Amber Beetle Card",
+      "effect": "DEF +3",
+      "effectOriginal": "DEF +3",
+      "special": false,
+      "mapHint": "Honeybloom Meadow",
+      "relatedMonsters": [
+        "monster-amber-beetle"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-tide-crab",
+      "name": "Tide Crab Card",
+      "effect": "HP +50",
+      "effectOriginal": "HP +50",
+      "special": false,
+      "mapHint": "Mirewillow Marsh",
+      "relatedMonsters": [
+        "monster-tide-crab"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-leaf-sprout",
+      "name": "Leaf Sprout Card",
+      "effect": "SP +30",
+      "effectOriginal": "SP +30",
+      "special": false,
+      "mapHint": "Verdant Forest",
+      "relatedMonsters": [
+        "monster-leaf-sprout"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-dew-bunny",
+      "name": "Dew Bunny Card",
+      "effect": "FLEE +33",
+      "effectOriginal": "FLEE +33",
+      "special": false,
+      "mapHint": "Verdant Forest",
+      "relatedMonsters": [
+        "monster-dew-bunny"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-thorn-pixie",
+      "name": "Thorn Pixie Card",
+      "effect": "MATK +5",
+      "effectOriginal": "MATK +5",
+      "special": false,
+      "mapHint": "Verdant Forest",
+      "relatedMonsters": [
+        "monster-thorn-pixie"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-rootling",
+      "name": "Rootling Card",
+      "effect": "HP +20, VIT +2, DEF +3",
+      "effectOriginal": "HP +20, VIT +2, DEF +3",
+      "special": false,
+      "mapHint": "Honeybloom Meadow",
+      "relatedMonsters": [
+        "monster-rootling"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-honey-moth",
+      "name": "Honey Moth Card",
+      "effect": "SP +20, INT +2, DEX +2",
+      "effectOriginal": "SP +20, INT +2, DEX +2",
+      "special": false,
+      "mapHint": "Honeybloom Meadow",
+      "relatedMonsters": [
+        "monster-honey-moth"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-honey-moth",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "全部部位",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/moth_card/"
+    },
+    {
+      "id": "card-bramble-hare",
+      "name": "Bramble Hare Card",
+      "effect": "AGI +2, FLEE +30",
+      "effectOriginal": "AGI +2, FLEE +30",
+      "special": false,
+      "mapHint": "Honeybloom Meadow",
+      "relatedMonsters": [
+        "monster-bramble-hare"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-frost-puff",
+      "name": "Frost Puff Card",
+      "effect": "MDEF +6, 冰凍抗性 +30%",
+      "effectOriginal": "MDEF +6, กันแข็ง +30%",
+      "special": false,
+      "mapHint": "Frostveil Pass",
+      "relatedMonsters": [
+        "monster-frost-puff"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-icicle-hare",
+      "name": "Icicle Hare Card",
+      "effect": "AGI +3, CRIT +1, 攻擊附加冰凍 +3%",
+      "effectOriginal": "AGI +3, CRIT +1, โจมตีติดแข็ง +3%",
+      "special": false,
+      "mapHint": "Frostveil Pass",
+      "relatedMonsters": [
+        "monster-icicle-hare"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-snow-owl",
+      "name": "Snow Owl Card",
+      "effect": "HIT +20, ATK +5, MATK +5",
+      "effectOriginal": "HIT +20, ATK +5, MATK +5",
+      "special": false,
+      "mapHint": "Frostveil Pass",
+      "relatedMonsters": [
+        "monster-snow-owl"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-aurora-fox",
+      "name": "Aurora Fox Card",
+      "effect": "INT +5, MATK +5, MATK +1%",
+      "effectOriginal": "INT +5, MATK +5, MATK +1%",
+      "special": false,
+      "mapHint": "Frostveil Pass",
+      "relatedMonsters": [
+        "monster-aurora-fox"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-dune-gecko",
+      "name": "Dune Gecko Card",
+      "effect": "FLEE +80, 移動速度 +5%",
+      "effectOriginal": "FLEE +80, ความเร็ววิ่ง +5%",
+      "special": false,
+      "mapHint": "Sunscar Desert",
+      "relatedMonsters": [
+        "monster-dune-gecko"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-scarab-sentinel",
+      "name": "Scarab Sentinel Card",
+      "effect": "DEF +3, VIT +3",
+      "effectOriginal": "DEF +3, VIT +3",
+      "special": false,
+      "mapHint": "Sunscar Desert",
+      "relatedMonsters": [
+        "monster-scarab-sentinel"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-sunscale-cobra",
+      "name": "Sunscale Cobra Card",
+      "effect": "CRIT +1, 暴擊傷害 +3%",
+      "effectOriginal": "CRIT +1, คริดาเมจ +3%",
+      "special": false,
+      "mapHint": "Sunscar Desert",
+      "relatedMonsters": [
+        "monster-sunscale-cobra"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-cactus-imp",
+      "name": "Cactus Imp Card",
+      "effect": "ATK +10, LUK +3",
+      "effectOriginal": "ATK +10, LUK +3",
+      "special": false,
+      "mapHint": "Sunscar Desert",
+      "relatedMonsters": [
+        "monster-cactus-imp"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-bog-toad",
+      "name": "Bog Toad Card",
+      "effect": "VIT +15",
+      "effectOriginal": "VIT +15",
+      "special": false,
+      "mapHint": "Mirewillow Marsh",
+      "relatedMonsters": [
+        "monster-bog-toad"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-mud-newt",
+      "name": "Mud Newt Card",
+      "effect": "SP +20, INT +3",
+      "effectOriginal": "SP +20, INT +3",
+      "special": false,
+      "mapHint": "Mirewillow Marsh",
+      "relatedMonsters": [
+        "monster-mud-newt"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-mire-jelly",
+      "name": "Mire Jelly Card",
+      "effect": "MDEF +6, HP +60",
+      "effectOriginal": "MDEF +6, HP +60",
+      "special": false,
+      "mapHint": "Mirewillow Marsh",
+      "relatedMonsters": [
+        "monster-mire-jelly"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-reed-mantis",
+      "name": "Reed Mantis Card",
+      "effect": "ATK +10, CRIT +2, ATK +1%",
+      "effectOriginal": "ATK +10, CRIT +2, ATK +1%",
+      "special": false,
+      "mapHint": "Mirewillow Marsh",
+      "relatedMonsters": [
+        "monster-reed-mantis"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-reed-mantis",
+          "rate": 0.01
+        },
+        {
+          "monster": "monster-leader-reed-mantis",
+          "rate": 0.08
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器／左手／頭部／飾品",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/mantis_card/"
+    },
+    {
+      "id": "card-lantern-wisp",
+      "name": "Lantern Wisp Card",
+      "effect": "魔法穿透 +2%, INT +5",
+      "effectOriginal": "เจาะเวท +2%, INT +5",
+      "special": false,
+      "mapHint": "Elderwood Forest",
+      "relatedMonsters": [
+        "monster-lantern-wisp"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-forest-wolf",
+      "name": "Forest Wolf Card",
+      "effect": "STR +5, 物理穿透 +2%",
+      "effectOriginal": "STR +5, เจาะกาย +2%",
+      "special": false,
+      "mapHint": "Elderwood Forest",
+      "relatedMonsters": [
+        "monster-forest-wolf"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-forest-wolf",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "左手／飾品",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/wolf_card/"
+    },
+    {
+      "id": "card-ember-antler",
+      "name": "Ember Antler Card",
+      "effect": "MATK +1%, 魔法穿透 +1%",
+      "effectOriginal": "MATK +1%, เจาะเวท +1%",
+      "special": false,
+      "mapHint": "Elderwood Forest",
+      "relatedMonsters": [
+        "monster-ember-antler"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-moon-owl",
+      "name": "Moon Owl Card",
+      "effect": "DEX +10",
+      "effectOriginal": "DEX +10",
+      "special": false,
+      "mapHint": "Elderwood Forest",
+      "relatedMonsters": [
+        "monster-moon-owl"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-moon-owl",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "左手／飾品",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/moonowl_card/"
+    },
+    {
+      "id": "card-vine-lynx",
+      "name": "Vine Lynx Card",
+      "effect": "AGI +10, ASPD +2, 移動速度 +10%",
+      "effectOriginal": "AGI +10, ASPD +2, ความเร็ววิ่ง +10%",
+      "special": false,
+      "mapHint": "Elderwood Forest",
+      "relatedMonsters": [
+        "monster-vine-lynx"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-wild-boar",
+      "name": "Wild Boar Card",
+      "effect": "STR +5, 物理穿透 +1%",
+      "effectOriginal": "STR +5, เจาะกาย +1%",
+      "special": false,
+      "mapHint": "Crimson Dunes",
+      "relatedMonsters": [
+        "monster-wild-boar"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-wild-boar",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/boar_card/"
+    },
+    {
+      "id": "card-sand-drake",
+      "name": "Sand Drake Card",
+      "effect": "ATK +10, DEF +3, 物理穿透 +3%",
+      "effectOriginal": "ATK +10, DEF +3, เจาะกาย +3%",
+      "special": false,
+      "mapHint": "Crimson Dunes",
+      "relatedMonsters": [
+        "monster-sand-drake"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-sand-drake",
+          "rate": 0.01
+        },
+        {
+          "monster": "monster-leader-sand-drake",
+          "rate": 0.08
+        }
+      ],
+      "dropVerified": true,
+      "slot": "左手裝備",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/drake_card/"
+    },
+    {
+      "id": "card-pebble-golem",
+      "name": "Pebble Golem Card",
+      "effect": "DEF +6, HP +150, 暈眩抗性 +25%",
+      "effectOriginal": "DEF +6, HP +150, กันสตัน +25%",
+      "special": false,
+      "mapHint": "Frostfang Glacier",
+      "relatedMonsters": [
+        "monster-pebble-golem"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-magma-salamander",
+      "name": "Magma Salamander Card",
+      "effect": "MATK +10, INT +5, 魔法穿透 +2%",
+      "effectOriginal": "MATK +10, INT +5, เจาะเวท +2%",
+      "special": false,
+      "mapHint": "Emberfall Caldera",
+      "relatedMonsters": [
+        "monster-magma-salamander"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-ember-hound",
+      "name": "Ember Hound Card",
+      "effect": "ATK +9, AGI +6, CRIT +3",
+      "effectOriginal": "ATK +9, AGI +6, CRIT +3",
+      "special": false,
+      "mapHint": "Emberfall Caldera",
+      "relatedMonsters": [
+        "monster-ember-hound"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-basalt-tortoise",
+      "name": "Basalt Tortoise Card",
+      "effect": "DEF +6, MDEF +9, HP +100",
+      "effectOriginal": "DEF +6, MDEF +9, HP +100",
+      "special": false,
+      "mapHint": "Emberfall Caldera",
+      "relatedMonsters": [
+        "monster-basalt-tortoise"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-obsidian-scorpion",
+      "name": "Obsidian Scorpion Card",
+      "effect": "ATK +10, ATK +4%, 暴擊傷害 +8%",
+      "effectOriginal": "ATK +10, ATK +4%, คริดาเมจ +8%",
+      "special": false,
+      "mapHint": "Emberfall Caldera",
+      "relatedMonsters": [
+        "monster-obsidian-scorpion"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-shade-raven",
+      "name": "Shade Raven Card",
+      "effect": "AGI +5, FLEE +30, CRIT +1",
+      "effectOriginal": "AGI +5, FLEE +30, CRIT +1",
+      "special": false,
+      "mapHint": "Gloomveil Moor",
+      "relatedMonsters": [
+        "monster-shade-raven"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-bone-hound",
+      "name": "Bone Hound Card",
+      "effect": "STR +10, LUK +3",
+      "effectOriginal": "STR +10, LUK +3",
+      "special": false,
+      "mapHint": "Gloomveil Moor",
+      "relatedMonsters": [
+        "monster-bone-hound"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-bog-wraith",
+      "name": "Bog Wraith Card",
+      "effect": "INT +10, MDEF +3",
+      "effectOriginal": "INT +10, MDEF +3",
+      "special": false,
+      "mapHint": "Gloomveil Moor",
+      "relatedMonsters": [
+        "monster-bog-wraith"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-grave-knight",
+      "name": "Grave Knight Card",
+      "effect": "DEF +6, VIT +3, HP +20",
+      "effectOriginal": "DEF +6, VIT +3, HP +20",
+      "special": false,
+      "mapHint": "Gloomveil Moor",
+      "relatedMonsters": [
+        "monster-grave-knight"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-quartz-crawler",
+      "name": "Quartz Crawler Card",
+      "effect": "DEX +7, HIT +30, CRIT +1",
+      "effectOriginal": "DEX +7, HIT +30, CRIT +1",
+      "special": false,
+      "mapHint": "Amethyst Hollows",
+      "relatedMonsters": [
+        "monster-quartz-crawler"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-quartz-crawler",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "頭部（上／中／下）",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/quartz_card/"
+    },
+    {
+      "id": "card-geode-armadillo",
+      "name": "Geode Armadillo Card",
+      "effect": "DEF +6, MDEF +6, 暈眩抗性 +25%",
+      "effectOriginal": "DEF +6, MDEF +6, กันสตัน +25%",
+      "special": false,
+      "mapHint": "Amethyst Hollows",
+      "relatedMonsters": [
+        "monster-geode-armadillo"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-prism-serpent",
+      "name": "Prism Serpent Card",
+      "effect": "INT +3, MATK +4%, 暴擊傷害 +8%",
+      "effectOriginal": "INT +3, MATK +4%, คริดาเมจ +8%",
+      "special": false,
+      "mapHint": "Amethyst Hollows",
+      "relatedMonsters": [
+        "monster-prism-serpent"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-amethyst-wyvern",
+      "name": "Amethyst Wyvern Card",
+      "effect": "ATK +12, 物理穿透 +3%, ATK +2%",
+      "effectOriginal": "ATK +12, เจาะกาย +3%, ATK +2%",
+      "special": false,
+      "mapHint": "Amethyst Hollows",
+      "relatedMonsters": [
+        "monster-amethyst-wyvern"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-amethyst-wyvern",
+          "rate": 0.01
+        },
+        {
+          "monster": "monster-leader-amethyst-wyvern",
+          "rate": 0.08
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/wyvern_card/"
+    },
+    {
+      "id": "card-thunder-ram",
+      "name": "Thunder Ram Card",
+      "effect": "HP +20, ATK +2%, MATK +2%",
+      "effectOriginal": "HP +20, ATK +2%, MATK +2%",
+      "special": false,
+      "mapHint": "Stormcrest Peaks",
+      "relatedMonsters": [
+        "monster-thunder-ram"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-storm-roc",
+      "name": "Storm Roc Card",
+      "effect": "AGI +5, FLEE +20, 暴擊傷害 +1%, LUK +6",
+      "effectOriginal": "AGI +5, FLEE +20, คริดาเมจ +1%, LUK +6",
+      "special": false,
+      "mapHint": "Stormcrest Peaks",
+      "relatedMonsters": [
+        "monster-storm-roc"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-cloud-serpent",
+      "name": "Cloud Serpent Card",
+      "effect": "INT +12, SP +50, 魔法穿透 +3%",
+      "effectOriginal": "INT +12, SP +50, เจาะเวท +3%",
+      "special": false,
+      "mapHint": "Stormcrest Peaks",
+      "relatedMonsters": [
+        "monster-cloud-serpent"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-tempest-drake",
+      "name": "Tempest Drake Card",
+      "effect": "ATK +5, MATK +5, 物理穿透 +1%, 魔法穿透 +1%",
+      "effectOriginal": "ATK +5, MATK +5, เจาะกาย +1%, เจาะเวท +1%",
+      "special": false,
+      "mapHint": "Stormcrest Peaks",
+      "relatedMonsters": [
+        "monster-tempest-drake"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-tempest-drake",
+          "rate": 0.01
+        },
+        {
+          "monster": "monster-leader-tempest-drake",
+          "rate": 0.08
+        }
+      ],
+      "dropVerified": true,
+      "slot": "全部部位",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/stormdrake_card/"
+    },
+    {
+      "id": "card-gilded-sentinel",
+      "name": "Gilded Sentinel Card",
+      "effect": "DEF +8, MDEF +6, HP +120",
+      "effectOriginal": "DEF +8, MDEF +6, HP +120",
+      "special": false,
+      "mapHint": "Sunfallen Citadel",
+      "relatedMonsters": [
+        "monster-gilded-sentinel"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-radiant-griffin",
+      "name": "Radiant Griffin Card",
+      "effect": "AGI +8, FLEE +40, 移動速度 +5%",
+      "effectOriginal": "AGI +8, FLEE +40, ความเร็ววิ่ง +5%",
+      "special": false,
+      "mapHint": "Sunfallen Citadel",
+      "relatedMonsters": [
+        "monster-radiant-griffin"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-fallen-seraph",
+      "name": "Fallen Seraph Card",
+      "effect": "DEX +8, HIT +30, 物理穿透 +3%",
+      "effectOriginal": "DEX +8, HIT +30, เจาะกาย +3%",
+      "special": false,
+      "mapHint": "Sunfallen Citadel",
+      "relatedMonsters": [
+        "monster-fallen-seraph"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-fallen-seraph",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/seraph_card/"
+    },
+    {
+      "id": "card-sunfire-colossus",
+      "name": "Sunfire Colossus Card",
+      "effect": "STR +8, ATK +3%, 物理穿透 +5%",
+      "effectOriginal": "STR +8, ATK +3%, เจาะกาย +5%",
+      "special": false,
+      "mapHint": "Sunfallen Citadel",
+      "relatedMonsters": [
+        "monster-sunfire-colossus"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-sunfire-colossus",
+          "rate": 0.01
+        },
+        {
+          "monster": "monster-leader-sunfire-colossus",
+          "rate": 0.08
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/colossus_card/"
+    },
+    {
+      "id": "card-mirrorback-tortoise",
+      "name": "Mirrorback Tortoise Card",
+      "effect": "物理傷害反射 +2%, 燃燒抗性 +5%",
+      "effectOriginal": "สะท้อนดาเมจกายภาพ +2%, กันไฟไหม้ +5%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-arcane-wisp",
+      "name": "Arcane Wisp Card",
+      "effect": "施法時間縮短 +3%, SP Regen +5",
+      "effectOriginal": "ลดเวลาร่าย +3%, SP Regen +5",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-bloodfang-wolf",
+      "name": "Bloodfang Wolf Card",
+      "effect": "STR +3, 吸血 +1%",
+      "effectOriginal": "STR +3, ดูดเลือด +1%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-kasa-obake",
+      "name": "Kasa Obake Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 ร่มกันเวท",
+      "special": true,
+      "mapHint": "Sakuramori Shrine",
+      "relatedMonsters": [
+        "monster-kasa-obake"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/kasa_card/"
+    },
+    {
+      "id": "card-chochin-obake",
+      "name": "Chochin Obake Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 โคมไฟผี",
+      "special": true,
+      "mapHint": "Sakuramori Shrine",
+      "relatedMonsters": [
+        "monster-chochin-obake"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-karasu-tengu",
+      "name": "Karasu Tengu Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 อีกาฉก",
+      "special": true,
+      "mapHint": "Sakuramori Shrine",
+      "relatedMonsters": [
+        "monster-karasu-tengu"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-red-oni",
+      "name": "Red Oni Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 ยิ่งเจ็บยิ่งแรง",
+      "special": true,
+      "mapHint": "Sakuramori Shrine",
+      "relatedMonsters": [
+        "monster-red-oni"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-nine-tail-kitsune",
+      "name": "Nine-Tail Kitsune Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 เก้าหาง",
+      "special": true,
+      "mapHint": "Sakuramori Shrine",
+      "relatedMonsters": [
+        "monster-nine-tail-kitsune"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-void-skitter",
+      "name": "Void Skitter Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 จุดอ่อน",
+      "special": true,
+      "mapHint": "Starfall Ruins",
+      "relatedMonsters": [
+        "monster-void-skitter"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-star-raider",
+      "name": "Star Raider Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 ยิงไกล",
+      "special": true,
+      "mapHint": "Starfall Ruins",
+      "relatedMonsters": [
+        "monster-star-raider"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-cosmic-warden",
+      "name": "Cosmic Warden Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 เกราะดาว",
+      "special": true,
+      "mapHint": "Starfall Ruins",
+      "relatedMonsters": [
+        "monster-cosmic-warden"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-meteor-behemoth",
+      "name": "Meteor Behemoth Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 อุกกาบาตตก",
+      "special": true,
+      "mapHint": "Starfall Ruins",
+      "relatedMonsters": [
+        "monster-meteor-behemoth"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-coral-golem",
+      "name": "Coral Golem Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 แนวปะการัง",
+      "special": true,
+      "mapHint": "Drowned Sanctum",
+      "relatedMonsters": [
+        "monster-coral-golem"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-abyssal-angler",
+      "name": "Abyssal Angler Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 เหยื่อล่อ",
+      "special": true,
+      "mapHint": "Drowned Sanctum",
+      "relatedMonsters": [
+        "monster-abyssal-angler"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-tide-siren",
+      "name": "Tide Siren Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 เพลงคลื่น",
+      "special": true,
+      "mapHint": "Drowned Sanctum",
+      "relatedMonsters": [
+        "monster-tide-siren"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-dread-kraken",
+      "name": "Dread Kraken Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 หนวดรัด",
+      "special": true,
+      "mapHint": "Drowned Sanctum",
+      "relatedMonsters": [
+        "monster-dread-kraken"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-hornet-drone",
+      "name": "Hornet Drone Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 ต่อยซ้ำ",
+      "special": true,
+      "mapHint": "Iron Graveyard",
+      "relatedMonsters": [
+        "monster-hornet-drone"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-rifle-trooper",
+      "name": "Rifle Trooper Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 เก็บตก",
+      "special": true,
+      "mapHint": "Iron Graveyard",
+      "relatedMonsters": [
+        "monster-rifle-trooper"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-bulwark-frame",
+      "name": "Bulwark Frame Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 กำแพงเหล็ก",
+      "special": true,
+      "mapHint": "Iron Graveyard",
+      "relatedMonsters": [
+        "monster-bulwark-frame"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-titan-frame",
+      "name": "Titan Frame Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 ผ่าบัลลังก์",
+      "special": true,
+      "mapHint": "Iron Graveyard",
+      "relatedMonsters": [
+        "monster-titan-frame"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-moonveil-moth",
+      "name": "Moonveil Moth Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 ฝุ่นจันทร์",
+      "special": true,
+      "mapHint": "Shattered Moon",
+      "relatedMonsters": [
+        "monster-moonveil-moth"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-lunar-oracle",
+      "name": "Lunar Oracle Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 จันทร์เต็มดวง",
+      "special": true,
+      "mapHint": "Shattered Moon",
+      "relatedMonsters": [
+        "monster-lunar-oracle"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-regolith-golem",
+      "name": "Regolith Golem Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 แรงโน้มถ่วงต่ำ",
+      "special": true,
+      "mapHint": "Shattered Moon",
+      "relatedMonsters": [
+        "monster-regolith-golem"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-eclipse-warlord",
+      "name": "Eclipse Warlord Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 สุริยคราส",
+      "special": true,
+      "mapHint": "Shattered Moon",
+      "relatedMonsters": [
+        "monster-eclipse-warlord"
+      ],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-vampire",
+      "name": "Vampire Card",
+      "effect": "MDEF +45, HP +200, 冰凍抗性 +30%",
+      "effectOriginal": "MDEF +45, HP +200, กันแข็ง +30%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/tomb_vampire_card/"
+    },
+    {
+      "id": "card-jack-o-lantern",
+      "name": "Jack-o'-Lantern Card",
+      "effect": "HP +850, 暈眩抗性 +30%",
+      "effectOriginal": "HP +850, กันสตัน +30%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-terragorn",
+      "name": "Terragorn Card",
+      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effectOriginal": "🜂 เขี้ยวแผ่นดินไหว",
+      "special": true,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-ruby-rogue",
+      "name": "Ruby Rogue Card",
+      "effect": "ATK +5, MATK +5, 暴擊傷害 +10%",
+      "effectOriginal": "ATK +5, MATK +5, คริดาเมจ +10%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-crimson-knight",
+      "name": "Crimson Knight Card",
+      "effect": "ATK +10, MATK +10, CRIT +5, 暴擊傷害 +12%",
+      "effectOriginal": "ATK +10, MATK +10, CRIT +5, คริดาเมจ +12%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-bloodcrystal-dragon",
+      "name": "Bloodcrystal Dragon Card",
+      "effect": "ATK +3%, MATK +3%, CRIT +7, 暴擊傷害 +15%",
+      "effectOriginal": "ATK +3%, MATK +3%, CRIT +7, คริดาเมจ +15%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-critical-king",
+      "name": "Critical King Card",
+      "effect": "ATK +5%, MATK +5%, CRIT +7, 暴擊傷害 +20%, 對地屬性傷害 +20%",
+      "effectOriginal": "ATK +5%, MATK +5%, CRIT +7, คริดาเมจ +20%, ดาเมจใส่ธาตุดิน +20%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": null,
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/"
+    },
+    {
+      "id": "card-crystal-fox",
+      "name": "Crystal Fox Card",
+      "effect": "ATK +1%, CRIT +1, 物理穿透 +2%",
+      "effectOriginal": "ATK +1%, CRIT +1, เจาะกาย +2%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": true,
+      "slot": "左手裝備",
+      "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_rare_card/"
+    },
+    {
+      "id": "card-rose-fox",
+      "name": "Rose Fox Card",
+      "effect": "ATK +2%, CRIT +2, 物理穿透 +3%",
+      "effectOriginal": "ATK +2%, CRIT +2, เจาะกาย +3%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": true,
+      "slot": "左手裝備",
+      "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_epic_card/"
+    },
+    {
+      "id": "card-golden-fox",
+      "name": "Golden Fox Card",
+      "effect": "ATK +3%, CRIT +3, 物理穿透 +5%",
+      "effectOriginal": "ATK +3%, CRIT +3, เจาะกาย +5%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": true,
+      "slot": "左手裝備",
+      "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_legendary_card/"
+    },
+    {
+      "id": "card-pierce-empress",
+      "name": "Pierce Empress Card",
+      "effect": "ATK +5%, CRIT +4, 物理穿透 +7%, 對地屬性傷害 +20%",
+      "effectOriginal": "ATK +5%, CRIT +4, เจาะกาย +7%, ดาเมจใส่ธาตุดิน +20%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": true,
+      "slot": "左手裝備",
+      "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_limited_card/"
+    }
+  ],
+  "monsters": [
+    {
+      "id": "monster-prism-hopper",
+      "name": "Prism Hopper",
+      "level": 1,
+      "leader": false,
+      "map": "Verdant Forest"
+    },
+    {
+      "id": "monster-leaf-sprout",
+      "name": "Leaf Sprout",
+      "level": 3,
+      "leader": false,
+      "map": "Verdant Forest"
+    },
+    {
+      "id": "monster-dew-bunny",
+      "name": "Dew Bunny",
+      "level": 6,
+      "leader": false,
+      "map": "Verdant Forest"
+    },
+    {
+      "id": "monster-moss-mushroom",
+      "name": "Moss Mushroom",
+      "level": 8,
+      "leader": false,
+      "map": "Verdant Forest"
+    },
+    {
+      "id": "monster-thorn-pixie",
+      "name": "Thorn Pixie",
+      "level": 10,
+      "leader": false,
+      "map": "Verdant Forest"
+    },
+    {
+      "id": "monster-leader-thorn-pixie",
+      "name": "Leader Thorn Pixie",
+      "level": 15,
+      "leader": true,
+      "map": "Verdant Forest"
+    },
+    {
+      "id": "monster-bramble-hare",
+      "name": "Bramble Hare",
+      "level": 11,
+      "leader": false,
+      "map": "Honeybloom Meadow"
+    },
+    {
+      "id": "monster-honey-moth",
+      "name": "Honey Moth",
+      "level": 14,
+      "leader": false,
+      "map": "Honeybloom Meadow"
+    },
+    {
+      "id": "monster-rootling",
+      "name": "Rootling",
+      "level": 17,
+      "leader": false,
+      "map": "Honeybloom Meadow"
+    },
+    {
+      "id": "monster-amber-beetle",
+      "name": "Amber Beetle",
+      "level": 20,
+      "leader": false,
+      "map": "Honeybloom Meadow"
+    },
+    {
+      "id": "monster-leader-amber-beetle",
+      "name": "Leader Amber Beetle",
+      "level": 25,
+      "leader": true,
+      "map": "Honeybloom Meadow"
+    },
+    {
+      "id": "monster-frost-puff",
+      "name": "Frost Puff",
+      "level": 21,
+      "leader": false,
+      "map": "Frostveil Pass"
+    },
+    {
+      "id": "monster-icicle-hare",
+      "name": "Icicle Hare",
+      "level": 24,
+      "leader": false,
+      "map": "Frostveil Pass"
+    },
+    {
+      "id": "monster-snow-owl",
+      "name": "Snow Owl",
+      "level": 27,
+      "leader": false,
+      "map": "Frostveil Pass"
+    },
+    {
+      "id": "monster-aurora-fox",
+      "name": "Aurora Fox",
+      "level": 30,
+      "leader": false,
+      "map": "Frostveil Pass"
+    },
+    {
+      "id": "monster-leader-aurora-fox",
+      "name": "Leader Aurora Fox",
+      "level": 35,
+      "leader": true,
+      "map": "Frostveil Pass"
+    },
+    {
+      "id": "monster-dune-gecko",
+      "name": "Dune Gecko",
+      "level": 31,
+      "leader": false,
+      "map": "Sunscar Desert"
+    },
+    {
+      "id": "monster-scarab-sentinel",
+      "name": "Scarab Sentinel",
+      "level": 34,
+      "leader": false,
+      "map": "Sunscar Desert"
+    },
+    {
+      "id": "monster-sunscale-cobra",
+      "name": "Sunscale Cobra",
+      "level": 37,
+      "leader": false,
+      "map": "Sunscar Desert"
+    },
+    {
+      "id": "monster-cactus-imp",
+      "name": "Cactus Imp",
+      "level": 40,
+      "leader": false,
+      "map": "Sunscar Desert"
+    },
+    {
+      "id": "monster-leader-cactus-imp",
+      "name": "Leader Cactus Imp",
+      "level": 45,
+      "leader": true,
+      "map": "Sunscar Desert"
+    },
+    {
+      "id": "monster-tide-crab",
+      "name": "Tide Crab",
+      "level": 41,
+      "leader": false,
+      "map": "Mirewillow Marsh"
+    },
+    {
+      "id": "monster-bog-toad",
+      "name": "Bog Toad",
+      "level": 43,
+      "leader": false,
+      "map": "Mirewillow Marsh"
+    },
+    {
+      "id": "monster-mud-newt",
+      "name": "Mud Newt",
+      "level": 46,
+      "leader": false,
+      "map": "Mirewillow Marsh"
+    },
+    {
+      "id": "monster-mire-jelly",
+      "name": "Mire Jelly",
+      "level": 48,
+      "leader": false,
+      "map": "Mirewillow Marsh"
+    },
+    {
+      "id": "monster-reed-mantis",
+      "name": "Reed Mantis",
+      "level": 50,
+      "leader": false,
+      "map": "Mirewillow Marsh"
+    },
+    {
+      "id": "monster-leader-reed-mantis",
+      "name": "Leader Reed Mantis",
+      "level": 55,
+      "leader": true,
+      "map": "Mirewillow Marsh"
+    },
+    {
+      "id": "monster-forest-wolf",
+      "name": "Forest Wolf",
+      "level": 51,
+      "leader": false,
+      "map": "Elderwood Forest"
+    },
+    {
+      "id": "monster-lantern-wisp",
+      "name": "Lantern Wisp",
+      "level": 53,
+      "leader": false,
+      "map": "Elderwood Forest"
+    },
+    {
+      "id": "monster-ember-antler",
+      "name": "Ember Antler",
+      "level": 56,
+      "leader": false,
+      "map": "Elderwood Forest"
+    },
+    {
+      "id": "monster-moon-owl",
+      "name": "Moon Owl",
+      "level": 58,
+      "leader": false,
+      "map": "Elderwood Forest"
+    },
+    {
+      "id": "monster-vine-lynx",
+      "name": "Vine Lynx",
+      "level": 60,
+      "leader": false,
+      "map": "Elderwood Forest"
+    },
+    {
+      "id": "monster-leader-vine-lynx",
+      "name": "Leader Vine Lynx",
+      "level": 65,
+      "leader": true,
+      "map": "Elderwood Forest"
+    },
+    {
+      "id": "monster-wild-boar",
+      "name": "Wild Boar",
+      "level": 61,
+      "leader": false,
+      "map": "Crimson Dunes"
+    },
+    {
+      "id": "monster-sand-drake",
+      "name": "Sand Drake",
+      "level": 70,
+      "leader": false,
+      "map": "Crimson Dunes"
+    },
+    {
+      "id": "monster-leader-sand-drake",
+      "name": "Leader Sand Drake",
+      "level": 75,
+      "leader": true,
+      "map": "Crimson Dunes"
+    },
+    {
+      "id": "monster-kasa-obake",
+      "name": "Kasa Obake",
+      "level": 71,
+      "leader": false,
+      "map": "Sakuramori Shrine"
+    },
+    {
+      "id": "monster-chochin-obake",
+      "name": "Chochin Obake",
+      "level": 73,
+      "leader": false,
+      "map": "Sakuramori Shrine"
+    },
+    {
+      "id": "monster-karasu-tengu",
+      "name": "Karasu Tengu",
+      "level": 76,
+      "leader": false,
+      "map": "Sakuramori Shrine"
+    },
+    {
+      "id": "monster-red-oni",
+      "name": "Red Oni",
+      "level": 78,
+      "leader": false,
+      "map": "Sakuramori Shrine"
+    },
+    {
+      "id": "monster-nine-tail-kitsune",
+      "name": "Nine-Tail Kitsune",
+      "level": 80,
+      "leader": false,
+      "map": "Sakuramori Shrine"
+    },
+    {
+      "id": "monster-leader-nine-tail-kitsune",
+      "name": "Leader Nine-Tail Kitsune",
+      "level": 85,
+      "leader": true,
+      "map": "Sakuramori Shrine"
+    },
+    {
+      "id": "monster-cave-bat",
+      "name": "Cave Bat",
+      "level": 71,
+      "leader": false,
+      "map": "Frostfang Glacier"
+    },
+    {
+      "id": "monster-pebble-golem",
+      "name": "Pebble Golem",
+      "level": 80,
+      "leader": false,
+      "map": "Frostfang Glacier"
+    },
+    {
+      "id": "monster-leader-pebble-golem",
+      "name": "Leader Pebble Golem",
+      "level": 85,
+      "leader": true,
+      "map": "Frostfang Glacier"
+    },
+    {
+      "id": "monster-magma-salamander",
+      "name": "Magma Salamander",
+      "level": 81,
+      "leader": false,
+      "map": "Emberfall Caldera"
+    },
+    {
+      "id": "monster-ember-hound",
+      "name": "Ember Hound",
+      "level": 84,
+      "leader": false,
+      "map": "Emberfall Caldera"
+    },
+    {
+      "id": "monster-basalt-tortoise",
+      "name": "Basalt Tortoise",
+      "level": 87,
+      "leader": false,
+      "map": "Emberfall Caldera"
+    },
+    {
+      "id": "monster-obsidian-scorpion",
+      "name": "Obsidian Scorpion",
+      "level": 90,
+      "leader": false,
+      "map": "Emberfall Caldera"
+    },
+    {
+      "id": "monster-leader-obsidian-scorpion",
+      "name": "Leader Obsidian Scorpion",
+      "level": 95,
+      "leader": true,
+      "map": "Emberfall Caldera"
+    },
+    {
+      "id": "monster-shade-raven",
+      "name": "Shade Raven",
+      "level": 91,
+      "leader": false,
+      "map": "Gloomveil Moor"
+    },
+    {
+      "id": "monster-bone-hound",
+      "name": "Bone Hound",
+      "level": 94,
+      "leader": false,
+      "map": "Gloomveil Moor"
+    },
+    {
+      "id": "monster-bog-wraith",
+      "name": "Bog Wraith",
+      "level": 97,
+      "leader": false,
+      "map": "Gloomveil Moor"
+    },
+    {
+      "id": "monster-grave-knight",
+      "name": "Grave Knight",
+      "level": 100,
+      "leader": false,
+      "map": "Gloomveil Moor"
+    },
+    {
+      "id": "monster-leader-grave-knight",
+      "name": "Leader Grave Knight",
+      "level": 105,
+      "leader": true,
+      "map": "Gloomveil Moor"
+    },
+    {
+      "id": "monster-quartz-crawler",
+      "name": "Quartz Crawler",
+      "level": 101,
+      "leader": false,
+      "map": "Amethyst Hollows"
+    },
+    {
+      "id": "monster-geode-armadillo",
+      "name": "Geode Armadillo",
+      "level": 104,
+      "leader": false,
+      "map": "Amethyst Hollows"
+    },
+    {
+      "id": "monster-prism-serpent",
+      "name": "Prism Serpent",
+      "level": 107,
+      "leader": false,
+      "map": "Amethyst Hollows"
+    },
+    {
+      "id": "monster-amethyst-wyvern",
+      "name": "Amethyst Wyvern",
+      "level": 110,
+      "leader": false,
+      "map": "Amethyst Hollows"
+    },
+    {
+      "id": "monster-leader-amethyst-wyvern",
+      "name": "Leader Amethyst Wyvern",
+      "level": 115,
+      "leader": true,
+      "map": "Amethyst Hollows"
+    },
+    {
+      "id": "monster-void-skitter",
+      "name": "Void Skitter",
+      "level": 101,
+      "leader": false,
+      "map": "Starfall Ruins"
+    },
+    {
+      "id": "monster-star-raider",
+      "name": "Star Raider",
+      "level": 104,
+      "leader": false,
+      "map": "Starfall Ruins"
+    },
+    {
+      "id": "monster-cosmic-warden",
+      "name": "Cosmic Warden",
+      "level": 107,
+      "leader": false,
+      "map": "Starfall Ruins"
+    },
+    {
+      "id": "monster-meteor-behemoth",
+      "name": "Meteor Behemoth",
+      "level": 110,
+      "leader": false,
+      "map": "Starfall Ruins"
+    },
+    {
+      "id": "monster-leader-meteor-behemoth",
+      "name": "Leader Meteor Behemoth",
+      "level": 115,
+      "leader": true,
+      "map": "Starfall Ruins"
+    },
+    {
+      "id": "monster-thunder-ram",
+      "name": "Thunder Ram",
+      "level": 111,
+      "leader": false,
+      "map": "Stormcrest Peaks"
+    },
+    {
+      "id": "monster-storm-roc",
+      "name": "Storm Roc",
+      "level": 114,
+      "leader": false,
+      "map": "Stormcrest Peaks"
+    },
+    {
+      "id": "monster-cloud-serpent",
+      "name": "Cloud Serpent",
+      "level": 117,
+      "leader": false,
+      "map": "Stormcrest Peaks"
+    },
+    {
+      "id": "monster-tempest-drake",
+      "name": "Tempest Drake",
+      "level": 120,
+      "leader": false,
+      "map": "Stormcrest Peaks"
+    },
+    {
+      "id": "monster-leader-tempest-drake",
+      "name": "Leader Tempest Drake",
+      "level": 125,
+      "leader": true,
+      "map": "Stormcrest Peaks"
+    },
+    {
+      "id": "monster-gilded-sentinel",
+      "name": "Gilded Sentinel",
+      "level": 121,
+      "leader": false,
+      "map": "Sunfallen Citadel"
+    },
+    {
+      "id": "monster-radiant-griffin",
+      "name": "Radiant Griffin",
+      "level": 124,
+      "leader": false,
+      "map": "Sunfallen Citadel"
+    },
+    {
+      "id": "monster-fallen-seraph",
+      "name": "Fallen Seraph",
+      "level": 127,
+      "leader": false,
+      "map": "Sunfallen Citadel"
+    },
+    {
+      "id": "monster-sunfire-colossus",
+      "name": "Sunfire Colossus",
+      "level": 130,
+      "leader": false,
+      "map": "Sunfallen Citadel"
+    },
+    {
+      "id": "monster-leader-sunfire-colossus",
+      "name": "Leader Sunfire Colossus",
+      "level": 135,
+      "leader": true,
+      "map": "Sunfallen Citadel"
+    },
+    {
+      "id": "monster-coral-golem",
+      "name": "Coral Golem",
+      "level": 121,
+      "leader": false,
+      "map": "Drowned Sanctum"
+    },
+    {
+      "id": "monster-abyssal-angler",
+      "name": "Abyssal Angler",
+      "level": 124,
+      "leader": false,
+      "map": "Drowned Sanctum"
+    },
+    {
+      "id": "monster-tide-siren",
+      "name": "Tide Siren",
+      "level": 127,
+      "leader": false,
+      "map": "Drowned Sanctum"
+    },
+    {
+      "id": "monster-dread-kraken",
+      "name": "Dread Kraken",
+      "level": 130,
+      "leader": false,
+      "map": "Drowned Sanctum"
+    },
+    {
+      "id": "monster-leader-dread-kraken",
+      "name": "Leader Dread Kraken",
+      "level": 135,
+      "leader": true,
+      "map": "Drowned Sanctum"
+    },
+    {
+      "id": "monster-hornet-drone",
+      "name": "Hornet Drone",
+      "level": 131,
+      "leader": false,
+      "map": "Iron Graveyard"
+    },
+    {
+      "id": "monster-rifle-trooper",
+      "name": "Rifle Trooper",
+      "level": 134,
+      "leader": false,
+      "map": "Iron Graveyard"
+    },
+    {
+      "id": "monster-bulwark-frame",
+      "name": "Bulwark Frame",
+      "level": 137,
+      "leader": false,
+      "map": "Iron Graveyard"
+    },
+    {
+      "id": "monster-titan-frame",
+      "name": "Titan Frame",
+      "level": 140,
+      "leader": false,
+      "map": "Iron Graveyard"
+    },
+    {
+      "id": "monster-leader-titan-frame",
+      "name": "Leader Titan Frame",
+      "level": 145,
+      "leader": true,
+      "map": "Iron Graveyard"
+    },
+    {
+      "id": "monster-moonveil-moth",
+      "name": "Moonveil Moth",
+      "level": 131,
+      "leader": false,
+      "map": "Shattered Moon"
+    },
+    {
+      "id": "monster-lunar-oracle",
+      "name": "Lunar Oracle",
+      "level": 134,
+      "leader": false,
+      "map": "Shattered Moon"
+    },
+    {
+      "id": "monster-regolith-golem",
+      "name": "Regolith Golem",
+      "level": 137,
+      "leader": false,
+      "map": "Shattered Moon"
+    },
+    {
+      "id": "monster-eclipse-warlord",
+      "name": "Eclipse Warlord",
+      "level": 140,
+      "leader": false,
+      "map": "Shattered Moon"
+    },
+    {
+      "id": "monster-leader-eclipse-warlord",
+      "name": "Leader Eclipse Warlord",
+      "level": 145,
+      "leader": true,
+      "map": "Shattered Moon"
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-verdant-forest",
+      "name": "Verdant Forest",
+      "zh": "翠綠森林",
+      "range": [
+        1,
+        10
+      ],
+      "monsters": [
+        "monster-prism-hopper",
+        "monster-leaf-sprout",
+        "monster-dew-bunny",
+        "monster-moss-mushroom",
+        "monster-thorn-pixie",
+        "monster-leader-thorn-pixie"
+      ]
+    },
+    {
+      "id": "map-honeybloom-meadow",
+      "name": "Honeybloom Meadow",
+      "zh": "蜜花草原",
+      "range": [
+        11,
+        20
+      ],
+      "monsters": [
+        "monster-bramble-hare",
+        "monster-honey-moth",
+        "monster-rootling",
+        "monster-amber-beetle",
+        "monster-leader-amber-beetle"
+      ]
+    },
+    {
+      "id": "map-frostveil-pass",
+      "name": "Frostveil Pass",
+      "zh": "霜幕山道",
+      "range": [
+        21,
+        30
+      ],
+      "monsters": [
+        "monster-frost-puff",
+        "monster-icicle-hare",
+        "monster-snow-owl",
+        "monster-aurora-fox",
+        "monster-leader-aurora-fox"
+      ]
+    },
+    {
+      "id": "map-sunscar-desert",
+      "name": "Sunscar Desert",
+      "zh": "日灼沙漠",
+      "range": [
+        31,
+        40
+      ],
+      "monsters": [
+        "monster-dune-gecko",
+        "monster-scarab-sentinel",
+        "monster-sunscale-cobra",
+        "monster-cactus-imp",
+        "monster-leader-cactus-imp"
+      ]
+    },
+    {
+      "id": "map-mirewillow-marsh",
+      "name": "Mirewillow Marsh",
+      "zh": "柳泥沼澤",
+      "range": [
+        41,
+        50
+      ],
+      "monsters": [
+        "monster-tide-crab",
+        "monster-bog-toad",
+        "monster-mud-newt",
+        "monster-mire-jelly",
+        "monster-reed-mantis",
+        "monster-leader-reed-mantis"
+      ]
+    },
+    {
+      "id": "map-elderwood-forest",
+      "name": "Elderwood Forest",
+      "zh": "古木森林",
+      "range": [
+        51,
+        60
+      ],
+      "monsters": [
+        "monster-forest-wolf",
+        "monster-lantern-wisp",
+        "monster-ember-antler",
+        "monster-moon-owl",
+        "monster-vine-lynx",
+        "monster-leader-vine-lynx"
+      ]
+    },
+    {
+      "id": "map-crimson-dunes",
+      "name": "Crimson Dunes",
+      "zh": "赤紅沙丘",
+      "range": [
+        61,
+        70
+      ],
+      "monsters": [
+        "monster-wild-boar",
+        "monster-sand-drake",
+        "monster-leader-sand-drake"
+      ]
+    },
+    {
+      "id": "map-sakuramori-shrine",
+      "name": "Sakuramori Shrine",
+      "zh": "櫻守神社",
+      "range": [
+        71,
+        80
+      ],
+      "monsters": [
+        "monster-kasa-obake",
+        "monster-chochin-obake",
+        "monster-karasu-tengu",
+        "monster-red-oni",
+        "monster-nine-tail-kitsune",
+        "monster-leader-nine-tail-kitsune"
+      ]
+    },
+    {
+      "id": "map-frostfang-glacier",
+      "name": "Frostfang Glacier",
+      "zh": "霜牙冰原",
+      "range": [
+        71,
+        80
+      ],
+      "monsters": [
+        "monster-cave-bat",
+        "monster-pebble-golem",
+        "monster-leader-pebble-golem"
+      ]
+    },
+    {
+      "id": "map-emberfall-caldera",
+      "name": "Emberfall Caldera",
+      "zh": "餘燼火山",
+      "range": [
+        81,
+        90
+      ],
+      "monsters": [
+        "monster-magma-salamander",
+        "monster-ember-hound",
+        "monster-basalt-tortoise",
+        "monster-obsidian-scorpion",
+        "monster-leader-obsidian-scorpion"
+      ]
+    },
+    {
+      "id": "map-gloomveil-moor",
+      "name": "Gloomveil Moor",
+      "zh": "幽影荒原",
+      "range": [
+        91,
+        100
+      ],
+      "monsters": [
+        "monster-shade-raven",
+        "monster-bone-hound",
+        "monster-bog-wraith",
+        "monster-grave-knight",
+        "monster-leader-grave-knight"
+      ]
+    },
+    {
+      "id": "map-amethyst-hollows",
+      "name": "Amethyst Hollows",
+      "zh": "紫晶幽窟",
+      "range": [
+        101,
+        110
+      ],
+      "monsters": [
+        "monster-quartz-crawler",
+        "monster-geode-armadillo",
+        "monster-prism-serpent",
+        "monster-amethyst-wyvern",
+        "monster-leader-amethyst-wyvern"
+      ]
+    },
+    {
+      "id": "map-starfall-ruins",
+      "name": "Starfall Ruins",
+      "zh": "星落遺跡",
+      "range": [
+        101,
+        110
+      ],
+      "monsters": [
+        "monster-void-skitter",
+        "monster-star-raider",
+        "monster-cosmic-warden",
+        "monster-meteor-behemoth",
+        "monster-leader-meteor-behemoth"
+      ]
+    },
+    {
+      "id": "map-stormcrest-peaks",
+      "name": "Stormcrest Peaks",
+      "zh": "風暴山峰",
+      "range": [
+        111,
+        120
+      ],
+      "monsters": [
+        "monster-thunder-ram",
+        "monster-storm-roc",
+        "monster-cloud-serpent",
+        "monster-tempest-drake",
+        "monster-leader-tempest-drake"
+      ]
+    },
+    {
+      "id": "map-sunfallen-citadel",
+      "name": "Sunfallen Citadel",
+      "zh": "落日城塞",
+      "range": [
+        121,
+        130
+      ],
+      "monsters": [
+        "monster-gilded-sentinel",
+        "monster-radiant-griffin",
+        "monster-fallen-seraph",
+        "monster-sunfire-colossus",
+        "monster-leader-sunfire-colossus"
+      ]
+    },
+    {
+      "id": "map-drowned-sanctum",
+      "name": "Drowned Sanctum",
+      "zh": "沉沒聖域",
+      "range": [
+        121,
+        130
+      ],
+      "monsters": [
+        "monster-coral-golem",
+        "monster-abyssal-angler",
+        "monster-tide-siren",
+        "monster-dread-kraken",
+        "monster-leader-dread-kraken"
+      ]
+    },
+    {
+      "id": "map-iron-graveyard",
+      "name": "Iron Graveyard",
+      "zh": "鋼鐵墓場",
+      "range": [
+        131,
+        140
+      ],
+      "monsters": [
+        "monster-hornet-drone",
+        "monster-rifle-trooper",
+        "monster-bulwark-frame",
+        "monster-titan-frame",
+        "monster-leader-titan-frame"
+      ]
+    },
+    {
+      "id": "map-shattered-moon",
+      "name": "Shattered Moon",
+      "zh": "破碎之月",
+      "range": [
+        131,
+        140
+      ],
+      "monsters": [
+        "monster-moonveil-moth",
+        "monster-lunar-oracle",
+        "monster-regolith-golem",
+        "monster-eclipse-warlord",
+        "monster-leader-eclipse-warlord"
+      ]
+    }
+  ],
+  "synonyms": {
+    "物理穿透": [
+      "物理破防",
+      "物理破甲",
+      "物穿",
+      "物理貫通",
+      "物理破防率",
+      "physical pierce",
+      "physical penetration",
+      "armor pierce",
+      "เจาะกาย"
+    ],
+    "魔法穿透": [
+      "魔法破防",
+      "法穿",
+      "魔法貫通",
+      "magic pierce",
+      "เจาะเวท"
+    ],
+    "ATK": [
+      "物理攻擊",
+      "物攻",
+      "攻擊力",
+      "attack"
+    ],
+    "MATK": [
+      "魔法攻擊",
+      "魔攻",
+      "法攻",
+      "magic attack"
+    ],
+    "DEX": [
+      "靈巧",
+      "敏捷度",
+      "dexterity"
+    ],
+    "STR": [
+      "力量",
+      "strength"
+    ],
+    "AGI": [
+      "敏捷",
+      "agility"
+    ],
+    "VIT": [
+      "體力",
+      "vit"
+    ],
+    "INT": [
+      "智力",
+      "intelligence"
+    ],
+    "LUK": [
+      "幸運",
+      "luck"
+    ],
+    "CRIT": [
+      "暴擊率",
+      "暴擊",
+      "爆擊",
+      "critical"
+    ],
+    "暴擊傷害": [
+      "爆傷",
+      "爆擊傷害",
+      "crit damage",
+      "critical damage",
+      "คริดาเมจ"
+    ],
+    "FLEE": [
+      "迴避",
+      "閃避",
+      "dodge"
+    ],
+    "HIT": [
+      "命中",
+      "命中率"
+    ],
+    "ASPD": [
+      "攻速",
+      "攻擊速度",
+      "attack speed"
+    ],
+    "HP": [
+      "生命",
+      "生命值"
+    ],
+    "SP": [
+      "魔力",
+      "法力"
+    ],
+    "DEF": [
+      "物防",
+      "防禦"
+    ],
+    "MDEF": [
+      "魔防"
+    ]
+  }
+}
