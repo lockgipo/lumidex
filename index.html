@@ -4,13 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#101525">
+<meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="description" content="Lumivara Online 非官方繁體中文卡片、怪物與地圖搜尋器。">
-<title>LumiDex — Lumivara 繁中圖鑑</title>
+<title>LumiDex v0.2 — Lumivara 繁中圖鑑</title>
 <link rel="manifest" href="manifest.webmanifest">
 <style>
 :root{color-scheme:dark;--bg:#0b101c;--panel:#141b2b;--panel2:#192237;--panel3:#222d45;--stroke:#2b3750;--text:#f0f3fa;--sub:#9eabc0;--muted:#73829b;--mint:#81e5cf;--mint-dim:#173c3a;--purple:#b5a4fa;--gold:#f1c885;--radius:17px;--shadow:0 18px 48px #0006;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC", "Microsoft JhengHei",sans-serif}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse 90% 40% at 78% 1%,#1b2442 0,transparent 75%),var(--bg);color:var(--text);min-height:100vh}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offset:3px}a{color:var(--mint);text-decoration:none}a:hover{text-decoration:underline}.app{display:grid;grid-template-columns:245px minmax(0,1fr);max-width:1550px;min-height:100vh;margin:auto}.side{border-right:1px solid var(--stroke);background:linear-gradient(#131b2d 0%,#101725 100%);padding:29px 18px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}.brand{display:flex;gap:12px;align-items:center;padding:0 9px 22px}.logo{height:40px;width:40px;display:grid;place-items:center;border-radius:12px;color:#122b2a;background:linear-gradient(140deg,var(--mint),#7caccb);font-size:22px;font-weight:900;box-shadow:0 9px 24px #50d8b02e}.brandname{font-size:21px;font-weight:820;letter-spacing:-.6px}.brandname em{color:var(--mint);font-style:normal}.micro{color:var(--muted);font-size:11px;letter-spacing:.6px}.menu-label{color:#71809a;font-size:11px;font-weight:700;letter-spacing:1.8px;margin:20px 13px 10px}.nav{width:100%;display:flex;align-items:center;gap:12px;text-align:left;border:1px solid transparent;color:#aebbd0;background:transparent;border-radius:12px;padding:13px 14px;font-size:14px;margin:3px 0;font-weight:650}.nav:hover{background:#ffffff09;color:#f0f3fa}.nav.active{background:linear-gradient(90deg,#244441,#172d36);border-color:#43746d;color:#b5ffea}.nav-icon{font-size:19px;width:23px;text-align:center}.nav .counter{margin-left:auto;color:#8191a8;font-size:12px;font-variant-numeric:tabular-nums}.nav.active .counter{color:#8fd9c8}.side-bottom{margin-top:auto;padding:18px 8px;color:#8190a6;line-height:1.7;font-size:12px;border-top:1px solid var(--stroke)}.side-bottom a{font-size:12px}.main{min-width:0;padding:32px clamp(20px,4.3vw,64px) 90px}.head{display:flex;align-items:start;justify-content:space-between;gap:16px}.eyebrow{font-size:12px;color:var(--mint);letter-spacing:2.3px;font-weight:800}.h1{font-size:clamp(26px,3vw,38px);font-weight:850;letter-spacing:-1.2px;margin:6px 0 9px}.lead{margin:0;color:var(--sub);line-height:1.7;font-size:14px}.version{font-size:12px;white-space:nowrap;color:#b2c0d4;border:1px solid #3e4e68;border-radius:20px;padding:7px 11px;background:#182237}.searchbox{position:relative;margin:29px 0 14px}.searchbox .searchic{position:absolute;top:50%;transform:translateY(-50%);left:18px;color:var(--mint);font-size:20px}.searchbox input{display:block;width:100%;background:#18233a;border:1px solid #41506d;color:var(--text);border-radius:15px;padding:19px 58px;font-size:16px;box-shadow:0 7px 35px #060a1245;outline:none}.searchbox input::placeholder{color:#8190a6}.searchbox input:focus{border-color:var(--mint);box-shadow:0 0 0 3px #81e5cf12}.clear{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:#2a3650;color:#ced8e7;border:0;width:34px;height:34px;border-radius:10px;display:none}.clear.visible{display:block}.chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 22px}.chip{border:1px solid #35445d;background:#192438;padding:9px 12px;color:#b6c3d6;border-radius:999px;font-weight:650;font-size:12px}.chip:hover{border-color:#70958e;color:#fff}.chip.active{background:#1b4641;border-color:#4aa78f;color:#a5ffe8}.summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:23px}.summary .stat{border:1px solid #2c3d55;background:linear-gradient(145deg,#182238,#151c2d);border-radius:14px;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:8px}.stat small{font-size:12px;color:var(--sub)}.stat strong{font-size:23px;font-weight:850;font-variant-numeric:tabular-nums}.list-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0 15px}.list-head h2{margin:0;font-size:18px;letter-spacing:-.3px}.list-head small{font-weight:500;color:#8796ac;font-size:12px;margin-left:9px}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.select{border:1px solid #35445a;background:#1a2539;border-radius:10px;color:#d7e1ef;padding:9px 10px;max-width:220px;font-size:12px}.checkchip{display:flex;align-items:center;gap:5px;font-size:12px;color:#b2c0d4}.checkchip input{accent-color:var(--mint)}.results{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:13px}.entry{position:relative;min-width:0;background:linear-gradient(155deg,#19233a,#131c2e);border:1px solid #2b3851;border-radius:16px;padding:18px 17px;transition:transform .15s ease,border-color .15s ease;min-height:180px;display:flex;flex-direction:column}.entry:hover{border-color:#558579;transform:translateY(-2px)}.entry-top{display:flex;gap:8px;align-items:start;justify-content:space-between;min-width:0}.entry-type{font-size:10px;font-weight:800;letter-spacing:.9px;border-radius:6px;color:#96e4d5;background:#1b4342;padding:5px 8px;display:inline-flex;gap:4px;align-items:center}.entry-type.m{background:#3b334a;color:#c3aff1}.entry-type.p{background:#3b3425;color:#efd093}.entry h3{font-size:16px;letter-spacing:-.3px;font-weight:750;line-height:1.4;margin:12px 0 8px;overflow-wrap:anywhere}.entry h3 span{color:#b4a9e6}.effect{font-size:13px;line-height:1.75;color:#c7d5e4;min-height:22px}.effect b{color:var(--mint);font-weight:750}.entry-bottom{margin-top:auto;display:flex;align-items:end;gap:10px;justify-content:space-between;border-top:1px solid #293750;padding-top:12px;margin-top:15px}.location{color:#93a4bc;font-size:12px;line-height:1.4;min-width:0}.location .smallnote{display:block;color:#71829c;font-size:10px;margin-top:3px}.entry-actions{display:flex;gap:7px;align-items:center;flex-shrink:0}.iconbtn{width:34px;height:34px;border:1px solid #38445c;background:#222e44;color:#aec0d5;display:grid;place-items:center;border-radius:9px;font-size:18px}.iconbtn:hover,.iconbtn.saved{color:var(--gold);border-color:#b78b54}.iconbtn.compareon{background:#194b43;color:#a6ffe5}.note{font-size:12px;line-height:1.65;color:#8ea1b6;padding:14px 0 3px}.note strong{color:#c3d0df}.empty{grid-column:1/-1;text-align:center;color:var(--sub);padding:70px 20px;background:#151f31;border:1px dashed #415067;border-radius:18px}.empty strong{display:block;color:#d4e0eb;margin-bottom:9px;font-size:16px}.footerline{color:#74839a;font-size:12px;margin-top:24px;padding:17px 0;border-top:1px solid #26354a}.footerline a{margin-left:8px}.overlay{position:fixed;inset:0;display:none;background:#040811ae;z-index:50;align-items:stretch;justify-content:flex-end;backdrop-filter:blur(5px)}.overlay.open{display:flex}.drawer{width:min(600px,100vw);height:100%;overflow-y:auto;background:#151d2f;border-left:1px solid #46526b;box-shadow:-10px 0 55px #0008;padding:25px clamp(19px,4vw,37px) 35px;overscroll-behavior:contain}.drawer-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:22px;border-bottom:1px solid #33415a}.drawer-close{background:#29364d;border:1px solid #44536a;border-radius:10px;width:36px;height:36px;color:#e2ebf5;font-size:21px}.drawer h2{margin:17px 0 4px;font-size:27px;line-height:1.28;letter-spacing:-.5px}.drawer p{color:var(--sub);font-size:13px;line-height:1.75}.drawer-section{margin-top:24px}.drawer-section h3{color:#95a8c1;font-size:12px;letter-spacing:1.5px;margin:0 0 12px;font-weight:750}.detail-effect{background:#1c2d3d;border:1px solid #3a615e;border-radius:12px;padding:17px 16px;color:#dbfef1;font-size:17px;font-weight:750;line-height:1.7}.rows{display:flex;flex-direction:column;gap:7px}.linkrow{display:flex;gap:10px;align-items:center;justify-content:space-between;width:100%;text-align:left;background:#202a3f;border:1px solid #35445d;border-radius:10px;padding:11px 13px;color:#dbe4f0}.linkrow:hover{background:#283953;border-color:#68b5a2}.linkrow small{color:#96a7bf;font-size:11px;display:block;margin-top:3px}.linkrow .arrow{color:var(--mint);font-size:18px}.notice{background:#352f29;border:1px solid #675844;border-radius:10px;padding:12px;color:#e4cda8;font-size:12px;line-height:1.6}.detail-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.tag{color:#a7c4dc;background:#203044;border:1px solid #35506b;padding:5px 9px;font-size:11px;border-radius:6px}.actionbar{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.primary,.secondary{border-radius:10px;padding:11px 16px;font-size:13px;font-weight:750;display:inline-flex;justify-content:center;align-items:center;gap:7px}.primary{background:var(--mint);color:#0d2427;border:1px solid var(--mint)}.secondary{background:#23324b;color:#e6edf6;border:1px solid #43546e}.compbar{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:20;display:none;align-items:center;justify-content:space-between;gap:15px;background:#26374e;border:1px solid #7899a4;padding:10px 13px 10px 18px;border-radius:16px;box-shadow:0 15px 40px #0009;width:min(500px,calc(100% - 28px))}.compbar.show{display:flex}.compbar button{background:var(--mint);color:#123029;border:0;border-radius:10px;padding:10px 15px;font-weight:750}.compare-grid{overflow-x:auto}.compare-grid table{border-collapse:collapse;width:100%;min-width:490px;font-size:12px}.compare-grid td,.compare-grid th{text-align:left;border-bottom:1px solid #35445d;padding:12px 9px;vertical-align:top}.compare-grid th{color:#98b7c7}.compare-grid td{color:#d8e3f0}.mobnav{display:none}.kbd{font-family:monospace;font-size:11px;border:1px solid #5e6b82;border-radius:5px;padding:2px 5px;color:#9babc1;margin-left:8px}.hide{display:none!important}
 @media(max-width:850px){.app{display:block}.side{display:none}.main{padding:27px 17px 108px}.head{gap:10px}.version{font-size:10px;padding:6px 9px}.searchbox{margin-top:23px}.summary .stat{padding:12px 13px}.summary .stat strong{font-size:19px}.summary .stat small{font-size:11px}.mobnav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;bottom:0;left:0;right:0;z-index:25;background:#141e31f5;backdrop-filter:blur(20px);border-top:1px solid #36445a;padding:9px 8px calc(9px + env(safe-area-inset-bottom));box-shadow:0 -5px 24px #0008}.mobnav button{background:none;border:0;color:#9cacc1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;font-size:10px;font-weight:650}.mobnav button span{font-size:21px}.mobnav button.active{color:var(--mint)}.drawer{padding-top:18px}.overlay.open{align-items:flex-end}.drawer{height:min(91vh,900px);width:100%;border-radius:20px 20px 0 0;border:1px solid #46526b;border-bottom:0}.compbar{bottom:76px}.results{grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr))}.h1{font-size:27px}}@media(max-width:390px){.head .version{display:none}.summary{gap:8px}.entry{min-height:160px}.searchbox input{font-size:15px;padding-left:47px}.chips{gap:6px}.chip{padding:8px 10px}.controls .select{max-width:145px}}
+.langbar{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:18px 0 0;font-size:12px;color:var(--sub)}.langbar label{font-weight:700}.langbar .select{min-width:142px;max-width:unset}.subname{display:block;font-size:12px;font-weight:500;color:var(--sub);margin-top:4px;line-height:1.4}.drawer .subname{margin-top:7px}@media(max-width:850px){.langbar{margin-top:14px}}
 </style>
 </head>
 <body>
@@ -26,17 +28,18 @@
   <button class="nav" data-quick="物理穿透"><span class="nav-icon">⟡</span> 物理穿透卡片</button>
   <button class="nav" data-quick="ATK"><span class="nav-icon">↗</span> ATK 增益卡片</button>
   <button class="nav" data-quick="DEX"><span class="nav-icon">◈</span> DEX 增益卡片</button>
-  <div class="side-bottom">非官方玩家製作 · v0.1<br>卡片能力為本站繁中暫譯，請以遊戲及官方 Wiki 為準。<br><a href="https://lumivaraonline.com/wiki/" rel="noopener noreferrer" target="_blank">官方 Wiki ↗</a></div>
+  <div class="side-bottom">非官方玩家製作 · v0.2<br>卡片能力為本站繁中暫譯，請以遊戲及官方 Wiki 為準。<br><a href="https://lumivaraonline.com/wiki/" rel="noopener noreferrer" target="_blank">官方 Wiki ↗</a></div>
 </aside>
 <main class="main">
-  <div class="head"><div><div class="eyebrow">FAN-MADE · 繁體中文資料庫</div><h1 class="h1">找到你需要的每一張卡片。</h1><p class="lead">搜尋效果、反查怪物與地圖，不再被原本的 Wiki 分頁打斷。</p></div><div class="version">BETA v0.1</div></div>
+  <div class="head"><div><div class="eyebrow">FAN-MADE · 繁體中文資料庫</div><h1 class="h1">找到你需要的每一張卡片。</h1><p class="lead">搜尋效果、反查怪物與地圖，不再被原本的 Wiki 分頁打斷。</p></div><div class="version">v0.2</div></div>
+  <div class="langbar"><label for="lang">名稱顯示</label><select id="lang" class="select" aria-label="選擇名稱顯示語言"><option value="both">繁中＋英文</option><option value="zh">繁體中文</option><option value="en">English</option></select><span>搜尋同時支援中英文</span></div>
   <div class="searchbox"><span class="searchic" aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" spellcheck="false" placeholder="搜尋物理破防、ATK、DEX、怪物名稱…" aria-label="搜尋名稱或效果"><button id="clear" class="clear" aria-label="清除搜尋">×</button></div>
   <div class="chips" id="chips"><button class="chip" data-keyword="物理穿透">物理穿透</button><button class="chip" data-keyword="ATK">ATK</button><button class="chip" data-keyword="DEX">DEX</button><button class="chip" data-keyword="暴擊傷害">暴擊傷害</button><button class="chip" data-keyword="MATK">MATK</button><button class="chip" data-keyword="物理穿透 ATK">物穿 + ATK</button></div>
   <div class="summary"><div class="stat"><small>卡片資料</small><strong id="c-card">88</strong></div><div class="stat"><small>怪物 / Leader</small><strong id="c-mon">90</strong></div><div class="stat"><small>地圖區域</small><strong id="c-map">18</strong></div></div>
   <div class="list-head"><h2 id="result-title">卡片圖鑑 <small id="result-count"></small></h2><div class="controls"><label class="checkchip"><input type="checkbox" id="onlyverified"> 已核對來源</label><select id="mapfilter" class="select" aria-label="篩選地圖"><option value="">所有地圖</option></select><select id="sort" class="select" aria-label="排序"><option value="level">地圖等級</option><option value="name">名稱 A–Z</option><option value="reverse">名稱 Z–A</option></select></div></div>
   <div class="results" id="results" aria-live="polite"></div>
-  <div class="note" id="data-note"><strong>資料說明：</strong>卡片能力取自官方索引並暫譯。部分卡片僅能確認存在同名怪物，尚未逐一核對實際掉落來源及機率；請留意卡片上的核對標籤。</div>
-  <div class="footerline">資料核對日：2026-11-07 · 靜態試用版，不需登入。<a href="https://lumivaraonline.com/wiki/" target="_blank" rel="noopener">前往官方資料 ↗</a></div>
+  <div class="note" id="data-note"><strong>資料說明：</strong>卡片效果依官方資料整理；繁中名稱參考玩家 v107 詞彙校對，非官方正式譯名。部分卡片僅能確認存在同名怪物，尚未逐一核對實際掉落來源及機率；請留意卡片上的核對標籤。</div>
+  <div class="footerline">資料快照：2026-11-07 · v0.2 繁中名稱整合 · 不需登入。<a href="https://lumivaraonline.com/wiki/" target="_blank" rel="noopener">前往官方資料 ↗</a></div>
 </main>
 </div>
 <nav class="mobnav" aria-label="手機分類切換"><button class="active" data-nav="cards"><span>▣</span>卡片</button><button data-nav="monsters"><span>♟</span>怪物</button><button data-nav="maps"><span>⌁</span>地圖</button><button data-nav="favorites"><span>☆</span>收藏</button></nav>
@@ -52,7 +55,14 @@
     "monsterIndex": "https://lumivaraonline.com/wiki/monsters/",
     "mapIndex": "https://lumivaraonline.com/wiki/maps/",
     "checked": "2026-11-07",
-    "version": "0.1.0"
+    "version": "0.2.0",
+    "localized": {
+      "cards": 88,
+      "monsters": 90,
+      "maps": 18,
+      "language": "zh-Hant",
+      "source": "V107 player terminology: names only; pending review"
+    }
   },
   "cards": [
     {
@@ -69,7 +79,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Prism Hopper Card",
+      "nameZh": "稜晶跳蟲卡片"
     },
     {
       "id": "card-hollow",
@@ -83,7 +95,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Hollow Card",
+      "nameZh": "空洞幽魂卡片"
     },
     {
       "id": "card-crowned-prism-hopper",
@@ -97,7 +111,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Crowned Prism Hopper Card",
+      "nameZh": "冠冕稜晶跳蟲卡片"
     },
     {
       "id": "card-moss-mushroom",
@@ -113,7 +129,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Moss Mushroom Card",
+      "nameZh": "苔蘚蘑菇卡片"
     },
     {
       "id": "card-cave-bat",
@@ -129,7 +147,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Cave Bat Card",
+      "nameZh": "洞穴蝙蝠卡片"
     },
     {
       "id": "card-amber-beetle",
@@ -145,7 +165,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Amber Beetle Card",
+      "nameZh": "琥珀甲蟲卡片"
     },
     {
       "id": "card-tide-crab",
@@ -161,7 +183,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Tide Crab Card",
+      "nameZh": "潮汐蟹卡片"
     },
     {
       "id": "card-leaf-sprout",
@@ -177,7 +201,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Leaf Sprout Card",
+      "nameZh": "嫩芽卡片"
     },
     {
       "id": "card-dew-bunny",
@@ -193,7 +219,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Dew Bunny Card",
+      "nameZh": "露珠兔卡片"
     },
     {
       "id": "card-thorn-pixie",
@@ -209,7 +237,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Thorn Pixie Card",
+      "nameZh": "荊棘妖精卡片"
     },
     {
       "id": "card-rootling",
@@ -225,7 +255,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Rootling Card",
+      "nameZh": "樹根靈卡片"
     },
     {
       "id": "card-honey-moth",
@@ -246,7 +278,9 @@
       "dropVerified": true,
       "slot": "全部部位",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/moth_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/moth_card/",
+      "nameEnglish": "Honey Moth Card",
+      "nameZh": "蜜蛾卡片"
     },
     {
       "id": "card-bramble-hare",
@@ -262,7 +296,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Bramble Hare Card",
+      "nameZh": "荊棘兔卡片"
     },
     {
       "id": "card-frost-puff",
@@ -278,7 +314,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Frost Puff Card",
+      "nameZh": "霜絨球卡片"
     },
     {
       "id": "card-icicle-hare",
@@ -294,7 +332,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Icicle Hare Card",
+      "nameZh": "冰錐兔卡片"
     },
     {
       "id": "card-snow-owl",
@@ -310,7 +350,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Snow Owl Card",
+      "nameZh": "雪梟卡片"
     },
     {
       "id": "card-aurora-fox",
@@ -326,7 +368,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Aurora Fox Card",
+      "nameZh": "極光狐卡片"
     },
     {
       "id": "card-dune-gecko",
@@ -342,7 +386,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Dune Gecko Card",
+      "nameZh": "沙丘壁虎卡片"
     },
     {
       "id": "card-scarab-sentinel",
@@ -358,7 +404,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Scarab Sentinel Card",
+      "nameZh": "聖甲蟲守衛卡片"
     },
     {
       "id": "card-sunscale-cobra",
@@ -374,7 +422,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Sunscale Cobra Card",
+      "nameZh": "日鱗眼鏡蛇卡片"
     },
     {
       "id": "card-cactus-imp",
@@ -390,7 +440,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Cactus Imp Card",
+      "nameZh": "仙人掌小鬼卡片"
     },
     {
       "id": "card-bog-toad",
@@ -406,7 +458,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Bog Toad Card",
+      "nameZh": "沼澤蟾蜍卡片"
     },
     {
       "id": "card-mud-newt",
@@ -422,7 +476,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Mud Newt Card",
+      "nameZh": "泥沼蠑螈卡片"
     },
     {
       "id": "card-mire-jelly",
@@ -438,7 +494,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Mire Jelly Card",
+      "nameZh": "泥沼水母卡片"
     },
     {
       "id": "card-reed-mantis",
@@ -463,7 +521,9 @@
       "dropVerified": true,
       "slot": "武器／左手／頭部／飾品",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/mantis_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/mantis_card/",
+      "nameEnglish": "Reed Mantis Card",
+      "nameZh": "蘆葦螳螂卡片"
     },
     {
       "id": "card-lantern-wisp",
@@ -479,7 +539,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Lantern Wisp Card",
+      "nameZh": "燈籠幽火卡片"
     },
     {
       "id": "card-forest-wolf",
@@ -500,7 +562,9 @@
       "dropVerified": true,
       "slot": "左手／飾品",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/wolf_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/wolf_card/",
+      "nameEnglish": "Forest Wolf Card",
+      "nameZh": "森林狼卡片"
     },
     {
       "id": "card-ember-antler",
@@ -516,7 +580,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Ember Antler Card",
+      "nameZh": "餘燼鹿卡片"
     },
     {
       "id": "card-moon-owl",
@@ -537,7 +603,9 @@
       "dropVerified": true,
       "slot": "左手／飾品",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/moonowl_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/moonowl_card/",
+      "nameEnglish": "Moon Owl Card",
+      "nameZh": "月梟卡片"
     },
     {
       "id": "card-vine-lynx",
@@ -553,7 +621,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Vine Lynx Card",
+      "nameZh": "藤蔓猞猁卡片"
     },
     {
       "id": "card-wild-boar",
@@ -574,7 +644,9 @@
       "dropVerified": true,
       "slot": "武器",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/boar_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/boar_card/",
+      "nameEnglish": "Wild Boar Card",
+      "nameZh": "野豬卡片"
     },
     {
       "id": "card-sand-drake",
@@ -599,7 +671,9 @@
       "dropVerified": true,
       "slot": "左手裝備",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/drake_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/drake_card/",
+      "nameEnglish": "Sand Drake Card",
+      "nameZh": "沙漠幼龍卡片"
     },
     {
       "id": "card-pebble-golem",
@@ -615,7 +689,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Pebble Golem Card",
+      "nameZh": "卵石魔像卡片"
     },
     {
       "id": "card-magma-salamander",
@@ -631,7 +707,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Magma Salamander Card",
+      "nameZh": "熔岩蠑螈卡片"
     },
     {
       "id": "card-ember-hound",
@@ -647,7 +725,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Ember Hound Card",
+      "nameZh": "餘燼獵犬卡片"
     },
     {
       "id": "card-basalt-tortoise",
@@ -663,7 +743,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Basalt Tortoise Card",
+      "nameZh": "玄武岩龜卡片"
     },
     {
       "id": "card-obsidian-scorpion",
@@ -679,7 +761,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Obsidian Scorpion Card",
+      "nameZh": "黑曜石蠍卡片"
     },
     {
       "id": "card-shade-raven",
@@ -695,7 +779,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Shade Raven Card",
+      "nameZh": "暗影渡鴉卡片"
     },
     {
       "id": "card-bone-hound",
@@ -711,7 +797,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Bone Hound Card",
+      "nameZh": "骸骨獵犬卡片"
     },
     {
       "id": "card-bog-wraith",
@@ -727,7 +815,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Bog Wraith Card",
+      "nameZh": "沼澤怨靈卡片"
     },
     {
       "id": "card-grave-knight",
@@ -743,7 +833,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Grave Knight Card",
+      "nameZh": "墓地騎士卡片"
     },
     {
       "id": "card-quartz-crawler",
@@ -764,7 +856,9 @@
       "dropVerified": true,
       "slot": "頭部（上／中／下）",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/quartz_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/quartz_card/",
+      "nameEnglish": "Quartz Crawler Card",
+      "nameZh": "石英爬蟲卡片"
     },
     {
       "id": "card-geode-armadillo",
@@ -780,7 +874,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Geode Armadillo Card",
+      "nameZh": "晶洞犰狳卡片"
     },
     {
       "id": "card-prism-serpent",
@@ -796,7 +892,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Prism Serpent Card",
+      "nameZh": "稜晶蛇卡片"
     },
     {
       "id": "card-amethyst-wyvern",
@@ -821,7 +919,9 @@
       "dropVerified": true,
       "slot": "武器",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/wyvern_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/wyvern_card/",
+      "nameEnglish": "Amethyst Wyvern Card",
+      "nameZh": "紫晶飛龍卡片"
     },
     {
       "id": "card-thunder-ram",
@@ -837,7 +937,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Thunder Ram Card",
+      "nameZh": "雷霆公羊卡片"
     },
     {
       "id": "card-storm-roc",
@@ -853,7 +955,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Storm Roc Card",
+      "nameZh": "風暴巨鵬卡片"
     },
     {
       "id": "card-cloud-serpent",
@@ -869,7 +973,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Cloud Serpent Card",
+      "nameZh": "雲蛇卡片"
     },
     {
       "id": "card-tempest-drake",
@@ -894,7 +1000,9 @@
       "dropVerified": true,
       "slot": "全部部位",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/stormdrake_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/stormdrake_card/",
+      "nameEnglish": "Tempest Drake Card",
+      "nameZh": "暴風幼龍卡片"
     },
     {
       "id": "card-gilded-sentinel",
@@ -910,7 +1018,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Gilded Sentinel Card",
+      "nameZh": "鎏金守衛卡片"
     },
     {
       "id": "card-radiant-griffin",
@@ -926,7 +1036,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Radiant Griffin Card",
+      "nameZh": "輝光獅鷲卡片"
     },
     {
       "id": "card-fallen-seraph",
@@ -947,7 +1059,9 @@
       "dropVerified": true,
       "slot": "武器",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/seraph_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/seraph_card/",
+      "nameEnglish": "Fallen Seraph Card",
+      "nameZh": "墮落熾天使卡片"
     },
     {
       "id": "card-sunfire-colossus",
@@ -972,7 +1086,9 @@
       "dropVerified": true,
       "slot": "武器",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/colossus_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/colossus_card/",
+      "nameEnglish": "Sunfire Colossus Card",
+      "nameZh": "日炎巨像卡片"
     },
     {
       "id": "card-mirrorback-tortoise",
@@ -986,7 +1102,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Mirrorback Tortoise Card",
+      "nameZh": "鏡背龜卡片"
     },
     {
       "id": "card-arcane-wisp",
@@ -1000,7 +1118,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Arcane Wisp Card",
+      "nameZh": "奧術幽光卡片"
     },
     {
       "id": "card-bloodfang-wolf",
@@ -1014,7 +1134,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Bloodfang Wolf Card",
+      "nameZh": "血牙狼卡片"
     },
     {
       "id": "card-kasa-obake",
@@ -1030,7 +1152,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/kasa_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/kasa_card/",
+      "nameEnglish": "Kasa Obake Card",
+      "nameZh": "傘妖卡片"
     },
     {
       "id": "card-chochin-obake",
@@ -1046,7 +1170,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Chochin Obake Card",
+      "nameZh": "提燈妖怪卡片"
     },
     {
       "id": "card-karasu-tengu",
@@ -1062,7 +1188,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Karasu Tengu Card",
+      "nameZh": "烏鴉天狗卡片"
     },
     {
       "id": "card-red-oni",
@@ -1078,7 +1206,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Red Oni Card",
+      "nameZh": "赤鬼卡片"
     },
     {
       "id": "card-nine-tail-kitsune",
@@ -1094,7 +1224,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Nine-Tail Kitsune Card",
+      "nameZh": "九尾妖狐卡片"
     },
     {
       "id": "card-void-skitter",
@@ -1110,7 +1242,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Void Skitter Card",
+      "nameZh": "虛空疾行蟲 卡片"
     },
     {
       "id": "card-star-raider",
@@ -1126,7 +1260,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Star Raider Card",
+      "nameZh": "星際掠奪者卡片"
     },
     {
       "id": "card-cosmic-warden",
@@ -1142,7 +1278,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Cosmic Warden Card",
+      "nameZh": "宇宙守衛卡片"
     },
     {
       "id": "card-meteor-behemoth",
@@ -1158,7 +1296,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Meteor Behemoth Card",
+      "nameZh": "隕星巨獸卡片"
     },
     {
       "id": "card-coral-golem",
@@ -1174,7 +1314,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Coral Golem Card",
+      "nameZh": "珊瑚魔像卡片"
     },
     {
       "id": "card-abyssal-angler",
@@ -1190,7 +1332,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Abyssal Angler Card",
+      "nameZh": "深淵鮟鱇卡片"
     },
     {
       "id": "card-tide-siren",
@@ -1206,7 +1350,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Tide Siren Card",
+      "nameZh": "潮汐海妖卡片"
     },
     {
       "id": "card-dread-kraken",
@@ -1222,7 +1368,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Dread Kraken Card",
+      "nameZh": "恐懼克拉肯卡片"
     },
     {
       "id": "card-hornet-drone",
@@ -1238,7 +1386,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Hornet Drone Card",
+      "nameZh": "黃蜂無人機卡片"
     },
     {
       "id": "card-rifle-trooper",
@@ -1254,7 +1404,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Rifle Trooper Card",
+      "nameZh": "步槍兵卡片"
     },
     {
       "id": "card-bulwark-frame",
@@ -1270,7 +1422,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Bulwark Frame Card",
+      "nameZh": "堡壘機甲卡片"
     },
     {
       "id": "card-titan-frame",
@@ -1286,7 +1440,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Titan Frame Card",
+      "nameZh": "泰坦機甲卡片"
     },
     {
       "id": "card-moonveil-moth",
@@ -1302,7 +1458,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Moonveil Moth Card",
+      "nameZh": "月幕蛾卡片"
     },
     {
       "id": "card-lunar-oracle",
@@ -1318,7 +1476,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Lunar Oracle Card",
+      "nameZh": "月之神諭者卡片"
     },
     {
       "id": "card-regolith-golem",
@@ -1334,7 +1494,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Regolith Golem Card",
+      "nameZh": "月壤魔像卡片"
     },
     {
       "id": "card-eclipse-warlord",
@@ -1350,7 +1512,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Eclipse Warlord Card",
+      "nameZh": "蝕月戰將卡片"
     },
     {
       "id": "card-vampire",
@@ -1364,7 +1528,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/tomb_vampire_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/tomb_vampire_card/",
+      "nameEnglish": "Vampire Card",
+      "nameZh": "吸血鬼卡片"
     },
     {
       "id": "card-jack-o-lantern",
@@ -1378,7 +1544,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Jack-o'-Lantern Card",
+      "nameZh": "南瓜燈卡片"
     },
     {
       "id": "card-terragorn",
@@ -1392,7 +1560,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Terragorn Card",
+      "nameZh": "泰拉貢卡片"
     },
     {
       "id": "card-ruby-rogue",
@@ -1406,7 +1576,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Ruby Rogue Card",
+      "nameZh": "紅寶石盜賊卡片"
     },
     {
       "id": "card-crimson-knight",
@@ -1420,7 +1592,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Crimson Knight Card",
+      "nameZh": "緋紅騎士卡片"
     },
     {
       "id": "card-bloodcrystal-dragon",
@@ -1434,7 +1608,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Bloodcrystal Dragon Card",
+      "nameZh": "血晶龍卡片"
     },
     {
       "id": "card-critical-king",
@@ -1448,7 +1624,9 @@
       "dropVerified": false,
       "slot": null,
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "nameEnglish": "Critical King Card",
+      "nameZh": "暴擊之王卡片"
     },
     {
       "id": "card-crystal-fox",
@@ -1462,7 +1640,9 @@
       "dropVerified": true,
       "slot": "左手裝備",
       "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
-      "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_rare_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_rare_card/",
+      "nameEnglish": "Crystal Fox Card",
+      "nameZh": "水晶狐卡片"
     },
     {
       "id": "card-rose-fox",
@@ -1476,7 +1656,9 @@
       "dropVerified": true,
       "slot": "左手裝備",
       "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
-      "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_epic_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_epic_card/",
+      "nameEnglish": "Rose Fox Card",
+      "nameZh": "玫瑰狐卡片"
     },
     {
       "id": "card-golden-fox",
@@ -1490,7 +1672,9 @@
       "dropVerified": true,
       "slot": "左手裝備",
       "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
-      "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_legendary_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_legendary_card/",
+      "nameEnglish": "Golden Fox Card",
+      "nameZh": "金狐卡片"
     },
     {
       "id": "card-pierce-empress",
@@ -1504,7 +1688,9 @@
       "dropVerified": true,
       "slot": "左手裝備",
       "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
-      "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_limited_card/"
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_limited_card/",
+      "nameEnglish": "Pierce Empress Card",
+      "nameZh": "穿透女帝卡片"
     }
   ],
   "monsters": [
@@ -1513,637 +1699,817 @@
       "name": "Prism Hopper",
       "level": 1,
       "leader": false,
-      "map": "Verdant Forest"
+      "map": "Verdant Forest",
+      "nameEnglish": "Prism Hopper",
+      "nameZh": "稜晶跳蟲"
     },
     {
       "id": "monster-leaf-sprout",
       "name": "Leaf Sprout",
       "level": 3,
       "leader": false,
-      "map": "Verdant Forest"
+      "map": "Verdant Forest",
+      "nameEnglish": "Leaf Sprout",
+      "nameZh": "嫩芽"
     },
     {
       "id": "monster-dew-bunny",
       "name": "Dew Bunny",
       "level": 6,
       "leader": false,
-      "map": "Verdant Forest"
+      "map": "Verdant Forest",
+      "nameEnglish": "Dew Bunny",
+      "nameZh": "露珠兔"
     },
     {
       "id": "monster-moss-mushroom",
       "name": "Moss Mushroom",
       "level": 8,
       "leader": false,
-      "map": "Verdant Forest"
+      "map": "Verdant Forest",
+      "nameEnglish": "Moss Mushroom",
+      "nameZh": "苔蘚蘑菇"
     },
     {
       "id": "monster-thorn-pixie",
       "name": "Thorn Pixie",
       "level": 10,
       "leader": false,
-      "map": "Verdant Forest"
+      "map": "Verdant Forest",
+      "nameEnglish": "Thorn Pixie",
+      "nameZh": "荊棘妖精"
     },
     {
       "id": "monster-leader-thorn-pixie",
       "name": "Leader Thorn Pixie",
       "level": 15,
       "leader": true,
-      "map": "Verdant Forest"
+      "map": "Verdant Forest",
+      "nameEnglish": "Leader Thorn Pixie",
+      "nameZh": "首領 荊棘妖精"
     },
     {
       "id": "monster-bramble-hare",
       "name": "Bramble Hare",
       "level": 11,
       "leader": false,
-      "map": "Honeybloom Meadow"
+      "map": "Honeybloom Meadow",
+      "nameEnglish": "Bramble Hare",
+      "nameZh": "荊棘兔"
     },
     {
       "id": "monster-honey-moth",
       "name": "Honey Moth",
       "level": 14,
       "leader": false,
-      "map": "Honeybloom Meadow"
+      "map": "Honeybloom Meadow",
+      "nameEnglish": "Honey Moth",
+      "nameZh": "蜜蛾"
     },
     {
       "id": "monster-rootling",
       "name": "Rootling",
       "level": 17,
       "leader": false,
-      "map": "Honeybloom Meadow"
+      "map": "Honeybloom Meadow",
+      "nameEnglish": "Rootling",
+      "nameZh": "樹根靈"
     },
     {
       "id": "monster-amber-beetle",
       "name": "Amber Beetle",
       "level": 20,
       "leader": false,
-      "map": "Honeybloom Meadow"
+      "map": "Honeybloom Meadow",
+      "nameEnglish": "Amber Beetle",
+      "nameZh": "琥珀甲蟲"
     },
     {
       "id": "monster-leader-amber-beetle",
       "name": "Leader Amber Beetle",
       "level": 25,
       "leader": true,
-      "map": "Honeybloom Meadow"
+      "map": "Honeybloom Meadow",
+      "nameEnglish": "Leader Amber Beetle",
+      "nameZh": "首領 琥珀甲蟲"
     },
     {
       "id": "monster-frost-puff",
       "name": "Frost Puff",
       "level": 21,
       "leader": false,
-      "map": "Frostveil Pass"
+      "map": "Frostveil Pass",
+      "nameEnglish": "Frost Puff",
+      "nameZh": "霜絨球"
     },
     {
       "id": "monster-icicle-hare",
       "name": "Icicle Hare",
       "level": 24,
       "leader": false,
-      "map": "Frostveil Pass"
+      "map": "Frostveil Pass",
+      "nameEnglish": "Icicle Hare",
+      "nameZh": "冰錐兔"
     },
     {
       "id": "monster-snow-owl",
       "name": "Snow Owl",
       "level": 27,
       "leader": false,
-      "map": "Frostveil Pass"
+      "map": "Frostveil Pass",
+      "nameEnglish": "Snow Owl",
+      "nameZh": "雪梟"
     },
     {
       "id": "monster-aurora-fox",
       "name": "Aurora Fox",
       "level": 30,
       "leader": false,
-      "map": "Frostveil Pass"
+      "map": "Frostveil Pass",
+      "nameEnglish": "Aurora Fox",
+      "nameZh": "極光狐"
     },
     {
       "id": "monster-leader-aurora-fox",
       "name": "Leader Aurora Fox",
       "level": 35,
       "leader": true,
-      "map": "Frostveil Pass"
+      "map": "Frostveil Pass",
+      "nameEnglish": "Leader Aurora Fox",
+      "nameZh": "首領 極光狐"
     },
     {
       "id": "monster-dune-gecko",
       "name": "Dune Gecko",
       "level": 31,
       "leader": false,
-      "map": "Sunscar Desert"
+      "map": "Sunscar Desert",
+      "nameEnglish": "Dune Gecko",
+      "nameZh": "沙丘壁虎"
     },
     {
       "id": "monster-scarab-sentinel",
       "name": "Scarab Sentinel",
       "level": 34,
       "leader": false,
-      "map": "Sunscar Desert"
+      "map": "Sunscar Desert",
+      "nameEnglish": "Scarab Sentinel",
+      "nameZh": "聖甲蟲守衛"
     },
     {
       "id": "monster-sunscale-cobra",
       "name": "Sunscale Cobra",
       "level": 37,
       "leader": false,
-      "map": "Sunscar Desert"
+      "map": "Sunscar Desert",
+      "nameEnglish": "Sunscale Cobra",
+      "nameZh": "日鱗眼鏡蛇"
     },
     {
       "id": "monster-cactus-imp",
       "name": "Cactus Imp",
       "level": 40,
       "leader": false,
-      "map": "Sunscar Desert"
+      "map": "Sunscar Desert",
+      "nameEnglish": "Cactus Imp",
+      "nameZh": "仙人掌小鬼"
     },
     {
       "id": "monster-leader-cactus-imp",
       "name": "Leader Cactus Imp",
       "level": 45,
       "leader": true,
-      "map": "Sunscar Desert"
+      "map": "Sunscar Desert",
+      "nameEnglish": "Leader Cactus Imp",
+      "nameZh": "首領 仙人掌小鬼"
     },
     {
       "id": "monster-tide-crab",
       "name": "Tide Crab",
       "level": 41,
       "leader": false,
-      "map": "Mirewillow Marsh"
+      "map": "Mirewillow Marsh",
+      "nameEnglish": "Tide Crab",
+      "nameZh": "潮汐蟹"
     },
     {
       "id": "monster-bog-toad",
       "name": "Bog Toad",
       "level": 43,
       "leader": false,
-      "map": "Mirewillow Marsh"
+      "map": "Mirewillow Marsh",
+      "nameEnglish": "Bog Toad",
+      "nameZh": "沼澤蟾蜍"
     },
     {
       "id": "monster-mud-newt",
       "name": "Mud Newt",
       "level": 46,
       "leader": false,
-      "map": "Mirewillow Marsh"
+      "map": "Mirewillow Marsh",
+      "nameEnglish": "Mud Newt",
+      "nameZh": "泥沼蠑螈"
     },
     {
       "id": "monster-mire-jelly",
       "name": "Mire Jelly",
       "level": 48,
       "leader": false,
-      "map": "Mirewillow Marsh"
+      "map": "Mirewillow Marsh",
+      "nameEnglish": "Mire Jelly",
+      "nameZh": "泥沼水母"
     },
     {
       "id": "monster-reed-mantis",
       "name": "Reed Mantis",
       "level": 50,
       "leader": false,
-      "map": "Mirewillow Marsh"
+      "map": "Mirewillow Marsh",
+      "nameEnglish": "Reed Mantis",
+      "nameZh": "蘆葦螳螂"
     },
     {
       "id": "monster-leader-reed-mantis",
       "name": "Leader Reed Mantis",
       "level": 55,
       "leader": true,
-      "map": "Mirewillow Marsh"
+      "map": "Mirewillow Marsh",
+      "nameEnglish": "Leader Reed Mantis",
+      "nameZh": "首領 蘆葦螳螂"
     },
     {
       "id": "monster-forest-wolf",
       "name": "Forest Wolf",
       "level": 51,
       "leader": false,
-      "map": "Elderwood Forest"
+      "map": "Elderwood Forest",
+      "nameEnglish": "Forest Wolf",
+      "nameZh": "森林狼"
     },
     {
       "id": "monster-lantern-wisp",
       "name": "Lantern Wisp",
       "level": 53,
       "leader": false,
-      "map": "Elderwood Forest"
+      "map": "Elderwood Forest",
+      "nameEnglish": "Lantern Wisp",
+      "nameZh": "燈籠幽火"
     },
     {
       "id": "monster-ember-antler",
       "name": "Ember Antler",
       "level": 56,
       "leader": false,
-      "map": "Elderwood Forest"
+      "map": "Elderwood Forest",
+      "nameEnglish": "Ember Antler",
+      "nameZh": "餘燼鹿"
     },
     {
       "id": "monster-moon-owl",
       "name": "Moon Owl",
       "level": 58,
       "leader": false,
-      "map": "Elderwood Forest"
+      "map": "Elderwood Forest",
+      "nameEnglish": "Moon Owl",
+      "nameZh": "月梟"
     },
     {
       "id": "monster-vine-lynx",
       "name": "Vine Lynx",
       "level": 60,
       "leader": false,
-      "map": "Elderwood Forest"
+      "map": "Elderwood Forest",
+      "nameEnglish": "Vine Lynx",
+      "nameZh": "藤蔓猞猁"
     },
     {
       "id": "monster-leader-vine-lynx",
       "name": "Leader Vine Lynx",
       "level": 65,
       "leader": true,
-      "map": "Elderwood Forest"
+      "map": "Elderwood Forest",
+      "nameEnglish": "Leader Vine Lynx",
+      "nameZh": "首領 藤蔓猞猁"
     },
     {
       "id": "monster-wild-boar",
       "name": "Wild Boar",
       "level": 61,
       "leader": false,
-      "map": "Crimson Dunes"
+      "map": "Crimson Dunes",
+      "nameEnglish": "Wild Boar",
+      "nameZh": "野豬"
     },
     {
       "id": "monster-sand-drake",
       "name": "Sand Drake",
       "level": 70,
       "leader": false,
-      "map": "Crimson Dunes"
+      "map": "Crimson Dunes",
+      "nameEnglish": "Sand Drake",
+      "nameZh": "沙漠幼龍"
     },
     {
       "id": "monster-leader-sand-drake",
       "name": "Leader Sand Drake",
       "level": 75,
       "leader": true,
-      "map": "Crimson Dunes"
+      "map": "Crimson Dunes",
+      "nameEnglish": "Leader Sand Drake",
+      "nameZh": "首領 沙漠幼龍"
     },
     {
       "id": "monster-kasa-obake",
       "name": "Kasa Obake",
       "level": 71,
       "leader": false,
-      "map": "Sakuramori Shrine"
+      "map": "Sakuramori Shrine",
+      "nameEnglish": "Kasa Obake",
+      "nameZh": "傘妖"
     },
     {
       "id": "monster-chochin-obake",
       "name": "Chochin Obake",
       "level": 73,
       "leader": false,
-      "map": "Sakuramori Shrine"
+      "map": "Sakuramori Shrine",
+      "nameEnglish": "Chochin Obake",
+      "nameZh": "提燈妖怪"
     },
     {
       "id": "monster-karasu-tengu",
       "name": "Karasu Tengu",
       "level": 76,
       "leader": false,
-      "map": "Sakuramori Shrine"
+      "map": "Sakuramori Shrine",
+      "nameEnglish": "Karasu Tengu",
+      "nameZh": "烏鴉天狗"
     },
     {
       "id": "monster-red-oni",
       "name": "Red Oni",
       "level": 78,
       "leader": false,
-      "map": "Sakuramori Shrine"
+      "map": "Sakuramori Shrine",
+      "nameEnglish": "Red Oni",
+      "nameZh": "赤鬼"
     },
     {
       "id": "monster-nine-tail-kitsune",
       "name": "Nine-Tail Kitsune",
       "level": 80,
       "leader": false,
-      "map": "Sakuramori Shrine"
+      "map": "Sakuramori Shrine",
+      "nameEnglish": "Nine-Tail Kitsune",
+      "nameZh": "九尾妖狐"
     },
     {
       "id": "monster-leader-nine-tail-kitsune",
       "name": "Leader Nine-Tail Kitsune",
       "level": 85,
       "leader": true,
-      "map": "Sakuramori Shrine"
+      "map": "Sakuramori Shrine",
+      "nameEnglish": "Leader Nine-Tail Kitsune",
+      "nameZh": "首領 九尾妖狐"
     },
     {
       "id": "monster-cave-bat",
       "name": "Cave Bat",
       "level": 71,
       "leader": false,
-      "map": "Frostfang Glacier"
+      "map": "Frostfang Glacier",
+      "nameEnglish": "Cave Bat",
+      "nameZh": "洞穴蝙蝠"
     },
     {
       "id": "monster-pebble-golem",
       "name": "Pebble Golem",
       "level": 80,
       "leader": false,
-      "map": "Frostfang Glacier"
+      "map": "Frostfang Glacier",
+      "nameEnglish": "Pebble Golem",
+      "nameZh": "卵石魔像"
     },
     {
       "id": "monster-leader-pebble-golem",
       "name": "Leader Pebble Golem",
       "level": 85,
       "leader": true,
-      "map": "Frostfang Glacier"
+      "map": "Frostfang Glacier",
+      "nameEnglish": "Leader Pebble Golem",
+      "nameZh": "首領 卵石魔像"
     },
     {
       "id": "monster-magma-salamander",
       "name": "Magma Salamander",
       "level": 81,
       "leader": false,
-      "map": "Emberfall Caldera"
+      "map": "Emberfall Caldera",
+      "nameEnglish": "Magma Salamander",
+      "nameZh": "熔岩蠑螈"
     },
     {
       "id": "monster-ember-hound",
       "name": "Ember Hound",
       "level": 84,
       "leader": false,
-      "map": "Emberfall Caldera"
+      "map": "Emberfall Caldera",
+      "nameEnglish": "Ember Hound",
+      "nameZh": "餘燼獵犬"
     },
     {
       "id": "monster-basalt-tortoise",
       "name": "Basalt Tortoise",
       "level": 87,
       "leader": false,
-      "map": "Emberfall Caldera"
+      "map": "Emberfall Caldera",
+      "nameEnglish": "Basalt Tortoise",
+      "nameZh": "玄武岩龜"
     },
     {
       "id": "monster-obsidian-scorpion",
       "name": "Obsidian Scorpion",
       "level": 90,
       "leader": false,
-      "map": "Emberfall Caldera"
+      "map": "Emberfall Caldera",
+      "nameEnglish": "Obsidian Scorpion",
+      "nameZh": "黑曜石蠍"
     },
     {
       "id": "monster-leader-obsidian-scorpion",
       "name": "Leader Obsidian Scorpion",
       "level": 95,
       "leader": true,
-      "map": "Emberfall Caldera"
+      "map": "Emberfall Caldera",
+      "nameEnglish": "Leader Obsidian Scorpion",
+      "nameZh": "首領 黑曜石蠍"
     },
     {
       "id": "monster-shade-raven",
       "name": "Shade Raven",
       "level": 91,
       "leader": false,
-      "map": "Gloomveil Moor"
+      "map": "Gloomveil Moor",
+      "nameEnglish": "Shade Raven",
+      "nameZh": "暗影渡鴉"
     },
     {
       "id": "monster-bone-hound",
       "name": "Bone Hound",
       "level": 94,
       "leader": false,
-      "map": "Gloomveil Moor"
+      "map": "Gloomveil Moor",
+      "nameEnglish": "Bone Hound",
+      "nameZh": "骸骨獵犬"
     },
     {
       "id": "monster-bog-wraith",
       "name": "Bog Wraith",
       "level": 97,
       "leader": false,
-      "map": "Gloomveil Moor"
+      "map": "Gloomveil Moor",
+      "nameEnglish": "Bog Wraith",
+      "nameZh": "沼澤怨靈"
     },
     {
       "id": "monster-grave-knight",
       "name": "Grave Knight",
       "level": 100,
       "leader": false,
-      "map": "Gloomveil Moor"
+      "map": "Gloomveil Moor",
+      "nameEnglish": "Grave Knight",
+      "nameZh": "墓地騎士"
     },
     {
       "id": "monster-leader-grave-knight",
       "name": "Leader Grave Knight",
       "level": 105,
       "leader": true,
-      "map": "Gloomveil Moor"
+      "map": "Gloomveil Moor",
+      "nameEnglish": "Leader Grave Knight",
+      "nameZh": "首領 墓地騎士"
     },
     {
       "id": "monster-quartz-crawler",
       "name": "Quartz Crawler",
       "level": 101,
       "leader": false,
-      "map": "Amethyst Hollows"
+      "map": "Amethyst Hollows",
+      "nameEnglish": "Quartz Crawler",
+      "nameZh": "石英爬蟲"
     },
     {
       "id": "monster-geode-armadillo",
       "name": "Geode Armadillo",
       "level": 104,
       "leader": false,
-      "map": "Amethyst Hollows"
+      "map": "Amethyst Hollows",
+      "nameEnglish": "Geode Armadillo",
+      "nameZh": "晶洞犰狳"
     },
     {
       "id": "monster-prism-serpent",
       "name": "Prism Serpent",
       "level": 107,
       "leader": false,
-      "map": "Amethyst Hollows"
+      "map": "Amethyst Hollows",
+      "nameEnglish": "Prism Serpent",
+      "nameZh": "稜晶蛇"
     },
     {
       "id": "monster-amethyst-wyvern",
       "name": "Amethyst Wyvern",
       "level": 110,
       "leader": false,
-      "map": "Amethyst Hollows"
+      "map": "Amethyst Hollows",
+      "nameEnglish": "Amethyst Wyvern",
+      "nameZh": "紫晶飛龍"
     },
     {
       "id": "monster-leader-amethyst-wyvern",
       "name": "Leader Amethyst Wyvern",
       "level": 115,
       "leader": true,
-      "map": "Amethyst Hollows"
+      "map": "Amethyst Hollows",
+      "nameEnglish": "Leader Amethyst Wyvern",
+      "nameZh": "首領 紫晶飛龍"
     },
     {
       "id": "monster-void-skitter",
       "name": "Void Skitter",
       "level": 101,
       "leader": false,
-      "map": "Starfall Ruins"
+      "map": "Starfall Ruins",
+      "nameEnglish": "Void Skitter",
+      "nameZh": "虛空疾行蟲"
     },
     {
       "id": "monster-star-raider",
       "name": "Star Raider",
       "level": 104,
       "leader": false,
-      "map": "Starfall Ruins"
+      "map": "Starfall Ruins",
+      "nameEnglish": "Star Raider",
+      "nameZh": "星際掠奪者"
     },
     {
       "id": "monster-cosmic-warden",
       "name": "Cosmic Warden",
       "level": 107,
       "leader": false,
-      "map": "Starfall Ruins"
+      "map": "Starfall Ruins",
+      "nameEnglish": "Cosmic Warden",
+      "nameZh": "宇宙守衛"
     },
     {
       "id": "monster-meteor-behemoth",
       "name": "Meteor Behemoth",
       "level": 110,
       "leader": false,
-      "map": "Starfall Ruins"
+      "map": "Starfall Ruins",
+      "nameEnglish": "Meteor Behemoth",
+      "nameZh": "隕星巨獸"
     },
     {
       "id": "monster-leader-meteor-behemoth",
       "name": "Leader Meteor Behemoth",
       "level": 115,
       "leader": true,
-      "map": "Starfall Ruins"
+      "map": "Starfall Ruins",
+      "nameEnglish": "Leader Meteor Behemoth",
+      "nameZh": "首領 隕星巨獸"
     },
     {
       "id": "monster-thunder-ram",
       "name": "Thunder Ram",
       "level": 111,
       "leader": false,
-      "map": "Stormcrest Peaks"
+      "map": "Stormcrest Peaks",
+      "nameEnglish": "Thunder Ram",
+      "nameZh": "雷霆公羊"
     },
     {
       "id": "monster-storm-roc",
       "name": "Storm Roc",
       "level": 114,
       "leader": false,
-      "map": "Stormcrest Peaks"
+      "map": "Stormcrest Peaks",
+      "nameEnglish": "Storm Roc",
+      "nameZh": "風暴巨鵬"
     },
     {
       "id": "monster-cloud-serpent",
       "name": "Cloud Serpent",
       "level": 117,
       "leader": false,
-      "map": "Stormcrest Peaks"
+      "map": "Stormcrest Peaks",
+      "nameEnglish": "Cloud Serpent",
+      "nameZh": "雲蛇"
     },
     {
       "id": "monster-tempest-drake",
       "name": "Tempest Drake",
       "level": 120,
       "leader": false,
-      "map": "Stormcrest Peaks"
+      "map": "Stormcrest Peaks",
+      "nameEnglish": "Tempest Drake",
+      "nameZh": "暴風幼龍"
     },
     {
       "id": "monster-leader-tempest-drake",
       "name": "Leader Tempest Drake",
       "level": 125,
       "leader": true,
-      "map": "Stormcrest Peaks"
+      "map": "Stormcrest Peaks",
+      "nameEnglish": "Leader Tempest Drake",
+      "nameZh": "首領 暴風幼龍"
     },
     {
       "id": "monster-gilded-sentinel",
       "name": "Gilded Sentinel",
       "level": 121,
       "leader": false,
-      "map": "Sunfallen Citadel"
+      "map": "Sunfallen Citadel",
+      "nameEnglish": "Gilded Sentinel",
+      "nameZh": "鎏金守衛"
     },
     {
       "id": "monster-radiant-griffin",
       "name": "Radiant Griffin",
       "level": 124,
       "leader": false,
-      "map": "Sunfallen Citadel"
+      "map": "Sunfallen Citadel",
+      "nameEnglish": "Radiant Griffin",
+      "nameZh": "輝光獅鷲"
     },
     {
       "id": "monster-fallen-seraph",
       "name": "Fallen Seraph",
       "level": 127,
       "leader": false,
-      "map": "Sunfallen Citadel"
+      "map": "Sunfallen Citadel",
+      "nameEnglish": "Fallen Seraph",
+      "nameZh": "墮落熾天使"
     },
     {
       "id": "monster-sunfire-colossus",
       "name": "Sunfire Colossus",
       "level": 130,
       "leader": false,
-      "map": "Sunfallen Citadel"
+      "map": "Sunfallen Citadel",
+      "nameEnglish": "Sunfire Colossus",
+      "nameZh": "日炎巨像"
     },
     {
       "id": "monster-leader-sunfire-colossus",
       "name": "Leader Sunfire Colossus",
       "level": 135,
       "leader": true,
-      "map": "Sunfallen Citadel"
+      "map": "Sunfallen Citadel",
+      "nameEnglish": "Leader Sunfire Colossus",
+      "nameZh": "首領 日炎巨像"
     },
     {
       "id": "monster-coral-golem",
       "name": "Coral Golem",
       "level": 121,
       "leader": false,
-      "map": "Drowned Sanctum"
+      "map": "Drowned Sanctum",
+      "nameEnglish": "Coral Golem",
+      "nameZh": "珊瑚魔像"
     },
     {
       "id": "monster-abyssal-angler",
       "name": "Abyssal Angler",
       "level": 124,
       "leader": false,
-      "map": "Drowned Sanctum"
+      "map": "Drowned Sanctum",
+      "nameEnglish": "Abyssal Angler",
+      "nameZh": "深淵鮟鱇"
     },
     {
       "id": "monster-tide-siren",
       "name": "Tide Siren",
       "level": 127,
       "leader": false,
-      "map": "Drowned Sanctum"
+      "map": "Drowned Sanctum",
+      "nameEnglish": "Tide Siren",
+      "nameZh": "潮汐海妖"
     },
     {
       "id": "monster-dread-kraken",
       "name": "Dread Kraken",
       "level": 130,
       "leader": false,
-      "map": "Drowned Sanctum"
+      "map": "Drowned Sanctum",
+      "nameEnglish": "Dread Kraken",
+      "nameZh": "恐懼克拉肯"
     },
     {
       "id": "monster-leader-dread-kraken",
       "name": "Leader Dread Kraken",
       "level": 135,
       "leader": true,
-      "map": "Drowned Sanctum"
+      "map": "Drowned Sanctum",
+      "nameEnglish": "Leader Dread Kraken",
+      "nameZh": "首領 恐懼克拉肯"
     },
     {
       "id": "monster-hornet-drone",
       "name": "Hornet Drone",
       "level": 131,
       "leader": false,
-      "map": "Iron Graveyard"
+      "map": "Iron Graveyard",
+      "nameEnglish": "Hornet Drone",
+      "nameZh": "黃蜂無人機"
     },
     {
       "id": "monster-rifle-trooper",
       "name": "Rifle Trooper",
       "level": 134,
       "leader": false,
-      "map": "Iron Graveyard"
+      "map": "Iron Graveyard",
+      "nameEnglish": "Rifle Trooper",
+      "nameZh": "步槍兵"
     },
     {
       "id": "monster-bulwark-frame",
       "name": "Bulwark Frame",
       "level": 137,
       "leader": false,
-      "map": "Iron Graveyard"
+      "map": "Iron Graveyard",
+      "nameEnglish": "Bulwark Frame",
+      "nameZh": "堡壘機甲"
     },
     {
       "id": "monster-titan-frame",
       "name": "Titan Frame",
       "level": 140,
       "leader": false,
-      "map": "Iron Graveyard"
+      "map": "Iron Graveyard",
+      "nameEnglish": "Titan Frame",
+      "nameZh": "泰坦機甲"
     },
     {
       "id": "monster-leader-titan-frame",
       "name": "Leader Titan Frame",
       "level": 145,
       "leader": true,
-      "map": "Iron Graveyard"
+      "map": "Iron Graveyard",
+      "nameEnglish": "Leader Titan Frame",
+      "nameZh": "首領 泰坦機甲"
     },
     {
       "id": "monster-moonveil-moth",
       "name": "Moonveil Moth",
       "level": 131,
       "leader": false,
-      "map": "Shattered Moon"
+      "map": "Shattered Moon",
+      "nameEnglish": "Moonveil Moth",
+      "nameZh": "月幕蛾"
     },
     {
       "id": "monster-lunar-oracle",
       "name": "Lunar Oracle",
       "level": 134,
       "leader": false,
-      "map": "Shattered Moon"
+      "map": "Shattered Moon",
+      "nameEnglish": "Lunar Oracle",
+      "nameZh": "月之神諭者"
     },
     {
       "id": "monster-regolith-golem",
       "name": "Regolith Golem",
       "level": 137,
       "leader": false,
-      "map": "Shattered Moon"
+      "map": "Shattered Moon",
+      "nameEnglish": "Regolith Golem",
+      "nameZh": "月壤魔像"
     },
     {
       "id": "monster-eclipse-warlord",
       "name": "Eclipse Warlord",
       "level": 140,
       "leader": false,
-      "map": "Shattered Moon"
+      "map": "Shattered Moon",
+      "nameEnglish": "Eclipse Warlord",
+      "nameZh": "蝕月戰將"
     },
     {
       "id": "monster-leader-eclipse-warlord",
       "name": "Leader Eclipse Warlord",
       "level": 145,
       "leader": true,
-      "map": "Shattered Moon"
+      "map": "Shattered Moon",
+      "nameEnglish": "Leader Eclipse Warlord",
+      "nameZh": "首領 蝕月戰將"
     }
   ],
   "maps": [
     {
       "id": "map-verdant-forest",
       "name": "Verdant Forest",
-      "zh": "翠綠森林",
+      "zh": "蒼翠森林",
       "range": [
         1,
         10
@@ -2155,7 +2521,10 @@
         "monster-moss-mushroom",
         "monster-thorn-pixie",
         "monster-leader-thorn-pixie"
-      ]
+      ],
+      "nameEnglish": "Verdant Forest",
+      "nameZh": "蒼翠森林",
+      "previousZh": "翠綠森林"
     },
     {
       "id": "map-honeybloom-meadow",
@@ -2171,12 +2540,15 @@
         "monster-rootling",
         "monster-amber-beetle",
         "monster-leader-amber-beetle"
-      ]
+      ],
+      "nameEnglish": "Honeybloom Meadow",
+      "nameZh": "蜜花草原",
+      "previousZh": "蜜花草原"
     },
     {
       "id": "map-frostveil-pass",
       "name": "Frostveil Pass",
-      "zh": "霜幕山道",
+      "zh": "霜幕隘口",
       "range": [
         21,
         30
@@ -2187,12 +2559,15 @@
         "monster-snow-owl",
         "monster-aurora-fox",
         "monster-leader-aurora-fox"
-      ]
+      ],
+      "nameEnglish": "Frostveil Pass",
+      "nameZh": "霜幕隘口",
+      "previousZh": "霜幕山道"
     },
     {
       "id": "map-sunscar-desert",
       "name": "Sunscar Desert",
-      "zh": "日灼沙漠",
+      "zh": "日痕沙漠",
       "range": [
         31,
         40
@@ -2203,12 +2578,15 @@
         "monster-sunscale-cobra",
         "monster-cactus-imp",
         "monster-leader-cactus-imp"
-      ]
+      ],
+      "nameEnglish": "Sunscar Desert",
+      "nameZh": "日痕沙漠",
+      "previousZh": "日灼沙漠"
     },
     {
       "id": "map-mirewillow-marsh",
       "name": "Mirewillow Marsh",
-      "zh": "柳泥沼澤",
+      "zh": "沼柳濕地",
       "range": [
         41,
         50
@@ -2220,7 +2598,10 @@
         "monster-mire-jelly",
         "monster-reed-mantis",
         "monster-leader-reed-mantis"
-      ]
+      ],
+      "nameEnglish": "Mirewillow Marsh",
+      "nameZh": "沼柳濕地",
+      "previousZh": "柳泥沼澤"
     },
     {
       "id": "map-elderwood-forest",
@@ -2237,12 +2618,15 @@
         "monster-moon-owl",
         "monster-vine-lynx",
         "monster-leader-vine-lynx"
-      ]
+      ],
+      "nameEnglish": "Elderwood Forest",
+      "nameZh": "古木森林",
+      "previousZh": "古木森林"
     },
     {
       "id": "map-crimson-dunes",
       "name": "Crimson Dunes",
-      "zh": "赤紅沙丘",
+      "zh": "緋紅沙丘",
       "range": [
         61,
         70
@@ -2251,12 +2635,15 @@
         "monster-wild-boar",
         "monster-sand-drake",
         "monster-leader-sand-drake"
-      ]
+      ],
+      "nameEnglish": "Crimson Dunes",
+      "nameZh": "緋紅沙丘",
+      "previousZh": "赤紅沙丘"
     },
     {
       "id": "map-sakuramori-shrine",
       "name": "Sakuramori Shrine",
-      "zh": "櫻守神社",
+      "zh": "櫻森神社",
       "range": [
         71,
         80
@@ -2268,12 +2655,15 @@
         "monster-red-oni",
         "monster-nine-tail-kitsune",
         "monster-leader-nine-tail-kitsune"
-      ]
+      ],
+      "nameEnglish": "Sakuramori Shrine",
+      "nameZh": "櫻森神社",
+      "previousZh": "櫻守神社"
     },
     {
       "id": "map-frostfang-glacier",
       "name": "Frostfang Glacier",
-      "zh": "霜牙冰原",
+      "zh": "霜牙冰川",
       "range": [
         71,
         80
@@ -2282,12 +2672,15 @@
         "monster-cave-bat",
         "monster-pebble-golem",
         "monster-leader-pebble-golem"
-      ]
+      ],
+      "nameEnglish": "Frostfang Glacier",
+      "nameZh": "霜牙冰川",
+      "previousZh": "霜牙冰原"
     },
     {
       "id": "map-emberfall-caldera",
       "name": "Emberfall Caldera",
-      "zh": "餘燼火山",
+      "zh": "落燼火山口",
       "range": [
         81,
         90
@@ -2298,12 +2691,15 @@
         "monster-basalt-tortoise",
         "monster-obsidian-scorpion",
         "monster-leader-obsidian-scorpion"
-      ]
+      ],
+      "nameEnglish": "Emberfall Caldera",
+      "nameZh": "落燼火山口",
+      "previousZh": "餘燼火山"
     },
     {
       "id": "map-gloomveil-moor",
       "name": "Gloomveil Moor",
-      "zh": "幽影荒原",
+      "zh": "幽幕荒原",
       "range": [
         91,
         100
@@ -2314,7 +2710,10 @@
         "monster-bog-wraith",
         "monster-grave-knight",
         "monster-leader-grave-knight"
-      ]
+      ],
+      "nameEnglish": "Gloomveil Moor",
+      "nameZh": "幽幕荒原",
+      "previousZh": "幽影荒原"
     },
     {
       "id": "map-amethyst-hollows",
@@ -2330,12 +2729,15 @@
         "monster-prism-serpent",
         "monster-amethyst-wyvern",
         "monster-leader-amethyst-wyvern"
-      ]
+      ],
+      "nameEnglish": "Amethyst Hollows",
+      "nameZh": "紫晶幽窟",
+      "previousZh": "紫晶幽窟"
     },
     {
       "id": "map-starfall-ruins",
       "name": "Starfall Ruins",
-      "zh": "星落遺跡",
+      "zh": "星隕遺蹟",
       "range": [
         101,
         110
@@ -2346,12 +2748,15 @@
         "monster-cosmic-warden",
         "monster-meteor-behemoth",
         "monster-leader-meteor-behemoth"
-      ]
+      ],
+      "nameEnglish": "Starfall Ruins",
+      "nameZh": "星隕遺蹟",
+      "previousZh": "星落遺跡"
     },
     {
       "id": "map-stormcrest-peaks",
       "name": "Stormcrest Peaks",
-      "zh": "風暴山峰",
+      "zh": "風冠群峰",
       "range": [
         111,
         120
@@ -2362,12 +2767,15 @@
         "monster-cloud-serpent",
         "monster-tempest-drake",
         "monster-leader-tempest-drake"
-      ]
+      ],
+      "nameEnglish": "Stormcrest Peaks",
+      "nameZh": "風冠群峰",
+      "previousZh": "風暴山峰"
     },
     {
       "id": "map-sunfallen-citadel",
       "name": "Sunfallen Citadel",
-      "zh": "落日城塞",
+      "zh": "隕日城塞",
       "range": [
         121,
         130
@@ -2378,12 +2786,15 @@
         "monster-fallen-seraph",
         "monster-sunfire-colossus",
         "monster-leader-sunfire-colossus"
-      ]
+      ],
+      "nameEnglish": "Sunfallen Citadel",
+      "nameZh": "隕日城塞",
+      "previousZh": "落日城塞"
     },
     {
       "id": "map-drowned-sanctum",
       "name": "Drowned Sanctum",
-      "zh": "沉沒聖域",
+      "zh": "沉沒聖所",
       "range": [
         121,
         130
@@ -2394,12 +2805,15 @@
         "monster-tide-siren",
         "monster-dread-kraken",
         "monster-leader-dread-kraken"
-      ]
+      ],
+      "nameEnglish": "Drowned Sanctum",
+      "nameZh": "沉沒聖所",
+      "previousZh": "沉沒聖域"
     },
     {
       "id": "map-iron-graveyard",
       "name": "Iron Graveyard",
-      "zh": "鋼鐵墓場",
+      "zh": "鋼鐵墓地",
       "range": [
         131,
         140
@@ -2410,7 +2824,10 @@
         "monster-bulwark-frame",
         "monster-titan-frame",
         "monster-leader-titan-frame"
-      ]
+      ],
+      "nameEnglish": "Iron Graveyard",
+      "nameZh": "鋼鐵墓地",
+      "previousZh": "鋼鐵墓場"
     },
     {
       "id": "map-shattered-moon",
@@ -2426,7 +2843,10 @@
         "monster-regolith-golem",
         "monster-eclipse-warlord",
         "monster-leader-eclipse-warlord"
-      ]
+      ],
+      "nameEnglish": "Shattered Moon",
+      "nameZh": "破碎之月",
+      "previousZh": "破碎之月"
     }
   ],
   "synonyms": {
@@ -2533,6 +2953,11 @@
 (()=>{'use strict';
 const DB=JSON.parse(document.getElementById('db').textContent);
 const cards=DB.cards,monsters=DB.monsters,maps=DB.maps;
+let displayLang='both';
+try{const v=localStorage.getItem('lumidex-v02-language');if(['both','zh','en'].includes(v))displayLang=v}catch{}
+function displayName(x){return displayLang==='en'?(x.nameEnglish||x.name):(x.nameZh||x.zh||x.name)}
+function markupName(x){const primary=displayName(x),en=x.nameEnglish||x.name;return safe(primary)+(displayLang==='both'&&primary!==en?'<span class="subname" lang="en">'+safe(en)+'</span>':'')}
+
 const idMap=new Map([...cards,...monsters,...maps].map(x=>[x.id,x]));
 const $=s=>document.querySelector(s),$$=s=>Array.from(document.querySelectorAll(s));
 const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -2545,41 +2970,41 @@ function mapForMonster(mon){return maps.find(m=>m.name===mon.map)}
 function cardMaps(c){return [...new Set([...c.relatedMonsters.map(id=>idMap.get(id)?.map),...c.verifiedDrops.map(d=>idMap.get(d.monster)?.map)].filter(Boolean))]}
 function matchingCardMaps(c){return cardMaps(c)}
 function normalize(q){let s=q.trim().toLowerCase().replace(/\s*\+\s*/g,' ').replace(/\s+/g,' ');for(const [canonical,aliases] of Object.entries(DB.synonyms)){for(const a of [canonical,...aliases]){if(s===a.toLowerCase())return canonical.toLowerCase()}}return s}
-function searchTokens(q){const toks=q.trim().replace(/\s+\+\s+/g,' ').split(/\s+/).filter(Boolean);return toks.map(normalize)}
+function searchTokens(q){const expanded=q.replace(/physical\s+(?:pierce|penetration)|armor\s+pierce|物理破防|物理破甲|物理貫通/gi,'物理穿透').replace(/magic\s+pierce|魔法破防|魔法破甲/gi,'魔法穿透');const toks=expanded.trim().replace(/\s+\+\s+/g,' ').split(/\s+/).filter(Boolean);return toks.map(normalize)}
 function includesToken(hay,token){if(!token)return true;const t=token.toLowerCase();if(/^(atk|matk|str|dex|agi|vit|int|luk|crit|flee|hit|aspd|def|mdef|sp|hp)$/.test(t)){const reg=new RegExp('(^|[^a-z])'+t+'([^a-z]|$)','i');return reg.test(hay)}return hay.toLowerCase().includes(t)}
 function matchFields(fields,toks){return toks.every(t=>fields.some(field=>includesToken(field,t)))}
-function cardMatches(c,toks){return matchFields([c.name,c.effect,c.effectOriginal,c.mapHint||''],toks)}
-function monsterMatches(m,toks){const related=cardForMonster(m);return matchFields([m.name,m.map, ...related.map(c=>c.effect)],toks)}
-function mapMatches(m,toks){const relatedMon=monsters.filter(mon=>mon.map===m.name);const relatedCards=cards.filter(c=>cardMaps(c).includes(m.name));return matchFields([m.name,m.zh,...relatedMon.map(x=>x.name),...relatedCards.map(c=>c.effect)],toks)}
+function cardMatches(c,toks){return matchFields([c.name,c.nameZh,c.effect,c.effectOriginal,c.mapHint||'',...cardMaps(c).flatMap(n=>{const m=maps.find(x=>x.name===n);return m?[m.name,m.nameZh]:[]})],toks)}
+function monsterMatches(m,toks){const related=cardForMonster(m),mp=mapForMonster(m);return matchFields([m.name,m.nameZh,m.map,mp?.nameZh,...related.flatMap(c=>[c.name,c.nameZh,c.effect])],toks)}
+function mapMatches(m,toks){const relatedMon=monsters.filter(mon=>mon.map===m.name);const relatedCards=cards.filter(c=>cardMaps(c).includes(m.name));return matchFields([m.name,m.nameZh,m.previousZh,...relatedMon.flatMap(x=>[x.name,x.nameZh]),...relatedCards.flatMap(c=>[c.name,c.nameZh,c.effect])],toks)}
 function cardConfirmed(c){return c.verifiedDrops.length>0||!!c.source}
 function levelFor(c){const nm=c.relatedMonsters.map(id=>idMap.get(id)).find(Boolean);return nm?.level??900}
 function fmtEffect(s){return safe(s).replace(/\b(ATK|MATK|DEX|STR|AGI|INT|VIT|LUK|CRIT|HIT|FLEE|ASPD|DEF|MDEF|HP|SP)\b/g,'<b>$1</b>').replace(/物理穿透|魔法穿透|暴擊傷害|吸血/g,'<b>$&</b>')}
 function titleFor(t){return ({cards:'卡片圖鑑',monsters:'怪物圖鑑',maps:'地圖總覽',favorites:'我的收藏'})[t]}
-function itemCard(c){const m=c.relatedMonsters.map(id=>idMap.get(id)).find(Boolean);const loc=c.mapHint||'來源未確認';const verified=cardConfirmed(c);return `<article class="entry" data-open="${safe(c.id)}"><div class="entry-top"><span class="entry-type">▣ CARD ${verified?'· 已核對':'· 待核對'}</span><button class="iconbtn ${favs.has(c.id)?'saved':''}" data-fav="${safe(c.id)}" title="收藏" aria-label="收藏 ${safe(c.name)}">${favs.has(c.id)?'★':'☆'}</button></div><h3>${safe(c.name)}</h3><div class="effect">${fmtEffect(c.effect)}</div><div class="entry-bottom"><div class="location">⌁ ${safe(loc)}${m?` <span class="smallnote">Lv.${m.level} · 同名怪物關聯${verified?'':'（掉落未核對）'}</span>`: `<span class="smallnote">${safe(c.source||'暫無地圖資料')}</span>`}</div><div class="entry-actions"><button class="iconbtn ${selected.has(c.id)?'compareon':''}" data-compare="${safe(c.id)}" aria-label="加入比較" title="比較">⚖</button></div></div></article>`}
-function itemMonster(m){const map=mapForMonster(m),mCards=cardForMonster(m),confirmed=mCards.filter(c=>c.verifiedDrops.some(d=>d.monster===m.id));return `<article class="entry" data-open="${safe(m.id)}"><div class="entry-top"><span class="entry-type m">♟ ${m.leader?'LEADER':'MONSTER'}</span><span class="location">Lv.${m.level}</span></div><h3>${safe(m.name)}</h3><div class="effect">${mCards.length?`${mCards.map(c=>fmtEffect(c.effect)).join('<br>')}`:'尚無已索引的相關卡片'}</div><div class="entry-bottom"><div class="location">⌁ ${safe(map?.zh||m.map)} <span class="smallnote">${safe(m.map)} · ${confirmed.length?'已核對卡片掉落':'同名卡片關聯待核對'}</span></div><div class="entry-actions"><button class="iconbtn ${favs.has(m.id)?'saved':''}" data-fav="${safe(m.id)}" title="收藏" aria-label="收藏">${favs.has(m.id)?'★':'☆'}</button></div></div></article>`}
-function itemMap(m,toks){const relatedMon=monsters.filter(mon=>mon.map===m.name);const relatedCards=cards.filter(c=>cardMaps(c).includes(m.name));const hitCards=toks.length?relatedCards.filter(c=>cardMatches(c,toks)):relatedCards;return `<article class="entry" data-open="${safe(m.id)}"><div class="entry-top"><span class="entry-type p">⌁ MAP</span><span class="location">Lv.${m.range[0]}–${m.range[1]}</span></div><h3>${safe(m.zh)} <span style="font-size:12px;font-weight:500;display:block">${safe(m.name)}</span></h3><div class="effect">${relatedMon.length} 種怪物（含 Leader）<br>${toks.length?`符合屬性的關聯卡片 ${hitCards.length} 張`:`同名怪物關聯卡片 ${relatedCards.length} 張`}</div><div class="entry-bottom"><div class="location">點開查看怪物與卡片<span class="smallnote">中文地圖名稱為本站暫譯</span></div><div class="entry-actions"><button class="iconbtn ${favs.has(m.id)?'saved':''}" data-fav="${safe(m.id)}" title="收藏" aria-label="收藏">${favs.has(m.id)?'★':'☆'}</button></div></div></article>`}
+function itemCard(c){const m=c.relatedMonsters.map(id=>idMap.get(id)).find(Boolean);const target=c.mapHint||'來源未確認',mappedLoc=maps.find(x=>x.name===target),loc=mappedLoc?displayName(mappedLoc):target;const verified=cardConfirmed(c);return `<article class="entry" data-open="${safe(c.id)}"><div class="entry-top"><span class="entry-type">▣ CARD ${verified?'· 已核對':'· 待核對'}</span><button class="iconbtn ${favs.has(c.id)?'saved':''}" data-fav="${safe(c.id)}" title="收藏" aria-label="收藏 ${safe(displayName(c))}">${favs.has(c.id)?'★':'☆'}</button></div><h3>${markupName(c)}</h3><div class="effect">${fmtEffect(c.effect)}</div><div class="entry-bottom"><div class="location">⌁ ${safe(loc)}${m?` <span class="smallnote">Lv.${m.level} · 同名怪物關聯${verified?'':'（掉落未核對）'}</span>`: `<span class="smallnote">${safe(c.source||'暫無地圖資料')}</span>`}</div><div class="entry-actions"><button class="iconbtn ${selected.has(c.id)?'compareon':''}" data-compare="${safe(c.id)}" aria-label="加入比較" title="比較">⚖</button></div></div></article>`}
+function itemMonster(m){const map=mapForMonster(m),mCards=cardForMonster(m),confirmed=mCards.filter(c=>c.verifiedDrops.some(d=>d.monster===m.id));return `<article class="entry" data-open="${safe(m.id)}"><div class="entry-top"><span class="entry-type m">♟ ${m.leader?'LEADER':'MONSTER'}</span><span class="location">Lv.${m.level}</span></div><h3>${markupName(m)}</h3><div class="effect">${mCards.length?`${mCards.map(c=>fmtEffect(c.effect)).join('<br>')}`:'尚無已索引的相關卡片'}</div><div class="entry-bottom"><div class="location">⌁ ${safe(map?displayName(map):m.map)} <span class="smallnote">${safe(m.map)} · ${confirmed.length?'已核對卡片掉落':'同名卡片關聯待核對'}</span></div><div class="entry-actions"><button class="iconbtn ${favs.has(m.id)?'saved':''}" data-fav="${safe(m.id)}" title="收藏" aria-label="收藏">${favs.has(m.id)?'★':'☆'}</button></div></div></article>`}
+function itemMap(m,toks){const relatedMon=monsters.filter(mon=>mon.map===m.name);const relatedCards=cards.filter(c=>cardMaps(c).includes(m.name));const hitCards=toks.length?relatedCards.filter(c=>cardMatches(c,toks)):relatedCards;return `<article class="entry" data-open="${safe(m.id)}"><div class="entry-top"><span class="entry-type p">⌁ MAP</span><span class="location">Lv.${m.range[0]}–${m.range[1]}</span></div><h3>${markupName(m)}</h3><div class="effect">${relatedMon.length} 種怪物（含 Leader）<br>${toks.length?`符合屬性的關聯卡片 ${hitCards.length} 張`:`同名怪物關聯卡片 ${relatedCards.length} 張`}</div><div class="entry-bottom"><div class="location">點開查看怪物與卡片<span class="smallnote">中文名稱依玩家詞彙整理，仍待校對</span></div><div class="entry-actions"><button class="iconbtn ${favs.has(m.id)?'saved':''}" data-fav="${safe(m.id)}" title="收藏" aria-label="收藏">${favs.has(m.id)?'★':'☆'}</button></div></div></article>`}
 function setTab(t){tab=t;$$('[data-nav]').forEach(el=>el.classList.toggle('active',el.dataset.nav===t));render()}
 function render(){const toks=searchTokens(query),isFav=tab==='favorites';let coll=[];
 if(tab==='cards'||isFav){coll=cards.filter(c=>(!isFav||favs.has(c.id))&&(!onlyVerified||cardConfirmed(c))&&(!mapFilter||cardMaps(c).includes(mapFilter))&&cardMatches(c,toks))}
 if(tab==='monsters'){coll=monsters.filter(m=>(!mapFilter||m.map===mapFilter)&&monsterMatches(m,toks)&&(!onlyVerified||cardForMonster(m).some(c=>c.verifiedDrops.some(d=>d.monster===m.id))))}
 if(tab==='maps'){coll=maps.filter(m=>!mapFilter||m.name===mapFilter).filter(m=>mapMatches(m,toks))}
 if(isFav){coll.push(...monsters.filter(m=>favs.has(m.id)&&(!mapFilter||m.map===mapFilter)&&monsterMatches(m,toks)),...maps.filter(m=>favs.has(m.id)&&(!mapFilter||m.name===mapFilter)&&mapMatches(m,toks)))}
-coll.sort((a,b)=>{if(sort==='name')return a.name.localeCompare(b.name);if(sort==='reverse')return b.name.localeCompare(a.name);const lv=x=>x.range?.[0]??x.level??levelFor(x);return lv(a)-lv(b)||a.name.localeCompare(b.name)});
+coll.sort((a,b)=>{if(sort==='name')return displayName(a).localeCompare(displayName(b));if(sort==='reverse')return displayName(b).localeCompare(displayName(a));const lv=x=>x.range?.[0]??x.level??levelFor(x);return lv(a)-lv(b)||a.name.localeCompare(b.name)});
 $('#result-title').firstChild.textContent=titleFor(tab)+' ';$('#result-count').textContent=`${coll.length} 筆結果`;
 $('#results').innerHTML=coll.length?coll.map(x=>x.id.startsWith('card-')?itemCard(x):x.id.startsWith('monster-')?itemMonster(x):itemMap(x,toks)).join(''):`<div class="empty"><strong>沒有找到符合的資料</strong>可嘗試換成 ATK、DEX、物理穿透，或清除地圖篩選。</div>`;
 $('#clear').classList.toggle('visible',!!query);$('#onlyverified').closest('label').classList.toggle('hide',tab==='maps'||tab==='favorites');$('#favnum').textContent=favs.size;$('#chips').querySelectorAll('button').forEach(b=>b.classList.toggle('active',query===b.dataset.keyword));$('#compbar').classList.toggle('show',selected.size>0);$('#compcount').textContent=`已選擇 ${selected.size}/4 張卡片`;
 }
 function showOverlay(markup,caption){$('#drawer-caption').textContent=caption;$('#detail').innerHTML=markup;$('#overlay').classList.add('open');document.body.style.overflow='hidden';$('#drawer').scrollTop=0;$('#close').focus()}
 function hideOverlay(clearHash=false){$('#overlay').classList.remove('open');document.body.style.overflow='';if(clearHash&&location.hash.startsWith('#detail=')){try{history.replaceState(null,'',location.pathname+location.search)}catch{location.hash=''}}}
-function linkrow(id,main,secondary){return `<button class="linkrow" data-goto="${safe(id)}"><span><strong>${safe(main)}</strong>${secondary?`<small>${safe(secondary)}</small>`:''}</span><span class="arrow">›</span></button>`}
+function linkrow(id,main,secondary){const item=idMap.get(id),original=item&&displayLang==='both'&&displayName(item)!==(item.nameEnglish||item.name)?'<small lang="en">'+safe(item.nameEnglish||item.name)+'</small>':'';return `<button class="linkrow" data-goto="${safe(id)}"><span><strong>${safe(main)}</strong>${original}${secondary?`<small>${safe(secondary)}</small>`:''}</span><span class="arrow">›</span></button>`}
 function renderDetail(id){const item=idMap.get(id);if(!item){hideOverlay();return}let markup='';
-if(id.startsWith('card-')){const c=item,rel=cards.find(x=>x.id===c.id),names=rel.relatedMonsters.map(x=>idMap.get(x)).filter(Boolean),drops=rel.verifiedDrops.map(d=>({...d,mon:idMap.get(d.monster)})).filter(d=>d.mon);markup=`<h2 id="drawer-title">${safe(c.name)}</h2><p>怪物卡片 · ${c.special?'特殊技能型':'能力值增益'}</p><div class="drawer-section"><h3>卡片效果</h3><div class="detail-effect">${fmtEffect(c.effect)}</div>${c.special?`<p>官方索引僅提供特殊技能名稱「${safe(c.effectOriginal)}」，完整效果需進入官方頁查看，本站暫不推測。</p>`:''}${c.slot?`<div class="detail-tags"><span class="tag">裝備部位：${safe(c.slot)}</span></div>`:''}</div><div class="drawer-section"><h3>來源 / 掉落資訊</h3>${drops.length?`<div class="rows">${drops.map(d=>linkrow(d.mon.id,d.mon.name+' · Lv.'+d.mon.level,`${d.mon.map} · 掉落率 ${d.rate}%`)).join('')}</div>`:(c.source?`<div class="notice">${safe(c.source)}</div>`:`<div class="notice">目前僅有官方卡片索引資料。${names.length?'已找到同名怪物，但尚未逐張核對實際掉落率，請勿將關聯視為確認掉落。':'尚無已確認的野外掉落來源。'}</div>`)}${(!drops.length&&names.length)?`<div class="rows" style="margin-top:10px">${names.map(m=>linkrow(m.id,m.name+' · Lv.'+m.level,m.map+' · 同名怪物（尚未核對掉落）')).join('')}</div>`:''}</div>${cardMaps(c).length?`<div class="drawer-section"><h3>關聯地圖</h3><div class="rows">${cardMaps(c).map(n=>{const m=maps.find(m=>m.name===n);return linkrow(m.id,m.zh+' · Lv.'+m.range.join('–'),m.name)}).join('')}</div></div>`:''}<div class="actionbar"><button class="primary" data-fav="${safe(id)}">${favs.has(id)?'★ 已收藏':'☆ 加入收藏'}</button><button class="secondary" data-compare="${safe(id)}">⚖ ${selected.has(id)?'移出比較':'加入比較'}</button><a href="${safe(c.wiki)}" class="secondary" target="_blank" rel="noopener noreferrer">官方${c.wiki.endsWith('/cards/')?'卡片索引':'卡片詳情'} ↗</a></div>`}
-else if(id.startsWith('monster-')){const m=item,mp=mapForMonster(m),cList=cardForMonster(m);markup=`<h2 id="drawer-title">${safe(m.name)}</h2><p>Lv.${m.level} · ${m.leader?'地圖 Leader':'一般怪物'}</p><div class="drawer-section"><h3>出沒地圖</h3><div class="rows">${mp?linkrow(mp.id,mp.zh+' · Lv.'+mp.range.join('–'),mp.name):safe(m.map)}</div></div><div class="drawer-section"><h3>同名卡片 / 相關卡片</h3>${cList.length?`<div class="rows">${cList.map(c=>linkrow(c.id,c.name,`${c.effect} · ${c.verifiedDrops.some(d=>d.monster===m.id)?'已核對掉落':'掉落尚未核對'}`)).join('')}</div>`:`<p>暫無相符卡片。</p>`}</div><div class="notice">此版已建立怪物等級、地圖與卡片索引；完整怪物 HP、元素和其他掉落表尚未整合。</div><div class="actionbar"><button class="primary" data-fav="${safe(id)}">${favs.has(id)?'★ 已收藏':'☆ 加入收藏'}</button><a class="secondary" href="${safe(DB.meta.monsterIndex)}" target="_blank" rel="noopener">官方怪物列表 ↗</a></div>`}
-else {const m=item,relatedMon=monsters.filter(x=>x.map===m.name),relatedCards=cards.filter(c=>cardMaps(c).includes(m.name));markup=`<h2 id="drawer-title">${safe(m.zh)}</h2><p>${safe(m.name)} · Lv.${m.range.join('–')} · 中文名稱為本站暫譯</p><div class="drawer-section"><h3>出沒怪物 · ${relatedMon.length}</h3><div class="rows">${relatedMon.map(x=>linkrow(x.id,x.name+' · Lv.'+x.level,x.leader?'Leader':'一般怪物')).join('')}</div></div><div class="drawer-section"><h3>關聯卡片 · ${relatedCards.length}</h3><div class="rows">${relatedCards.map(c=>linkrow(c.id,c.name,`${c.effect} · ${c.verifiedDrops.some(d=>idMap.get(d.monster)?.map===m.name)?'已核對掉落':'掉落尚未核對'}`)).join('')}</div></div><div class="actionbar"><button class="primary" data-fav="${safe(id)}">${favs.has(id)?'★ 已收藏':'☆ 加入收藏'}</button><a class="secondary" href="${safe(DB.meta.mapIndex)}" target="_blank" rel="noopener">官方地圖列表 ↗</a></div>`}
+if(id.startsWith('card-')){const c=item,rel=cards.find(x=>x.id===c.id),names=rel.relatedMonsters.map(x=>idMap.get(x)).filter(Boolean),drops=rel.verifiedDrops.map(d=>({...d,mon:idMap.get(d.monster)})).filter(d=>d.mon);markup=`<h2 id="drawer-title">${markupName(c)}</h2><p>怪物卡片 · ${c.special?'特殊技能型':'能力值增益'}</p><div class="drawer-section"><h3>卡片效果</h3><div class="detail-effect">${fmtEffect(c.effect)}</div>${c.special?`<p>官方索引僅提供特殊技能名稱「${safe(c.effectOriginal)}」，完整效果需進入官方頁查看，本站暫不推測。</p>`:''}${c.slot?`<div class="detail-tags"><span class="tag">裝備部位：${safe(c.slot)}</span></div>`:''}</div><div class="drawer-section"><h3>來源 / 掉落資訊</h3>${drops.length?`<div class="rows">${drops.map(d=>linkrow(d.mon.id,displayName(d.mon)+' · Lv.'+d.mon.level,`${d.mon.map} · 掉落率 ${d.rate}%`)).join('')}</div>`:(c.source?`<div class="notice">${safe(c.source)}</div>`:`<div class="notice">目前僅有官方卡片索引資料。${names.length?'已找到同名怪物，但尚未逐張核對實際掉落率，請勿將關聯視為確認掉落。':'尚無已確認的野外掉落來源。'}</div>`)}${(!drops.length&&names.length)?`<div class="rows" style="margin-top:10px">${names.map(m=>linkrow(m.id,displayName(m)+' · Lv.'+m.level,m.map+' · 同名怪物（尚未核對掉落）')).join('')}</div>`:''}</div>${cardMaps(c).length?`<div class="drawer-section"><h3>關聯地圖</h3><div class="rows">${cardMaps(c).map(n=>{const m=maps.find(m=>m.name===n);return linkrow(m.id,displayName(m)+' · Lv.'+m.range.join('–'),m.name)}).join('')}</div></div>`:''}<div class="actionbar"><button class="primary" data-fav="${safe(id)}">${favs.has(id)?'★ 已收藏':'☆ 加入收藏'}</button><button class="secondary" data-compare="${safe(id)}">⚖ ${selected.has(id)?'移出比較':'加入比較'}</button><a href="${safe(c.wiki)}" class="secondary" target="_blank" rel="noopener noreferrer">官方${c.wiki.endsWith('/cards/')?'卡片索引':'卡片詳情'} ↗</a></div>`}
+else if(id.startsWith('monster-')){const m=item,mp=mapForMonster(m),cList=cardForMonster(m);markup=`<h2 id="drawer-title">${markupName(m)}</h2><p>Lv.${m.level} · ${m.leader?'地圖 Leader':'一般怪物'}</p><div class="drawer-section"><h3>出沒地圖</h3><div class="rows">${mp?linkrow(mp.id,displayName(mp)+' · Lv.'+mp.range.join('–'),mp.name):safe(m.map)}</div></div><div class="drawer-section"><h3>同名卡片 / 相關卡片</h3>${cList.length?`<div class="rows">${cList.map(c=>linkrow(c.id,displayName(c),`${c.effect} · ${c.verifiedDrops.some(d=>d.monster===m.id)?'已核對掉落':'掉落尚未核對'}`)).join('')}</div>`:`<p>暫無相符卡片。</p>`}</div><div class="notice">此版已建立怪物等級、地圖與卡片索引；完整怪物 HP、元素和其他掉落表尚未整合。</div><div class="actionbar"><button class="primary" data-fav="${safe(id)}">${favs.has(id)?'★ 已收藏':'☆ 加入收藏'}</button><a class="secondary" href="${safe(DB.meta.monsterIndex)}" target="_blank" rel="noopener">官方怪物列表 ↗</a></div>`}
+else {const m=item,relatedMon=monsters.filter(x=>x.map===m.name),relatedCards=cards.filter(c=>cardMaps(c).includes(m.name));markup=`<h2 id="drawer-title">${markupName(m)}</h2><p>Lv.${m.range.join('–')} · 中文名稱為本站暫譯</p><div class="drawer-section"><h3>出沒怪物 · ${relatedMon.length}</h3><div class="rows">${relatedMon.map(x=>linkrow(x.id,displayName(x)+' · Lv.'+x.level,x.leader?'Leader':'一般怪物')).join('')}</div></div><div class="drawer-section"><h3>關聯卡片 · ${relatedCards.length}</h3><div class="rows">${relatedCards.map(c=>linkrow(c.id,displayName(c),`${c.effect} · ${c.verifiedDrops.some(d=>idMap.get(d.monster)?.map===m.name)?'已核對掉落':'掉落尚未核對'}`)).join('')}</div></div><div class="actionbar"><button class="primary" data-fav="${safe(id)}">${favs.has(id)?'★ 已收藏':'☆ 加入收藏'}</button><a class="secondary" href="${safe(DB.meta.mapIndex)}" target="_blank" rel="noopener">官方地圖列表 ↗</a></div>`}
 showOverlay(markup,id.startsWith('card-')?'CARD DETAILS':id.startsWith('monster-')?'MONSTER DETAILS':'MAP DETAILS')}
 function navigateDetail(id){if(!idMap.has(id))return;const hash='#detail='+encodeURIComponent(id);if(location.hash===hash){renderDetail(id)}else{location.hash=hash}}
 function hashRoute(){const hash=location.hash;if(hash.startsWith('#detail=')){const id=decodeURIComponent(hash.slice(8));renderDetail(id)}else hideOverlay()}
-function compareView(){const c=[...selected].map(x=>idMap.get(x)).filter(Boolean);if(!c.length)return;let markup=`<h2 id="drawer-title">卡片能力比較</h2><p>最多可比較四張卡片。此版僅比較官方索引列出的文字效果。</p><div class="compare-grid"><table><thead><tr><th>卡片</th>${c.map(x=>`<th>${safe(x.name)}</th>`).join('')}</tr></thead><tbody><tr><th>效果</th>${c.map(x=>`<td>${fmtEffect(x.effect)}</td>`).join('')}</tr><tr><th>關聯地圖</th>${c.map(x=>`<td>${safe(cardMaps(x).join('、')||'未確認')}</td>`).join('')}</tr><tr><th>核對</th>${c.map(x=>`<td>${cardConfirmed(x)?'已核對部分來源':'尚未核對'}</td>`).join('')}</tr></tbody></table></div><div class="actionbar"><button class="secondary" id="clear-compare">清空比較</button></div>`;showOverlay(markup,'COMPARE CARDS')}
+function compareView(){const c=[...selected].map(x=>idMap.get(x)).filter(Boolean);if(!c.length)return;let markup=`<h2 id="drawer-title">卡片能力比較</h2><p>最多可比較四張卡片。此版僅比較官方索引列出的文字效果。</p><div class="compare-grid"><table><thead><tr><th>卡片</th>${c.map(x=>`<th>${markupName(x)}</th>`).join('')}</tr></thead><tbody><tr><th>效果</th>${c.map(x=>`<td>${fmtEffect(x.effect)}</td>`).join('')}</tr><tr><th>關聯地圖</th>${c.map(x=>`<td>${safe(cardMaps(x).join('、')||'未確認')}</td>`).join('')}</tr><tr><th>核對</th>${c.map(x=>`<td>${cardConfirmed(x)?'已核對部分來源':'尚未核對'}</td>`).join('')}</tr></tbody></table></div><div class="actionbar"><button class="secondary" id="clear-compare">清空比較</button></div>`;showOverlay(markup,'COMPARE CARDS')}
 $$('[data-nav]').forEach(el=>el.addEventListener('click',()=>setTab(el.dataset.nav)));
 $$('[data-quick]').forEach(el=>el.addEventListener('click',()=>{setTab('cards');$('#search').value=el.dataset.quick;query=el.dataset.quick;render()}));
 $('#search').addEventListener('input',e=>{query=e.target.value;render()});$('#clear').addEventListener('click',()=>{$('#search').value='';query='';render();$('#search').focus()});
@@ -2589,7 +3014,8 @@ document.addEventListener('click',e=>{const target=e.target.closest('[data-fav],
 $('#close').addEventListener('click',()=>{hideOverlay(true)});$('#overlay').addEventListener('click',e=>{if(e.target===$('#overlay'))hideOverlay(true)});
 $('#compare-btn').addEventListener('click',compareView);$('#detail').addEventListener('click',e=>{if(e.target.id==='clear-compare'){selected.clear();render();hideOverlay()}});
 window.addEventListener('hashchange',hashRoute);document.addEventListener('keydown',e=>{if(e.key==='Escape'){if($('#overlay').classList.contains('open'))hideOverlay(true);else{$('#search').blur()}}else if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();$('#search').focus()}});
-for(const m of maps){const op=document.createElement('option');op.value=m.name;op.textContent=`Lv.${m.range[0]}–${m.range[1]} · ${m.zh}`;$('#mapfilter').appendChild(op)}
+function buildMapOptions(){const el=$('#mapfilter'),prev=el.value;el.innerHTML='<option value="">所有地圖</option>';for(const m of maps){const op=document.createElement('option');op.value=m.name;op.textContent=`Lv.${m.range[0]}–${m.range[1]} · ${displayName(m)}`;el.appendChild(op)}el.value=prev}
+$('#lang').value=displayLang;$('#lang').addEventListener('change',e=>{displayLang=e.target.value;try{localStorage.setItem('lumidex-v02-language',displayLang)}catch{}buildMapOptions();render();if($('#overlay').classList.contains('open')&&location.hash.startsWith('#detail='))renderDetail(decodeURIComponent(location.hash.slice(8)))});buildMapOptions();
 $('#c-card').textContent=cards.length;$('#c-mon').textContent=monsters.length;$('#c-map').textContent=maps.length;render();hashRoute();
 })();
 </script>
