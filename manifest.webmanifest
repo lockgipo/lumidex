@@ -1,0 +1,10 @@
+{
+  "name": "LumiDex — Lumivara 繁中圖鑑",
+  "short_name": "LumiDex",
+  "lang": "zh-Hant",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b101c",
+  "theme_color": "#101525"
+}
