@@ -7,15 +7,18 @@
     "cardIndex": "https://lumivaraonline.com/wiki/cards/",
     "monsterIndex": "https://lumivaraonline.com/wiki/monsters/",
     "mapIndex": "https://lumivaraonline.com/wiki/maps/",
-    "checked": "2026-11-07",
-    "version": "0.2.0",
+    "checked": "2026-11-08",
+    "version": "0.3.0",
     "localized": {
       "cards": 88,
       "monsters": 90,
       "maps": 18,
       "language": "zh-Hant",
       "source": "V107 player terminology: names only; pending review"
-    }
+    },
+    "materials": 72,
+    "verifiedCards": 72,
+    "sourceNote": "Official Wiki displayed card slots, card NPC sell values and material vendor prices. Not player-to-player market prices."
   },
   "cards": [
     {
@@ -28,13 +31,24 @@
       "relatedMonsters": [
         "monster-prism-hopper"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-prism-hopper",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "所有部位",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/hopper_card/",
       "nameEnglish": "Prism Hopper Card",
-      "nameZh": "稜晶跳蟲卡片"
+      "nameZh": "稜晶跳蟲卡片",
+      "slotList": [
+        "所有部位"
+      ],
+      "tier": "Tier C",
+      "npcSell": 150,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-hollow",
@@ -46,11 +60,22 @@
       "relatedMonsters": [],
       "verifiedDrops": [],
       "dropVerified": false,
-      "slot": null,
-      "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "slot": "所有部位",
+      "source": "官方列出 Hollow（掉率 0.01%）；未列入目前地圖怪物索引。",
+      "wiki": "https://lumivaraonline.com/wiki/cards/hollow_card/",
       "nameEnglish": "Hollow Card",
-      "nameZh": "空洞幽魂卡片"
+      "nameZh": "空洞幽魂卡片",
+      "slotList": [
+        "所有部位"
+      ],
+      "tier": "Tier C",
+      "npcSell": 250,
+      "cardPackRate": 2.777778,
+      "specialDrop": {
+        "sourceName": "Hollow",
+        "rate": 0.01,
+        "note": "官方列出 Hollow，未納入本站 90 種野外怪物索引"
+      }
     },
     {
       "id": "card-crowned-prism-hopper",
@@ -62,11 +87,17 @@
       "relatedMonsters": [],
       "verifiedDrops": [],
       "dropVerified": false,
-      "slot": null,
-      "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "slot": "飾品",
+      "source": "未列出一般怪物掉落（請查看官方來源）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/boss_card/",
       "nameEnglish": "Crowned Prism Hopper Card",
-      "nameZh": "冠冕稜晶跳蟲卡片"
+      "nameZh": "冠冕稜晶跳蟲卡片",
+      "slotList": [
+        "飾品"
+      ],
+      "tier": null,
+      "npcSell": 3000,
+      "cardPackRate": null
     },
     {
       "id": "card-moss-mushroom",
@@ -78,13 +109,24 @@
       "relatedMonsters": [
         "monster-moss-mushroom"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-moss-mushroom",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "所有部位",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/mushroom_card/",
       "nameEnglish": "Moss Mushroom Card",
-      "nameZh": "苔蘚蘑菇卡片"
+      "nameZh": "苔蘚蘑菇卡片",
+      "slotList": [
+        "所有部位"
+      ],
+      "tier": "Tier C",
+      "npcSell": 200,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-cave-bat",
@@ -96,13 +138,24 @@
       "relatedMonsters": [
         "monster-cave-bat"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-cave-bat",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "所有部位",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/bat_card/",
       "nameEnglish": "Cave Bat Card",
-      "nameZh": "洞穴蝙蝠卡片"
+      "nameZh": "洞穴蝙蝠卡片",
+      "slotList": [
+        "所有部位"
+      ],
+      "tier": "Tier B",
+      "npcSell": 220,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-amber-beetle",
@@ -114,13 +167,26 @@
       "relatedMonsters": [
         "monster-amber-beetle"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-amber-beetle",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "左手、身體護甲、披風",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/beetle_card/",
       "nameEnglish": "Amber Beetle Card",
-      "nameZh": "琥珀甲蟲卡片"
+      "nameZh": "琥珀甲蟲卡片",
+      "slotList": [
+        "左手",
+        "身體護甲",
+        "披風"
+      ],
+      "tier": "Tier C",
+      "npcSell": 220,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-tide-crab",
@@ -132,13 +198,26 @@
       "relatedMonsters": [
         "monster-tide-crab"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-tide-crab",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "身體護甲、披風、鞋子",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/crab_card/",
       "nameEnglish": "Tide Crab Card",
-      "nameZh": "潮汐蟹卡片"
+      "nameZh": "潮汐蟹卡片",
+      "slotList": [
+        "身體護甲",
+        "披風",
+        "鞋子"
+      ],
+      "tier": "Tier B",
+      "npcSell": 250,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-leaf-sprout",
@@ -150,13 +229,24 @@
       "relatedMonsters": [
         "monster-leaf-sprout"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-leaf-sprout",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "所有部位",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/sprout_card/",
       "nameEnglish": "Leaf Sprout Card",
-      "nameZh": "嫩芽卡片"
+      "nameZh": "嫩芽卡片",
+      "slotList": [
+        "所有部位"
+      ],
+      "tier": "Tier C",
+      "npcSell": 180,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-dew-bunny",
@@ -168,13 +258,24 @@
       "relatedMonsters": [
         "monster-dew-bunny"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-dew-bunny",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "所有部位",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/bunny_card/",
       "nameEnglish": "Dew Bunny Card",
-      "nameZh": "露珠兔卡片"
+      "nameZh": "露珠兔卡片",
+      "slotList": [
+        "所有部位"
+      ],
+      "tier": "Tier C",
+      "npcSell": 190,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-thorn-pixie",
@@ -186,13 +287,26 @@
       "relatedMonsters": [
         "monster-thorn-pixie"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-thorn-pixie",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器、左手、飾品",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/pixie_card/",
       "nameEnglish": "Thorn Pixie Card",
-      "nameZh": "荊棘妖精卡片"
+      "nameZh": "荊棘妖精卡片",
+      "slotList": [
+        "武器",
+        "左手",
+        "飾品"
+      ],
+      "tier": "Tier C",
+      "npcSell": 210,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-rootling",
@@ -204,13 +318,26 @@
       "relatedMonsters": [
         "monster-rootling"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-rootling",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "身體護甲、披風、鞋子",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/rootling_card/",
       "nameEnglish": "Rootling Card",
-      "nameZh": "樹根靈卡片"
+      "nameZh": "樹根靈卡片",
+      "slotList": [
+        "身體護甲",
+        "披風",
+        "鞋子"
+      ],
+      "tier": "Tier C",
+      "npcSell": 220,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-honey-moth",
@@ -229,11 +356,17 @@
         }
       ],
       "dropVerified": true,
-      "slot": "全部部位",
+      "slot": "所有部位",
       "source": null,
       "wiki": "https://lumivaraonline.com/wiki/cards/moth_card/",
       "nameEnglish": "Honey Moth Card",
-      "nameZh": "蜜蛾卡片"
+      "nameZh": "蜜蛾卡片",
+      "slotList": [
+        "所有部位"
+      ],
+      "tier": "Tier C",
+      "npcSell": 220,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-bramble-hare",
@@ -245,13 +378,25 @@
       "relatedMonsters": [
         "monster-bramble-hare"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-bramble-hare",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "身體護甲、披風",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/hare_card/",
       "nameEnglish": "Bramble Hare Card",
-      "nameZh": "荊棘兔卡片"
+      "nameZh": "荊棘兔卡片",
+      "slotList": [
+        "身體護甲",
+        "披風"
+      ],
+      "tier": "Tier C",
+      "npcSell": 230,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-frost-puff",
@@ -263,13 +408,26 @@
       "relatedMonsters": [
         "monster-frost-puff"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-frost-puff",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "身體護甲、披風、鞋子",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/puff_card/",
       "nameEnglish": "Frost Puff Card",
-      "nameZh": "霜絨球卡片"
+      "nameZh": "霜絨球卡片",
+      "slotList": [
+        "身體護甲",
+        "披風",
+        "鞋子"
+      ],
+      "tier": "Tier C",
+      "npcSell": 300,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-icicle-hare",
@@ -281,13 +439,24 @@
       "relatedMonsters": [
         "monster-icicle-hare"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-icicle-hare",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "頭部上層",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/icicle_card/",
       "nameEnglish": "Icicle Hare Card",
-      "nameZh": "冰錐兔卡片"
+      "nameZh": "冰錐兔卡片",
+      "slotList": [
+        "頭部上層"
+      ],
+      "tier": "Tier C",
+      "npcSell": 320,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-snow-owl",
@@ -299,13 +468,26 @@
       "relatedMonsters": [
         "monster-snow-owl"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-snow-owl",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "頭部上層、頭部中層、頭部下層",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/snowowl_card/",
       "nameEnglish": "Snow Owl Card",
-      "nameZh": "雪梟卡片"
+      "nameZh": "雪梟卡片",
+      "slotList": [
+        "頭部上層",
+        "頭部中層",
+        "頭部下層"
+      ],
+      "tier": "Tier C",
+      "npcSell": 340,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-aurora-fox",
@@ -317,13 +499,26 @@
       "relatedMonsters": [
         "monster-aurora-fox"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-aurora-fox",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器、左手、飾品",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/fox_card/",
       "nameEnglish": "Aurora Fox Card",
-      "nameZh": "極光狐卡片"
+      "nameZh": "極光狐卡片",
+      "slotList": [
+        "武器",
+        "左手",
+        "飾品"
+      ],
+      "tier": "Tier C",
+      "npcSell": 360,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-dune-gecko",
@@ -335,13 +530,24 @@
       "relatedMonsters": [
         "monster-dune-gecko"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-dune-gecko",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "鞋子",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/gecko_card/",
       "nameEnglish": "Dune Gecko Card",
-      "nameZh": "沙丘壁虎卡片"
+      "nameZh": "沙丘壁虎卡片",
+      "slotList": [
+        "鞋子"
+      ],
+      "tier": "Tier C",
+      "npcSell": 420,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-scarab-sentinel",
@@ -353,13 +559,27 @@
       "relatedMonsters": [
         "monster-scarab-sentinel"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-scarab-sentinel",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器、身體護甲、披風、鞋子",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/scarab_card/",
       "nameEnglish": "Scarab Sentinel Card",
-      "nameZh": "聖甲蟲守衛卡片"
+      "nameZh": "聖甲蟲守衛卡片",
+      "slotList": [
+        "武器",
+        "身體護甲",
+        "披風",
+        "鞋子"
+      ],
+      "tier": "Tier C",
+      "npcSell": 450,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-sunscale-cobra",
@@ -371,13 +591,26 @@
       "relatedMonsters": [
         "monster-sunscale-cobra"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-sunscale-cobra",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器、左手、飾品",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/cobra_card/",
       "nameEnglish": "Sunscale Cobra Card",
-      "nameZh": "日鱗眼鏡蛇卡片"
+      "nameZh": "日鱗眼鏡蛇卡片",
+      "slotList": [
+        "武器",
+        "左手",
+        "飾品"
+      ],
+      "tier": "Tier C",
+      "npcSell": 470,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-cactus-imp",
@@ -389,13 +622,25 @@
       "relatedMonsters": [
         "monster-cactus-imp"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-cactus-imp",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器、左手",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/cactus_card/",
       "nameEnglish": "Cactus Imp Card",
-      "nameZh": "仙人掌小鬼卡片"
+      "nameZh": "仙人掌小鬼卡片",
+      "slotList": [
+        "武器",
+        "左手"
+      ],
+      "tier": "Tier C",
+      "npcSell": 490,
+      "cardPackRate": 2.777778
     },
     {
       "id": "card-bog-toad",
@@ -407,13 +652,26 @@
       "relatedMonsters": [
         "monster-bog-toad"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-bog-toad",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "身體護甲、披風、鞋子",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/toad_card/",
       "nameEnglish": "Bog Toad Card",
-      "nameZh": "沼澤蟾蜍卡片"
+      "nameZh": "沼澤蟾蜍卡片",
+      "slotList": [
+        "身體護甲",
+        "披風",
+        "鞋子"
+      ],
+      "tier": "Tier B",
+      "npcSell": 540,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-mud-newt",
@@ -425,13 +683,24 @@
       "relatedMonsters": [
         "monster-mud-newt"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-mud-newt",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "所有部位",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/newt_card/",
       "nameEnglish": "Mud Newt Card",
-      "nameZh": "泥沼蠑螈卡片"
+      "nameZh": "泥沼蠑螈卡片",
+      "slotList": [
+        "所有部位"
+      ],
+      "tier": "Tier B",
+      "npcSell": 560,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-mire-jelly",
@@ -443,13 +712,24 @@
       "relatedMonsters": [
         "monster-mire-jelly"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-mire-jelly",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "頭部下層",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/mire_card/",
       "nameEnglish": "Mire Jelly Card",
-      "nameZh": "泥沼水母卡片"
+      "nameZh": "泥沼水母卡片",
+      "slotList": [
+        "頭部下層"
+      ],
+      "tier": "Tier B",
+      "npcSell": 580,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-reed-mantis",
@@ -465,18 +745,25 @@
         {
           "monster": "monster-reed-mantis",
           "rate": 0.01
-        },
-        {
-          "monster": "monster-leader-reed-mantis",
-          "rate": 0.08
         }
       ],
       "dropVerified": true,
-      "slot": "武器／左手／頭部／飾品",
+      "slot": "武器、左手、頭部上層、頭部中層、頭部下層、飾品",
       "source": null,
       "wiki": "https://lumivaraonline.com/wiki/cards/mantis_card/",
       "nameEnglish": "Reed Mantis Card",
-      "nameZh": "蘆葦螳螂卡片"
+      "nameZh": "蘆葦螳螂卡片",
+      "slotList": [
+        "武器",
+        "左手",
+        "頭部上層",
+        "頭部中層",
+        "頭部下層",
+        "飾品"
+      ],
+      "tier": "Tier B",
+      "npcSell": 600,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-lantern-wisp",
@@ -488,13 +775,25 @@
       "relatedMonsters": [
         "monster-lantern-wisp"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-lantern-wisp",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "左手、飾品",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/wisp_card/",
       "nameEnglish": "Lantern Wisp Card",
-      "nameZh": "燈籠幽火卡片"
+      "nameZh": "燈籠幽火卡片",
+      "slotList": [
+        "左手",
+        "飾品"
+      ],
+      "tier": "Tier B",
+      "npcSell": 660,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-forest-wolf",
@@ -513,11 +812,18 @@
         }
       ],
       "dropVerified": true,
-      "slot": "左手／飾品",
+      "slot": "左手、飾品",
       "source": null,
       "wiki": "https://lumivaraonline.com/wiki/cards/wolf_card/",
       "nameEnglish": "Forest Wolf Card",
-      "nameZh": "森林狼卡片"
+      "nameZh": "森林狼卡片",
+      "slotList": [
+        "左手",
+        "飾品"
+      ],
+      "tier": "Tier B",
+      "npcSell": 680,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-ember-antler",
@@ -529,13 +835,29 @@
       "relatedMonsters": [
         "monster-ember-antler"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-ember-antler",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器、左手、頭部上層、頭部中層、頭部下層、飾品",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/antler_card/",
       "nameEnglish": "Ember Antler Card",
-      "nameZh": "餘燼鹿卡片"
+      "nameZh": "餘燼鹿卡片",
+      "slotList": [
+        "武器",
+        "左手",
+        "頭部上層",
+        "頭部中層",
+        "頭部下層",
+        "飾品"
+      ],
+      "tier": "Tier B",
+      "npcSell": 700,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-moon-owl",
@@ -554,11 +876,18 @@
         }
       ],
       "dropVerified": true,
-      "slot": "左手／飾品",
+      "slot": "左手、飾品",
       "source": null,
       "wiki": "https://lumivaraonline.com/wiki/cards/moonowl_card/",
       "nameEnglish": "Moon Owl Card",
-      "nameZh": "月梟卡片"
+      "nameZh": "月梟卡片",
+      "slotList": [
+        "左手",
+        "飾品"
+      ],
+      "tier": "Tier B",
+      "npcSell": 720,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-vine-lynx",
@@ -570,13 +899,24 @@
       "relatedMonsters": [
         "monster-vine-lynx"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-vine-lynx",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "鞋子",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/lynx_card/",
       "nameEnglish": "Vine Lynx Card",
-      "nameZh": "藤蔓猞猁卡片"
+      "nameZh": "藤蔓猞猁卡片",
+      "slotList": [
+        "鞋子"
+      ],
+      "tier": "Tier B",
+      "npcSell": 740,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-wild-boar",
@@ -599,7 +939,13 @@
       "source": null,
       "wiki": "https://lumivaraonline.com/wiki/cards/boar_card/",
       "nameEnglish": "Wild Boar Card",
-      "nameZh": "野豬卡片"
+      "nameZh": "野豬卡片",
+      "slotList": [
+        "武器"
+      ],
+      "tier": "Tier B",
+      "npcSell": 800,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-sand-drake",
@@ -615,18 +961,20 @@
         {
           "monster": "monster-sand-drake",
           "rate": 0.01
-        },
-        {
-          "monster": "monster-leader-sand-drake",
-          "rate": 0.08
         }
       ],
       "dropVerified": true,
-      "slot": "左手裝備",
+      "slot": "左手",
       "source": null,
       "wiki": "https://lumivaraonline.com/wiki/cards/drake_card/",
       "nameEnglish": "Sand Drake Card",
-      "nameZh": "沙漠幼龍卡片"
+      "nameZh": "沙漠幼龍卡片",
+      "slotList": [
+        "左手"
+      ],
+      "tier": "Tier B",
+      "npcSell": 850,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-pebble-golem",
@@ -638,13 +986,24 @@
       "relatedMonsters": [
         "monster-pebble-golem"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-pebble-golem",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "身體護甲",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/golem_card/",
       "nameEnglish": "Pebble Golem Card",
-      "nameZh": "卵石魔像卡片"
+      "nameZh": "卵石魔像卡片",
+      "slotList": [
+        "身體護甲"
+      ],
+      "tier": "Tier B",
+      "npcSell": 900,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-magma-salamander",
@@ -656,13 +1015,24 @@
       "relatedMonsters": [
         "monster-magma-salamander"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-magma-salamander",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "左手",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/salamander_card/",
       "nameEnglish": "Magma Salamander Card",
-      "nameZh": "熔岩蠑螈卡片"
+      "nameZh": "熔岩蠑螈卡片",
+      "slotList": [
+        "左手"
+      ],
+      "tier": "Tier A",
+      "npcSell": 950,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-ember-hound",
@@ -674,13 +1044,24 @@
       "relatedMonsters": [
         "monster-ember-hound"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-ember-hound",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "身體護甲",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/hound_card/",
       "nameEnglish": "Ember Hound Card",
-      "nameZh": "餘燼獵犬卡片"
+      "nameZh": "餘燼獵犬卡片",
+      "slotList": [
+        "身體護甲"
+      ],
+      "tier": "Tier A",
+      "npcSell": 980,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-basalt-tortoise",
@@ -692,13 +1073,25 @@
       "relatedMonsters": [
         "monster-basalt-tortoise"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-basalt-tortoise",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "左手、身體護甲",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/tortoise_card/",
       "nameEnglish": "Basalt Tortoise Card",
-      "nameZh": "玄武岩龜卡片"
+      "nameZh": "玄武岩龜卡片",
+      "slotList": [
+        "左手",
+        "身體護甲"
+      ],
+      "tier": "Tier A",
+      "npcSell": 1000,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-obsidian-scorpion",
@@ -710,13 +1103,24 @@
       "relatedMonsters": [
         "monster-obsidian-scorpion"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-obsidian-scorpion",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/scorpion_card/",
       "nameEnglish": "Obsidian Scorpion Card",
-      "nameZh": "黑曜石蠍卡片"
+      "nameZh": "黑曜石蠍卡片",
+      "slotList": [
+        "武器"
+      ],
+      "tier": "Tier A",
+      "npcSell": 1050,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-shade-raven",
@@ -728,13 +1132,26 @@
       "relatedMonsters": [
         "monster-shade-raven"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-shade-raven",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "身體護甲、披風、鞋子",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/raven_card/",
       "nameEnglish": "Shade Raven Card",
-      "nameZh": "暗影渡鴉卡片"
+      "nameZh": "暗影渡鴉卡片",
+      "slotList": [
+        "身體護甲",
+        "披風",
+        "鞋子"
+      ],
+      "tier": "Tier A",
+      "npcSell": 1100,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-bone-hound",
@@ -746,13 +1163,26 @@
       "relatedMonsters": [
         "monster-bone-hound"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-bone-hound",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "頭部上層、頭部中層、頭部下層",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/bonehound_card/",
       "nameEnglish": "Bone Hound Card",
-      "nameZh": "骸骨獵犬卡片"
+      "nameZh": "骸骨獵犬卡片",
+      "slotList": [
+        "頭部上層",
+        "頭部中層",
+        "頭部下層"
+      ],
+      "tier": "Tier A",
+      "npcSell": 1120,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-bog-wraith",
@@ -764,13 +1194,26 @@
       "relatedMonsters": [
         "monster-bog-wraith"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-bog-wraith",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "頭部上層、頭部中層、頭部下層",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/wraith_card/",
       "nameEnglish": "Bog Wraith Card",
-      "nameZh": "沼澤怨靈卡片"
+      "nameZh": "沼澤怨靈卡片",
+      "slotList": [
+        "頭部上層",
+        "頭部中層",
+        "頭部下層"
+      ],
+      "tier": "Tier A",
+      "npcSell": 1150,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-grave-knight",
@@ -782,13 +1225,26 @@
       "relatedMonsters": [
         "monster-grave-knight"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-grave-knight",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "頭部上層、頭部中層、頭部下層",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/knight_card/",
       "nameEnglish": "Grave Knight Card",
-      "nameZh": "墓地騎士卡片"
+      "nameZh": "墓地騎士卡片",
+      "slotList": [
+        "頭部上層",
+        "頭部中層",
+        "頭部下層"
+      ],
+      "tier": "Tier A",
+      "npcSell": 1180,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-quartz-crawler",
@@ -807,11 +1263,19 @@
         }
       ],
       "dropVerified": true,
-      "slot": "頭部（上／中／下）",
+      "slot": "頭部上層、頭部中層、頭部下層",
       "source": null,
       "wiki": "https://lumivaraonline.com/wiki/cards/quartz_card/",
       "nameEnglish": "Quartz Crawler Card",
-      "nameZh": "石英爬蟲卡片"
+      "nameZh": "石英爬蟲卡片",
+      "slotList": [
+        "頭部上層",
+        "頭部中層",
+        "頭部下層"
+      ],
+      "tier": "Tier A",
+      "npcSell": 1250,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-geode-armadillo",
@@ -823,13 +1287,24 @@
       "relatedMonsters": [
         "monster-geode-armadillo"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-geode-armadillo",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "鞋子",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/geode_card/",
       "nameEnglish": "Geode Armadillo Card",
-      "nameZh": "晶洞犰狳卡片"
+      "nameZh": "晶洞犰狳卡片",
+      "slotList": [
+        "鞋子"
+      ],
+      "tier": "Tier A",
+      "npcSell": 1280,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-prism-serpent",
@@ -841,13 +1316,24 @@
       "relatedMonsters": [
         "monster-prism-serpent"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-prism-serpent",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/prism_card/",
       "nameEnglish": "Prism Serpent Card",
-      "nameZh": "稜晶蛇卡片"
+      "nameZh": "稜晶蛇卡片",
+      "slotList": [
+        "武器"
+      ],
+      "tier": "Tier A",
+      "npcSell": 1320,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-amethyst-wyvern",
@@ -863,10 +1349,6 @@
         {
           "monster": "monster-amethyst-wyvern",
           "rate": 0.01
-        },
-        {
-          "monster": "monster-leader-amethyst-wyvern",
-          "rate": 0.08
         }
       ],
       "dropVerified": true,
@@ -874,7 +1356,13 @@
       "source": null,
       "wiki": "https://lumivaraonline.com/wiki/cards/wyvern_card/",
       "nameEnglish": "Amethyst Wyvern Card",
-      "nameZh": "紫晶飛龍卡片"
+      "nameZh": "紫晶飛龍卡片",
+      "slotList": [
+        "武器"
+      ],
+      "tier": "Tier A",
+      "npcSell": 1360,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-thunder-ram",
@@ -886,13 +1374,24 @@
       "relatedMonsters": [
         "monster-thunder-ram"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-thunder-ram",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "所有部位",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/ram_card/",
       "nameEnglish": "Thunder Ram Card",
-      "nameZh": "雷霆公羊卡片"
+      "nameZh": "雷霆公羊卡片",
+      "slotList": [
+        "所有部位"
+      ],
+      "tier": "Tier S",
+      "npcSell": 1450,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-storm-roc",
@@ -904,13 +1403,24 @@
       "relatedMonsters": [
         "monster-storm-roc"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-storm-roc",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "所有部位",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/roc_card/",
       "nameEnglish": "Storm Roc Card",
-      "nameZh": "風暴巨鵬卡片"
+      "nameZh": "風暴巨鵬卡片",
+      "slotList": [
+        "所有部位"
+      ],
+      "tier": "Tier S",
+      "npcSell": 1480,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-cloud-serpent",
@@ -922,13 +1432,24 @@
       "relatedMonsters": [
         "monster-cloud-serpent"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-cloud-serpent",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/cloud_card/",
       "nameEnglish": "Cloud Serpent Card",
-      "nameZh": "雲蛇卡片"
+      "nameZh": "雲蛇卡片",
+      "slotList": [
+        "武器"
+      ],
+      "tier": "Tier S",
+      "npcSell": 1520,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-tempest-drake",
@@ -944,18 +1465,20 @@
         {
           "monster": "monster-tempest-drake",
           "rate": 0.01
-        },
-        {
-          "monster": "monster-leader-tempest-drake",
-          "rate": 0.08
         }
       ],
       "dropVerified": true,
-      "slot": "全部部位",
+      "slot": "所有部位",
       "source": null,
       "wiki": "https://lumivaraonline.com/wiki/cards/stormdrake_card/",
       "nameEnglish": "Tempest Drake Card",
-      "nameZh": "暴風幼龍卡片"
+      "nameZh": "暴風幼龍卡片",
+      "slotList": [
+        "所有部位"
+      ],
+      "tier": "Tier S",
+      "npcSell": 1600,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-gilded-sentinel",
@@ -967,13 +1490,25 @@
       "relatedMonsters": [
         "monster-gilded-sentinel"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-gilded-sentinel",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "左手、身體護甲",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/sentinel_card/",
       "nameEnglish": "Gilded Sentinel Card",
-      "nameZh": "鎏金守衛卡片"
+      "nameZh": "鎏金守衛卡片",
+      "slotList": [
+        "左手",
+        "身體護甲"
+      ],
+      "tier": "Tier S",
+      "npcSell": 1650,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-radiant-griffin",
@@ -985,13 +1520,25 @@
       "relatedMonsters": [
         "monster-radiant-griffin"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-radiant-griffin",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "披風、鞋子",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/griffin_card/",
       "nameEnglish": "Radiant Griffin Card",
-      "nameZh": "輝光獅鷲卡片"
+      "nameZh": "輝光獅鷲卡片",
+      "slotList": [
+        "披風",
+        "鞋子"
+      ],
+      "tier": "Tier S",
+      "npcSell": 1700,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-fallen-seraph",
@@ -1014,7 +1561,13 @@
       "source": null,
       "wiki": "https://lumivaraonline.com/wiki/cards/seraph_card/",
       "nameEnglish": "Fallen Seraph Card",
-      "nameZh": "墮落熾天使卡片"
+      "nameZh": "墮落熾天使卡片",
+      "slotList": [
+        "武器"
+      ],
+      "tier": "Tier S",
+      "npcSell": 1750,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-sunfire-colossus",
@@ -1030,10 +1583,6 @@
         {
           "monster": "monster-sunfire-colossus",
           "rate": 0.01
-        },
-        {
-          "monster": "monster-leader-sunfire-colossus",
-          "rate": 0.08
         }
       ],
       "dropVerified": true,
@@ -1041,7 +1590,13 @@
       "source": null,
       "wiki": "https://lumivaraonline.com/wiki/cards/colossus_card/",
       "nameEnglish": "Sunfire Colossus Card",
-      "nameZh": "日炎巨像卡片"
+      "nameZh": "日炎巨像卡片",
+      "slotList": [
+        "武器"
+      ],
+      "tier": "Tier S",
+      "npcSell": 1800,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-mirrorback-tortoise",
@@ -1053,11 +1608,19 @@
       "relatedMonsters": [],
       "verifiedDrops": [],
       "dropVerified": false,
-      "slot": null,
-      "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "slot": "左手、身體護甲、披風",
+      "source": "未列出一般怪物掉落（請查看官方來源）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/mirrorback_card/",
       "nameEnglish": "Mirrorback Tortoise Card",
-      "nameZh": "鏡背龜卡片"
+      "nameZh": "鏡背龜卡片",
+      "slotList": [
+        "左手",
+        "身體護甲",
+        "披風"
+      ],
+      "tier": "Tier S",
+      "npcSell": 1500,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-arcane-wisp",
@@ -1069,11 +1632,18 @@
       "relatedMonsters": [],
       "verifiedDrops": [],
       "dropVerified": false,
-      "slot": null,
-      "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "slot": "飾品、鞋子",
+      "source": "未列出一般怪物掉落（請查看官方來源）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/arcanewisp_card/",
       "nameEnglish": "Arcane Wisp Card",
-      "nameZh": "奧術幽光卡片"
+      "nameZh": "奧術幽光卡片",
+      "slotList": [
+        "飾品",
+        "鞋子"
+      ],
+      "tier": "Tier S",
+      "npcSell": 1500,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-bloodfang-wolf",
@@ -1085,11 +1655,17 @@
       "relatedMonsters": [],
       "verifiedDrops": [],
       "dropVerified": false,
-      "slot": null,
-      "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "slot": "左手",
+      "source": "未列出一般怪物掉落（請查看官方來源）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/bloodfang_card/",
       "nameEnglish": "Bloodfang Wolf Card",
-      "nameZh": "血牙狼卡片"
+      "nameZh": "血牙狼卡片",
+      "slotList": [
+        "左手"
+      ],
+      "tier": "Tier S",
+      "npcSell": 1500,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-kasa-obake",
@@ -1101,13 +1677,26 @@
       "relatedMonsters": [
         "monster-kasa-obake"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-kasa-obake",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "頭部上層、頭部中層、頭部下層",
       "source": null,
       "wiki": "https://lumivaraonline.com/wiki/cards/kasa_card/",
       "nameEnglish": "Kasa Obake Card",
-      "nameZh": "傘妖卡片"
+      "nameZh": "傘妖卡片",
+      "slotList": [
+        "頭部上層",
+        "頭部中層",
+        "頭部下層"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 760,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-chochin-obake",
@@ -1119,13 +1708,25 @@
       "relatedMonsters": [
         "monster-chochin-obake"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-chochin-obake",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "左手、飾品",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/chochin_card/",
       "nameEnglish": "Chochin Obake Card",
-      "nameZh": "提燈妖怪卡片"
+      "nameZh": "提燈妖怪卡片",
+      "slotList": [
+        "左手",
+        "飾品"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 780,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-karasu-tengu",
@@ -1137,13 +1738,26 @@
       "relatedMonsters": [
         "monster-karasu-tengu"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-karasu-tengu",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "頭部上層、頭部中層、頭部下層",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/tengu_card/",
       "nameEnglish": "Karasu Tengu Card",
-      "nameZh": "烏鴉天狗卡片"
+      "nameZh": "烏鴉天狗卡片",
+      "slotList": [
+        "頭部上層",
+        "頭部中層",
+        "頭部下層"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 800,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-red-oni",
@@ -1155,13 +1769,24 @@
       "relatedMonsters": [
         "monster-red-oni"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-red-oni",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/oni_card/",
       "nameEnglish": "Red Oni Card",
-      "nameZh": "赤鬼卡片"
+      "nameZh": "赤鬼卡片",
+      "slotList": [
+        "武器"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 820,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-nine-tail-kitsune",
@@ -1173,13 +1798,24 @@
       "relatedMonsters": [
         "monster-nine-tail-kitsune"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-nine-tail-kitsune",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "飾品",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/kitsune_card/",
       "nameEnglish": "Nine-Tail Kitsune Card",
-      "nameZh": "九尾妖狐卡片"
+      "nameZh": "九尾妖狐卡片",
+      "slotList": [
+        "飾品"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 850,
+      "cardPackRate": 1.578947
     },
     {
       "id": "card-void-skitter",
@@ -1191,13 +1827,25 @@
       "relatedMonsters": [
         "monster-void-skitter"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-void-skitter",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "披風、鞋子",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/skitter_card/",
       "nameEnglish": "Void Skitter Card",
-      "nameZh": "虛空疾行蟲 卡片"
+      "nameZh": "虛空疾行蟲 卡片",
+      "slotList": [
+        "披風",
+        "鞋子"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 1200,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-star-raider",
@@ -1209,13 +1857,24 @@
       "relatedMonsters": [
         "monster-star-raider"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-star-raider",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "左手",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/raider_card/",
       "nameEnglish": "Star Raider Card",
-      "nameZh": "星際掠奪者卡片"
+      "nameZh": "星際掠奪者卡片",
+      "slotList": [
+        "左手"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 1240,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-cosmic-warden",
@@ -1227,13 +1886,26 @@
       "relatedMonsters": [
         "monster-cosmic-warden"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-cosmic-warden",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "頭部上層、頭部中層、頭部下層",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/warden_card/",
       "nameEnglish": "Cosmic Warden Card",
-      "nameZh": "宇宙守衛卡片"
+      "nameZh": "宇宙守衛卡片",
+      "slotList": [
+        "頭部上層",
+        "頭部中層",
+        "頭部下層"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 1300,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-meteor-behemoth",
@@ -1245,13 +1917,24 @@
       "relatedMonsters": [
         "monster-meteor-behemoth"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-meteor-behemoth",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "身體護甲",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/behemoth_card/",
       "nameEnglish": "Meteor Behemoth Card",
-      "nameZh": "隕星巨獸卡片"
+      "nameZh": "隕星巨獸卡片",
+      "slotList": [
+        "身體護甲"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 1340,
+      "cardPackRate": 0.9375
     },
     {
       "id": "card-coral-golem",
@@ -1263,13 +1946,25 @@
       "relatedMonsters": [
         "monster-coral-golem"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-coral-golem",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "左手、身體護甲",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/coral_card/",
       "nameEnglish": "Coral Golem Card",
-      "nameZh": "珊瑚魔像卡片"
+      "nameZh": "珊瑚魔像卡片",
+      "slotList": [
+        "左手",
+        "身體護甲"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 1650,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-abyssal-angler",
@@ -1281,13 +1976,26 @@
       "relatedMonsters": [
         "monster-abyssal-angler"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-abyssal-angler",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "頭部上層、頭部中層、頭部下層",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/angler_card/",
       "nameEnglish": "Abyssal Angler Card",
-      "nameZh": "深淵鮟鱇卡片"
+      "nameZh": "深淵鮟鱇卡片",
+      "slotList": [
+        "頭部上層",
+        "頭部中層",
+        "頭部下層"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 1700,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-tide-siren",
@@ -1299,13 +2007,24 @@
       "relatedMonsters": [
         "monster-tide-siren"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-tide-siren",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "飾品",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/siren_card/",
       "nameEnglish": "Tide Siren Card",
-      "nameZh": "潮汐海妖卡片"
+      "nameZh": "潮汐海妖卡片",
+      "slotList": [
+        "飾品"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 1750,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-dread-kraken",
@@ -1317,13 +2036,24 @@
       "relatedMonsters": [
         "monster-dread-kraken"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-dread-kraken",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/kraken_card/",
       "nameEnglish": "Dread Kraken Card",
-      "nameZh": "恐懼克拉肯卡片"
+      "nameZh": "恐懼克拉肯卡片",
+      "slotList": [
+        "武器"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 1800,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-hornet-drone",
@@ -1335,13 +2065,24 @@
       "relatedMonsters": [
         "monster-hornet-drone"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-hornet-drone",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "鞋子",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/hornet_card/",
       "nameEnglish": "Hornet Drone Card",
-      "nameZh": "黃蜂無人機卡片"
+      "nameZh": "黃蜂無人機卡片",
+      "slotList": [
+        "鞋子"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 1850,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-rifle-trooper",
@@ -1353,13 +2094,24 @@
       "relatedMonsters": [
         "monster-rifle-trooper"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-rifle-trooper",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "左手",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/trooper_card/",
       "nameEnglish": "Rifle Trooper Card",
-      "nameZh": "步槍兵卡片"
+      "nameZh": "步槍兵卡片",
+      "slotList": [
+        "左手"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 1900,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-bulwark-frame",
@@ -1371,13 +2123,24 @@
       "relatedMonsters": [
         "monster-bulwark-frame"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-bulwark-frame",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "左手",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/bulwark_card/",
       "nameEnglish": "Bulwark Frame Card",
-      "nameZh": "堡壘機甲卡片"
+      "nameZh": "堡壘機甲卡片",
+      "slotList": [
+        "左手"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 1950,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-titan-frame",
@@ -1389,13 +2152,24 @@
       "relatedMonsters": [
         "monster-titan-frame"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-titan-frame",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "武器",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/titan_card/",
       "nameEnglish": "Titan Frame Card",
-      "nameZh": "泰坦機甲卡片"
+      "nameZh": "泰坦機甲卡片",
+      "slotList": [
+        "武器"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 2000,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-moonveil-moth",
@@ -1407,13 +2181,24 @@
       "relatedMonsters": [
         "monster-moonveil-moth"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-moonveil-moth",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "披風",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/moonmoth_card/",
       "nameEnglish": "Moonveil Moth Card",
-      "nameZh": "月幕蛾卡片"
+      "nameZh": "月幕蛾卡片",
+      "slotList": [
+        "披風"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 1850,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-lunar-oracle",
@@ -1425,13 +2210,26 @@
       "relatedMonsters": [
         "monster-lunar-oracle"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-lunar-oracle",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "頭部上層、頭部中層、頭部下層",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/oracle_card/",
       "nameEnglish": "Lunar Oracle Card",
-      "nameZh": "月之神諭者卡片"
+      "nameZh": "月之神諭者卡片",
+      "slotList": [
+        "頭部上層",
+        "頭部中層",
+        "頭部下層"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 1900,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-regolith-golem",
@@ -1443,13 +2241,24 @@
       "relatedMonsters": [
         "monster-regolith-golem"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-regolith-golem",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "身體護甲",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/regolith_card/",
       "nameEnglish": "Regolith Golem Card",
-      "nameZh": "月壤魔像卡片"
+      "nameZh": "月壤魔像卡片",
+      "slotList": [
+        "身體護甲"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 1950,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-eclipse-warlord",
@@ -1461,13 +2270,24 @@
       "relatedMonsters": [
         "monster-eclipse-warlord"
       ],
-      "verifiedDrops": [],
-      "dropVerified": false,
-      "slot": null,
+      "verifiedDrops": [
+        {
+          "monster": "monster-eclipse-warlord",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "飾品",
       "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "wiki": "https://lumivaraonline.com/wiki/cards/warlord_card/",
       "nameEnglish": "Eclipse Warlord Card",
-      "nameZh": "蝕月戰將卡片"
+      "nameZh": "蝕月戰將卡片",
+      "slotList": [
+        "飾品"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 2100,
+      "cardPackRate": 0.195652
     },
     {
       "id": "card-vampire",
@@ -1479,11 +2299,17 @@
       "relatedMonsters": [],
       "verifiedDrops": [],
       "dropVerified": false,
-      "slot": null,
-      "source": null,
+      "slot": "披風",
+      "source": "未列出一般怪物掉落（請查看官方來源）",
       "wiki": "https://lumivaraonline.com/wiki/cards/tomb_vampire_card/",
       "nameEnglish": "Vampire Card",
-      "nameZh": "吸血鬼卡片"
+      "nameZh": "吸血鬼卡片",
+      "slotList": [
+        "披風"
+      ],
+      "tier": "Tier SS",
+      "npcSell": 3000,
+      "cardPackRate": 0.25
     },
     {
       "id": "card-jack-o-lantern",
@@ -1495,11 +2321,17 @@
       "relatedMonsters": [],
       "verifiedDrops": [],
       "dropVerified": false,
-      "slot": null,
-      "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "slot": "身體護甲",
+      "source": "未列出一般怪物掉落（請查看官方來源）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/tomb_jack_card/",
       "nameEnglish": "Jack-o'-Lantern Card",
-      "nameZh": "南瓜燈卡片"
+      "nameZh": "南瓜燈卡片",
+      "slotList": [
+        "身體護甲"
+      ],
+      "tier": "Tier SS",
+      "npcSell": 3000,
+      "cardPackRate": 0.25
     },
     {
       "id": "card-terragorn",
@@ -1511,11 +2343,22 @@
       "relatedMonsters": [],
       "verifiedDrops": [],
       "dropVerified": false,
-      "slot": null,
-      "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "slot": "武器",
+      "source": "世界王 Terragorn（掉率 0.001%，特殊來源），不是一般地圖怪物掉落。",
+      "wiki": "https://lumivaraonline.com/wiki/cards/terragorn_card/",
       "nameEnglish": "Terragorn Card",
-      "nameZh": "泰拉貢卡片"
+      "nameZh": "泰拉貢卡片",
+      "slotList": [
+        "武器"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 5000,
+      "cardPackRate": null,
+      "specialDrop": {
+        "sourceName": "Terragorn",
+        "rate": 0.001,
+        "note": "世界王特殊掉落，不屬於一般地圖怪物"
+      }
     },
     {
       "id": "card-ruby-rogue",
@@ -1527,11 +2370,17 @@
       "relatedMonsters": [],
       "verifiedDrops": [],
       "dropVerified": false,
-      "slot": null,
-      "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "slot": "武器",
+      "source": "未列出一般怪物掉落（請查看官方來源）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01_rare_card/",
       "nameEnglish": "Ruby Rogue Card",
-      "nameZh": "紅寶石盜賊卡片"
+      "nameZh": "紅寶石盜賊卡片",
+      "slotList": [
+        "武器"
+      ],
+      "tier": "LM-01 Rare",
+      "npcSell": 500,
+      "cardPackRate": null
     },
     {
       "id": "card-crimson-knight",
@@ -1543,11 +2392,17 @@
       "relatedMonsters": [],
       "verifiedDrops": [],
       "dropVerified": false,
-      "slot": null,
-      "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "slot": "武器",
+      "source": "未列出一般怪物掉落（請查看官方來源）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01_epic_card/",
       "nameEnglish": "Crimson Knight Card",
-      "nameZh": "緋紅騎士卡片"
+      "nameZh": "緋紅騎士卡片",
+      "slotList": [
+        "武器"
+      ],
+      "tier": "LM-01 Epic",
+      "npcSell": 2000,
+      "cardPackRate": null
     },
     {
       "id": "card-bloodcrystal-dragon",
@@ -1559,11 +2414,17 @@
       "relatedMonsters": [],
       "verifiedDrops": [],
       "dropVerified": false,
-      "slot": null,
-      "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "slot": "武器",
+      "source": "未列出一般怪物掉落（請查看官方來源）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01_legendary_card/",
       "nameEnglish": "Bloodcrystal Dragon Card",
-      "nameZh": "血晶龍卡片"
+      "nameZh": "血晶龍卡片",
+      "slotList": [
+        "武器"
+      ],
+      "tier": "LM-01 Legendary",
+      "npcSell": 8000,
+      "cardPackRate": null
     },
     {
       "id": "card-critical-king",
@@ -1575,11 +2436,17 @@
       "relatedMonsters": [],
       "verifiedDrops": [],
       "dropVerified": false,
-      "slot": null,
-      "source": null,
-      "wiki": "https://lumivaraonline.com/wiki/cards/",
+      "slot": "武器",
+      "source": "未列出一般怪物掉落（請查看官方來源）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01_limited_card/",
       "nameEnglish": "Critical King Card",
-      "nameZh": "暴擊之王卡片"
+      "nameZh": "暴擊之王卡片",
+      "slotList": [
+        "武器"
+      ],
+      "tier": "LM-01 Limited",
+      "npcSell": 20000,
+      "cardPackRate": null
     },
     {
       "id": "card-crystal-fox",
@@ -1590,12 +2457,18 @@
       "mapHint": null,
       "relatedMonsters": [],
       "verifiedDrops": [],
-      "dropVerified": true,
-      "slot": "左手裝備",
+      "dropVerified": false,
+      "slot": "左手",
       "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
       "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_rare_card/",
       "nameEnglish": "Crystal Fox Card",
-      "nameZh": "水晶狐卡片"
+      "nameZh": "水晶狐卡片",
+      "slotList": [
+        "左手"
+      ],
+      "tier": "LM-01 Rare",
+      "npcSell": 500,
+      "cardPackRate": null
     },
     {
       "id": "card-rose-fox",
@@ -1606,12 +2479,18 @@
       "mapHint": null,
       "relatedMonsters": [],
       "verifiedDrops": [],
-      "dropVerified": true,
-      "slot": "左手裝備",
+      "dropVerified": false,
+      "slot": "左手",
       "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
       "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_epic_card/",
       "nameEnglish": "Rose Fox Card",
-      "nameZh": "玫瑰狐卡片"
+      "nameZh": "玫瑰狐卡片",
+      "slotList": [
+        "左手"
+      ],
+      "tier": "LM-01 Epic",
+      "npcSell": 2000,
+      "cardPackRate": null
     },
     {
       "id": "card-golden-fox",
@@ -1622,12 +2501,18 @@
       "mapHint": null,
       "relatedMonsters": [],
       "verifiedDrops": [],
-      "dropVerified": true,
-      "slot": "左手裝備",
+      "dropVerified": false,
+      "slot": "左手",
       "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
       "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_legendary_card/",
       "nameEnglish": "Golden Fox Card",
-      "nameZh": "金狐卡片"
+      "nameZh": "金狐卡片",
+      "slotList": [
+        "左手"
+      ],
+      "tier": "LM-01 Legendary",
+      "npcSell": 8000,
+      "cardPackRate": null
     },
     {
       "id": "card-pierce-empress",
@@ -1638,12 +2523,18 @@
       "mapHint": null,
       "relatedMonsters": [],
       "verifiedDrops": [],
-      "dropVerified": true,
-      "slot": "左手裝備",
+      "dropVerified": false,
+      "slot": "左手",
       "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
       "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_limited_card/",
       "nameEnglish": "Pierce Empress Card",
-      "nameZh": "穿透女帝卡片"
+      "nameZh": "穿透女帝卡片",
+      "slotList": [
+        "左手"
+      ],
+      "tier": "LM-01 Limited",
+      "npcSell": 20000,
+      "cardPackRate": null
     }
   ],
   "monsters": [
@@ -2900,5 +3791,943 @@
     "MDEF": [
       "魔防"
     ]
-  }
+  },
+  "materials": [
+    {
+      "id": "item-amber_shell",
+      "name": "Amber Shell",
+      "nameEnglish": "Amber Shell",
+      "nameZh": "琥珀甲殼",
+      "category": "材料",
+      "sourceMonster": "monster-amber-beetle",
+      "dropRate": 30,
+      "npcSell": 1,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/amber_shell/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/amber-beetle/"
+    },
+    {
+      "id": "item-bramble_fur",
+      "name": "Bramble Fur",
+      "nameEnglish": "Bramble Fur",
+      "nameZh": "荊棘毛皮",
+      "category": "材料",
+      "sourceMonster": "monster-bramble-hare",
+      "dropRate": 30,
+      "npcSell": 1,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/bramble_fur/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/bramble-hare/"
+    },
+    {
+      "id": "item-dewdrop_tuft",
+      "name": "Dewdrop Tuft",
+      "nameEnglish": "Dewdrop Tuft",
+      "nameZh": "露珠絨毛",
+      "category": "材料",
+      "sourceMonster": "monster-dew-bunny",
+      "dropRate": 30,
+      "npcSell": 1,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/dewdrop_tuft/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/dew-bunny/"
+    },
+    {
+      "id": "item-frost_fluff",
+      "name": "Frost Fluff",
+      "nameEnglish": "Frost Fluff",
+      "nameZh": "冰霜絨毛",
+      "category": "材料",
+      "sourceMonster": "monster-frost-puff",
+      "dropRate": 30,
+      "npcSell": 1,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/frost_fluff/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/frost-puff/"
+    },
+    {
+      "id": "item-honey_wing_dust",
+      "name": "Honey Wing Dust",
+      "nameEnglish": "Honey Wing Dust",
+      "nameZh": "蜜翼鱗粉",
+      "category": "材料",
+      "sourceMonster": "monster-honey-moth",
+      "dropRate": 30,
+      "npcSell": 1,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/honey_wing_dust/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/honey-moth/"
+    },
+    {
+      "id": "item-moss_spore_cap",
+      "name": "Moss Spore Cap",
+      "nameEnglish": "Moss Spore Cap",
+      "nameZh": "苔蘚孢子傘",
+      "category": "材料",
+      "sourceMonster": "monster-moss-mushroom",
+      "dropRate": 30,
+      "npcSell": 1,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/moss_spore_cap/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/moss-mushroom/"
+    },
+    {
+      "id": "item-pixie_thorn",
+      "name": "Pixie Thorn",
+      "nameEnglish": "Pixie Thorn",
+      "nameZh": "妖精荊棘",
+      "category": "材料",
+      "sourceMonster": "monster-thorn-pixie",
+      "dropRate": 30,
+      "npcSell": 1,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/pixie_thorn/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/thorn-pixie/"
+    },
+    {
+      "id": "item-jelly",
+      "name": "Prism Crystal",
+      "nameEnglish": "Prism Crystal",
+      "nameZh": "稜晶水晶",
+      "category": "材料",
+      "sourceMonster": "monster-prism-hopper",
+      "dropRate": 30,
+      "npcSell": 1,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/jelly/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/prism-hopper/"
+    },
+    {
+      "id": "item-sprout_leaf",
+      "name": "Sprout Leaf",
+      "nameEnglish": "Sprout Leaf",
+      "nameZh": "嫩芽葉片",
+      "category": "材料",
+      "sourceMonster": "monster-leaf-sprout",
+      "dropRate": 30,
+      "npcSell": 1,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/sprout_leaf/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/leaf-sprout/"
+    },
+    {
+      "id": "item-twisted_root",
+      "name": "Twisted Root",
+      "nameEnglish": "Twisted Root",
+      "nameZh": "扭曲樹根",
+      "category": "材料",
+      "sourceMonster": "monster-rootling",
+      "dropRate": 30,
+      "npcSell": 1,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/twisted_root/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/rootling/"
+    },
+    {
+      "id": "item-icicle_whisker",
+      "name": "Icicle Whisker",
+      "nameEnglish": "Icicle Whisker",
+      "nameZh": "冰錐鬍鬚",
+      "category": "材料",
+      "sourceMonster": "monster-icicle-hare",
+      "dropRate": 30,
+      "npcSell": 2,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/icicle_whisker/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/icicle-hare/"
+    },
+    {
+      "id": "item-aurora_tail",
+      "name": "Aurora Tail",
+      "nameEnglish": "Aurora Tail",
+      "nameZh": "極光尾巴",
+      "category": "材料",
+      "sourceMonster": "monster-aurora-fox",
+      "dropRate": 30,
+      "npcSell": 3,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/aurora_tail/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/aurora-fox/"
+    },
+    {
+      "id": "item-snow_feather",
+      "name": "Snow Feather",
+      "nameEnglish": "Snow Feather",
+      "nameZh": "雪羽",
+      "category": "材料",
+      "sourceMonster": "monster-snow-owl",
+      "dropRate": 30,
+      "npcSell": 3,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/snow_feather/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/snow-owl/"
+    },
+    {
+      "id": "item-gecko_scale",
+      "name": "Gecko Scale",
+      "nameEnglish": "Gecko Scale",
+      "nameZh": "壁虎鱗片",
+      "category": "材料",
+      "sourceMonster": "monster-dune-gecko",
+      "dropRate": 30,
+      "npcSell": 4,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/gecko_scale/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/dune-gecko/"
+    },
+    {
+      "id": "item-scarab_carapace",
+      "name": "Scarab Carapace",
+      "nameEnglish": "Scarab Carapace",
+      "nameZh": "聖甲蟲甲殼",
+      "category": "材料",
+      "sourceMonster": "monster-scarab-sentinel",
+      "dropRate": 30,
+      "npcSell": 5,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/scarab_carapace/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/scarab-sentinel/"
+    },
+    {
+      "id": "item-cobra_fang",
+      "name": "Cobra Fang",
+      "nameEnglish": "Cobra Fang",
+      "nameZh": "眼鏡蛇毒牙",
+      "category": "材料",
+      "sourceMonster": "monster-sunscale-cobra",
+      "dropRate": 30,
+      "npcSell": 6,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/cobra_fang/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/sunscale-cobra/"
+    },
+    {
+      "id": "item-cactus_needle",
+      "name": "Cactus Needle",
+      "nameEnglish": "Cactus Needle",
+      "nameZh": "仙人掌刺",
+      "category": "材料",
+      "sourceMonster": "monster-cactus-imp",
+      "dropRate": 30,
+      "npcSell": 7,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/cactus_needle/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/cactus-imp/"
+    },
+    {
+      "id": "item-crab_claw",
+      "name": "Crab Claw",
+      "nameEnglish": "Crab Claw",
+      "nameZh": "蟹鉗",
+      "category": "材料",
+      "sourceMonster": "monster-tide-crab",
+      "dropRate": 30,
+      "npcSell": 7,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/crab_claw/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/tide-crab/"
+    },
+    {
+      "id": "item-toad_wart",
+      "name": "Toad Wart",
+      "nameEnglish": "Toad Wart",
+      "nameZh": "蟾蜍疣",
+      "category": "材料",
+      "sourceMonster": "monster-bog-toad",
+      "dropRate": 30,
+      "npcSell": 8,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/toad_wart/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/bog-toad/"
+    },
+    {
+      "id": "item-newt_tail",
+      "name": "Newt Tail",
+      "nameEnglish": "Newt Tail",
+      "nameZh": "蠑螈尾巴",
+      "category": "材料",
+      "sourceMonster": "monster-mud-newt",
+      "dropRate": 30,
+      "npcSell": 9,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/newt_tail/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/mud-newt/"
+    },
+    {
+      "id": "item-mantis_blade",
+      "name": "Mantis Blade",
+      "nameEnglish": "Mantis Blade",
+      "nameZh": "螳螂鐮刃",
+      "category": "材料",
+      "sourceMonster": "monster-reed-mantis",
+      "dropRate": 30,
+      "npcSell": 10,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/mantis_blade/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/reed-mantis/"
+    },
+    {
+      "id": "item-mire_gel",
+      "name": "Mire Gel",
+      "nameEnglish": "Mire Gel",
+      "nameZh": "泥沼凝膠",
+      "category": "材料",
+      "sourceMonster": "monster-mire-jelly",
+      "dropRate": 30,
+      "npcSell": 10,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/mire_gel/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/mire-jelly/"
+    },
+    {
+      "id": "item-wolf_fang",
+      "name": "Wolf Fang",
+      "nameEnglish": "Wolf Fang",
+      "nameZh": "狼牙",
+      "category": "材料",
+      "sourceMonster": "monster-forest-wolf",
+      "dropRate": 30,
+      "npcSell": 11,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/wolf_fang/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/forest-wolf/"
+    },
+    {
+      "id": "item-wisp_ember",
+      "name": "Wisp Ember",
+      "nameEnglish": "Wisp Ember",
+      "nameZh": "幽火餘燼",
+      "category": "材料",
+      "sourceMonster": "monster-lantern-wisp",
+      "dropRate": 30,
+      "npcSell": 12,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/wisp_ember/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/lantern-wisp/"
+    },
+    {
+      "id": "item-smoldering_antler",
+      "name": "Smoldering Antler",
+      "nameEnglish": "Smoldering Antler",
+      "nameZh": "燃燼鹿角",
+      "category": "材料",
+      "sourceMonster": "monster-ember-antler",
+      "dropRate": 30,
+      "npcSell": 13,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/smoldering_antler/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/ember-antler/"
+    },
+    {
+      "id": "item-moonlit_plume",
+      "name": "Moonlit Plume",
+      "nameEnglish": "Moonlit Plume",
+      "nameZh": "月光羽毛",
+      "category": "材料",
+      "sourceMonster": "monster-moon-owl",
+      "dropRate": 30,
+      "npcSell": 14,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/moonlit_plume/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/moon-owl/"
+    },
+    {
+      "id": "item-lynx_claw",
+      "name": "Lynx Claw",
+      "nameEnglish": "Lynx Claw",
+      "nameZh": "猞猁利爪",
+      "category": "材料",
+      "sourceMonster": "monster-vine-lynx",
+      "dropRate": 30,
+      "npcSell": 15,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/lynx_claw/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/vine-lynx/"
+    },
+    {
+      "id": "item-boar_tusk",
+      "name": "Boar Tusk",
+      "nameEnglish": "Boar Tusk",
+      "nameZh": "野豬獠牙",
+      "category": "材料",
+      "sourceMonster": "monster-wild-boar",
+      "dropRate": 30,
+      "npcSell": 16,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/boar_tusk/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/wild-boar/"
+    },
+    {
+      "id": "item-drake_scale",
+      "name": "Drake Scale",
+      "nameEnglish": "Drake Scale",
+      "nameZh": "幼龍鱗片",
+      "category": "材料",
+      "sourceMonster": "monster-sand-drake",
+      "dropRate": 30,
+      "npcSell": 20,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/drake_scale/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/sand-drake/"
+    },
+    {
+      "id": "item-bat_wing",
+      "name": "Bat Wing",
+      "nameEnglish": "Bat Wing",
+      "nameZh": "蝙蝠翅膀",
+      "category": "材料",
+      "sourceMonster": "monster-cave-bat",
+      "dropRate": 30,
+      "npcSell": 21,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/bat_wing/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/cave-bat/"
+    },
+    {
+      "id": "item-umbrella_rib",
+      "name": "Torn Umbrella Rib",
+      "nameEnglish": "Torn Umbrella Rib",
+      "nameZh": "破損傘骨",
+      "category": "材料",
+      "sourceMonster": "monster-kasa-obake",
+      "dropRate": 30,
+      "npcSell": 21,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/umbrella_rib/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/kasa-obake/"
+    },
+    {
+      "id": "item-lantern_paper",
+      "name": "Haunted Lantern Paper",
+      "nameEnglish": "Haunted Lantern Paper",
+      "nameZh": "幽靈燈籠紙",
+      "category": "材料",
+      "sourceMonster": "monster-chochin-obake",
+      "dropRate": 30,
+      "npcSell": 22,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/lantern_paper/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/chochin-obake/"
+    },
+    {
+      "id": "item-tengu_feather",
+      "name": "Tengu Feather",
+      "nameEnglish": "Tengu Feather",
+      "nameZh": "天狗羽毛",
+      "category": "材料",
+      "sourceMonster": "monster-karasu-tengu",
+      "dropRate": 30,
+      "npcSell": 23,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/tengu_feather/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/karasu-tengu/"
+    },
+    {
+      "id": "item-oni_horn",
+      "name": "Oni Horn",
+      "nameEnglish": "Oni Horn",
+      "nameZh": "鬼角",
+      "category": "材料",
+      "sourceMonster": "monster-red-oni",
+      "dropRate": 30,
+      "npcSell": 24,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/oni_horn/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/red-oni/"
+    },
+    {
+      "id": "item-foxfire_tail",
+      "name": "Foxfire Tail",
+      "nameEnglish": "Foxfire Tail",
+      "nameZh": "狐火尾巴",
+      "category": "材料",
+      "sourceMonster": "monster-nine-tail-kitsune",
+      "dropRate": 30,
+      "npcSell": 25,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/foxfire_tail/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/nine-tail-kitsune/"
+    },
+    {
+      "id": "item-golem_core",
+      "name": "Golem Core",
+      "nameEnglish": "Golem Core",
+      "nameZh": "魔像核心",
+      "category": "材料",
+      "sourceMonster": "monster-pebble-golem",
+      "dropRate": 30,
+      "npcSell": 25,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/golem_core/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/pebble-golem/"
+    },
+    {
+      "id": "item-magma_scale",
+      "name": "Magma Scale",
+      "nameEnglish": "Magma Scale",
+      "nameZh": "熔岩鱗片",
+      "category": "材料",
+      "sourceMonster": "monster-magma-salamander",
+      "dropRate": 30,
+      "npcSell": 26,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/magma_scale/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/magma-salamander/"
+    },
+    {
+      "id": "item-cinder_fang",
+      "name": "Cinder Fang",
+      "nameEnglish": "Cinder Fang",
+      "nameZh": "餘燼獠牙",
+      "category": "材料",
+      "sourceMonster": "monster-ember-hound",
+      "dropRate": 30,
+      "npcSell": 28,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/cinder_fang/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/ember-hound/"
+    },
+    {
+      "id": "item-basalt_shell",
+      "name": "Basalt Shell",
+      "nameEnglish": "Basalt Shell",
+      "nameZh": "玄武岩龜殼",
+      "category": "材料",
+      "sourceMonster": "monster-basalt-tortoise",
+      "dropRate": 30,
+      "npcSell": 29,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/basalt_shell/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/basalt-tortoise/"
+    },
+    {
+      "id": "item-obsidian_stinger",
+      "name": "Obsidian Stinger",
+      "nameEnglish": "Obsidian Stinger",
+      "nameZh": "黑曜石毒刺",
+      "category": "材料",
+      "sourceMonster": "monster-obsidian-scorpion",
+      "dropRate": 30,
+      "npcSell": 31,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/obsidian_stinger/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/obsidian-scorpion/"
+    },
+    {
+      "id": "item-shade_feather",
+      "name": "Shade Feather",
+      "nameEnglish": "Shade Feather",
+      "nameZh": "暗影羽毛",
+      "category": "材料",
+      "sourceMonster": "monster-shade-raven",
+      "dropRate": 30,
+      "npcSell": 32,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/shade_feather/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/shade-raven/"
+    },
+    {
+      "id": "item-hound_bone",
+      "name": "Hound Bone",
+      "nameEnglish": "Hound Bone",
+      "nameZh": "獵犬骨",
+      "category": "材料",
+      "sourceMonster": "monster-bone-hound",
+      "dropRate": 30,
+      "npcSell": 34,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/hound_bone/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/bone-hound/"
+    },
+    {
+      "id": "item-wraith_shroud",
+      "name": "Wraith Shroud",
+      "nameEnglish": "Wraith Shroud",
+      "nameZh": "怨靈裹布",
+      "category": "材料",
+      "sourceMonster": "monster-bog-wraith",
+      "dropRate": 30,
+      "npcSell": 35,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/wraith_shroud/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/bog-wraith/"
+    },
+    {
+      "id": "item-grave_crest",
+      "name": "Grave Crest",
+      "nameEnglish": "Grave Crest",
+      "nameZh": "墓地徽章",
+      "category": "材料",
+      "sourceMonster": "monster-grave-knight",
+      "dropRate": 30,
+      "npcSell": 37,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/grave_crest/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/grave-knight/"
+    },
+    {
+      "id": "item-void_carapace",
+      "name": "Void Carapace",
+      "nameEnglish": "Void Carapace",
+      "nameZh": "虛空甲殼",
+      "category": "材料",
+      "sourceMonster": "monster-void-skitter",
+      "dropRate": 30,
+      "npcSell": 37,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/void_carapace/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/void-skitter/"
+    },
+    {
+      "id": "item-quartz_leg",
+      "name": "Quartz Leg",
+      "nameEnglish": "Quartz Leg",
+      "nameZh": "石英蟲足",
+      "category": "材料",
+      "sourceMonster": "monster-quartz-crawler",
+      "dropRate": 30,
+      "npcSell": 38,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/quartz_leg/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/quartz-crawler/"
+    },
+    {
+      "id": "item-raider_mask",
+      "name": "Raider Mask",
+      "nameEnglish": "Raider Mask",
+      "nameZh": "掠奪者面具",
+      "category": "材料",
+      "sourceMonster": "monster-star-raider",
+      "dropRate": 30,
+      "npcSell": 39,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/raider_mask/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/star-raider/"
+    },
+    {
+      "id": "item-geode_plate",
+      "name": "Geode Plate",
+      "nameEnglish": "Geode Plate",
+      "nameZh": "晶洞甲片",
+      "category": "材料",
+      "sourceMonster": "monster-geode-armadillo",
+      "dropRate": 30,
+      "npcSell": 40,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/geode_plate/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/geode-armadillo/"
+    },
+    {
+      "id": "item-prism_scale",
+      "name": "Prism Scale",
+      "nameEnglish": "Prism Scale",
+      "nameZh": "稜晶鱗片",
+      "category": "材料",
+      "sourceMonster": "monster-prism-serpent",
+      "dropRate": 30,
+      "npcSell": 41,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/prism_scale/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/prism-serpent/"
+    },
+    {
+      "id": "item-warden_shard",
+      "name": "Warden Shard",
+      "nameEnglish": "Warden Shard",
+      "nameZh": "守衛碎片",
+      "category": "材料",
+      "sourceMonster": "monster-cosmic-warden",
+      "dropRate": 30,
+      "npcSell": 42,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/warden_shard/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/cosmic-warden/"
+    },
+    {
+      "id": "item-wyvern_scale",
+      "name": "Wyvern Scale",
+      "nameEnglish": "Wyvern Scale",
+      "nameZh": "飛龍鱗片",
+      "category": "材料",
+      "sourceMonster": "monster-amethyst-wyvern",
+      "dropRate": 30,
+      "npcSell": 43,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/wyvern_scale/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/amethyst-wyvern/"
+    },
+    {
+      "id": "item-meteor_plate",
+      "name": "Meteor Plate",
+      "nameEnglish": "Meteor Plate",
+      "nameZh": "隕鐵甲片",
+      "category": "材料",
+      "sourceMonster": "monster-meteor-behemoth",
+      "dropRate": 30,
+      "npcSell": 45,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/meteor_plate/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/meteor-behemoth/"
+    },
+    {
+      "id": "item-thunder_horn",
+      "name": "Thunder Horn",
+      "nameEnglish": "Thunder Horn",
+      "nameZh": "雷霆之角",
+      "category": "材料",
+      "sourceMonster": "monster-thunder-ram",
+      "dropRate": 30,
+      "npcSell": 45,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/thunder_horn/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/thunder-ram/"
+    },
+    {
+      "id": "item-roc_plume",
+      "name": "Roc Plume",
+      "nameEnglish": "Roc Plume",
+      "nameZh": "巨鵬羽毛",
+      "category": "材料",
+      "sourceMonster": "monster-storm-roc",
+      "dropRate": 30,
+      "npcSell": 46,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/roc_plume/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/storm-roc/"
+    },
+    {
+      "id": "item-cloud_pearl",
+      "name": "Cloud Pearl",
+      "nameEnglish": "Cloud Pearl",
+      "nameZh": "雲之珍珠",
+      "category": "材料",
+      "sourceMonster": "monster-cloud-serpent",
+      "dropRate": 30,
+      "npcSell": 48,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/cloud_pearl/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/cloud-serpent/"
+    },
+    {
+      "id": "item-tempest_dragon_scale",
+      "name": "Tempest Dragon Scale",
+      "nameEnglish": "Tempest Dragon Scale",
+      "nameZh": "暴風龍鱗",
+      "category": "材料",
+      "sourceMonster": "monster-tempest-drake",
+      "dropRate": 30,
+      "npcSell": 50,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/tempest_dragon_scale/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/tempest-drake/"
+    },
+    {
+      "id": "item-sun_plate",
+      "name": "Sunforged Plate",
+      "nameEnglish": "Sunforged Plate",
+      "nameZh": "日鑄甲片",
+      "category": "材料",
+      "sourceMonster": "monster-gilded-sentinel",
+      "dropRate": 30,
+      "npcSell": 59,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/sun_plate/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/gilded-sentinel/"
+    },
+    {
+      "id": "item-griffin_quill",
+      "name": "Radiant Quill",
+      "nameEnglish": "Radiant Quill",
+      "nameZh": "輝光翎羽",
+      "category": "材料",
+      "sourceMonster": "monster-radiant-griffin",
+      "dropRate": 30,
+      "npcSell": 60,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/griffin_quill/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/radiant-griffin/"
+    },
+    {
+      "id": "item-fallen_halo",
+      "name": "Broken Halo",
+      "nameEnglish": "Broken Halo",
+      "nameZh": "破碎光環",
+      "category": "材料",
+      "sourceMonster": "monster-fallen-seraph",
+      "dropRate": 30,
+      "npcSell": 62,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/fallen_halo/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/fallen-seraph/"
+    },
+    {
+      "id": "item-sun_core",
+      "name": "Sunfire Core",
+      "nameEnglish": "Sunfire Core",
+      "nameZh": "日炎核心",
+      "category": "材料",
+      "sourceMonster": "monster-sunfire-colossus",
+      "dropRate": 30,
+      "npcSell": 65,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/sun_core/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/sunfire-colossus/"
+    },
+    {
+      "id": "item-coral_heart",
+      "name": "Coral Heartstone",
+      "nameEnglish": "Coral Heartstone",
+      "nameZh": "珊瑚心石",
+      "category": "材料",
+      "sourceMonster": "monster-coral-golem",
+      "dropRate": 30,
+      "npcSell": 76,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/coral_heart/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/coral-golem/"
+    },
+    {
+      "id": "item-drone_rotor",
+      "name": "Drone Rotor",
+      "nameEnglish": "Drone Rotor",
+      "nameZh": "無人機旋翼",
+      "category": "材料",
+      "sourceMonster": "monster-hornet-drone",
+      "dropRate": 30,
+      "npcSell": 76,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/drone_rotor/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/hornet-drone/"
+    },
+    {
+      "id": "item-angler_lure",
+      "name": "Angler Lure",
+      "nameEnglish": "Angler Lure",
+      "nameZh": "燈籠魚誘餌",
+      "category": "材料",
+      "sourceMonster": "monster-abyssal-angler",
+      "dropRate": 30,
+      "npcSell": 78,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/angler_lure/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/abyssal-angler/"
+    },
+    {
+      "id": "item-trooper_visor",
+      "name": "Cracked Visor",
+      "nameEnglish": "Cracked Visor",
+      "nameZh": "破裂面甲",
+      "category": "材料",
+      "sourceMonster": "monster-rifle-trooper",
+      "dropRate": 30,
+      "npcSell": 78,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/trooper_visor/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/rifle-trooper/"
+    },
+    {
+      "id": "item-bulwark_plate",
+      "name": "Bulwark Plate",
+      "nameEnglish": "Bulwark Plate",
+      "nameZh": "壁壘護甲片",
+      "category": "材料",
+      "sourceMonster": "monster-bulwark-frame",
+      "dropRate": 30,
+      "npcSell": 81,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/bulwark_plate/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/bulwark-frame/"
+    },
+    {
+      "id": "item-siren_pearl",
+      "name": "Siren Pearl",
+      "nameEnglish": "Siren Pearl",
+      "nameZh": "海妖珍珠",
+      "category": "材料",
+      "sourceMonster": "monster-tide-siren",
+      "dropRate": 30,
+      "npcSell": 81,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/siren_pearl/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/tide-siren/"
+    },
+    {
+      "id": "item-kraken_ink",
+      "name": "Kraken Ink",
+      "nameEnglish": "Kraken Ink",
+      "nameZh": "海妖墨汁",
+      "category": "材料",
+      "sourceMonster": "monster-dread-kraken",
+      "dropRate": 30,
+      "npcSell": 85,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/kraken_ink/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/dread-kraken/"
+    },
+    {
+      "id": "item-titan_core",
+      "name": "Titan Core",
+      "nameEnglish": "Titan Core",
+      "nameZh": "泰坦核心",
+      "category": "材料",
+      "sourceMonster": "monster-titan-frame",
+      "dropRate": 30,
+      "npcSell": 85,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/titan_core/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/titan-frame/"
+    },
+    {
+      "id": "item-moth_scale",
+      "name": "Moonveil Scale",
+      "nameEnglish": "Moonveil Scale",
+      "nameZh": "月幕鱗片",
+      "category": "材料",
+      "sourceMonster": "monster-moonveil-moth",
+      "dropRate": 30,
+      "npcSell": 99,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/moth_scale/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/moonveil-moth/"
+    },
+    {
+      "id": "item-oracle_mask",
+      "name": "Oracle Mask",
+      "nameEnglish": "Oracle Mask",
+      "nameZh": "神諭面具",
+      "category": "材料",
+      "sourceMonster": "monster-lunar-oracle",
+      "dropRate": 30,
+      "npcSell": 101,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/oracle_mask/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/lunar-oracle/"
+    },
+    {
+      "id": "item-regolith_core",
+      "name": "Regolith Core",
+      "nameEnglish": "Regolith Core",
+      "nameZh": "月壤核心",
+      "category": "材料",
+      "sourceMonster": "monster-regolith-golem",
+      "dropRate": 30,
+      "npcSell": 105,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/regolith_core/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/regolith-golem/"
+    },
+    {
+      "id": "item-eclipse_shard",
+      "name": "Eclipse Shard",
+      "nameEnglish": "Eclipse Shard",
+      "nameZh": "日蝕碎片",
+      "category": "材料",
+      "sourceMonster": "monster-eclipse-warlord",
+      "dropRate": 30,
+      "npcSell": 110,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/eclipse_shard/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/eclipse-warlord/"
+    }
+  ]
 }
