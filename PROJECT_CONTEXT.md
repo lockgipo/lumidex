@@ -32,6 +32,13 @@
 - v0.8.1 includes: `explorer-import.js` pure normalized gear-model, `explorer-bridge.user.js` opt-in browser Userscript on official Explorer origin, `tradeoff.html` role-name input / cross-tab import / JSON paste fallback / same-slot gear comparison / supported stat delta-to-B. Browser CORS prohibits direct cross-domain fetch to official Explorer API; browser bridge reads only public role gear from original domain and sends a reduced payload via `window.opener.postMessage` with origin and source checks. Browser never saves gear to localStorage or repo. Tested actual Gipo public role API in browser: 10 `worn` and 832 bag/storage candidates; first-party browser bridge handshake successful. Gear fixed ATK, CRIT points, embedded cards/refine, and final panel cannot auto-convert; A totals remain manual. iPhone Safari Userscripts still requires installation and real-device acceptance.
 - Data snapshots, game IDs, card favorites, old analyzer behavior untouched. See `docs/combat-tradeoff.md`; PR Linux regression passed before release, iPhone Safari QA pending. Production merge authorized by the user; subsequent changes require normal review.
 
+## Dev: v0.8.2 direct Explorer import (not deployed)
+- Branch `dev/explorer-direct-import` from production v0.8.1. Replace the per-device Userscript workflow with direct in-page GET to a fixed-backend read-only Cloudflare Worker. Worker source in `edge/explorer-proxy.mjs`, config `wrangler.jsonc`; tests in `tests/explorer-proxy.test.cjs`.
+- Restricts allowed Origin to LumiDex GitHub Pages, validates role name and fixed path; only fetches `https://lumivaraonline.com/api/explorer/player?name=...` and sanitizes public character gear / storage gear; no credentials, money, inventory or sensitive fields.
+- The website currently has `<meta name="lumidex-explorer-api" content="">` in `tradeoff.html`. Until a permanent Worker endpoint is deployed and verified, its direct-import button is DISABLED and production remains unchanged. After deployment update that single meta URL, run Node/CI and live browser test, and obtain explicit release approval for main.
+- Existing production v0.8.1 Userscript still works; new UI removes script requirement when Worker is configured. No changes to favorites or analysis rules.
+- Other Supabase instances are unrelated; do not deploy into them. Cloudflare account authorization/Worker deployment is pending.
+
 ## Safety
 - Personal-use phase: not promoted to any community. Nonetheless GitHub repo and Pages website are publicly accessible (not private).
 - Public site contains only non-sensitive game-reference data and client-side UI.

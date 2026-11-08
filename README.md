@@ -16,6 +16,12 @@
 - 不離開列表的詳情面板、最多四張卡片比較與瀏覽器本地收藏
 - 手機 Safari / Windows Chrome / Edge 的響應式介面
 
+### v0.8.2（Dev，尚未上正式）：網站一鍵匯入準備
+- 以 Cloudflare Worker 唯讀代理取代「每台手機安裝 Userscript」。網站輸入角色名稱即可查官方 Explorer，代理只轉回公開的必要裝備欄位。
+- 前端改為直接匯入，不再開官方分頁；保留 JSON 匯入備援。正式站 v0.8.1 的原有流程不受影響。
+- **目前缺少 Cloudflare Worker 永久部署與 API 網址**，因此開發版匯入按鈕明確停用，避免顯示無法使用的功能。須完成授權部署、設定 `tradeoff.html` 的 `lumidex-explorer-api`、再跑真實資料驗收才可發布正式版。
+- 相關代碼：`edge/explorer-proxy.mjs`、`wrangler.jsonc`；不新增秘密、不借用其他專案 Supabase、不保存角色資訊。
+
 ### v0.8.1：屬性交換試算與 Explorer 公開裝備匯入（正式站提供，功能仍在實測）
 
 - 新增獨立 `tradeoff.html`：選地圖與怪物，對照 A/B 穿透、ATK% 或 MATK%、爆擊率、爆擊傷害、HIT、DEX 的條件式收益；每隻怪物獨立顯示，沒有假的地圖平均值。
