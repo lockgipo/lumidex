@@ -4,7 +4,7 @@
 - Name: LumiDex
 - Repository: https://github.com/lockgipo/lumidex
 - Website URL: https://lockgipo.github.io/lumidex/
-- Production version: 0.6.4 (2026-11-08); main branch, GitHub Pages root; embedded game-data snapshot 0.3.1 (22 official special-card mechanic descriptions localized)
+- Production version: 0.8.1 (2026-11-08); main branch, GitHub Pages root; embedded game-data snapshot 0.3.1 (22 official special-card mechanic descriptions localized)
 - Deployment: GitHub Pages, main branch, root; public static site. No production backend or user accounts.
 - Purpose: Traditional Chinese searchable companion reference for Lumivara Online. Unofficial.
 
@@ -23,6 +23,14 @@
 - V0.6.4 released on `main` from `dev/v0.6.4-mobile-ui` with explicit user approval: using OpenChatX `skills.design-taste-review` and `skills.apple-design`, compact iPhone landing information hierarchy (single-row dataset counts, simplified header, search-first); language selector and analyzer moved into a header tools menu; source/slot/map/sort grouped into collapsible advanced filters with active count/reset; five consistent SVG mobile navigation icons; no new dependencies. All 18 Node tests pass, local Chrome responsive 320/375/390/428px and desktop 900/1280px show no horizontal overflow. iPhone Safari visual/touch acceptance still pending.
 - V0.6.2 released on `main` (from `dev/remove-card-market`): removes all player card market UI (region, local ask/sold-average inputs, import, sorting, card detail and compare prices), the obsolete `market-snapshot.js` and CLI/testing/research files. Retains NPC sale values and existing card/monster/map features. Does not erase previously stored `lumidex-v04-market` / `lumidex-v04-region` keys from browser localStorage; it simply stops accessing them. Published to GitHub Pages.
 - Historical market experiment: `scripts/passive-market-reader.ps1` remains an untracked, local-only file and is not part of LumiDex website, this branch, or any release. Do not stage, publish, run, or reintroduce it unless the user explicitly reopens that work.
+
+## v0.8.1 attribute tradeoff and public equipment import (published, still experimental)
+
+- Released from `dev/v0.8-tradeoff` to `main` with user approval, adds separate `tradeoff.html` and `tradeoff-model.js`, linked from the index tools menu and preserved v0.6 `analyzer.html`.
+- A/B manual scenario comparison per monster: DEF/MDEF + pierce, HIT/FLEE, skill-critical expected multiplier, conditional ATK%/MATK% total pool, optional DEX panel sensitivity, optional observed noncrit hit for normal-hit kill thresholds. No false map averages or EXP/h claims.
+- Caution: ATK% stack is an explicit **unverified additive-in-one-pool assumption**; DEX change yields no total ratio unless user calibrates panel ATK/MATK per DEX. Skills/element/ASPD/passives remain outside scope; official model limited to armor, HIT and crit factors.
+- v0.8.1 includes: `explorer-import.js` pure normalized gear-model, `explorer-bridge.user.js` opt-in browser Userscript on official Explorer origin, `tradeoff.html` role-name input / cross-tab import / JSON paste fallback / same-slot gear comparison / supported stat delta-to-B. Browser CORS prohibits direct cross-domain fetch to official Explorer API; browser bridge reads only public role gear from original domain and sends a reduced payload via `window.opener.postMessage` with origin and source checks. Browser never saves gear to localStorage or repo. Tested actual Gipo public role API in browser: 10 `worn` and 832 bag/storage candidates; first-party browser bridge handshake successful. Gear fixed ATK, CRIT points, embedded cards/refine, and final panel cannot auto-convert; A totals remain manual. iPhone Safari Userscripts still requires installation and real-device acceptance.
+- Data snapshots, game IDs, card favorites, old analyzer behavior untouched. See `docs/combat-tradeoff.md`; PR Linux regression passed before release, iPhone Safari QA pending. Production merge authorized by the user; subsequent changes require normal review.
 
 ## Safety
 - Personal-use phase: not promoted to any community. Nonetheless GitHub repo and Pages website are publicly accessible (not private).
