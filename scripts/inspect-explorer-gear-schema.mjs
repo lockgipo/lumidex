@@ -27,3 +27,17 @@ for(const k of Object.keys(keys).filter(x=>/set|rarity|class|job|restriction|req
   console.log('POSSIBLE GEAR META '+k,JSON.stringify({uniqueSample:unique}));
 }
 console.log('FIRST-GEAR FIELD SHAPE',JSON.stringify(Object.fromEntries(Object.entries(bag[0]||{}).map(([k,v])=>[k,Array.isArray(v)?'array':typeof v]))));
+
+const templateValues=new Map();
+for(const g of gear){
+ if(typeof g.template!=='string')continue;
+ templateValues.set(g.template,(templateValues.get(g.template)||0)+1);
+}
+console.log('GEAR TEMPLATE SAMPLES',JSON.stringify([...templateValues].sort((a,b)=>b[1]-a[1]).slice(0,35)));
+console.log('TOP FIELD SHAPE',JSON.stringify({
+  firstNonEmpty:gear.find(g=>Array.isArray(g?.top)&&g.top.length)?.top?.slice(0,4).map(x=>typeof x==='object'?{keys:Object.keys(x),values:Object.fromEntries(Object.entries(x).filter(([k])=>/^(type|stat|key|name|value)$/i.test(k)))}:x),
+  nonempty:gear.filter(g=>Array.isArray(g?.top)&&g.top.length).length,
+  slots:[...new Set(gear.map(g=>g?.slot).filter(Boolean))].sort(),
+  setNamedItems:gear.filter(g=>/warlord|hawkeye|archmage|armor breaker|spellbreaker|executioner|phantom dancer/i.test(g?.name||'')).length,
+  templateOnEquipped:bag.filter(g=>g?.worn).map(g=>g.template??null)
+}));
