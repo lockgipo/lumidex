@@ -19,3 +19,8 @@ jobs:
         with:
           node-version: '22'
       - run: node --test
+      - name: One-time Explorer API live smoke (feature PR only)
+        if: github.event_name == 'pull_request' && github.head_ref == 'dev/explorer-direct-import'
+        env:
+          LUMIDEX_EXPLORER_SMOKE: '1'
+        run: node --test tests/explorer-live.test.cjs
