@@ -196,7 +196,7 @@ h2.sectiontitle{margin:0 0 14px}
         <label class="check" for="hide-unsafe"><input id="hide-unsafe" type="checkbox" checked> 隱藏已確認不能裝備的武器</label>
       </div>
       <p id="job-hint" class="gear-control-hint">只有已核對的武器／職業規則會自動排除；其他部位與不明裝備仍顯示。</p>
-      <p id="set-status" class="gear-control-hint">官方 Explorer 未提供個別裝備套裝名稱，本階段不計算套裝加成。</p>
+      <p id="set-status" class="gear-control-hint">提醒：Explorer 匯入的裝備不包含套裝歸屬及加成。若有穿套裝，請在下方「套裝效果（選填）」自行選擇，並確認 A／B 件數。</p>
       <select id="candidate-select" class="gear-hidden-select" tabindex="-1" aria-hidden="true"></select>
       <p id="candidate-count" class="tip"></p>
       <div id="candidate-list" class="gear-cards" role="group" aria-label="可替換裝備清單"></div>
@@ -231,7 +231,7 @@ h2.sectiontitle{margin:0 0 14px}
     <p id="set-error" class="set-error" role="alert" hidden></p>
     <div class="set-toggle">
       <label class="check" for="set-enabled"><input type="checkbox" id="set-enabled">我已核對 A／B 套裝件數，將已知效果加入傷害試算</label>
-      <p class="tip">勾選後，系統會額外加上套裝提供的穿透、ATK%／MATK%、爆傷、HIT、DEX，並計入 Blood Lord 的傷害 −30%。請確保下方 A／B 手動填入的是<strong>尚未包含套裝加成的基礎值</strong>，避免重複計算。套裝的 CRIT 是點數，不會直接換算爆擊率；防禦、回血、SP 消耗與移動速度不納入每次攻擊傷害比較。</p>
+      <p class="tip">勾選後，系統會額外加上套裝提供的穿透、ATK%／MATK%、爆傷、HIT、DEX，並計入 Blood Lord 的傷害 −30%。請注意：只有當下方 A／B 輸入的是<strong>不含套裝加成的基礎值</strong>時才勾選；若填入遊戲內已包含套裝效果的最終面板，就不要重複加入。套裝的 CRIT 是點數，不會直接換算爆擊率；防禦、回血、SP 消耗與移動速度不納入每次攻擊傷害比較。</p>
     </div>
     <p class="tip">資料依 <a href="https://www.lumivaraonline.com/wiki/" target="_blank" rel="noopener noreferrer">官方 Wiki · Gear Sets</a>。套裝選擇僅保留在目前頁面，不會修改遊戲裝備或保存角色資料。</p>
   </div>
@@ -343,7 +343,7 @@ function updateSetPreview(){
       const summary=LumiGearSets.calculate(setRows[side]);
       const active=summary.active.map(LumiGearSets.describe);
       const pending=summary.inactive.map(LumiGearSets.describe);
-      $('set-summary-'+side).textContent='已選 '+summary.totalPieces+'/6 件'+
+      $('set-summary-'+side).textContent=!setRows[side].length?'尚未手動指定套裝；匯入不含套裝資訊，不代表角色沒有套裝。':'已選 '+summary.totalPieces+'/6 件'+
         (active.length?' · 啟動：'+active.join('；'):' · 尚未啟動套裝')+
         (pending.length?' · 未達標：'+pending.join('；'):'');
     }catch(e){
@@ -361,7 +361,7 @@ function addSet(side){
   renderSetRows(side);updateSetPreview();
 }
 function chosenSetBonuses(){
-  if(!$('set-enabled').checked)return null;
+  if(!$('set-enabled').checked||(!setRows.A.length&&!setRows.B.length))return null;
   return {A:LumiGearSets.calculate(setRows.A),B:LumiGearSets.calculate(setRows.B)};
 }
 function importStatus(message){$('import-status').textContent=message}
