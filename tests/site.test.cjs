@@ -47,3 +47,17 @@ test('special cards have verified Traditional Chinese mechanics instead of place
   assert.ok(app.includes('特殊技能卡通用限制'));
   assert.ok(app.includes('官方機制名稱'));
 });
+
+test('landing layout shows dataset stats up top without duplicate search chips',()=>{
+  const summary=html.indexOf('<div class="summary">');
+  const lang=html.indexOf('<div class="langbar">');
+  const search=html.indexOf('<div class="searchbox">');
+  assert.ok(summary>0&&summary<lang&&lang<search);
+  assert.ok(html.includes('id="c-card"')&&html.includes('id="c-mon"'));
+  assert.ok(html.includes('id="c-map"')&&html.includes('id="c-mat"'));
+  assert.ok(!html.includes('id="chips"'));
+  assert.ok(!app.includes("$('#chips')"));
+  assert.ok(html.includes('data-effect-group'));
+  assert.ok(html.includes('data-effect-option'));
+  assert.ok(html.includes('v0.6.3'));
+});
