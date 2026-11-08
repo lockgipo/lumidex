@@ -4,19 +4,22 @@
 - Name: LumiDex
 - Repository: https://github.com/lockgipo/lumidex
 - Website URL: https://lockgipo.github.io/lumidex/
-- Version: 0.4.0 (2026-11-08); embedded game-data snapshot remains 0.3.0 (no game-data changes)
+- Version: 0.6.0 (2026-11-08); embedded game-data snapshot 0.3.1 (22 official special-card mechanic descriptions localized)
 - Deployment: GitHub Pages, main branch, root; public static site. No production backend or user accounts.
 - Purpose: Traditional Chinese searchable companion reference for Lumivara Online. Unofficial.
 
 ## Implementation status
-- `index.html`: self-contained UI and embedded JSON dataset, responsive for mobile and desktop.
+- `index.html`: responsive UI and embedded JSON dataset for mobile and desktop. The published page loads `market-snapshot.js` for browser-side validation of manually observed local price batches.
 - `data.json`: same game-data snapshot (88 cards / 90 monsters and Leaders / 18 maps / 72 materials).
 - `manifest.webmanifest`: browser installed-web-app metadata. Not full offline support.
 - Features: alias-aware search, card effects, filters, card/monster/map relationships, detail drawer, local favorites, 4-card compare.
 - V0.2: all indexed 88 card / 90 monster / 18 map names have Traditional Chinese (using V107 player vocabulary as a reference) and English, 3-way display selector, cross-language search; no new IDs; previous local favorites remain compatible. Names are stored as `nameZh` / `nameEnglish` alongside unchanged canonical `name`. The old map `zh` label is preserved in `previousZh`; the new `zh` points at V107 reference wording.
 - V0.3: full card equip slot arrays / tier / NPC sale value from official Wiki; 72 cards map to verified existing monster drops, 2 special-source cards (Hollow and world boss Terragorn) without inventing a map. 72 monster-specific ETC materials each have verified NPC sell prices, 30% drop rate, and a reverse link to the monster & map. Materials tab sorts by NPC sale value and shows expected NPC Silver per 100 identical-monster kills. Quick card previews in map & monster drawers show equip slot text.
 - V0.4: remove per-100 monster material yield UI in list/drawers/maps while retaining material NPC unit prices and drop rates. Cards show a distinct user-recorded (not live) two-field market section: lowest current ask and actual 7-day sold average. Record is scoped by one of SEA/East Asia/EU/NA/AU, stored only in browser localStorage with timestamp and manual provenance (`lumidex-v04-market`, `lumidex-v04-region`); no unknown prices are inferred. Optional price sorting and comparison use local records. No backend or live account access.
+- V0.5: translate all 22 special mechanic card effects from their official individual Wiki pages, including trigger conditions, odds, durations and restrictions. Card detail no longer claims complete effects are unavailable; it explains shared monster-only/PvP and stacking rules plus exceptions for Lunar Oracle and Terragorn. Keep 88 existing IDs, sources, slots, favorites and relations unchanged. Market functionality from local V0.4 is retained but no longer the focus.
+- V0.6 published first-stage analysis: `monster-stats.json` independently snapshots official public combat stats for all 90 indexed monsters, keyed by stable monster ID; `scripts/sync-monster-stats.mjs` validates official names/levels before snapshot updates; `combat-model.js` implements verified physical/magic armor, pierce, HIT/FLEE and theoretical hits-to-kill math with unit tests; `analyzer.html` presents per-monster, map-specific relative comparisons and optional observed-hit calibration. Linked from public v0.6 index with a direct `analyzer.html` page. Pending iPhone Safari visual QA. See `docs/combat-analysis.md`.
 - Data checked: 2026-11-08. Explorer publicly offers rare item/limited card Gold auctions and Gold exchange, but not general Silver card listings. Game FAQ mentions actual sale-volume weighted 7-day card price for detach fee, but it is not confirmed as a public read-only API. **NPC values and Gold auction bids are not comparable to normal player card prices**. No auto-sync scheduled.
+- Experimental local passive market UI reader (2026-11-08): `scripts/passive-market-reader.ps1` reads visible V108 market item names, Silver asks, and pagination from Windows UI Automation with no OCR, API or gameplay inputs. Verified a timed run detected one page change and emitted two 9-listing samples as JSON. Region remains unverified and coverage is incomplete; no auto-pagination, unattended scan, scheduled sync or site publishing. See `docs/market-research.md`.
 
 ## Safety
 - Personal-use phase: not promoted to any community. Nonetheless GitHub repo and Pages website are publicly accessible (not private).
@@ -28,6 +31,9 @@
 - Public sharing requires attribution as unofficial and ongoing scrutiny of third-party source-content rights.
 
 ## Next tasks
+- Market-price automation is on hold as of 2026-11-08; do not invest in further market scraping or scheduling unless the user reopens the request.
+- Next combat-analysis step: local Safari/Chrome visual QA, then verify additional ATK/MATK, skills, crit/element effects before any quantitative rankings; avoid making unjustified DPS/EXP-hour claims.
+- Local development has an offline tool for archiving manually observed Silver ask batches. The card UI imports these batches into the selected region's local browser records, keeps equal or newer observations and existing sold averages, and distinguishes verified no listings from missing data. See [market research and acceptance checks](docs/market-research.md).
 - Test on the user's actual iPhone Safari and record defects before further changes.
 - Verify translation terms against in-game Traditional Chinese and reconcile erroneous drop correlations; maintain stable canonical names and IDs.
 - Re-check official Wiki snapshots only when needed (manual). For any future auto-price source, confirm authorized/public read-only access, market region, freshness, actual trades vs asking prices, and transaction volume before feeding the UI; do not scrape authenticated game sessions or commit credentials. If verified, replace manual records with clearly sourced automated snapshots without mixing Silver and Gold. Equipment prices remain out-of-scope due to high-dimensional affixes and upgrades.

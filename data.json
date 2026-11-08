@@ -8,7 +8,7 @@
     "monsterIndex": "https://lumivaraonline.com/wiki/monsters/",
     "mapIndex": "https://lumivaraonline.com/wiki/maps/",
     "checked": "2026-11-08",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "localized": {
       "cards": 88,
       "monsters": 90,
@@ -1670,7 +1670,7 @@
     {
       "id": "card-kasa-obake",
       "name": "Kasa Obake Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "怪物造成的魔法傷害 -20%（包含怪物屬性技能與魔法攻擊）",
       "effectOriginal": "🜂 ร่มกันเวท",
       "special": true,
       "mapHint": "Sakuramori Shrine",
@@ -1701,7 +1701,7 @@
     {
       "id": "card-chochin-obake",
       "name": "Chochin Obake Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "命中怪物時有 5% 機率使其燃燒 5 秒；技能每次施放僅判定一次，只作用於第一個命中目標",
       "effectOriginal": "🜂 โคมไฟผี",
       "special": true,
       "mapHint": "Sakuramori Shrine",
@@ -1731,7 +1731,7 @@
     {
       "id": "card-karasu-tengu",
       "name": "Karasu Tengu Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "首次攻擊尚未被其他人攻擊的怪物時，普攻或單體技能傷害 +20%",
       "effectOriginal": "🜂 อีกาฉก",
       "special": true,
       "mapHint": "Sakuramori Shrine",
@@ -1762,7 +1762,7 @@
     {
       "id": "card-red-oni",
       "name": "Red Oni Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "每損失 4% HP，ATK 與 MATK +1%，最多 +15%",
       "effectOriginal": "🜂 ยิ่งเจ็บยิ่งแรง",
       "special": true,
       "mapHint": "Sakuramori Shrine",
@@ -1791,7 +1791,7 @@
     {
       "id": "card-nine-tail-kitsune",
       "name": "Nine-Tail Kitsune Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "在前一次擊殺後 4 秒內再次擊殺怪物，累積 1 層尾巴（最多 9 層）；每層 ASPD 與移動速度 +1.5%",
       "effectOriginal": "🜂 เก้าหาง",
       "special": true,
       "mapHint": "Sakuramori Shrine",
@@ -1820,7 +1820,7 @@
     {
       "id": "card-void-skitter",
       "name": "Void Skitter Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "攻擊處於異常狀態的怪物時，造成傷害 +12%",
       "effectOriginal": "🜂 จุดอ่อน",
       "special": true,
       "mapHint": "Starfall Ruins",
@@ -1850,7 +1850,7 @@
     {
       "id": "card-star-raider",
       "name": "Star Raider Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "使用遠距武器時，怪物距離超過射程的 85%，傷害 +12%；距離小於 120 px 時，傷害 -10%",
       "effectOriginal": "🜂 ยิงไกล",
       "special": true,
       "mapHint": "Starfall Ruins",
@@ -1879,7 +1879,7 @@
     {
       "id": "card-cosmic-warden",
       "name": "Cosmic Warden Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "獲得吸收怪物傷害的護盾，額度相當於 MaxHP 的 6%；護盾破裂後 20 秒才可再獲得",
       "effectOriginal": "🜂 เกราะดาว",
       "special": true,
       "mapHint": "Starfall Ruins",
@@ -1910,7 +1910,7 @@
     {
       "id": "card-meteor-behemoth",
       "name": "Meteor Behemoth Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "擊殺怪物後有 20% 機率引發屍體爆炸，對 120 px 內最多 8 隻怪物造成最後一擊傷害的 40%；Leader 與 Boss 無效，技能每次施放只判定一次",
       "effectOriginal": "🜂 อุกกาบาตตก",
       "special": true,
       "mapHint": "Starfall Ruins",
@@ -1939,7 +1939,7 @@
     {
       "id": "card-coral-golem",
       "name": "Coral Golem Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "3 秒內受到至少 3 隻不同怪物攻擊時，承受傷害 -20%",
       "effectOriginal": "🜂 แนวปะการัง",
       "special": true,
       "mapHint": "Drowned Sanctum",
@@ -1969,7 +1969,7 @@
     {
       "id": "card-abyssal-angler",
       "name": "Abyssal Angler Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "你對怪物造成傷害產生的仇恨值（Aggro）×1.5；治療不計算",
       "effectOriginal": "🜂 เหยื่อล่อ",
       "special": true,
       "mapHint": "Drowned Sanctum",
@@ -2000,7 +2000,7 @@
     {
       "id": "card-tide-siren",
       "name": "Tide Siren Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "治療技能效果 +10%；受治療的隊友額外回復 MaxSP 的 2%（不含自己，每名隊友每 5 秒最多一次）",
       "effectOriginal": "🜂 เพลงคลื่น",
       "special": true,
       "mapHint": "Drowned Sanctum",
@@ -2029,7 +2029,7 @@
     {
       "id": "card-dread-kraken",
       "name": "Dread Kraken Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "普攻命中時有 5% 機率束縛怪物 2 秒，使其無法移動；Leader 與 Boss 無效",
       "effectOriginal": "🜂 หนวดรัด",
       "special": true,
       "mapHint": "Drowned Sanctum",
@@ -2058,7 +2058,7 @@
     {
       "id": "card-hornet-drone",
       "name": "Hornet Drone Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "連續攻擊同一隻怪物時，每次 ASPD +2%，最多 10 層；換目標後層數減半；ASPD 達上限後，每層改為傷害 +1%",
       "effectOriginal": "🜂 ต่อยซ้ำ",
       "special": true,
       "mapHint": "Iron Graveyard",
@@ -2087,7 +2087,7 @@
     {
       "id": "card-rifle-trooper",
       "name": "Rifle Trooper Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "對剩餘 HP 低於 35% 的怪物，造成傷害 +30%",
       "effectOriginal": "🜂 เก็บตก",
       "special": true,
       "mapHint": "Iron Graveyard",
@@ -2116,7 +2116,7 @@
     {
       "id": "card-bulwark-frame",
       "name": "Bulwark Frame Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "200 px 內的隊友受到怪物傷害 -10%（不含自己，多張效果不疊加）",
       "effectOriginal": "🜂 กำแพงเหล็ก",
       "special": true,
       "mapHint": "Iron Graveyard",
@@ -2145,7 +2145,7 @@
     {
       "id": "card-titan-frame",
       "name": "Titan Frame Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "對 Leader 與 Boss 造成傷害 +25%；對一般怪物傷害 -10%",
       "effectOriginal": "🜂 ผ่าบัลลังก์",
       "special": true,
       "mapHint": "Iron Graveyard",
@@ -2174,7 +2174,7 @@
     {
       "id": "card-moonveil-moth",
       "name": "Moonveil Moth Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "閃避怪物普攻或技能後，3 秒內下一次命中必定暴擊（每 2 秒最多觸發一次）",
       "effectOriginal": "🜂 ฝุ่นจันทร์",
       "special": true,
       "mapHint": "Shattered Moon",
@@ -2203,7 +2203,7 @@
     {
       "id": "card-lunar-oracle",
       "name": "Lunar Oracle Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "擊殺怪物時回復自身 MaxSP 的 2%；同卡可疊加最多 3 張，單次技能最多計入 3 隻怪物",
       "effectOriginal": "🜂 จันทร์เต็มดวง",
       "special": true,
       "mapHint": "Shattered Moon",
@@ -2234,7 +2234,7 @@
     {
       "id": "card-regolith-golem",
       "name": "Regolith Golem Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "受到怪物致死攻擊時，HP 保留 1 並免疫怪物傷害 2 秒，冷卻 90 秒；Nine Lives 或 Last Stand 冷卻期間不會觸發",
       "effectOriginal": "🜂 แรงโน้มถ่วงต่ำ",
       "special": true,
       "mapHint": "Shattered Moon",
@@ -2263,7 +2263,7 @@
     {
       "id": "card-eclipse-warlord",
       "name": "Eclipse Warlord Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "屬性克制不會使造成的傷害低於 100%，但有利屬性倍率最多為 115%",
       "effectOriginal": "🜂 สุริยคราส",
       "special": true,
       "mapHint": "Shattered Moon",
@@ -2336,7 +2336,7 @@
     {
       "id": "card-terragorn",
       "name": "Terragorn Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "普攻命中時發出震波，對目標 150 px 內最多 6 隻其他怪物造成該次傷害的 40%；HIT -15%",
       "effectOriginal": "🜂 เขี้ยวแผ่นดินไหว",
       "special": true,
       "mapHint": null,

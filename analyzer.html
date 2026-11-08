@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="theme-color" content="#101525">
+<title>LumiDex · 地圖屬性分析（v0.6 初版）</title>
+<style>
+:root{color-scheme:dark;--bg:#0b101c;--panel:#141b2b;--panel2:#192237;--border:#2b3750;--text:#f0f3fa;--sub:#a5b1c3;--mint:#81e5cf;--gold:#f1c885;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif}
+*{box-sizing:border-box}body{margin:0;color:var(--text);background:radial-gradient(ellipse at 70% 0%,#1c2946,transparent 60%),var(--bg);min-height:100vh}a{color:var(--mint);text-decoration:none}a:hover{text-decoration:underline}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--mint);outline-offset:3px}button,input,select{font:inherit}main{max-width:1120px;margin:auto;padding:26px 18px 80px}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}.brand{font-size:23px;font-weight:800;letter-spacing:-.6px}.brand span{color:var(--mint)}.back{font-size:13px;padding:10px 14px;border:1px solid var(--border);border-radius:9px;background:var(--panel)}.tag{display:inline-block;background:#183e3b;color:var(--mint);padding:5px 10px;border-radius:12px;font-size:12px;font-weight:700;margin-top:25px}.hero h1{font-size:clamp(25px,4vw,36px);margin:10px 0}.lead{color:var(--sub);line-height:1.7;margin:0 0 23px;max-width:780px}.frame{display:grid;grid-template-columns:minmax(0,330px) minmax(0,1fr);gap:17px;align-items:start}.panel{border:1px solid var(--border);background:#141b2be0;border-radius:16px;padding:20px}.panel h2{margin:0 0 18px;font-size:17px}.controls{display:grid;gap:15px}.controls label{font-size:13px;font-weight:680;color:var(--sub);display:grid;gap:8px}.controls input:not([type=checkbox]),.controls select{width:100%;background:#101a2a;color:var(--text);padding:12px;border:1px solid #40516a;border-radius:10px;font-size:16px}.cols{display:grid;grid-template-columns:1fr 1fr;gap:11px}.tip{font-size:12px;color:var(--sub);line-height:1.6;margin:2px 0}.check{display:flex!important;align-items:center;gap:9px!important}.check input{accent-color:var(--mint)}.results{display:grid;gap:12px}.result{padding:17px;background:#192237;border:1px solid #36465e;border-radius:13px}.row{display:flex;align-items:start;justify-content:space-between;gap:9px}.result h3{font-size:17px;margin:0}.subname{display:block;color:var(--sub);font-weight:500;font-size:12px;margin-top:4px}.muted{color:var(--sub);font-size:12px}.statgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:13px}.statgrid>div{background:#101b2b;padding:10px;border-radius:9px}.statgrid small{display:block;font-size:11px;color:var(--sub);margin-bottom:5px}.statgrid strong{font-size:14px;font-variant-numeric:tabular-nums}.gain{color:var(--mint)}.caution{color:var(--gold)}.extras{border-top:1px solid #36465e;margin-top:12px;padding-top:12px;font-size:13px;line-height:1.6}.extras p{margin:4px 0}.details-link{font-size:12px;white-space:nowrap}.notice{border:1px solid #3b5271;background:#16243a;padding:15px;border-radius:12px;color:var(--sub);line-height:1.65;font-size:13px}.notice strong{color:var(--text)}.status{color:var(--sub);margin:0 0 10px;font-size:13px}.error{color:#ffb8b0}.sect{margin:18px 0 0;padding-top:16px;border-top:1px solid var(--border)}.sectiontext{font-size:12px;color:var(--sub)}@media(max-width:760px){.frame{grid-template-columns:1fr}.panel{padding:16px}.statgrid{grid-template-columns:repeat(2,minmax(0,1fr))}main{padding:18px 13px 60px}}@media(max-width:390px){.cols{grid-template-columns:1fr 1fr}.statgrid strong{font-size:13px}}
+</style>
+</head>
+<body>
+<main>
+  <div class="top"><div class="brand">Lumi<span>Dex</span></div><a class="back" href="index.html">← 返回繁中圖鑑</a></div>
+  <div class="hero"><span class="tag">v0.6 初版 · 地圖效益</span><h1>哪個屬性對這張地圖最有效？</h1><p class="lead">根據官方怪物 DEF、MDEF、FLEE，比較「再增加穿透」與「再增加 HIT」對單次攻擊期望傷害的相對收益。本階段不是完整 DPS、ATK%、暴擊或經驗效率計算器。</p></div>
+  <div class="frame">
+    <section class="panel" aria-labelledby="setup-title"><h2 id="setup-title">設定比較條件</h2>
+      <div class="controls">
+        <label for="map">目標地圖<select id="map"></select></label>
+        <label for="monster">分析怪物<select id="monster"><option value="">整張地圖（一般怪物）</option></select></label>
+        <label class="check" for="leaders"><input type="checkbox" id="leaders">整張地圖分析包含 Leader</label>
+        <label for="type">攻擊類型<select id="type"><option value="physical">物理（DEF／物理穿透）</option><option value="magic">魔法（MDEF／魔法穿透）</option></select></label>
+        <p class="tip">目前預填的 HIT 350、穿透 35% 均為示例，並非讀取你的角色資料；請依遊戲內面板修改。</p>
+        <div class="cols"><label for="hit">目前 HIT<input type="number" id="hit" min="0" step="1" inputmode="numeric" value="350"></label><label for="hitplus">假設 HIT 增加<input type="number" id="hitplus" min="0" step="1" inputmode="numeric" value="20"></label></div>
+        <div class="cols"><label for="pierce">目前穿透 %<input type="number" id="pierce" min="0" step="0.1" inputmode="decimal" value="35"></label><label for="pierceplus">假設穿透增加（百分點）<input type="number" id="pierceplus" min="0" step="0.1" inputmode="decimal" value="10"></label></div>
+        <label class="check" for="guaranteed"><input type="checkbox" id="guaranteed">已確認使用必中技能（忽略 HIT/FLEE）</label>
+        <div class="sect">
+          <label for="observed">實測單次命中傷害（選填）<input type="number" id="observed" min="1" step="1" placeholder="請先選擇單隻怪物" inputmode="numeric"></label>
+          <p class="tip">這個數字應是對選定怪物、目前穿透下「成功命中且未暴擊」的單次傷害。僅當沒有額外傷害波動、護盾或特殊機制時，才能用來估算擊殺次數。</p>
+        </div>
+        <p class="tip">公式來源：<a href="https://www.lumivaraonline.com/wiki/" target="_blank" rel="noopener noreferrer">官方 Wiki 戰鬥數值</a>；怪物資料會顯示獨立來源。</p>
+      </div>
+    </section>
+    <section class="panel" aria-labelledby="result-title"><h2 id="result-title">比較結果</h2>
+      <p class="status" id="status" role="status">正在載入怪物戰鬥資料…</p>
+      <div id="results" class="results"></div>
+    </section>
+  </div>
+  <div class="notice" style="margin-top:18px"><strong>解讀方式：</strong>穿透收益只反映 DEF/MDEF 抵銷後的傷害比例；HIT 收益只反映命中機率變化。兩者的百分比可以在「攻擊條件不變」時作相對比較，但不是完整 DPS、SP 效率或 EXP／小時。若技能另有必中、元素、暴擊與特殊公式，需另行驗證。沒有地圖怪物擊殺權重，就不提供虛假的全地圖平均值。</div>
+</main>
+<script src="combat-model.js"></script>
+<script>
+(function(){
+'use strict';
+const $ = id => document.getElementById(id);
+const safe = value => String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = n => Number(n).toLocaleString('zh-TW',{maximumFractionDigits:1});
+const pct = n => (n>0?'+':'')+n.toFixed(1)+'%';
+const elementZh={Earth:'地',Water:'水',Ice:'冰',Wind:'風',Fire:'火',Light:'光',Shadow:'暗',Neutral:'無',Holy:'聖',Dark:'暗',Poison:'毒',Ghost:'念'};
+let db, battle;
+function numeric(id){
+  const raw=$(id).value.trim(),n=Number(raw);
+  if(!raw || !Number.isFinite(n) || n<0) throw new RangeError('請輸入有效的非負數值：'+id);
+  return n;
+}
+function selectedMap(){return db.maps.find(m=>m.name===$('map').value)}
+function monstersForMap(){
+  const map=selectedMap();if(!map)return [];
+  const selected=$('monster').value;
+  return db.monsters.filter(m=>m.map===map.name&&(!selected ? ($('leaders').checked||!m.leader) : m.id===selected));
+}
+function refreshMonsterOptions(){
+  const prev=$('monster').value;const map=selectedMap();
+  const opts=['<option value="">整張地圖（一般怪物）</option>'];
+  db.monsters.filter(m=>m.map===map.name).forEach(m=>opts.push('<option value="'+safe(m.id)+'">'+safe(m.nameZh)+' / '+safe(m.name)+(m.leader?' · Leader':'')+'</option>'));
+  $('monster').innerHTML=opts.join('');
+  $('monster').value=db.monsters.some(m=>m.id===prev&&m.map===map.name)?prev:'';
+  if(!$('monster').value)$('observed').value='';
+  refresh();
+}
+function refresh(){
+  if(!db||!battle)return;
+  try{
+    const build={attackType:$('type').value,hit:numeric('hit'),pierce:numeric('pierce'),pierceIncrease:numeric('pierceplus'),alwaysHits:$('guaranteed').checked};
+    const hitPlus=numeric('hitplus');
+    const monsters=monstersForMap();
+    const selected=$('monster').value;
+    $('observed').disabled=!selected;
+    const obs=$('observed').value.trim();
+    if(obs && (!selected || !Number.isFinite(Number(obs)) || Number(obs)<=0)) {
+      throw new RangeError('實測傷害只能在選定單隻怪物、輸入正數時使用。');
+    }
+    $('status').textContent='顯示 '+monsters.length+' 種'+(selected?'指定':'地圖')+'怪物 · 無地圖平均值 · 資料快照 '+battle.meta.checked;
+    $('status').className='status';
+    $('results').innerHTML=monsters.map(m=>{
+      const s=battle.monsters[m.id];if(!s)return '';
+      const result=LumiCombat.analyze(s,build);
+      const chanceAfter=build.alwaysHits?1:LumiCombat.hitChance(build.hit+hitPlus,s.flee);
+      const hitGain=(chanceAfter/result.hitChance-1)*100;
+      const pierceGain=result.damageGainPct;
+      const best=pierceGain>hitGain?'本次設定穿透增益較高':hitGain>pierceGain?'本次設定 HIT 增益較高':'本次設定兩者收益相同';
+      const statDefense=build.attackType==='physical'?s.def:s.mdef;
+      const need=Math.max(0,statDefense/3-build.pierce);
+      let extra='<p>有效減傷：'+fmt((1-result.armorBefore)*100)+'% → '+fmt((1-result.armorAfter)*100)+'%　·　尚可抵銷減傷 '+fmt(need)+' 個百分點</p>';
+      extra+='<p class="muted">'+safe(best)+'（僅比較分別增加其中一項的單次攻擊期望收益）</p>';
+      if(obs&&selected===m.id){
+        const value=Number(obs),pred=value*(result.armorAfter/result.armorBefore);
+        const hitCount=LumiCombat.hitsToKill(s.hp,value),afterCount=LumiCombat.hitsToKill(s.hp,pred);
+        extra+='<p class="caution">實測校準：'+fmt(value)+' → '+fmt(pred)+' 傷害；理論兩擊門檻 '+fmt(result.damageNeededForTwoHits)+'/次</p>';
+        extra+='<p class="muted">不計未命中、暴擊與技能變動時：'+hitCount+' 次 → '+afterCount+' 次命中擊殺。這不是保證攻擊次數。</p>';
+      }
+      return '<article class="result"><div class="row"><div><h3>'+safe(m.nameZh||m.name)+'</h3><span class="subname">'+safe(m.name)+' · Lv.'+m.level+(m.leader?' · Leader':'')+'</span></div><a class="details-link" href="'+safe(s.wiki)+'" rel="noopener noreferrer" target="_blank">官方資料 ↗</a></div>'
+        +'<div class="statgrid"><div><small>HP</small><strong>'+fmt(s.hp)+'</strong></div><div><small>DEF / MDEF</small><strong>'+s.def+' / '+s.mdef+'</strong></div><div><small>FLEE / 命中率</small><strong>'+s.flee+' / '+fmt(result.hitChance*100)+'%</strong></div><div><small>屬性</small><strong>'+safe(elementZh[s.element]||s.element)+'</strong></div></div>'
+        +'<div class="statgrid"><div><small>穿透 +'+fmt(build.pierceIncrease)+' 百分點</small><strong class="gain">'+pct(pierceGain)+'</strong></div><div><small>HIT +'+fmt(hitPlus)+'</small><strong class="gain">'+pct(hitGain)+'</strong></div><div><small>穿透後傷害比例</small><strong>'+fmt(result.armorBefore*100)+'% → '+fmt(result.armorAfter*100)+'%</strong></div><div><small>命中機率</small><strong>'+fmt(result.hitChance*100)+'% → '+fmt(chanceAfter*100)+'%</strong></div></div>'
+        +'<div class="extras">'+extra+'</div></article>';
+    }).join('')||'<p class="muted">此地圖沒有符合的怪物。</p>';
+  }catch(err){$('status').textContent=err.message;$('status').className='status error';$('results').innerHTML='';}
+}
+async function boot(){
+  try{
+    const [a,b]=await Promise.all([fetch('data.json'),fetch('monster-stats.json')]);
+    if(!a.ok||!b.ok)throw new Error('資料來源無法載入，請使用 HTTP 網站或本機預覽伺服器。');
+    db=await a.json();battle=await b.json();
+    if(!db.maps?.length||Object.keys(battle.monsters||{}).length!==db.monsters.length)throw new Error('怪物戰鬥資料與圖鑑數量不一致。');
+    $('map').innerHTML=db.maps.map(m=>'<option value="'+safe(m.name)+'">Lv.'+m.range[0]+'–'+m.range[1]+' · '+safe(m.nameZh||m.zh||m.name)+'</option>').join('');
+    const defaultMap=db.maps.find(m=>m.name==='Amethyst Hollows')||db.maps[0];
+    $('map').value=defaultMap.name;
+    refreshMonsterOptions();
+    $('map').addEventListener('change',refreshMonsterOptions);
+    for(const id of ['leaders','type','hit','hitplus','pierce','pierceplus','guaranteed','observed'])$(id).addEventListener('input',refresh);
+    for(const id of ['leaders','type','guaranteed'])$(id).addEventListener('change',refresh);
+    $('monster').addEventListener('change',()=>{$('observed').value='';refresh()});
+  }catch(err){$('status').textContent='載入失敗：'+err.message;$('status').className='status error';}
+}
+boot();
+})();
+</script>
+</body></html>

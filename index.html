@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#101525">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="description" content="Lumivara Online 非官方繁體中文卡片、怪物與地圖搜尋器。">
-<title>LumiDex v0.4 — Lumivara 繁中圖鑑</title>
+<title>LumiDex v0.6 — Lumivara 繁中圖鑑</title>
 <link rel="manifest" href="manifest.webmanifest">
 <style>
 :root{color-scheme:dark;--bg:#0b101c;--panel:#141b2b;--panel2:#192237;--panel3:#222d45;--stroke:#2b3750;--text:#f0f3fa;--sub:#9eabc0;--muted:#73829b;--mint:#81e5cf;--mint-dim:#173c3a;--purple:#b5a4fa;--gold:#f1c885;--radius:17px;--shadow:0 18px 48px #0006;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC", "Microsoft JhengHei",sans-serif}
@@ -26,6 +26,8 @@
 .market-editor #market-error{color:#ffb0a9;font-size:12px}
 .market-buttons{display:flex;flex-wrap:wrap;gap:8px}
 .market-buttons button{padding:9px 13px;border-radius:9px}
+#market-import input{width:auto;max-width:100%;margin-top:10px}
+#market-import-status:empty{display:none}
 @media(max-width:480px){.market-editor form{grid-template-columns:1fr}.detail-price .pricecell{flex:1 1 125px;min-width:0}.langbar .select{min-width:115px}}
 </style>
 </head>
@@ -43,18 +45,25 @@
   <button class="nav" data-quick="物理穿透"><span class="nav-icon">⟡</span> 物理穿透卡片</button>
   <button class="nav" data-quick="ATK"><span class="nav-icon">↗</span> ATK 增益卡片</button>
   <button class="nav" data-quick="DEX"><span class="nav-icon">◈</span> DEX 增益卡片</button>
-  <div class="side-bottom">非官方玩家製作 · v0.4<br>卡片能力為本站繁中暫譯，請以遊戲及官方 Wiki 為準。<br><a href="https://lumivaraonline.com/wiki/" rel="noopener noreferrer" target="_blank">官方 Wiki ↗</a></div>
+  <a class="nav" href="analyzer.html"><span class="nav-icon">◫</span> 地圖屬性分析 <span class="counter">v0.6</span></a>
+  <div class="side-bottom">非官方玩家製作 · v0.6<br>卡片能力為本站繁中暫譯，請以遊戲及官方 Wiki 為準。<br><a href="https://lumivaraonline.com/wiki/" rel="noopener noreferrer" target="_blank">官方 Wiki ↗</a></div>
 </aside>
 <main class="main">
-  <div class="head"><div><div class="eyebrow">FAN-MADE · 繁體中文資料庫</div><h1 class="h1">找到你需要的每一張卡片。</h1><p class="lead">搜尋效果、反查怪物與地圖，不再被原本的 Wiki 分頁打斷。</p></div><div class="version">v0.4</div></div>
+  <div class="head"><div><div class="eyebrow">FAN-MADE · 繁體中文資料庫</div><h1 class="h1">找到你需要的每一張卡片。</h1><p class="lead">搜尋效果、反查怪物與地圖，不再被原本的 Wiki 分頁打斷。</p></div><div class="version">v0.6</div></div>
   <div class="langbar"><label for="lang">名稱顯示</label><select id="lang" class="select" aria-label="選擇名稱顯示語言"><option value="both">繁中＋英文</option><option value="zh">繁體中文</option><option value="en">English</option></select><label for="market-region">玩家市場</label><select id="market-region" class="select" aria-label="玩家市場區域"><option value="SEA">SEA</option><option value="East Asia">East Asia</option><option value="EU">EU</option><option value="NA">NA</option><option value="AU">AU</option></select><span>行情為個人紀錄，非即時</span></div>
+  <div class="langbar"><a class="select" href="analyzer.html" style="text-align:center;color:var(--mint);font-weight:750">◫ 地圖屬性效益分析（v0.6）</a><span>比較指定地圖的物理／魔法穿透、HIT 收益</span></div>
+  <details class="market-editor" id="market-import"><summary>匯入卡片行情</summary>
+    <label for="market-file" class="smallnote">選擇與上方市場區域相同的 Silver 行情快照（JSON）。</label>
+    <input id="market-file" type="file" accept=".json,application/json">
+    <p id="market-import-status" class="smallnote" role="status"></p>
+  </details>
   <div class="searchbox"><span class="searchic" aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" spellcheck="false" placeholder="搜尋物理破防、ATK、DEX、怪物名稱…" aria-label="搜尋名稱或效果"><button id="clear" class="clear" aria-label="清除搜尋">×</button></div>
   <div class="chips" id="chips"><button class="chip" data-keyword="物理穿透">物理穿透</button><button class="chip" data-keyword="ATK">ATK</button><button class="chip" data-keyword="DEX">DEX</button><button class="chip" data-keyword="暴擊傷害">暴擊傷害</button><button class="chip" data-keyword="MATK">MATK</button><button class="chip" data-keyword="物理穿透 ATK">物穿 + ATK</button></div>
   <div class="summary"><div class="stat"><small>卡片資料</small><strong id="c-card">88</strong></div><div class="stat"><small>怪物 / Leader</small><strong id="c-mon">90</strong></div><div class="stat"><small>地圖區域</small><strong id="c-map">18</strong></div><div class="stat"><small>可查材料</small><strong id="c-mat">72</strong></div></div>
   <div class="list-head"><h2 id="result-title">卡片圖鑑 <small id="result-count"></small></h2><div class="controls"><label class="checkchip"><input type="checkbox" id="onlyverified"> 已核對來源</label><select id="slotfilter" class="select" aria-label="卡片可鑲嵌部位"><option value="">全部裝備部位</option><option>武器</option><option>左手</option><option>頭部上層</option><option>頭部中層</option><option>頭部下層</option><option>身體護甲</option><option>披風</option><option>鞋子</option><option>飾品</option></select><select id="mapfilter" class="select" aria-label="篩選地圖"><option value="">所有地圖</option></select><select id="sort" class="select" aria-label="排序"><option value="level">地圖等級</option><option value="name">名稱 A–Z</option><option value="reverse">名稱 Z–A</option><option value="npc">NPC 價值高→低</option><option value="ask">卡片最低掛賣價 ↑</option><option value="avg7">卡片 7 日成交均價 ↑</option></select></div></div>
   <div class="results" id="results" aria-live="polite"></div>
   <div class="note" id="data-note"><strong>資料說明：</strong>卡片裝備部位、掉落來源與材料 NPC 收購單價取自官方 Wiki。卡片最低掛價與 7 日成交均價目前沒有可靠的公開即時來源，僅顯示你在此瀏覽器記錄的遊戲內價格，並依市場區域分開。特殊卡片仍以官方來源為準。</div>
-  <div class="footerline">資料快照：2026-11-08 · v0.4 卡片行情記錄 · 不需登入。<a href="https://lumivaraonline.com/wiki/" target="_blank" rel="noopener">前往官方資料 ↗</a></div>
+  <div class="footerline">資料快照：2026-11-08 · v0.6 地圖屬性分析初版 · 不需登入。<a href="https://lumivaraonline.com/wiki/" target="_blank" rel="noopener">前往官方資料 ↗</a></div>
 </main>
 </div>
 <nav class="mobnav" aria-label="手機分類切換"><button class="active" data-nav="cards"><span>▣</span>卡片</button><button data-nav="monsters"><span>♟</span>怪物</button><button data-nav="maps"><span>⌁</span>地圖</button><button data-nav="materials"><span>◇</span>材料</button><button data-nav="favorites"><span>☆</span>收藏</button></nav>
@@ -70,7 +79,7 @@
     "monsterIndex": "https://lumivaraonline.com/wiki/monsters/",
     "mapIndex": "https://lumivaraonline.com/wiki/maps/",
     "checked": "2026-11-08",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "localized": {
       "cards": 88,
       "monsters": 90,
@@ -1732,7 +1741,7 @@
     {
       "id": "card-kasa-obake",
       "name": "Kasa Obake Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "怪物造成的魔法傷害 -20%（包含怪物屬性技能與魔法攻擊）",
       "effectOriginal": "🜂 ร่มกันเวท",
       "special": true,
       "mapHint": "Sakuramori Shrine",
@@ -1763,7 +1772,7 @@
     {
       "id": "card-chochin-obake",
       "name": "Chochin Obake Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "命中怪物時有 5% 機率使其燃燒 5 秒；技能每次施放僅判定一次，只作用於第一個命中目標",
       "effectOriginal": "🜂 โคมไฟผี",
       "special": true,
       "mapHint": "Sakuramori Shrine",
@@ -1793,7 +1802,7 @@
     {
       "id": "card-karasu-tengu",
       "name": "Karasu Tengu Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "首次攻擊尚未被其他人攻擊的怪物時，普攻或單體技能傷害 +20%",
       "effectOriginal": "🜂 อีกาฉก",
       "special": true,
       "mapHint": "Sakuramori Shrine",
@@ -1824,7 +1833,7 @@
     {
       "id": "card-red-oni",
       "name": "Red Oni Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "每損失 4% HP，ATK 與 MATK +1%，最多 +15%",
       "effectOriginal": "🜂 ยิ่งเจ็บยิ่งแรง",
       "special": true,
       "mapHint": "Sakuramori Shrine",
@@ -1853,7 +1862,7 @@
     {
       "id": "card-nine-tail-kitsune",
       "name": "Nine-Tail Kitsune Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "在前一次擊殺後 4 秒內再次擊殺怪物，累積 1 層尾巴（最多 9 層）；每層 ASPD 與移動速度 +1.5%",
       "effectOriginal": "🜂 เก้าหาง",
       "special": true,
       "mapHint": "Sakuramori Shrine",
@@ -1882,7 +1891,7 @@
     {
       "id": "card-void-skitter",
       "name": "Void Skitter Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "攻擊處於異常狀態的怪物時，造成傷害 +12%",
       "effectOriginal": "🜂 จุดอ่อน",
       "special": true,
       "mapHint": "Starfall Ruins",
@@ -1912,7 +1921,7 @@
     {
       "id": "card-star-raider",
       "name": "Star Raider Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "使用遠距武器時，怪物距離超過射程的 85%，傷害 +12%；距離小於 120 px 時，傷害 -10%",
       "effectOriginal": "🜂 ยิงไกล",
       "special": true,
       "mapHint": "Starfall Ruins",
@@ -1941,7 +1950,7 @@
     {
       "id": "card-cosmic-warden",
       "name": "Cosmic Warden Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "獲得吸收怪物傷害的護盾，額度相當於 MaxHP 的 6%；護盾破裂後 20 秒才可再獲得",
       "effectOriginal": "🜂 เกราะดาว",
       "special": true,
       "mapHint": "Starfall Ruins",
@@ -1972,7 +1981,7 @@
     {
       "id": "card-meteor-behemoth",
       "name": "Meteor Behemoth Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "擊殺怪物後有 20% 機率引發屍體爆炸，對 120 px 內最多 8 隻怪物造成最後一擊傷害的 40%；Leader 與 Boss 無效，技能每次施放只判定一次",
       "effectOriginal": "🜂 อุกกาบาตตก",
       "special": true,
       "mapHint": "Starfall Ruins",
@@ -2001,7 +2010,7 @@
     {
       "id": "card-coral-golem",
       "name": "Coral Golem Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "3 秒內受到至少 3 隻不同怪物攻擊時，承受傷害 -20%",
       "effectOriginal": "🜂 แนวปะการัง",
       "special": true,
       "mapHint": "Drowned Sanctum",
@@ -2031,7 +2040,7 @@
     {
       "id": "card-abyssal-angler",
       "name": "Abyssal Angler Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "你對怪物造成傷害產生的仇恨值（Aggro）×1.5；治療不計算",
       "effectOriginal": "🜂 เหยื่อล่อ",
       "special": true,
       "mapHint": "Drowned Sanctum",
@@ -2062,7 +2071,7 @@
     {
       "id": "card-tide-siren",
       "name": "Tide Siren Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "治療技能效果 +10%；受治療的隊友額外回復 MaxSP 的 2%（不含自己，每名隊友每 5 秒最多一次）",
       "effectOriginal": "🜂 เพลงคลื่น",
       "special": true,
       "mapHint": "Drowned Sanctum",
@@ -2091,7 +2100,7 @@
     {
       "id": "card-dread-kraken",
       "name": "Dread Kraken Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "普攻命中時有 5% 機率束縛怪物 2 秒，使其無法移動；Leader 與 Boss 無效",
       "effectOriginal": "🜂 หนวดรัด",
       "special": true,
       "mapHint": "Drowned Sanctum",
@@ -2120,7 +2129,7 @@
     {
       "id": "card-hornet-drone",
       "name": "Hornet Drone Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "連續攻擊同一隻怪物時，每次 ASPD +2%，最多 10 層；換目標後層數減半；ASPD 達上限後，每層改為傷害 +1%",
       "effectOriginal": "🜂 ต่อยซ้ำ",
       "special": true,
       "mapHint": "Iron Graveyard",
@@ -2149,7 +2158,7 @@
     {
       "id": "card-rifle-trooper",
       "name": "Rifle Trooper Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "對剩餘 HP 低於 35% 的怪物，造成傷害 +30%",
       "effectOriginal": "🜂 เก็บตก",
       "special": true,
       "mapHint": "Iron Graveyard",
@@ -2178,7 +2187,7 @@
     {
       "id": "card-bulwark-frame",
       "name": "Bulwark Frame Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "200 px 內的隊友受到怪物傷害 -10%（不含自己，多張效果不疊加）",
       "effectOriginal": "🜂 กำแพงเหล็ก",
       "special": true,
       "mapHint": "Iron Graveyard",
@@ -2207,7 +2216,7 @@
     {
       "id": "card-titan-frame",
       "name": "Titan Frame Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "對 Leader 與 Boss 造成傷害 +25%；對一般怪物傷害 -10%",
       "effectOriginal": "🜂 ผ่าบัลลังก์",
       "special": true,
       "mapHint": "Iron Graveyard",
@@ -2236,7 +2245,7 @@
     {
       "id": "card-moonveil-moth",
       "name": "Moonveil Moth Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "閃避怪物普攻或技能後，3 秒內下一次命中必定暴擊（每 2 秒最多觸發一次）",
       "effectOriginal": "🜂 ฝุ่นจันทร์",
       "special": true,
       "mapHint": "Shattered Moon",
@@ -2265,7 +2274,7 @@
     {
       "id": "card-lunar-oracle",
       "name": "Lunar Oracle Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "擊殺怪物時回復自身 MaxSP 的 2%；同卡可疊加最多 3 張，單次技能最多計入 3 隻怪物",
       "effectOriginal": "🜂 จันทร์เต็มดวง",
       "special": true,
       "mapHint": "Shattered Moon",
@@ -2296,7 +2305,7 @@
     {
       "id": "card-regolith-golem",
       "name": "Regolith Golem Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "受到怪物致死攻擊時，HP 保留 1 並免疫怪物傷害 2 秒，冷卻 90 秒；Nine Lives 或 Last Stand 冷卻期間不會觸發",
       "effectOriginal": "🜂 แรงโน้มถ่วงต่ำ",
       "special": true,
       "mapHint": "Shattered Moon",
@@ -2325,7 +2334,7 @@
     {
       "id": "card-eclipse-warlord",
       "name": "Eclipse Warlord Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "屬性克制不會使造成的傷害低於 100%，但有利屬性倍率最多為 115%",
       "effectOriginal": "🜂 สุริยคราส",
       "special": true,
       "mapHint": "Shattered Moon",
@@ -2398,7 +2407,7 @@
     {
       "id": "card-terragorn",
       "name": "Terragorn Card",
-      "effect": "特殊技能卡 · 效果詳見官方 Wiki",
+      "effect": "普攻命中時發出震波，對目標 150 px 內最多 6 隻其他怪物造成該次傷害的 40%；HIT -15%",
       "effectOriginal": "🜂 เขี้ยวแผ่นดินไหว",
       "special": true,
       "mapHint": null,
@@ -4793,6 +4802,7 @@
     }
   ]
 }</script>
+<script src="market-snapshot.js"></script>
 <script>
 (()=>{'use strict';
 const DB=JSON.parse(document.getElementById('db').textContent);
@@ -4839,22 +4849,30 @@ function marketRecord(id){
   const r=marketPrices[marketKey(id)];
   return r&&typeof r==='object'&&r.source==='manual'?r:null;
 }
-function marketValue(r,key){return r&&validMarketPrice(r[key])?fmtSilver(r[key]):'—'}
+function marketValue(r,key){
+  if(key==='lowestAsk'&&r?.noListings)return '當時無掛單';
+  return r&&validMarketPrice(r[key])?fmtSilver(r[key]):'—'
+}
 function marketCompact(id){
   const r=marketRecord(id);
-  if(!r||(!validMarketPrice(r.lowestAsk)&&!validMarketPrice(r.avg7Sold)))return '';
+  if(!r)return '';
   const parts=[];
-  if(validMarketPrice(r.lowestAsk))parts.push('最低掛賣 '+fmtSilver(r.lowestAsk));
+  if(r.noListings)parts.push('當時無掛單');
+  else if(validMarketPrice(r.lowestAsk))parts.push('最低掛賣 '+fmtSilver(r.lowestAsk));
   if(validMarketPrice(r.avg7Sold))parts.push('7 日成交均價 '+fmtSilver(r.avg7Sold));
+  if(!parts.length)return '';
   return '<div class="market-line">'+safe(marketRegion)+' · '+safe(parts.join(' ／ '))+'<span>個人紀錄 · 非即時</span></div>';
 }
 function marketPanel(id){
   const r=marketRecord(id);
-  const last=r&&typeof r.updatedAt==='string'&&!Number.isNaN(Date.parse(r.updatedAt))?new Date(r.updatedAt).toLocaleString('zh-TW',{hour12:false}):'尚無紀錄';
+  const timestamp=value=>Number.isFinite(Date.parse(value))?new Date(value).toLocaleString('zh-TW',{hour12:false}):'尚無紀錄';
+  const timing=r?.askObservedAt
+    ?'掛賣價觀察時間：'+timestamp(r.askObservedAt)+(validMarketPrice(r.avg7Sold)?' · 成交均價記錄時間：'+timestamp(r.updatedAt):'')
+    :'最後更新：'+timestamp(r?.updatedAt);
   return '<div class="drawer-section"><h3>玩家市場行情 · '+safe(marketRegion)+'</h3>'
-    +'<div class="detail-price"><div class="pricecell"><small>目前最低掛賣價</small><strong class="money">'+marketValue(r,'lowestAsk')+'</strong></div>'
+    +'<div class="detail-price"><div class="pricecell"><small>最低掛賣價</small><strong class="money">'+marketValue(r,'lowestAsk')+'</strong></div>'
     +'<div class="pricecell"><small>近 7 日實際成交均價</small><strong class="money">'+marketValue(r,'avg7Sold')+'</strong></div></div>'
-    +'<p class="smallnote">個人記錄、非即時行情 · 最後更新：'+safe(last)+'。掛價與成交價不可混算；無資料顯示「—」。</p>'
+    +'<p class="smallnote">個人記錄、非即時行情 · '+safe(timing)+'。掛價與成交價不可混算，無資料顯示「—」。</p>'
     +'<details class="market-editor"><summary>記錄／更新遊戲內行情</summary><form id="market-form" data-card="'+safe(id)+'">'
     +'<label>最低掛賣價（Silver）<input name="lowestAsk" inputmode="numeric" type="number" min="1" max="1000000000000" step="1" placeholder="未取得則留空" value="'+(r&&validMarketPrice(r.lowestAsk)?r.lowestAsk:'')+'"></label>'
     +'<label>近 7 日成交均價（Silver）<input name="avg7Sold" inputmode="numeric" type="number" min="1" max="1000000000000" step="1" placeholder="未取得則留空" value="'+(r&&validMarketPrice(r.avg7Sold)?r.avg7Sold:'')+'"></label>'
@@ -4870,6 +4888,44 @@ function priceInput(value){
 function persistMarket(next){
   localStorage.setItem('lumidex-v04-market',JSON.stringify(next));
   marketPrices=next;
+}
+
+async function importMarketFile(input){
+  const file=input.files[0];
+  if(!file)return;
+  const status=$('#market-import-status');
+  input.disabled=true;
+  status.textContent='正在檢查行情快照…';
+  try{
+    let raw;
+    try{raw=JSON.parse((await file.text()).replace(/^\uFEFF/,''))}
+    catch{throw new Error('無法讀取有效的 JSON 行情快照。')}
+    const snapshot=MarketSnapshot.validateSnapshot(raw,cards);
+    if(snapshot.region!==marketRegion)throw new Error('請先將市場區域切換到 '+snapshot.region+'，再選擇此檔案。');
+    const next={...marketPrices};
+    let added=0;
+    for(const {cardId,lowestAsk} of snapshot.cards){
+      const previous=marketRecord(cardId);
+      const previousAskTime=previous?.askObservedAt||(validMarketPrice(previous?.lowestAsk)?previous.updatedAt:undefined);
+      if(Date.parse(previousAskTime)>=Date.parse(snapshot.finishedAt))continue;
+      next[marketKey(cardId)]={
+        ...previous,lowestAsk,noListings:lowestAsk===null,askObservedAt:snapshot.finishedAt,source:'manual'
+      };
+      added++;
+    }
+    if(added){
+      try{persistMarket(next)}catch{throw new Error('儲存失敗，請確認瀏覽器允許本機儲存。')}
+      render();
+    }
+    const {priced,noListings,unobserved,total}=snapshot.coverage;
+    status.textContent=snapshot.region+' · 更新 '+added+' 張，保留同時間或較新的紀錄 '+(snapshot.cards.length-added)+' 張。'
+      +'此批查核 '+snapshot.cards.length+'/'+total+' 張（有價 '+priced+'、無掛單 '+noListings+'、未查 '+unobserved+'）。';
+  }catch(error){
+    status.textContent=error.message;
+  }finally{
+    input.value='';
+    input.disabled=false;
+  }
 }
 
 function cardConfirmed(c){return c.verifiedDrops.length>0||!!c.specialDrop}
@@ -4897,7 +4953,7 @@ function showOverlay(markup,caption){$('#drawer-caption').textContent=caption;$(
 function hideOverlay(clearHash=false){$('#overlay').classList.remove('open');document.body.style.overflow='';if(clearHash&&location.hash.startsWith('#detail=')){try{history.replaceState(null,'',location.pathname+location.search)}catch{location.hash=''}}}
 function linkrow(id,main,secondary){const item=idMap.get(id),original=item&&displayLang==='both'&&displayName(item)!==(item.nameEnglish||item.name)?'<small lang="en">'+safe(item.nameEnglish||item.name)+'</small>':'';return `<button class="linkrow" data-goto="${safe(id)}"><span><strong>${safe(main)}</strong>${original}${secondary?`<small>${safe(secondary)}</small>`:''}</span><span class="arrow">›</span></button>`}
 function renderDetail(id){const item=idMap.get(id);if(!item){hideOverlay();return}let markup='';
-if(id.startsWith('card-')){const c=item,rel=cards.find(x=>x.id===c.id),names=rel.relatedMonsters.map(x=>idMap.get(x)).filter(Boolean),drops=rel.verifiedDrops.map(d=>({...d,mon:idMap.get(d.monster)})).filter(d=>d.mon);markup=`<h2 id="drawer-title">${markupName(c)}</h2><p>怪物卡片 · ${c.special?'特殊技能型':'能力值增益'}</p><div class="drawer-section"><h3>卡片效果</h3><div class="detail-effect">${fmtEffect(c.effect)}</div>${c.special?`<p>官方索引僅提供特殊技能名稱「${safe(c.effectOriginal)}」，完整效果需進入官方頁查看，本站暫不推測。</p>`:''}${c.slot?`<div class="detail-tags"><span class="tag">裝備部位：${safe(c.slot)}</span></div>`:''}</div><div class="detail-price"><div class="pricecell"><small>NPC 收購價（非市場價）</small><strong class="money">${c.npcSell!=null?fmtSilver(c.npcSell):'未查到'}</strong></div><div class="pricecell"><small>卡片階級</small><strong>${safe(c.tier||'特殊卡片')}</strong></div>${c.cardPackRate!=null?`<div class='pricecell'><small>Monster Card Pack 機率</small><strong>${c.cardPackRate}%</strong></div>`:''}</div>${marketPanel(c.id)}<div class="drawer-section"><h3>來源 / 掉落資訊</h3>${drops.length?`<div class="rows">${drops.map(d=>linkrow(d.mon.id,displayName(d.mon)+' · Lv.'+d.mon.level,`${d.mon.map} · 掉落率 ${d.rate}%`)).join('')}</div>`:(c.source?`<div class="notice">${safe(c.source)}</div>`:`<div class="notice">目前僅有官方卡片索引資料。${names.length?'已找到同名怪物，但尚未逐張核對實際掉落率，請勿將關聯視為確認掉落。':'尚無已確認的野外掉落來源。'}</div>`)}${(!drops.length&&names.length)?`<div class="rows" style="margin-top:10px">${names.map(m=>linkrow(m.id,displayName(m)+' · Lv.'+m.level,m.map+' · 同名怪物（尚未核對掉落）')).join('')}</div>`:''}</div>${cardMaps(c).length?`<div class="drawer-section"><h3>關聯地圖</h3><div class="rows">${cardMaps(c).map(n=>{const m=maps.find(m=>m.name===n);return linkrow(m.id,displayName(m)+' · Lv.'+m.range.join('–'),m.name)}).join('')}</div></div>`:''}<div class="actionbar"><button class="primary" data-fav="${safe(id)}">${favs.has(id)?'★ 已收藏':'☆ 加入收藏'}</button><button class="secondary" data-compare="${safe(id)}">⚖ ${selected.has(id)?'移出比較':'加入比較'}</button><a href="${safe(c.wiki)}" class="secondary" target="_blank" rel="noopener noreferrer">官方${c.wiki.endsWith('/cards/')?'卡片索引':'卡片詳情'} ↗</a></div>`}
+if(id.startsWith('card-')){const c=item,rel=cards.find(x=>x.id===c.id),names=rel.relatedMonsters.map(x=>idMap.get(x)).filter(Boolean),drops=rel.verifiedDrops.map(d=>({...d,mon:idMap.get(d.monster)})).filter(d=>d.mon);markup=`<h2 id="drawer-title">${markupName(c)}</h2><p>怪物卡片 · ${c.special?'特殊技能型':'能力值增益'}</p><div class="drawer-section"><h3>卡片效果</h3><div class="detail-effect">${fmtEffect(c.effect)}</div>${c.special?`<p class="smallnote"><strong>特殊技能卡通用限制：</strong>官方機制名稱「${safe(c.effectOriginal)}」。僅對怪物生效，PvP 無效。${c.id==='card-lunar-oracle'?'同卡最多疊加 3 張':'相同卡片重複裝備不疊加'}；每件裝備每個卡槽限 1 張。${c.id==='card-terragorn'?'此卡可支付 Silver 拆卸。':'嵌入後不可拆除回收。'}</p>`:''}${c.slot?`<div class="detail-tags"><span class="tag">裝備部位：${safe(c.slot)}</span></div>`:''}</div><div class="detail-price"><div class="pricecell"><small>NPC 收購價（非市場價）</small><strong class="money">${c.npcSell!=null?fmtSilver(c.npcSell):'未查到'}</strong></div><div class="pricecell"><small>卡片階級</small><strong>${safe(c.tier||'特殊卡片')}</strong></div>${c.cardPackRate!=null?`<div class='pricecell'><small>Monster Card Pack 機率</small><strong>${c.cardPackRate}%</strong></div>`:''}</div>${marketPanel(c.id)}<div class="drawer-section"><h3>來源 / 掉落資訊</h3>${drops.length?`<div class="rows">${drops.map(d=>linkrow(d.mon.id,displayName(d.mon)+' · Lv.'+d.mon.level,`${d.mon.map} · 掉落率 ${d.rate}%`)).join('')}</div>`:(c.source?`<div class="notice">${safe(c.source)}</div>`:`<div class="notice">目前僅有官方卡片索引資料。${names.length?'已找到同名怪物，但尚未逐張核對實際掉落率，請勿將關聯視為確認掉落。':'尚無已確認的野外掉落來源。'}</div>`)}${(!drops.length&&names.length)?`<div class="rows" style="margin-top:10px">${names.map(m=>linkrow(m.id,displayName(m)+' · Lv.'+m.level,m.map+' · 同名怪物（尚未核對掉落）')).join('')}</div>`:''}</div>${cardMaps(c).length?`<div class="drawer-section"><h3>關聯地圖</h3><div class="rows">${cardMaps(c).map(n=>{const m=maps.find(m=>m.name===n);return linkrow(m.id,displayName(m)+' · Lv.'+m.range.join('–'),m.name)}).join('')}</div></div>`:''}<div class="actionbar"><button class="primary" data-fav="${safe(id)}">${favs.has(id)?'★ 已收藏':'☆ 加入收藏'}</button><button class="secondary" data-compare="${safe(id)}">⚖ ${selected.has(id)?'移出比較':'加入比較'}</button><a href="${safe(c.wiki)}" class="secondary" target="_blank" rel="noopener noreferrer">官方${c.wiki.endsWith('/cards/')?'卡片索引':'卡片詳情'} ↗</a></div>`}
 else if(id.startsWith('monster-')){const m=item,mp=mapForMonster(m),cList=cardForMonster(m);markup=`<h2 id="drawer-title">${markupName(m)}</h2><p>Lv.${m.level} · ${m.leader?'地圖 Leader':'一般怪物'}</p><div class="drawer-section"><h3>出沒地圖</h3><div class="rows">${mp?linkrow(mp.id,displayName(mp)+' · Lv.'+mp.range.join('–'),mp.name):safe(m.map)}</div></div><div class="drawer-section"><h3>同名卡片 / 相關卡片</h3>${cList.length?`<div class="rows">${cList.map(c=>linkrow(c.id,displayName(c),`可鑲嵌：${c.slot||'待核對'} · ${c.effect} · ${c.verifiedDrops.some(d=>d.monster===m.id)?'已核對掉落':'掉落尚未核對'}`)).join('')}</div>`:`<p>暫無相符卡片。</p>`}</div><div class="drawer-section"><h3>專屬材料 / NPC 收購</h3>${materialsByMonster.has(m.id)?`<div class="rows">${(()=>{const mt=materialsByMonster.get(m.id);return linkrow(mt.id,displayName(mt),`${mt.dropRate}% 掉落 · NPC ${fmtSilver(mt.npcSell)}/個`)})()}</div>`:'<p>本怪物暫無一般材料資料。</p>'}</div><div class="notice">材料欄顯示 NPC 收購單價與掉率；玩家市場價格請參考卡片詳情中的個人行情紀錄。</div><div class="actionbar"><button class="primary" data-fav="${safe(id)}">${favs.has(id)?'★ 已收藏':'☆ 加入收藏'}</button><a class="secondary" href="${safe(DB.meta.monsterIndex)}" target="_blank" rel="noopener">官方怪物列表 ↗</a></div>`}
 else if(id.startsWith('item-')){const t=item,mon=idMap.get(t.sourceMonster),mp=mon&&mapForMonster(mon);markup=`<h2 id='drawer-title'>${markupName(t)}</h2><p>怪物專屬材料 · NPC 收購價（不代表玩家市場售價）</p><div class='detail-price'><div class='pricecell'><small>NPC 收購單價</small><strong class='money'>${fmtSilver(t.npcSell)}</strong></div></div><div class='drawer-section'><h3>掉落來源</h3><div class='rows'>${mon?linkrow(mon.id,displayName(mon)+' · Lv.'+mon.level,'官方專屬材料掉率 '+t.dropRate+'%'):''}${mp?linkrow(mp.id,displayName(mp),mp.name):''}</div></div><div class='notice'>NPC 收購單價與怪物掉率來自官方 Wiki，並非玩家間交易行情。</div><div class='actionbar'><button class='primary' data-fav='${safe(id)}'>${favs.has(id)?'★ 已收藏':'☆ 加入收藏'}</button><a href='${safe(t.wiki)}' class='secondary' target='_blank' rel='noopener noreferrer'>官方材料來源 ↗</a></div>`}
 else {const m=item,relatedMon=monsters.filter(x=>x.map===m.name),relatedCards=cards.filter(c=>cardMaps(c).includes(m.name));markup=`<h2 id="drawer-title">${markupName(m)}</h2><p>Lv.${m.range.join('–')} · 中文名稱依玩家慣用詞彙整理</p><div class="drawer-section"><h3>出沒怪物 · ${relatedMon.length}</h3><div class="rows">${relatedMon.map(x=>linkrow(x.id,displayName(x)+' · Lv.'+x.level,x.leader?'Leader':'一般怪物')).join('')}</div></div><div class="drawer-section"><h3>關聯卡片 · ${relatedCards.length}</h3><div class="rows">${relatedCards.map(c=>linkrow(c.id,displayName(c),`可鑲嵌：${c.slot||'待核對'} · ${c.effect} · ${c.verifiedDrops.some(d=>idMap.get(d.monster)?.map===m.name)?'已核對掉落':'掉落尚未核對'}`)).join('')}</div></div><div class="drawer-section"><h3>本地圖專屬材料 · ${materialForMap(m).length}</h3><div class="rows">${materialForMap(m).sort((a,b)=>b.npcSell-a.npcSell).map(t=>linkrow(t.id,displayName(t),`NPC ${fmtSilver(t.npcSell)}/個 · 掉率 30%`)).join('')||'<p>無專屬材料資料。</p>'}</div></div><div class="actionbar"><button class="primary" data-fav="${safe(id)}">${favs.has(id)?'★ 已收藏':'☆ 加入收藏'}</button><a class="secondary" href="${safe(DB.meta.mapIndex)}" target="_blank" rel="noopener">官方地圖列表 ↗</a></div>`}
@@ -4924,8 +4980,16 @@ document.addEventListener('submit',e=>{
   const error=form.querySelector('#market-error');
   if(Number.isNaN(lowestAsk)||Number.isNaN(avg7Sold)){error.textContent='請輸入大於 0 的整數 Silver 金額，或留空。';return}
   const next={...marketPrices},key=marketKey(id);
-  if(lowestAsk===null&&avg7Sold===null)delete next[key];
-  else next[key]={lowestAsk,avg7Sold,updatedAt:new Date().toISOString(),source:'manual'};
+  const previous=marketRecord(id);
+  const sameImportedAsk=previous?.askObservedAt&&previous.lowestAsk===lowestAsk;
+  if(lowestAsk===null&&avg7Sold===null&&!sameImportedAsk)delete next[key];
+  else{
+    next[key]={lowestAsk,avg7Sold,updatedAt:new Date().toISOString(),source:'manual'};
+    if(sameImportedAsk){
+      next[key].askObservedAt=previous.askObservedAt;
+      next[key].noListings=previous.noListings;
+    }
+  }
   try{persistMarket(next);render();renderDetail(id)}
   catch{error.textContent='儲存失敗，請確認瀏覽器允許本機儲存。'}
 });
@@ -4938,6 +5002,7 @@ document.addEventListener('click',e=>{
   }
 });
 window.addEventListener('hashchange',hashRoute);document.addEventListener('keydown',e=>{if(e.key==='Escape'){if($('#overlay').classList.contains('open'))hideOverlay(true);else{$('#search').blur()}}else if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();$('#search').focus()}});
+$('#market-file').addEventListener('change',e=>importMarketFile(e.target));
 function buildMapOptions(){const el=$('#mapfilter'),prev=el.value;el.innerHTML='<option value="">所有地圖</option>';for(const m of maps){const op=document.createElement('option');op.value=m.name;op.textContent=`Lv.${m.range[0]}–${m.range[1]} · ${displayName(m)}`;el.appendChild(op)}el.value=prev}
 $('#market-region').value=marketRegion;$('#market-region').addEventListener('change',e=>{if(!marketRegions.has(e.target.value))return;marketRegion=e.target.value;try{localStorage.setItem('lumidex-v04-region',marketRegion)}catch{}render();if($('#overlay').classList.contains('open')&&location.hash.startsWith('#detail='))renderDetail(decodeURIComponent(location.hash.slice(8)))});
 $('#lang').value=displayLang;$('#lang').addEventListener('change',e=>{displayLang=e.target.value;try{localStorage.setItem('lumidex-v02-language',displayLang)}catch{}buildMapOptions();render();if($('#overlay').classList.contains('open')&&location.hash.startsWith('#detail='))renderDetail(decodeURIComponent(location.hash.slice(8)))});buildMapOptions();
