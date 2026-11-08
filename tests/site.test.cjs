@@ -76,6 +76,7 @@ test('market file import updates only older asks in the selected region', async 
     localStorage: { getItem: key => storage.get(key), setItem: (key, value) => storage.set(key, value) },
   });
   vm.runInContext(fs.readFileSync(path.join(root, 'market-snapshot.js'), 'utf8'), context);
+  vm.runInContext(fs.readFileSync(path.join(root, 'card-filters.js'), 'utf8'), context);
   vm.runInContext(app, context);
   const snapshot = {
     version: 1, source: 'manual', currency: 'Silver', region: 'SEA',
