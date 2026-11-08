@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="theme-color" content="#101525">
 <meta name="lumidex-explorer-api" content="https://lumidex-explorer-api.vercel.app/api/player">
-<title>LumiDex · 屬性交換比較 v0.8.2</title>
+<title>LumiDex · 屬性交換比較 v0.8.3（開發版）</title>
 <style>
 :root{color-scheme:dark;--bg:#0b101c;--panel:#141b2b;--panel2:#192237;--stroke:#314158;--text:#eef2fa;--sub:#b0bed0;--mint:#81e5cf;--gold:#f1c885;--red:#f8a3a3;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif}
 *{box-sizing:border-box}
@@ -164,14 +164,14 @@ h2.sectiontitle{margin:0 0 14px}
 <main class="wrap">
 <header><div class="logo">Lumi<em>Dex</em></div><a class="back" href="analyzer.html">← 舊版穿透分析</a></header>
 <div class="hero">
-  <div class="eyebrow">V0.8.2 · 條件式試算</div>
+  <div class="eyebrow">V0.8.3 DEV · 條件式試算</div>
   <h1>穿透換 ATK% 或爆傷，值得嗎？</h1>
   <p class="lead">在指定地圖怪物身上比較 A／B 兩套屬性。穿透、命中與暴擊使用官方公開規則；ATK% 為待實測堆疊假設，DEX 則需另行校準，不把條件式估算當成真實掛機效率。</p>
 </div>
 <details class="import-panel" id="character-import">
   <summary>從官方 Explorer 匯入角色裝備 <span>免安裝腳本 · 一鍵讀取</span></summary>
   <div class="import-content">
-    <p class="tip">輸入角色名稱即可匯入官方 Explorer 公開裝備，不需要安裝擴充功能或登入遊戲。資料只在瀏覽器內用來比較裝備。</p>
+    <p class="tip">輸入角色名稱即可匯入官方 Explorer 公開裝備，不需要安裝擴充功能或登入遊戲。資料只在瀏覽器內用來比較裝備。<strong>匯入不包含套裝效果，請於下方「套裝效果（選填）」自行設定。</strong></p>
     <div class="import-actions">
       <label for="character-name">官方角色名稱<input id="character-name" type="text" maxlength="24" autocomplete="off" placeholder="例如 Gipo"></label>
       <button id="open-explorer" type="button" class="primary-button">匯入角色裝備</button>

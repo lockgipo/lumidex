@@ -1,86 +1,72 @@
-/* LumiDex manually assigned sets. Rules from official Lumivara Wiki (2026-11-08).
-   Explorer does NOT expose each item's set; never guess membership. */
+/* LumiDex manually selected official Gear Sets.
+   Explorer does not expose gear set membership. Never infer from item name/tier.
+   Source: https://www.lumivaraonline.com/wiki/ — Refine & Gear Systems > Gear Sets.
+*/
 (function(root,factory){
- const api=factory();
- if(typeof module==='object'&&module.exports)module.exports=api;else root.LumiSets=api;
+  const api=factory();
+  if(typeof module==='object'&&module.exports)module.exports=api;
+  else root.LumiGearSets=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
-'use strict';
-const wiki='https://lumivaraonline.com/wiki/';
-const definitions=Object.freeze([
- {id:'warlord',name:'Warlord',pieces:2,repeat:true,bonus:{atkPct:10}},
- {id:'archmage',name:'Archmage',pieces:2,repeat:true,bonus:{matkPct:10}},
- {id:'phantom-dancer',name:'Phantom Dancer',pieces:4,bonus:{flee:200,atkPct:10,moveSpeedPct:7}},
- {id:'hawkeye',name:'Hawkeye',pieces:4,bonus:{hit:250,atkPct:10,matkPct:10,moveSpeedPct:7}},
- {id:'mystic-sage',name:'Mystic Sage',pieces:4,bonus:{dex:30,matkPct:10,spRegen:5,moveSpeedPct:7}},
- {id:'lucky-star',name:'Lucky Star',pieces:2,repeat:true,bonus:{crit:10},notes:['CRIT 是點數，不等於實際爆擊機率']},
- {id:'iron-bastion',name:'Iron Bastion',pieces:2,repeat:true,bonus:{hp:500,def:7,mdef:10}},
- {id:'blood-lord',name:'Blood Lord',pieces:6,bonus:{carryWeight:2000,damageDealtPct:-30},
-  notes:['命中時吸取造成傷害的 100% HP（每次最多恢復最大 HP 5%）','每次命中消耗最大 SP 的 3%','全傷害 -30%，目前傷害分析器尚未處理']},
- {id:'executioner',name:'Executioner',pieces:2,repeat:true,bonus:{critDmg:15}},
- {id:'armor-breaker',name:'Armor Breaker',pieces:2,repeat:true,bonus:{pierce:7}},
- {id:'spellbreaker',name:'Spellbreaker',pieces:2,repeat:true,bonus:{magicPierce:7}}
-]);
-const byId=Object.freeze(Object.fromEntries(definitions.map(s=>[s.id,s])));
-const labels={atkPct:'ATK%',matkPct:'MATK%',flee:'FLEE',hit:'HIT',moveSpeedPct:'移動速度',
- dex:'DEX',spRegen:'SP 恢復',crit:'CRIT 點數',hp:'HP',def:'DEF',mdef:'MDEF',
- carryWeight:'負重',damageDealtPct:'全傷害',critDmg:'暴擊傷害',pierce:'物理穿透',magicPierce:'魔法穿透'};
-const percent=new Set(['atkPct','matkPct','moveSpeedPct','damageDealtPct','critDmg','pierce','magicPierce']);
-function count(n){if(!Number.isInteger(n)||n<0||n>6)throw new RangeError('套裝件數必須是 0～6 的整數');return n;}
-function evaluate(id,n){
- const set=byId[id];if(!set)throw new RangeError('不支援的套裝');
- count(n);
- const stacks=set.repeat?Math.min(3,Math.floor(n/2)):(n>=set.pieces?1:0);
- return {id,name:set.name,pieces:n,need:set.pieces,repeat:!!set.repeat,stacks,
-  next:stacks===0?set.pieces:set.repeat&&stacks<3?2*(stacks+1):null,
-  active:stacks>0,
-  bonus:Object.fromEntries(Object.entries(set.bonus).map(([k,v])=>[k,v*stacks])),
-  notes:stacks>0?[...(set.notes||[])]:[]};
-}
-function compare(rows){
- if(!Array.isArray(rows)||rows.length>11)throw new RangeError('套裝數量過多');
- const used=new Set(),entries=[],A={},B={};let totalA=0,totalB=0;
- for(const row of rows){
-  if(!byId[row?.id]||used.has(row.id))throw new RangeError('請選擇不重複的有效套裝');
-  used.add(row.id);const a=count(row.a),b=count(row.b);totalA+=a;totalB+=b;
-  const sa=evaluate(row.id,a),sb=evaluate(row.id,b);
-  for(const [k,v] of Object.entries(sa.bonus))A[k]=(A[k]||0)+v;
-  for(const [k,v] of Object.entries(sb.bonus))B[k]=(B[k]||0)+v;
-  entries.push({id:row.id,name:sa.name,a:sa,b:sb});
- }
- if(totalA>6||totalB>6)throw new RangeError('六個防具部位中，A 與 B 各自最多只能計入六件套裝裝備');
- const delta={};
- for(const key of new Set([...Object.keys(A),...Object.keys(B)])){
-  const d=(B[key]||0)-(A[key]||0);if(d)delta[key]=d;
- }
- const supported=new Set(['atkPct','matkPct','hit','dex','critDmg','pierce','magicPierce']);
- return {entries,totalA,totalB,statsA:A,statsB:B,delta,
-  blocksDamageComparison:!!delta.damageDealtPct,
-  unmodeled:Object.keys(delta).filter(k=>!supported.has(k))};
-}
-function format(key,value){return (labels[key]||key)+' '+(value>0?'+':'')+value+(percent.has(key)?'%':'');}
-function composeValues(baseline,gearChanges,setDiff,type){
- if(!['physical','magic'].includes(type))throw new RangeError('傷害類型錯誤');
- if(setDiff?.damageDealtPct)throw new RangeError('Blood Lord 的全傷害 -30% 尚未納入分析，不可當成完整傷害比較');
- const target={};
- for(const field of ['pierceB','atkB','critdB','critB','hitB','dexB']){
-  const orig=field.replace(/B$/,'A');const v=baseline[orig];
-  if(typeof v!=='number'||!Number.isFinite(v)||v<0)throw new RangeError(orig+' 必須填寫有效的非負數');
-  target[field]=v;
- }
- for(const [field,v] of Object.entries(gearChanges||{})){
-  if(!Object.hasOwn(target,field))continue;
-  target[field]+=v-baseline[field.replace(/B$/,'A')];
- }
- const map={[type==='physical'?'atkPct':'matkPct']:'atkB',hit:'hitB',dex:'dexB',
-  critDmg:'critdB',[type==='physical'?'pierce':'magicPierce']:'pierceB'};
- for(const [k,field] of Object.entries(map)){
-  const v=setDiff?.[k]||0;
-  if(!Number.isFinite(v))throw new RangeError('套裝加成無效');
-  target[field]+=v;
- }
- if(Object.values(target).some(v=>!Number.isFinite(v)||v<0))throw new RangeError('替換後能力低於 0，請核對 A 面板與套裝件數');
- if(target.critB>100)throw new RangeError('爆擊率不能超過 100%');
- return target;
-}
-return Object.freeze({wiki,definitions,byId,labels,evaluate,compare,format,composeValues});
+  'use strict';
+  const catalog=Object.freeze([
+    {id:'warlord',name:'戰神（Warlord）',rarity:'普通',threshold:2,stackable:true,effect:'ATK +10%／每 2 件可疊加，最多 3 層',bonus:{atkPct:10}},
+    {id:'archmage',name:'大法師（Archmage）',rarity:'普通',threshold:2,stackable:true,effect:'MATK +10%／每 2 件可疊加，最多 3 層',bonus:{matkPct:10}},
+    {id:'phantom_dancer',name:'幻影舞者（Phantom Dancer）',rarity:'普通',threshold:4,effect:'FLEE +200、ATK +10%、移動速度 +7%',bonus:{flee:200,atkPct:10,movePct:7}},
+    {id:'hawkeye',name:'鷹眼（Hawkeye）',rarity:'普通',threshold:4,effect:'HIT +250、ATK +10%、MATK +10%、移動速度 +7%',bonus:{hit:250,atkPct:10,matkPct:10,movePct:7}},
+    {id:'mystic_sage',name:'秘法賢者（Mystic Sage）',rarity:'普通',threshold:4,effect:'DEX +30、MATK +10%、SP 恢復 +5、移動速度 +7%',bonus:{dex:30,matkPct:10,spRegen:5,movePct:7}},
+    {id:'lucky_star',name:'幸運之星（Lucky Star）',rarity:'稀有',threshold:2,stackable:true,effect:'CRIT 點數 +10／每 2 件可疊加，最多 3 層',bonus:{crit:10}},
+    {id:'iron_bastion',name:'鋼鐵堡壘（Iron Bastion）',rarity:'稀有',threshold:2,stackable:true,effect:'HP +500、DEF +7、MDEF +10／每 2 件可疊加',bonus:{hp:500,def:7,mdef:10}},
+    {id:'blood_lord',name:'鮮血領主（Blood Lord）',rarity:'稀有',threshold:6,effect:'每次命中吸血＝造成傷害的 100%（單次最多 MaxHP 5%）、消耗 MaxSP 3%、負重 +2000、造成傷害 −30%',bonus:{lifesteal:true,spDrainPct:3,carry:2000,damageMultiplier:0.7}},
+    {id:'executioner',name:'處刑者（Executioner）',rarity:'傳說',threshold:2,stackable:true,effect:'爆擊傷害 +15%／每 2 件可疊加，最多 3 層',bonus:{critDmg:15}},
+    {id:'armor_breaker',name:'破甲者（Armor Breaker）',rarity:'傳說',threshold:2,stackable:true,effect:'物理穿透 +7%／每 2 件可疊加，最多 3 層',bonus:{pierce:7}},
+    {id:'spellbreaker',name:'破魔者（Spellbreaker）',rarity:'傳說',threshold:2,stackable:true,effect:'魔法穿透 +7%／每 2 件可疊加，最多 3 層',bonus:{magicPierce:7}}
+  ]);
+  const byId=Object.freeze(Object.fromEntries(catalog.map(x=>[x.id,x])));
+  const numberFields=['atkPct','matkPct','flee','movePct','hit','dex','spRegen','crit','hp','def','mdef','carry','critDmg','pierce','magicPierce','spDrainPct'];
+  const labels=Object.freeze({atkPct:'ATK%',matkPct:'MATK%',flee:'FLEE',movePct:'移動速度',hit:'HIT',dex:'DEX',spRegen:'SP 恢復',crit:'CRIT 點數',hp:'HP',def:'DEF',mdef:'MDEF',carry:'負重',critDmg:'爆擊傷害',pierce:'物理穿透',magicPierce:'魔法穿透',spDrainPct:'每次命中 SP 消耗'});
+  const percentFields=new Set(['atkPct','matkPct','movePct','critDmg','pierce','magicPierce','spDrainPct']);
+  function calculate(rows){
+    if(!Array.isArray(rows)||rows.length>6)throw new RangeError('套裝選擇最多六組');
+    const used=new Set(),active=[],inactive=[];
+    const bonuses=Object.fromEntries(numberFields.map(k=>[k,0]));
+    let totalPieces=0,damageMultiplier=1;
+    for(const row of rows){
+      const set=typeof row?.id==='string'&&Object.hasOwn(byId,row.id)?byId[row.id]:null,count=row?.count;
+      if(!set)throw new RangeError('未知的套裝');
+      if(used.has(set.id))throw new RangeError('同一套裝請合併件數');
+      if(!Number.isInteger(count)||count<1||count>6)throw new RangeError('套裝件數必須為 1～6 件');
+      used.add(set.id);totalPieces+=count;
+      const stacks=count>=set.threshold?(set.stackable?Math.min(3,Math.floor(count/set.threshold)):1):0;
+      const entry={id:set.id,name:set.name,rarity:set.rarity,count,threshold:set.threshold,stacks,stackable:!!set.stackable,effect:set.effect};
+      if(!stacks){inactive.push(entry);continue;}
+      active.push(entry);
+      for(const key of numberFields)bonuses[key]+=(set.bonus[key]||0)*stacks;
+      if(set.bonus.damageMultiplier)damageMultiplier*=set.bonus.damageMultiplier;
+    }
+    if(totalPieces>6)throw new RangeError('套裝只能穿在六個防具部位，合計不得超過 6 件');
+    const effectSummary=numberFields.filter(k=>bonuses[k]!==0).map(k=>labels[k]+' +'+bonuses[k]+(percentFields.has(k)?'%':''));
+    if(active.some(x=>x.id==='blood_lord')){
+      effectSummary.push('傷害 −30%','每次命中吸血＝造成傷害的 100%（上限 MaxHP 5%）');
+    }
+    return {totalPieces,active,inactive,bonuses,damageMultiplier,effectSummary};
+  }
+  function apply(build,summary){
+    if(!build||!summary||!['physical','magic'].includes(build.attackType))throw new RangeError('Invalid set comparison build');
+    const b=summary.bonuses,physical=build.attackType==='physical';
+    return {
+      ...build,
+      attackBonusPct:build.attackBonusPct+(physical?b.atkPct:b.matkPct),
+      pierce:build.pierce+(physical?b.pierce:b.magicPierce),
+      critDamageBonus:build.critDamageBonus+b.critDmg,
+      hit:build.hit+b.hit,
+      dex:build.dex+b.dex
+      // Raw CRIT points cannot be converted into actual skill crit chance.
+      // FLEE, player DEF, HP, movement and recovery are not per-hit damage.
+    };
+  }
+  function describe(entry){
+    if(!entry.stacks)return entry.name+' '+entry.count+'/'+entry.threshold+' 件（尚未啟動）';
+    return entry.name+' '+entry.count+' 件（'+(entry.stackable?'已啟動 ×'+entry.stacks:'已啟動')+'）：'+entry.effect;
+  }
+  return Object.freeze({catalog,byId,calculate,apply,describe});
 });
