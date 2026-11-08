@@ -2,9 +2,9 @@ const test=require('node:test');
 const assert=require('node:assert/strict');
 const Import=require('../explorer-import.js');
 const character={
-  name:'SampleUser',classId:1,level:100,
+  name:'SampleUser',classId:'archer',level:100,
   gear:[
-    {name:'III Obsidian Ring',slot:'accessory1',tier:3,worn:true,bonuses:{pierce:3,crit:6,vit:6,atk:40},cards:['cobra_card']},
+    {name:'III Obsidian Ring',slot:'accessory1',tier:3,worn:true,template:'obsidian_ring',serial:'gear_a',top:['pierce'],finder:'private_other',bonuses:{pierce:3,crit:6,vit:6,atk:40},cards:['cobra_card']},
     {name:'III Platinum Ring',slot:'accessory1',tier:3,worn:true,bonuses:{atk:36,critDmg:6,hit:5},cards:[]},
     {name:'III Bow',slot:'sword',tier:3,worn:true,bonuses:{atk:30,dex:5},cards:[]},
     {name:'V Bow',slot:'sword',tier:5,bonuses:{atk:120,dex:10,hit:10},cards:[]}
@@ -17,6 +17,11 @@ const character={
 test('sanitize official Explorer result and distinguish worn items from storage candidates',()=>{
   const p=Import.normalize({player:character});
   assert.equal(p.name,'SampleUser');
+  assert.equal(p.classId,'archer');
+  assert.equal(p.equipped[0].template,'obsidian_ring');
+  assert.equal(p.equipped[0].serial,'gear_a');
+  assert.deepEqual(p.equipped[0].top,['pierce']);
+  assert.ok(!JSON.stringify(p).includes('private_other'));
   assert.equal(p.equipped.length,3);
   assert.equal(p.candidates.length,3);
   assert.equal(p.candidates.filter(x=>x.source==='倉庫').length,2);
