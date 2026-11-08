@@ -19,9 +19,6 @@ jobs:
         with:
           node-version: '22'
       - run: node --test
-      - name: Inspect official public Explorer gear field names (temporary dev-only)
-        if: github.event_name == 'pull_request' && github.head_ref == 'dev/v0.8.3-gear-metadata'
-        run: node scripts/inspect-explorer-gear-schema.mjs
       - name: One-time Explorer API live smoke (feature PR only)
         if: github.event_name == 'pull_request' && github.head_ref == 'dev/explorer-direct-import'
         env:

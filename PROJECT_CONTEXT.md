@@ -8,6 +8,13 @@
 - Deployment: GitHub Pages, main branch, root; public static site. No production backend or user accounts.
 - Purpose: Traditional Chinese searchable companion reference for Lumivara Online. Unofficial.
 
+## Development: v0.8.3 gear metadata and stat-first picker (not released)
+- Branch `dev/v0.8.3-gear-metadata`, draft PR #5. The user's requested change is an intuitive picker for repeated same-name gear, profession-aware eligibility, and eventual set logic. Production stays v0.8.2 and Vercel production API unchanged unless explicitly approved.
+- Actual official Explorer direct public API schema probed in one-time GitHub Actions, field-name/count only: 842 Gipo gear objects (264 bag, 578 storage, 10 worn); `serial` 842, `template` 457, `top` 842 (404 non-empty), `finder` 834; no `set`, `setName`, `job`, `requirements`, `weaponType`, `requiredLevel` field. `template` values include `bow`, `sword`, `cestus`; `top` contains stat keys. Gipo `classId` is `archer` (string), previously dropped by integer-only sanitizer.
+- Dev code adds `gear-picker.js` (conservative job/weapon rules and stat ranking), extends `explorer-import.js` and `edge/explorer-proxy.mjs` to preserve public `serial`/`template`/`top` plus `classId` string, intentionally still excludes `finder`/currency/player transaction data. UI candidate selection uses stat-first interactive cards, name+stat search, source / sort / profession controls, page size, and marks set as unknown. Old A/B math remains unchanged.
+- The *deployed* Vercel API is still v0.8.2 and won't supply the additional fields until re-deployed; meanwhile UI can infer Archer from currently worn Bow as a fallback. No production deployment or private data mutation, and no assumptions about unreturned set membership.
+- Official Wiki: https://lumivaraonline.com/wiki/ (Equipment, Classes, Gear Sets). See docs/gear-picker-v0.8.3.md for exact schema/restrictions.
+
 ## Implementation status
 - `index.html`: responsive UI and embedded JSON dataset for mobile and desktop. v0.6.2 no longer loads or references the retired card market validation module.
 - `data.json`: same game-data snapshot (88 cards / 90 monsters and Leaders / 18 maps / 72 materials).
