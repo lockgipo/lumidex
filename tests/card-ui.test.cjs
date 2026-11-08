@@ -38,7 +38,6 @@ test('category and source controls filter rendered cards without changing saved 
     history:{replaceState(){}},
     location:{hash:'',pathname:'/index.html',search:''}
   });
-  vm.runInContext(fs.readFileSync(path.join(root,'market-snapshot.js'),'utf8'),context);
   vm.runInContext(fs.readFileSync(path.join(root,'card-filters.js'),'utf8'),context);
   vm.runInContext(app,context);
 
