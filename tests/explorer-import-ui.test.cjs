@@ -25,3 +25,12 @@ test('configured endpoint is verified and unavailable endpoints show clear feedb
   assert.match(app,/button\.disabled=true/);
   assert.match(app,/一鍵匯入服務準備中/);
 });
+
+test('mobile picker displays ability cards, class/source filters and set unknown note without popups',()=>{
+ for(const id of ['candidate-list','gear-sort','gear-source','job-filter','hide-unsafe','set-status','load-more-candidates','equipped-summary'])assert.ok(html.includes('id="'+id+'"'),id);
+ assert.match(html,/src="gear-picker\.js"/);
+ assert.match(app,/LumiGearPicker\.relatedCandidates/);
+ assert.match(app,/LumiGearPicker\.inferJobFromEquipped/);
+ assert.match(html,/官方 Explorer 未提供個別裝備套裝名稱/);
+ assert.doesNotMatch(app,/window\.open\(/);
+});

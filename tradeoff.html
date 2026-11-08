@@ -267,9 +267,12 @@ function showImported(payload){
   $('candidate-search').value='';
   $('import-summary').textContent=importedProfile.name+' · 已辨識 '+importedProfile.equipped.length+
     ' 件穿戴裝備，'+importedProfile.candidates.length+' 件背包／倉庫候選裝備';
-  const job=LumiGearPicker.normalizeJob(importedProfile.classId);
+  const officialJob=LumiGearPicker.normalizeJob(importedProfile.classId);
+  const job=officialJob||LumiGearPicker.inferJobFromEquipped(importedProfile.equipped);
   $('job-filter').value=job;
-  $('job-hint').textContent=job?'已辨識職業：'+LumiGearPicker.jobs[job].name+'。先排除確定不能用的主武器；其他職業限制仍須以遊戲為準。':'官方職業欄位尚未能對應到已核對的規則，請手動選職業，或保持不過濾。';
+  $('job-hint').textContent=officialJob?'官方職業：'+LumiGearPicker.jobs[job].name+'。先排除確定不能用的主武器；其餘限制仍須以遊戲為準。':
+    job?'依目前穿戴的專屬武器暫判：'+LumiGearPicker.jobs[job].name+'，可以手動切換；僅已核對的主武器會排除。':
+    '官方職業欄位未能對應到已核對規則，請手動選職業，或保持不過濾。';
   $('gear-sort').value=job==='archer'?'dex':'atk';
   candidatePageSize=24;
   importStatus('成功匯入 '+importedProfile.name+' 的公開裝備（僅本頁記憶體，不保存至網站）。');

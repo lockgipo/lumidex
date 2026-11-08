@@ -40,3 +40,9 @@ test('stat-first info honors focus and never claims set bonuses',()=>{
  assert.deepEqual(result[0],{key:'pierce',label:'物理穿透',value:4});
  assert.ok(!Object.hasOwn(p.jobs,'sinister'));
 });
+
+test('can conservatively infer Archer from worn Bow when production proxy lacks class ID',()=>{
+ assert.equal(p.inferJobFromEquipped([equipped]),'archer');
+ assert.equal(p.inferJobFromEquipped([{slot:'sword',name:'III Sword'}]),'');
+ assert.equal(p.inferJobFromEquipped([{slot:'sword',name:'III Cestus'}]),'');
+});

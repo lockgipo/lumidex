@@ -39,6 +39,14 @@
     }
     return '';
   }
+  function inferJobFromEquipped(items){
+    const types=new Set((items||[]).map(weaponType).filter(Boolean));
+    // Only infer when a known equipped weapon is exclusive to one job in official Wiki.
+    if(types.has('bow'))return 'archer';
+    if(types.has('rod')||types.has('staff'))return 'mage';
+    if(types.has('quarterstaff'))return 'cleric';
+    return '';
+  }
   function usability(g,job){
     const current=normalizeJob(job);
     if(!g||!current)return 'unknown';
@@ -69,9 +77,10 @@
   function topStats(gear,focus,max=4){
     const entries=withStats(gear).sort(([a],[b])=>{
       if(a===focus)return -1;if(b===focus)return 1;
-      return stats.indexOf(a)===-1?1:stats.indexOf(b)===-1?-1:stats.indexOf(a)-stats.indexOf(b);
+      const ia=stats.indexOf(a),ib=stats.indexOf(b);
+      return (ia<0?100:ia)-(ib<0?100:ib)||a.localeCompare(b);
     });
     return entries.slice(0,max).map(([k,v])=>({key:k,label:statLabels[k]||k,value:v}));
   }
-  return Object.freeze({jobs,statLabels,normalizeJob,weaponType,usability,relatedCandidates,topStats});
+  return Object.freeze({jobs,statLabels,normalizeJob,inferJobFromEquipped,weaponType,usability,relatedCandidates,topStats});
 });
