@@ -132,6 +132,32 @@ h2.sectiontitle{margin:0 0 14px}
 .gear-hidden-select{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;pointer-events:none!important}
 @media(max-width:540px){.gear-controls{grid-template-columns:1fr}.gear-cards{grid-template-columns:1fr}.gear-card{min-height:82px}}
 
+
+/* Optional, user-confirmed Gear Sets; separate A/B, no inferred membership */
+.set-panel{background:#152331;border:1px solid #47617c;border-radius:15px;margin:0 0 13px}
+.set-panel>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:51px;padding:12px 15px;cursor:pointer;list-style:none;font-size:14px;font-weight:750;color:#dce9ff}
+.set-panel>summary::-webkit-details-marker{display:none}
+.set-panel>summary span{font-size:11px;color:#b5c3d6;font-weight:450}
+.set-content{border-top:1px solid #34465c;padding:13px 15px 15px}
+.set-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0}
+.set-side{border:1px solid #344e63;background:#111d2d;border-radius:12px;padding:12px;min-width:0}
+.set-side h3{font-size:14px;margin:0 0 5px;color:#e8f6fa}
+.set-row{border-top:1px solid #34465c;padding:10px 0;display:grid;grid-template-columns:minmax(0,1fr) 86px auto;gap:8px;align-items:end}
+.set-row label{font-size:11px}
+.set-row select{font-size:13px;min-height:42px;padding:7px}
+.set-row .remove-set{background:#3a2b39;border:1px solid #765a6e;color:#ffdadf;border-radius:9px;padding:8px 10px;min-height:42px;cursor:pointer}
+.set-row .set-row-effect{grid-column:1/-1;color:#a6c3d1;font-size:11px;line-height:1.6}
+.set-add{width:100%;margin-top:8px}
+.set-copy{margin:4px 0 8px}
+.set-summary{font-size:12px;line-height:1.7;color:#c7dfef;min-height:28px;overflow-wrap:anywhere}
+.set-summary strong{color:#c8ffea}
+.set-warning{font-size:12px;line-height:1.6;color:#ffd6aa;margin:10px 0}
+.set-error{font-size:12px;line-height:1.6;color:#ffc0c0;margin:6px 0}
+.set-toggle{border-top:1px solid #34465c;padding:13px 0 0;margin-top:12px}
+.set-toggle .check{font-size:13px;color:#e4f2f6}
+@media(max-width:780px){.set-columns{grid-template-columns:minmax(0,1fr)}.set-panel>summary{flex-wrap:wrap}}
+@media(max-width:380px){.set-row{grid-template-columns:minmax(0,1fr) 70px auto;gap:6px}.set-row .remove-set{padding:7px}.set-row select{padding:6px}}
+
 </style>
 </head>
 <body>
@@ -182,6 +208,34 @@ h2.sectiontitle{margin:0 0 14px}
     </div>
   </div>
 </details>
+<details class="set-panel" id="gear-set-panel">
+  <summary>套裝效果（選填） <span>手動設定 · 2／4／6 件啟動</span></summary>
+  <div class="set-content">
+    <p class="set-warning"><strong>套裝效果需手動設定。</strong>官方 Explorer 匯入資料不包含裝備的套裝歸屬，因此無法自動判斷已啟用的套裝效果。請依照遊戲內裝備資訊，自行選擇套裝與穿戴件數；系統會依 2 件、4 件或 6 件的啟動條件計算。未確認前，不會將套裝效果加入傷害試算。</p>
+    <p class="tip">僅頭上、頭中、頭下、身體、披肩、鞋子這 6 個部位可能有套裝；不同 Tier 可混搭，損壞的裝備不計入。可同時選擇多套，每邊合計最多 6 件。2 件套裝每滿 2 件疊加一次（最多 3 層），4／6 件套裝只在達標後啟動一次。</p>
+    <div class="set-columns">
+      <section class="set-side" aria-label="目前 A 套裝">
+        <h3>目前 A · 已穿戴</h3>
+        <div id="set-rows-A"></div>
+        <button type="button" class="secondary-button set-add" id="add-set-A">＋ 新增 A 套裝</button>
+        <p id="set-summary-A" class="set-summary" role="status">尚未手動選擇套裝。</p>
+      </section>
+      <section class="set-side" aria-label="替換後 B 套裝">
+        <h3>替換後 B · 預計穿戴</h3>
+        <div id="set-rows-B"></div>
+        <button type="button" class="secondary-button set-add" id="add-set-B">＋ 新增 B 套裝</button>
+        <p id="set-summary-B" class="set-summary" role="status">尚未手動選擇套裝。</p>
+      </section>
+    </div>
+    <button type="button" class="secondary-button set-copy" id="copy-sets">複製 A 的套裝配置至 B</button>
+    <p id="set-error" class="set-error" role="alert" hidden></p>
+    <div class="set-toggle">
+      <label class="check" for="set-enabled"><input type="checkbox" id="set-enabled">我已核對 A／B 套裝件數，將已知效果加入傷害試算</label>
+      <p class="tip">勾選後，系統會額外加上套裝提供的穿透、ATK%／MATK%、爆傷、HIT、DEX，並計入 Blood Lord 的傷害 −30%。請確保下方 A／B 手動填入的是<strong>尚未包含套裝加成的基礎值</strong>，避免重複計算。套裝的 CRIT 是點數，不會直接換算爆擊率；防禦、回血、SP 消耗與移動速度不納入每次攻擊傷害比較。</p>
+    </div>
+    <p class="tip">資料依 <a href="https://www.lumivaraonline.com/wiki/" target="_blank" rel="noopener noreferrer">官方 Wiki · Gear Sets</a>。套裝選擇僅保留在目前頁面，不會修改遊戲裝備或保存角色資料。</p>
+  </div>
+</details>
 <div class="quick" id="quick-result" role="status" aria-live="polite"><div><strong>正在讀取比較條件…</strong></div><a href="#result-title">查看逐怪結果 ↓</a></div>
 <div class="layout">
 <section class="panel" aria-labelledby="setup-title">
@@ -229,6 +283,7 @@ h2.sectiontitle{margin:0 0 14px}
 <script src="tradeoff-model.js"></script>
 <script src="explorer-import.js"></script>
 <script src="gear-picker.js"></script>
+<script src="gear-sets.js"></script>
 <script>
 (function(){
 'use strict';
@@ -244,6 +299,71 @@ const pct=f=>(f>=1?'+':'')+((f-1)*100).toFixed(1)+'%';
 const elementZh={Earth:'地',Water:'水',Ice:'冰',Wind:'風',Fire:'火',Light:'光',Shadow:'暗',Neutral:'無',Holy:'聖',Dark:'暗',Poison:'毒',Ghost:'念'};
 let db,battle;
 let importedProfile=null,selectedDelta=null,importing=false,candidatePageSize=24,candidateVisible=[];
+const setRows={A:[],B:[]};
+let lastImportedName=null;
+function renderSetRows(side){
+  const host=$('set-rows-'+side);host.replaceChildren();
+  for(const [index,entry] of setRows[side].entries()){
+    const row=document.createElement('div');row.className='set-row';
+    const setLabel=document.createElement('label');setLabel.textContent='套裝';
+    const select=document.createElement('select');
+    select.setAttribute('aria-label',side+' 第 '+(index+1)+' 組套裝');
+    for(const item of LumiGearSets.catalog){
+      const optionEl=option(item.name+' · '+item.threshold+' 件'+(item.stackable?'可疊加':''),item.id);
+      select.append(optionEl);
+    }
+    select.value=entry.id;
+    select.addEventListener('change',()=>{
+      entry.id=select.value;
+      entry.count=LumiGearSets.byId[entry.id].threshold;
+      renderSetRows(side);updateSetPreview();
+    });
+    setLabel.append(select);
+    const countLabel=document.createElement('label');countLabel.textContent='件數';
+    const countSelect=document.createElement('select');
+    countSelect.setAttribute('aria-label',side+' '+LumiGearSets.byId[entry.id].name+' 件數');
+    for(let n=1;n<=6;n++)countSelect.append(option(n+' 件',String(n)));
+    countSelect.value=String(entry.count);
+    countSelect.addEventListener('change',()=>{entry.count=Number(countSelect.value);renderSetRows(side);updateSetPreview();});
+    countLabel.append(countSelect);
+    const remove=document.createElement('button');remove.type='button';remove.className='remove-set';
+    remove.textContent='移除';remove.setAttribute('aria-label','移除 '+side+' '+LumiGearSets.byId[entry.id].name);
+    remove.addEventListener('click',()=>{setRows[side].splice(index,1);renderSetRows(side);updateSetPreview();});
+    const status=document.createElement('div');status.className='set-row-effect';
+    const single=LumiGearSets.calculate([entry]);
+    status.textContent=LumiGearSets.describe(single.active[0]||single.inactive[0]);
+    row.append(setLabel,countLabel,remove,status);host.append(row);
+  }
+  $('add-set-'+side).disabled=setRows[side].length>=6||setRows[side].length>=LumiGearSets.catalog.length;
+}
+function updateSetPreview(){
+  const error=$('set-error');error.hidden=true;error.textContent='';
+  for(const side of ['A','B']){
+    try{
+      const summary=LumiGearSets.calculate(setRows[side]);
+      const active=summary.active.map(LumiGearSets.describe);
+      const pending=summary.inactive.map(LumiGearSets.describe);
+      $('set-summary-'+side).textContent='已選 '+summary.totalPieces+'/6 件'+
+        (active.length?' · 啟動：'+active.join('；'):' · 尚未啟動套裝')+
+        (pending.length?' · 未達標：'+pending.join('；'):'');
+    }catch(e){
+      $('set-summary-'+side).textContent='請調整套裝件數';
+      error.hidden=false;error.textContent=side+' 配置：'+e.message;
+    }
+  }
+  refresh();
+}
+function addSet(side){
+  const used=new Set(setRows[side].map(x=>x.id));
+  const next=LumiGearSets.catalog.find(x=>!used.has(x.id));
+  if(!next)return;
+  setRows[side].push({id:next.id,count:next.threshold});
+  renderSetRows(side);updateSetPreview();
+}
+function chosenSetBonuses(){
+  if(!$('set-enabled').checked)return null;
+  return {A:LumiGearSets.calculate(setRows.A),B:LumiGearSets.calculate(setRows.B)};
+}
 function importStatus(message){$('import-status').textContent=message}
 function validateName(){
   const name=$('character-name').value.trim();
@@ -259,6 +379,11 @@ function gearDesc(gear){
 function showImported(payload){
   const name=validateName();
   importedProfile=LumiExplorerImport.normalize(payload,name);
+  if(lastImportedName!==null&&lastImportedName!==importedProfile.name){
+    setRows.A=[];setRows.B=[];$('set-enabled').checked=false;
+    renderSetRows('A');renderSetRows('B');updateSetPreview();
+  }
+  lastImportedName=importedProfile.name;
   if(!importedProfile.equipped.length)throw new Error('官方資料沒有標記正在穿戴的裝備');
   const select=$('equipped-select');
   select.replaceChildren(...importedProfile.equipped.map((gear,i)=>option(
@@ -275,7 +400,7 @@ function showImported(payload){
     '官方職業欄位未能對應到已核對規則，請手動選職業，或保持不過濾。';
   $('gear-sort').value=job==='archer'?'dex':'atk';
   candidatePageSize=24;
-  importStatus('成功匯入 '+importedProfile.name+' 的公開裝備（僅本頁記憶體，不保存至網站）。');
+  importStatus('成功匯入 '+importedProfile.name+' 的公開裝備（僅本頁記憶體，不保存至網站）。套裝歸屬與效果未包含在匯入資料中，請在下方手動設定。');
   showCandidates();
 }
 function renderEquippedSummary(){
@@ -448,15 +573,16 @@ function resultHtml(mon,m,A,B,opt){
   const result=LumiTradeoff.compare(m,A,B,opt);
   const neutral='未輸入；只比較相對變化';
   const total=result.totalRatio;
-  const title=total===null?'DEX 尚未校準':total>=1?'B 條件式期望傷害變化':'B 條件式期望傷害變化';
+  const title=total===null?'部分條件尚未校準':'B 條件式期望傷害變化';
   const body=total===null?'無法比較總收益':pct(total);
   const badge=total===null?'wait':total<1?'loss':'';
   const factors=[
     ['穿透／防禦',result.factors.armor],['ATK／MATK%（假設）',result.factors.attackBonus],
     ['爆擊期望',result.factors.crit],['HIT 命中',result.factors.hit]
   ];
+  if(result.factors.setDamage!==1)factors.push(['套裝直接傷害倍率',result.factors.setDamage]);
   if(A.dex!==B.dex)factors.push(['DEX 的 ATK 影響',result.factors.dex]);
-  const detail=result.normalDamageA===null?'<p class="explain">'+neutral+'；無法推定實際技能傷害、幾招擊殺。</p>':(result.normalDamageB===null?'<p class="explain">尚缺 DEX 換算校準，無法推估 B 配置的實測傷害與擊殺門檻。</p>':
+  const detail=result.normalDamageA===null?'<p class="explain">'+neutral+'；無法推定實際技能傷害、幾招擊殺。</p>':(result.normalDamageB===null?'<p class="explain">部分條件尚未校準，無法推估 B 配置的實測傷害與擊殺門檻。</p>':
     '<div class="notice">A 非暴擊：'+fmt(result.normalDamageA)+' → B 非暴擊（條件估算）：'+fmt(result.normalDamageB)
     +'；全程未爆擊且命中時，理論擊殺：'+result.hitsNormalA+' 次 → '+result.hitsNormalB+' 次。實戰會有爆擊、未命中、技能與怪物行動影響。</div>');
   const notes=[...new Set(result.assumptions.concat(result.missing))];
@@ -471,17 +597,25 @@ function resultHtml(mon,m,A,B,opt){
 function refresh(){
   if(!db||!battle)return;
   try{
-    const A=build('A'),B=build('B'),mons=selectedMonsters();
+    const manualA=build('A'),manualB=build('B'),mons=selectedMonsters();
+    const sets=chosenSetBonuses();
+    const A=sets?LumiGearSets.apply(manualA,sets.A):manualA;
+    const B=sets?LumiGearSets.apply(manualB,sets.B):manualB;
     $('pierce-label').textContent=A.attackType==='physical'?'物理穿透（百分點）':'魔法穿透（百分點）';
     $('atk-label').textContent=A.attackType==='physical'?'總 ATK% 加成（假定同乘區）':'總 MATK% 加成（假定同乘區）';
     $('observed').disabled=!$('monster').value;
     const opt=options(!!$('monster').value);
+    if(sets){
+      opt.setDamageFactorA=sets.A.damageMultiplier;
+      opt.setDamageFactorB=sets.B.damageMultiplier;
+      opt.setCritUnknown=sets.A.bonuses.crit!==sets.B.bonuses.crit;
+    }
     const sample=mons[0]&&battle.monsters[mons[0].id];
     if(sample)LumiTradeoff.compare(sample,A,B,opt); // validate once before rendering
     const quick=$('quick-result');
     if(mons.length===1&&battle.monsters[mons[0].id]){
       const quickCompare=LumiTradeoff.compare(battle.monsters[mons[0].id],A,B,opt);
-      const value=quickCompare.totalRatio===null?'DEX 需先校準':'B 相比 A：'+pct(quickCompare.totalRatio)+'（條件式）';
+      const value=quickCompare.totalRatio===null?'部分條件尚未校準':'B 相比 A：'+pct(quickCompare.totalRatio)+'（條件式）';
       quick.querySelector('strong').textContent=value;
       quick.querySelector('small')?.remove();
       const name=document.createElement('small');name.textContent=(mons[0].nameZh||mons[0].name)+' · 僅此怪物';
@@ -492,7 +626,7 @@ function refresh(){
       const note=document.createElement('small');note.textContent='不同怪物沒有虛構平均值，向下逐一查看';
       quick.querySelector('strong').after(note);
     }
-    $('status').textContent='顯示 '+mons.length+' 種怪物 · 不提供地圖平均值 · '+battle.meta.checked+' 資料快照；初始數字為示例';
+    $('status').textContent='顯示 '+mons.length+' 種怪物 · 不提供地圖平均值 · '+battle.meta.checked+' 資料快照；初始數字為示例'+(sets?' · 已加入手動套裝效果':' · 未加入套裝效果');
     $('status').className='output-status';
     $('results').innerHTML=mons.map(mon=>battle.monsters[mon.id]?resultHtml(mon,battle.monsters[mon.id],A,B,opt):'').join('')||'<p class="tip">這張地圖沒有符合的怪物。</p>';
   }catch(err){
@@ -512,6 +646,16 @@ async function boot(){
     $('monster').addEventListener('change',()=>{$('observed').value='';refresh()});
     const ids=['leaders','type','cancrit','guaranteed','pierceA','pierceB','atkA','atkB','critdA','critdB','critA','critB','hitA','hitB','dexA','dexB','panelatk','dexrate','observed'];
     ids.forEach(id=>{ $(id).addEventListener('input',refresh);$(id).addEventListener('change',refresh); });
+    for(const side of ['A','B']){
+      $('add-set-'+side).addEventListener('click',()=>addSet(side));
+      renderSetRows(side);
+    }
+    $('copy-sets').addEventListener('click',()=>{
+      setRows.B=setRows.A.map(x=>({...x}));
+      renderSetRows('B');updateSetPreview();
+    });
+    $('set-enabled').addEventListener('change',updateSetPreview);
+    updateSetPreview();
     $('open-explorer').addEventListener('click',importCharacterDirect);
     $('character-name').addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();importCharacterDirect();}});
     $('import-paste-button').addEventListener('click',()=>{
