@@ -19,6 +19,13 @@ jobs:
         with:
           node-version: '22'
       - run: node --test
+      - name: v0.8.3 preview API live smoke (this PR only)
+        if: github.event_name == 'pull_request' && github.head_ref == 'dev/v0.8.3-gear-metadata'
+        env:
+          LUMIDEX_EXPLORER_SMOKE: '1'
+          LUMIDEX_GEAR_SCHEMA_SMOKE: '1'
+          LUMIDEX_EXPLORER_API_BASE: 'https://lumidex-explorer-jr4gv048l-gipo.vercel.app/api/player'
+        run: node --test tests/explorer-live.test.cjs
       - name: One-time Explorer API live smoke (feature PR only)
         if: github.event_name == 'pull_request' && github.head_ref == 'dev/explorer-direct-import'
         env:
