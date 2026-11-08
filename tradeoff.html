@@ -302,7 +302,9 @@ function renderCandidateCards(){
     const row=document.createElement('div');row.className='gear-card-top';
     const title=document.createElement('span');title.className='gear-card-title';title.textContent=g.name;
     const src=document.createElement('span');src.className='gear-card-source';
-    src.textContent=g.source+(g.tier?' · T'+g.tier:'')+(g.refine?' · +'+g.refine:'');
+    const originalIndex=Number(g.key.split(':').at(-1));
+    src.textContent=g.source+(Number.isInteger(originalIndex)?' #'+(originalIndex+1):'')+
+      (g.tier?' · T'+g.tier:'')+(g.refine?' · +'+g.refine:'');
     row.append(title,src);card.append(row);
     const statList=document.createElement('div');statList.className='gear-chiplist';
     const top=LumiGearPicker.topStats(g,focus,5);
@@ -342,7 +344,7 @@ function showCandidates(){
   candidateVisible=result.visible;
   const sel=$('candidate-select'),previous=sel.value;
   sel.replaceChildren(...candidateVisible.map(g=>option(g.name+' · '+g.source,g.key)));
-  if(candidateVisible.some(g=>g.key===previous))sel.value=previous;
+  if(candidateVisible.slice(0,candidatePageSize).some(g=>g.key===previous))sel.value=previous;
   $('candidate-count').textContent='符合條件 '+candidateVisible.length+' 件'+
     ($('hide-unsafe').checked&&result.blocked?' · 已隱藏 '+result.blocked+' 件確定不適用的武器':'')+
     ' · 相同裝備可依詞條挑選';
