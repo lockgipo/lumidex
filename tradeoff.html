@@ -76,6 +76,35 @@ details.expander[open]>summary::after{content:'收合 ⌃'}
 .factors strong{display:block;color:var(--text);font-size:15px;margin-top:3px;font-variant-numeric:tabular-nums}
 .explain{font-size:12px;color:var(--sub);line-height:1.7;margin:10px 0 0}
 h2.sectiontitle{margin:0 0 14px}
+.import-panel{background:#152331;border:1px solid #3f6a68;border-radius:15px;margin:0 0 13px}
+.import-panel>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:51px;padding:12px 15px;cursor:pointer;list-style:none;font-size:14px;font-weight:750;color:#d9fff4}
+.import-panel>summary::-webkit-details-marker{display:none}
+.import-panel>summary::before{content:'↳';color:var(--mint);margin-right:4px}
+.import-panel>summary span{font-size:11px;color:#9fb6be;font-weight:450}
+.import-content{padding:0 15px 15px;border-top:1px solid #2a434b}
+.import-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:end}
+.import-actions>button{min-height:44px}
+.import-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:13px 0}
+.import-choices label:last-child{grid-column:1/-1}
+.import-content button{cursor:pointer}
+.primary-button,.secondary-button{font-size:13px;font-weight:700;border-radius:10px;padding:10px 13px;min-height:42px}
+.primary-button{background:#215f58;color:#eafff8;border:1px solid #60b1a2}
+.primary-button:disabled{opacity:.45;cursor:not-allowed}
+.secondary-button{background:#223348;color:#d7e9fc;border:1px solid #51637e}
+.import-fallback{border-top:1px solid #324d55;margin:14px 0;padding:11px 0 0}
+.import-fallback summary{color:var(--mint);cursor:pointer;font-weight:650;font-size:12px;min-height:37px}
+.import-fallback textarea{width:100%;background:#101a2a;color:var(--text);border:1px solid #465b76;border-radius:10px;padding:11px;font:12px/1.4 ui-monospace,monospace;resize:vertical}
+#import-status{margin-top:9px}
+#import-profile{border-top:1px solid #324d55;padding-top:12px}
+#import-profile[hidden]{display:none}
+.import-summary{margin:3px 0 13px;font-size:13px;color:#d9fff4}
+.gear-delta{background:#122133;border:1px solid #35495c;border-radius:11px;padding:12px;margin:12px 0;min-height:46px}
+.gear-delta .delta-title{font-size:13px;font-weight:700;margin-bottom:9px}
+.gear-delta .delta-chips{display:flex;flex-wrap:wrap;gap:7px}
+.gear-delta .delta-chips span{font-size:12px;padding:6px 8px;border-radius:7px;background:#253348;color:#c6dbf4}
+.gear-delta .delta-chips span.gain-pos{background:#163d36;color:#9bf8c9}
+.gear-delta .delta-chips span.gain-neg{background:#432c36;color:#f7b4b4}
+@media(max-width:780px){.import-choices{grid-template-columns:minmax(0,1fr)}.import-choices label:last-child{grid-column:auto}.import-panel>summary{flex-wrap:wrap}.import-actions{grid-template-columns:1fr}.import-panel>summary span{font-size:10px}}
 @media(max-width:780px){.wrap{padding:16px 14px 75px}.layout{grid-template-columns:minmax(0,1fr)}.hero{margin:17px 0 14px}h1{font-size:25px}.lead{font-size:12px}.panel{padding:14px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric strong{font-size:13px}}
 @media(max-width:350px){.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
@@ -89,6 +118,35 @@ h2.sectiontitle{margin:0 0 14px}
   <h1>穿透換 ATK% 或爆傷，值得嗎？</h1>
   <p class="lead">在指定地圖怪物身上比較 A／B 兩套屬性。穿透、命中與暴擊使用官方公開規則；ATK% 為待實測堆疊假設，DEX 則需另行校準，不把條件式估算當成真實掛機效率。</p>
 </div>
+<details class="import-panel" id="character-import">
+  <summary>從官方 Explorer 匯入角色裝備 <span>實驗功能 · 需橋接腳本</span></summary>
+  <div class="import-content">
+    <p class="tip">輸入角色名稱後開啟 Explorer。首次使用需在 Chrome／iPhone Safari 安裝一次 <a href="explorer-bridge.user.js" download>匯入橋接 Userscript</a>。橋接會把官方公開穿戴與倉庫裝備傳回此頁，不會要求登入、修改角色或上傳到 GitHub。</p>
+    <div class="import-actions">
+      <label for="character-name">官方角色名稱<input id="character-name" type="text" maxlength="24" autocomplete="off" placeholder="輸入角色名稱（非數字 ID）"></label>
+      <button id="open-explorer" type="button" class="primary-button">開啟 Explorer 並讀取</button>
+    </div>
+    <p id="import-status" class="tip" role="status" aria-live="polite">尚未匯入角色。沒有橋接腳本時可以使用下方備援方式。</p>
+    <details class="import-fallback"><summary>沒有自動連線？改用複製貼上</summary>
+      <p class="tip">在官方 Explorer 開啟匯入連結，使用腳本的「複製匯入資料（備援）」按鈕，回到這裡貼上。JSON 只在瀏覽器處理，不會保存或送到伺服器。</p>
+      <label for="import-paste">官方角色公開資料 JSON<textarea id="import-paste" rows="3" placeholder="貼上橋接腳本複製的 JSON"></textarea></label>
+      <button id="import-paste-button" type="button" class="secondary-button">匯入貼上的資料</button>
+    </details>
+    <div id="import-profile" hidden>
+      <p class="import-summary" id="import-summary"></p>
+      <div class="import-choices">
+        <label for="equipped-select">目前穿戴裝備<select id="equipped-select"></select></label>
+        <label for="candidate-search">搜尋可替換裝備<input id="candidate-search" type="search" placeholder="名稱／詞條關鍵字（例如 DEX）"></label>
+        <label for="candidate-select">候選裝備（同部位）<select id="candidate-select"></select></label>
+      </div>
+      <p id="candidate-count" class="tip"></p>
+      <div class="gear-delta" id="gear-delta" role="status"></div>
+      <p class="tip">只比較裝備本身已公布的隨機詞條；卡片、精煉、角色基礎與職業被動尚未換算。ATK 固定值不等於 ATK%，CRIT 點數不等於實際爆擊機率。</p>
+      <button id="apply-delta" type="button" class="primary-button" disabled>以 A 為基準，將已知差異套用 B</button>
+      <p class="tip">套用前請確認下方 A 已改成真實面板數字；若仍是示例，輸出的傷害比例也只能當示例。</p>
+    </div>
+  </div>
+</details>
 <div class="quick" id="quick-result" role="status" aria-live="polite"><div><strong>正在讀取比較條件…</strong></div><a href="#result-title">查看逐怪結果 ↓</a></div>
 <div class="layout">
 <section class="panel" aria-labelledby="setup-title">
@@ -134,6 +192,7 @@ h2.sectiontitle{margin:0 0 14px}
 </main>
 <script src="combat-model.js"></script>
 <script src="tradeoff-model.js"></script>
+<script src="explorer-import.js"></script>
 <script>
 (function(){
 'use strict';
@@ -148,6 +207,96 @@ const readableError=message=>String(message)
 const pct=f=>(f>=1?'+':'')+((f-1)*100).toFixed(1)+'%';
 const elementZh={Earth:'地',Water:'水',Ice:'冰',Wind:'風',Fire:'火',Light:'光',Shadow:'暗',Neutral:'無',Holy:'聖',Dark:'暗',Poison:'毒',Ghost:'念'};
 let db,battle;
+let importedProfile=null,bridgeTab=null,requestedName='',selectedDelta=null;
+function importStatus(message){$('import-status').textContent=message}
+function validateName(){
+  const name=$('character-name').value.trim();
+  if(!name||name.length>24||/[<>\x00-\x1f]/.test(name))throw new RangeError('請輸入有效的角色名稱（最多 24 字）');
+  return name;
+}
+function option(label,value){
+  const el=document.createElement('option');el.textContent=label;el.value=value;return el;
+}
+function gearDesc(gear){
+  return (gear.source==='倉庫'?'倉庫 · ':'背包 · ')+gear.name+(gear.tier?' · T'+gear.tier:'');
+}
+function showImported(payload){
+  const name=validateName();
+  importedProfile=LumiExplorerImport.normalize(payload,name);
+  if(!importedProfile.equipped.length)throw new Error('官方資料沒有標記正在穿戴的裝備');
+  const select=$('equipped-select');
+  select.replaceChildren(...importedProfile.equipped.map((gear,i)=>option(
+    (i+1)+'. '+gear.name+' ['+gear.slot+']',gear.key)));
+  $('import-profile').hidden=false;
+  $('candidate-search').value='';
+  $('import-summary').textContent=importedProfile.name+' · 已辨識 '+importedProfile.equipped.length+
+    ' 件穿戴裝備，'+importedProfile.candidates.length+' 件背包／倉庫候選裝備';
+  importStatus('成功匯入 '+importedProfile.name+' 的公開裝備（僅本頁記憶體，不保存至網站）。');
+  showCandidates();
+}
+function showCandidates(){
+  if(!importedProfile)return;
+  const current=importedProfile.equipped.find(x=>x.key===$('equipped-select').value);
+  const q=$('candidate-search').value.trim().toLocaleLowerCase();
+  const items=LumiExplorerImport.compatible(importedProfile.candidates,current).filter(x=>{
+    if(!q)return true;
+    return [x.name,x.source,x.slot,...Object.keys(x.bonuses)].join(' ').toLocaleLowerCase().includes(q);
+  });
+  const select=$('candidate-select'),prev=select.value;
+  const visible=items.slice(0,100);
+  select.replaceChildren(...visible.map(g=>option(gearDesc(g),g.key)));
+  if(visible.some(g=>g.key===prev))select.value=prev;
+  $('candidate-count').textContent='同部位符合 '+items.length+' 件'+(items.length>100?'（顯示前 100 件，請輸入名稱縮小範圍）':'');
+  showGearDelta();
+}
+function showGearDelta(){
+  selectedDelta=null;
+  $('apply-delta').disabled=true;
+  const box=$('gear-delta');box.replaceChildren();
+  const current=importedProfile?.equipped.find(x=>x.key===$('equipped-select').value);
+  const next=importedProfile?.candidates.find(x=>x.key===$('candidate-select').value);
+  if(!current||!next){box.textContent='沒有同部位候選裝備；可嘗試其他部位或搜尋詞。';return;}
+  try{
+    const delta=LumiExplorerImport.diff(current,next);
+    selectedDelta=delta;
+    const title=document.createElement('div');title.className='delta-title';
+    title.textContent='替換 '+current.name+' → '+next.name;
+    box.appendChild(title);
+    const chips=document.createElement('div');chips.className='delta-chips';
+    for(const [key,value] of Object.entries(delta)){
+      const chip=document.createElement('span');
+      chip.className=value>0?'gain-pos':'gain-neg';
+      chip.textContent=LumiExplorerImport.formatBonus(key,value);
+      chips.appendChild(chip);
+    }
+    if(!chips.childElementCount){box.append('詞條沒有變化');return;}
+    box.appendChild(chips);
+    const usable=new Set(['hit','dex','critDmg',$('type').value==='physical'?'pierce':'magicPierce']);
+    $('apply-delta').disabled=!Object.keys(delta).some(key=>usable.has(key));
+  }catch(error){box.textContent='比較失敗：'+error.message;}
+}
+function openCharacterExplorer(){
+  try{
+    requestedName=validateName();
+    importedProfile=null;selectedDelta=null;$('import-profile').hidden=true;
+    const url='https://lumivaraonline.com/explorer/?name='+encodeURIComponent(requestedName)+'&view=items&lumidex=1';
+    bridgeTab=window.open(url,'_blank');
+    importStatus(bridgeTab?'已開啟官方 Explorer。若已安裝橋接 Userscript，會自動傳回裝備；否則可在官方頁面按「複製匯入資料」。':'瀏覽器封鎖了新分頁，請允許彈出視窗後重試。');
+  }catch(error){importStatus(error.message);}
+}
+window.addEventListener('message',event=>{
+  if(!['https://lumivaraonline.com','https://www.lumivaraonline.com'].includes(event.origin))return;
+  if(!bridgeTab||event.source!==bridgeTab||!event.data||typeof event.data!=='object')return;
+  if(String(event.data.name||'').toLocaleLowerCase()!==requestedName.toLocaleLowerCase())return;
+  if(event.data.type==='lumidex:ready'){
+    bridgeTab.postMessage({type:'lumidex:request',name:requestedName},event.origin);
+  }else if(event.data.type==='lumidex:character'){
+    try{showImported(event.data.payload);}
+    catch(err){importStatus('匯入失敗：'+err.message);}
+  }else if(event.data.type==='lumidex:error'){
+    importStatus('官方資料取得失敗；請返回 Explorer 使用「複製匯入資料」備援。');
+  }
+});
 function read(id){
   const raw=$(id).value.trim();const n=Number(raw);
   if(!raw||!Number.isFinite(n)||n<0)throw new RangeError('請輸入有效的非負數字：'+id);
@@ -243,6 +392,34 @@ async function boot(){
     $('monster').addEventListener('change',()=>{$('observed').value='';refresh()});
     const ids=['leaders','type','cancrit','guaranteed','pierceA','pierceB','atkA','atkB','critdA','critdB','critA','critB','hitA','hitB','dexA','dexB','panelatk','dexrate','observed'];
     ids.forEach(id=>{ $(id).addEventListener('input',refresh);$(id).addEventListener('change',refresh); });
+    $('open-explorer').addEventListener('click',openCharacterExplorer);
+    $('character-name').addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();openCharacterExplorer();}});
+    $('import-paste-button').addEventListener('click',()=>{
+      try{
+        const raw=$('import-paste').value.trim();
+        if(!raw||raw.length>2000000)throw new RangeError('請貼上有效的官方角色 JSON（大小不超過 2MB）');
+        showImported(JSON.parse(raw));$('import-paste').value='';
+      }catch(error){importStatus('貼上匯入失敗：'+error.message);}
+    });
+    $('equipped-select').addEventListener('change',()=>{$('candidate-search').value='';showCandidates();});
+    $('candidate-search').addEventListener('input',showCandidates);
+    $('candidate-select').addEventListener('change',showGearDelta);
+    $('type').addEventListener('change',showGearDelta);
+    $('apply-delta').addEventListener('click',()=>{
+      try{
+        if(!selectedDelta)throw new RangeError('請先選擇裝備');
+        const fields=['pierceA','critdA','hitA','dexA'];
+        const values=Object.fromEntries(fields.map(id=>[id,read(id)]));
+        const updates=LumiExplorerImport.suggest(values,selectedDelta,$('type').value);
+        if(!Object.keys(updates).length)throw new RangeError('這次替換沒有可直接帶入的已知差異');
+        // A gear swap must start from A in every comparison field; do not retain
+        // unrelated B example numbers from the manually editable calculator.
+        for(const stat of ['pierce','atk','critd','crit','hit','dex'])$(stat+'B').value=String(read(stat+'A'));
+        for(const [key,value] of Object.entries(updates))$(key).value=String(value);
+        refresh();
+        importStatus('已以 A 為基準，把 '+Object.keys(updates).length+' 項已知裝備詞條差異帶入 B。ATK 固定值、CRIT 點數、卡片與精煉未換算；請核對 A 面板。');
+      }catch(error){importStatus('無法套用：'+error.message);}
+    });
     refreshMonsterOptions();
   }catch(err){$('status').textContent='載入失敗：'+err.message;$('status').className='output-status error';}
 }
