@@ -65,3 +65,26 @@ test('catalog retains stable IDs and local storage; new controls expose filter a
   assert.match(html,/lumidex-v1-/);
   assert.match(html,/id="slotfilter"/);
 });
+
+test('nested attribute groups use OR within a group and AND across groups',()=>{
+  assert.deepEqual(CardFilters.detailGroups.map(g=>g.id),['baseStat','hpSp','defense']);
+  const counts={baseStat:{str:5,agi:8,vit:5,int:9,dex:4,luk:5},hpSp:{hp:10,sp:4},defense:{def:9,mdef:8}};
+  for(const group of CardFilters.detailGroups){
+    const union=new Set();
+    for(const opt of group.options){
+      const matches=CardFilters.filterCards(cards,{details:{[group.id]:[opt.id]}},monsters);
+      assert.equal(matches.length,counts[group.id][opt.id],group.id+':'+opt.id);
+      matches.forEach(c=>{assert.equal(c.special,false);union.add(c.id)});
+    }
+    const combined=CardFilters.filterCards(cards,{details:{[group.id]:group.options.map(o=>o.id)}},monsters);
+    assert.deepEqual(new Set(combined.map(c=>c.id)),union,'OR for '+group.id);
+  }
+  const atkStr=CardFilters.filterCards(cards,{categories:['atk'],details:{baseStat:['str']}},monsters);
+  assert.ok(atkStr.every(c=>CardFilters.classify(c).includes('atk')&&/\bSTR\s*\+\s*\d/.test(c.effect)));
+  const hpDef=CardFilters.filterCards(cards,{details:{hpSp:['hp','sp'],defense:['def']}},monsters);
+  assert.ok(hpDef.every(c=>/\b(?:HP|SP)\s*\+\s*\d/.test(c.effect)&&/\bDEF\s*\+\s*\d/.test(c.effect)));
+  assert.deepEqual(CardFilters.filterCards(cards,{details:{baseStat:['unknown']}},monsters),[]);
+  assert.deepEqual(CardFilters.filterCards(cards,{details:{unknown:['str']}},monsters),[]);
+  assert.equal(CardFilters.categories.find(c=>c.id==='baseStat').label,'主屬性');
+  assert.equal(CardFilters.categories.find(c=>c.id==='critRate').label,'CRIT 暴擊率');
+});
