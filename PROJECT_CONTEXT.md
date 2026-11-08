@@ -4,9 +4,15 @@
 - Name: LumiDex
 - Repository: https://github.com/lockgipo/lumidex
 - Website URL: https://lockgipo.github.io/lumidex/
-- Production version: 0.8.3 (2026-11-08); main branch, GitHub Pages root; embedded game-data snapshot 0.3.1 (22 official special-card mechanic descriptions localized)
+- Production version: 0.8.4 (2026-11-08); main branch, GitHub Pages root; embedded game-data snapshot 0.3.1 (22 official special-card mechanic descriptions localized)
 - Deployment: GitHub Pages, main branch, root; public static site. No production backend or user accounts.
 - Purpose: Traditional Chinese searchable companion reference for Lumivara Online. Unofficial.
+
+## v0.8.4 production release: equipment name localization and all 15 official classes
+- User authorized direct release. Branch `dev/v0.8.4-gear-zh-advanced-jobs`, derived from main v0.8.3.
+- `gear-localization.js` is a *narrow, authored* Traditional Chinese lookup for known Explorer English equipment names, not the complete private V107 translation dictionary. It preserves prefixes (Tier/upgrade), original English and unknown names. Chinese labels are presentation-only; original game IDs, names and stats stay unchanged. Some names remain player-vocabulary approximations pending exact V107 UI verification; no copyrighted file or bundled V107 translation assets committed.
+- `gear-picker.js` implements novice + six base + eight official advanced jobs with English and Traditional Chinese display names and verified main-hand weapon rules. Normalizes `classId` aliases (e.g. `the_king`, `ironfist`, `wickednecromancer`); job dropdown builds from this single source of truth. Unknown jobs/weapon types remain visibly unverified; never claim they are equipable.
+- `tradeoff.html` shows localized and original names in equipped dropdown, worn-gear summary, candidate cards and swap title; searches both languages. All gear stats, cards, set effects and analysis remain unchanged. Vercel API unaffected, no backend redeploy required. See `docs/gear-localization-v0.8.4.md`; iPhone Safari acceptance pending.
 
 ## v0.8.3 production release: gear metadata, stat-first picker and optional manually assigned sets
 - Released from `dev/v0.8.3-gear-metadata` through PR #5 after user approval. Public API and production GitHub Pages updated; user iPhone Safari QA pending. Same-name gear choice, known weapon/job eligibility and manual set selection are now in production.

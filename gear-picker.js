@@ -1,56 +1,73 @@
-/* LumiDex gear picker: class-aware filtering with intentionally conservative rules.
-   Only confirmed class/weapon rules. Does not infer set membership or final stats. */
+/* LumiDex gear picker, all official base/advanced classes and verified weapon restrictions. */
 (function(root,factory){
-  const api=factory();
+  const zh=typeof module==='object'&&module.exports?require('./gear-localization.js'):root.LumiGearZh;
+  const api=factory(zh);
   if(typeof module==='object'&&module.exports)module.exports=api;
   else root.LumiGearPicker=api;
-})(typeof globalThis!=='undefined'?globalThis:this,function(){
+})(typeof globalThis!=='undefined'?globalThis:this,function(zh){
   'use strict';
   const jobs=Object.freeze({
-    novice:{name:'初心者',weapons:['knife','sword','hammer']},
-    swordsman:{name:'劍士',weapons:['sword']},
-    mage:{name:'法師',weapons:['rod','staff']},
-    archer:{name:'弓箭手',weapons:['bow']},
-    cleric:{name:'神官',weapons:['quarterstaff']},
-    merchant:{name:'商人',weapons:['hammer']},
-    thief:{name:'盜賊',weapons:['knife']}
+    novice:{name:'初心者',english:'Novice',group:'base',weapons:['knife','sword','hammer']},
+    swordsman:{name:'劍士',english:'Swordsman',group:'base',weapons:['sword']},
+    mage:{name:'法師',english:'Mage',group:'base',weapons:['rod','staff']},
+    archer:{name:'弓箭手',english:'Archer',group:'base',weapons:['bow']},
+    cleric:{name:'神官',english:'Cleric',group:'base',weapons:['quarterstaff']},
+    merchant:{name:'商人',english:'Merchant',group:'base',weapons:['hammer']},
+    thief:{name:'盜賊',english:'Thief',group:'base',weapons:['knife','dagger_pair']},
+    kensei:{name:'劍聖',english:'Kensei',group:'advanced',weapons:['katana']},
+    iron_fist:{name:'鐵拳',english:'Iron Fist',group:'advanced',weapons:['cestus']},
+    wicked_necromancer:{name:'死靈法師',english:'Wicked Necromancer',group:'advanced',weapons:['rune_grimoire']},
+    king:{name:'王者',english:'The King',group:'advanced',weapons:['royal_tablet']},
+    sinister:{name:'雙槍手',english:'Sinister',group:'advanced',weapons:['twin_pistols']},
+    templar:{name:'聖殿騎士',english:'Templar',group:'advanced',weapons:['lionheart_aegis']},
+    nekobaku:{name:'貓咪煉金術師',english:'Nekobaku',group:'advanced',weapons:['neko_flask']},
+    mamushi:{name:'毒蛇',english:'Mamushi',group:'advanced',weapons:['viper_kunai']}
   });
-  // Do not substitute internal gear slot "sword" for the weapon type.
-  const weaponTypes=['dagger_pair','quarterstaff','royal_tablet','rune_grimoire','viper_kunai','twin_pistols','lionheart_aegis','neko_flask','cestus','katana','hammer','sword','knife','staff','rod','bow','kunai'];
-  const alias=Object.freeze({kunai:'viper_kunai'});
+  const jobAliases=Object.freeze({
+    the_king:'king',theking:'king',wickednecromancer:'wicked_necromancer',
+    wicked_necro:'wicked_necromancer',ironfist:'iron_fist',iron_fist:'iron_fist',
+    neko_baku:'nekobaku',mamushi:'mamushi'
+  });
+  const weaponTypes=[
+    'lionheart_aegis','rune_grimoire','royal_tablet','dagger_pair',
+    'quarterstaff','twin_pistols','viper_kunai','neko_flask','cestus',
+    'katana','hammer','sword','knife','staff','rod','bow'
+  ];
+  const weaponAliases=Object.freeze({kunai:'viper_kunai',tablet:'royal_tablet',grimoire:'rune_grimoire',pistols:'twin_pistols'});
   const statLabels=Object.freeze({
-    dex:'DEX',atk:'ATK',pierce:'物理穿透',critDmg:'爆擊傷害',hit:'HIT',agi:'AGI',str:'STR',int:'INT',vit:'VIT',luk:'LUK',flee:'FLEE',matk:'MATK',crit:'CRIT',mcrit:'MCRIT',magicPierce:'魔法穿透',atkPct:'ATK%',matkPct:'MATK%'
+    dex:'DEX',atk:'ATK',pierce:'物理穿透',critDmg:'爆擊傷害',hit:'HIT',
+    agi:'AGI',str:'STR',int:'INT',vit:'VIT',luk:'LUK',flee:'FLEE',
+    matk:'MATK',crit:'CRIT',mcrit:'MCRIT',magicPierce:'魔法穿透',atkPct:'ATK%',matkPct:'MATK%'
   });
-  const stats=['dex','atk','pierce','critDmg','hit','agi','str','int','crit','matk','flee','vit','luk'];
-  const withStats=(g)=>Object.entries(g.bonuses||{}).filter(([,v])=>Number.isFinite(v)&&v!==0);
+  const statOrder=['dex','atk','pierce','critDmg','hit','agi','str','int','crit','matk','flee','vit','luk'];
+  const withStats=g=>Object.entries(g.bonuses||{}).filter(([,v])=>Number.isFinite(v)&&v!==0);
   function normalizeJob(value){
-    const id=String(value||'').toLowerCase().trim().replace(/[-\s]+/g,'_');
-    return jobs[id]?id:'';
+    const id=String(value??'').trim().toLowerCase().replace(/[-\s]+/g,'_');
+    const resolved=jobAliases[id]||id;
+    return Object.hasOwn(jobs,resolved)?resolved:'';
   }
   function weaponType(g){
     if(!g||g.slot!=='sword')return '';
-    let template=String(g.template||'').toLowerCase().trim().replace(/\s+/g,'_');
-    template=alias[template]||template;
-    if(weaponTypes.includes(template))return template;
-    const name=String(g.name||'').toLowerCase().replace(/^\+?\d+\s*/,'').replace(/^(?:i|ii|iii|iv|v|vi|vii)\s+/,'');
+    const template=String(g.template||'').trim().toLowerCase().replace(/[-\s]+/g,'_');
+    const t=weaponAliases[template]||template;
+    if(weaponTypes.includes(t))return t;
+    const name=String(g.name||'').toLowerCase().replace(/^\+?\d+\s*/,'').replace(/^(?:viii|vii|vi|iv|iii|ix|ii|i|v|x)\s+/,'');
     for(const type of weaponTypes){
-      const phrase=type.replace(/_/g,'[ _-]');
-      if(new RegExp('(?:^|\\s)'+phrase+'(?:$|\\s)','i').test(name))return alias[type]||type;
+      const pattern=type.replace(/_/g,'[ _-]');
+      if(new RegExp('(?:^|\\s)'+pattern+'(?:$|\\s)','i').test(name))return type;
     }
     return '';
   }
   function inferJobFromEquipped(items){
     const types=new Set((items||[]).map(weaponType).filter(Boolean));
-    // Only infer when a known equipped weapon is exclusive to one job in official Wiki.
-    if(types.has('bow'))return 'archer';
-    if(types.has('rod')||types.has('staff'))return 'mage';
-    if(types.has('quarterstaff'))return 'cleric';
-    return '';
+    if(types.size!==1)return '';
+    const type=[...types][0];
+    const matches=Object.entries(jobs).filter(([key,job])=>key!=='novice'&&job.weapons.includes(type));
+    return matches.length===1?matches[0][0]:'';
   }
   function usability(g,job){
     const current=normalizeJob(job);
-    if(!g||!current)return 'unknown';
-    if(g.slot!=='sword')return 'unknown'; // armor/offhand needs separate authoritative rules
+    if(!g||!current||g.slot!=='sword')return 'unknown';
     const type=weaponType(g);
     if(!type)return 'unknown';
     return jobs[current].weapons.includes(type)?'allowed':'blocked';
@@ -61,26 +78,27 @@
     const same=(items||[]).filter(g=>baseSlot(g.slot)===baseSlot(equipped.slot));
     const blocked=same.filter(g=>usability(g,job)==='blocked').length;
     const unknown=same.filter(g=>usability(g,job)==='unknown').length;
-    const q=String(opts.query||'').trim().toLowerCase();
-    const source=String(opts.source||'all');
-    const order=String(opts.sort||'dex');
-    const considered=same.filter(g=>{
+    const q=String(opts.query||'').trim().toLocaleLowerCase();
+    const source=String(opts.source||'all'),order=String(opts.sort||'dex');
+    const visible=same.filter(g=>{
       if(opts.hideBlocked!==false&&usability(g,job)==='blocked')return false;
       if(source!=='all'&&g.source!==source)return false;
       if(!q)return true;
-      const hay=[g.name,g.template,g.source,...withStats(g).flatMap(([k,v])=>[k,statLabels[k]||k,String(v),String(k+' '+v)])].join(' ').toLowerCase();
-      return hay.includes(q);
+      const tokens=[g.name,g.template,g.source,zh?.title(g),zh?.slot(g.slot),
+        ...withStats(g).flatMap(([k,v])=>[k,statLabels[k]||k,String(v),k+' '+v])];
+      return tokens.join(' ').toLocaleLowerCase().includes(q);
     });
-    considered.sort((a,b)=>((b.bonuses?.[order]||0)-(a.bonuses?.[order]||0))||a.name.localeCompare(b.name)||a.key.localeCompare(b.key));
-    return {all:same,visible:considered,blocked,unknown};
+    visible.sort((a,b)=>((b.bonuses?.[order]||0)-(a.bonuses?.[order]||0))||
+      a.name.localeCompare(b.name)||String(a.key).localeCompare(String(b.key)));
+    return {all:same,visible,blocked,unknown};
   }
-  function topStats(gear,focus,max=4){
-    const entries=withStats(gear).sort(([a],[b])=>{
-      if(a===focus)return -1;if(b===focus)return 1;
-      const ia=stats.indexOf(a),ib=stats.indexOf(b);
-      return (ia<0?100:ia)-(ib<0?100:ib)||a.localeCompare(b);
-    });
-    return entries.slice(0,max).map(([k,v])=>({key:k,label:statLabels[k]||k,value:v}));
+  function topStats(g,focus,max=4){
+    return withStats(g).sort(([a],[b])=>{
+      if(a===focus)return -1;
+      if(b===focus)return 1;
+      const x=statOrder.indexOf(a),y=statOrder.indexOf(b);
+      return (x<0?100:x)-(y<0?100:y)||a.localeCompare(b);
+    }).slice(0,max).map(([key,value])=>({key,label:statLabels[key]||key,value}));
   }
-  return Object.freeze({jobs,statLabels,normalizeJob,inferJobFromEquipped,weaponType,usability,relatedCandidates,topStats});
+  return Object.freeze({jobs,statLabels,normalizeJob,weaponType,inferJobFromEquipped,usability,relatedCandidates,topStats});
 });
