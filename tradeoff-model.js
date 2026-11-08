@@ -50,6 +50,12 @@
     const critFactorA=critAverage(A.critChance,A.critDamageBonus,canCrit);
     const critFactorB=critAverage(B.critChance,B.critDamageBonus,canCrit);
     const missing=[],assumptions=[];
+    // Set membership is not in Explorer; only user-confirmed sets can pass these factors.
+    const setDamageA=options.setDamageFactorA==null?1:positive(options.setDamageFactorA,'setDamageFactorA');
+    const setDamageB=options.setDamageFactorB==null?1:positive(options.setDamageFactorB,'setDamageFactorB');
+    const setDamageRatio=setDamageB/setDamageA;
+    if(setDamageRatio!==1)assumptions.push('Blood Lord 套裝傷害 −30% 已按每次命中倍率納入；吸血、SP 消耗及續航沒有計入。');
+    if(options.setCritUnknown===true&&canCrit)missing.push('套裝 CRIT 點數不同，無法直接換算技能實際爆擊率；請先確認 A/B 爆擊率，暫不顯示總收益。');
     let dexRatio=1;
     if(A.dex!==B.dex){
       if(options.panelAttack==null||options.attackPerDex==null){
@@ -76,13 +82,14 @@
       attackBonus:bonusRatio,
       dex:dexRatio,
       crit:critFactorB/critFactorA,
-      hit:hitChanceB/hitChanceA
+      hit:hitChanceB/hitChanceA,
+      setDamage:setDamageRatio
     };
     const complete=missing.length===0;
-    const totalRatio=complete?factors.armor*factors.attack*factors.crit*factors.hit:null;
+    const totalRatio=complete?factors.armor*factors.attack*factors.crit*factors.hit*factors.setDamage:null;
     const observed=options.observedNoncrit==null?null:positive(options.observedNoncrit,'observedNoncrit');
     const normalDamageA=observed;
-    const normalDamageB=observed!=null&&complete?observed*factors.armor*factors.attack:null;
+    const normalDamageB=observed!=null&&complete?observed*factors.armor*factors.attack*factors.setDamage:null;
     const critMultA=canCrit?2+A.critDamageBonus/100:1;
     const critMultB=canCrit?2+B.critDamageBonus/100:1;
     return Object.freeze({
