@@ -24,6 +24,13 @@
 - V0.6.2 released on `main` (from `dev/remove-card-market`): removes all player card market UI (region, local ask/sold-average inputs, import, sorting, card detail and compare prices), the obsolete `market-snapshot.js` and CLI/testing/research files. Retains NPC sale values and existing card/monster/map features. Does not erase previously stored `lumidex-v04-market` / `lumidex-v04-region` keys from browser localStorage; it simply stops accessing them. Published to GitHub Pages.
 - Historical market experiment: `scripts/passive-market-reader.ps1` remains an untracked, local-only file and is not part of LumiDex website, this branch, or any release. Do not stage, publish, run, or reintroduce it unless the user explicitly reopens that work.
 
+## Dev: v0.8 attribute tradeoff (not deployed)
+
+- Work branch: `dev/v0.8-tradeoff`, adds separate `tradeoff.html` and `tradeoff-model.js`, linked from the index tools menu and preserved v0.6 `analyzer.html`.
+- A/B manual scenario comparison per monster: DEF/MDEF + pierce, HIT/FLEE, skill-critical expected multiplier, conditional ATK%/MATK% total pool, optional DEX panel sensitivity, optional observed noncrit hit for normal-hit kill thresholds. No false map averages or EXP/h claims.
+- Caution: ATK% stack is an explicit **unverified additive-in-one-pool assumption**; DEX change yields no total ratio unless user calibrates panel ATK/MATK per DEX. Skills/element/ASPD/passives remain outside scope; official model limited to armor, HIT and crit factors.
+- Data snapshots, game IDs, card favorites, old analyzer behavior untouched. See `docs/combat-tradeoff.md`; browser preview and Node regression required, iPhone Safari QA pending. Do not merge to main without new authorization.
+
 ## Safety
 - Personal-use phase: not promoted to any community. Nonetheless GitHub repo and Pages website are publicly accessible (not private).
 - Public site contains only non-sensitive game-reference data and client-side UI.

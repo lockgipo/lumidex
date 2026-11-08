@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="theme-color" content="#101525">
+<title>LumiDex · 屬性交換比較 v0.8 預覽</title>
+<style>
+:root{color-scheme:dark;--bg:#0b101c;--panel:#141b2b;--panel2:#192237;--stroke:#314158;--text:#eef2fa;--sub:#b0bed0;--mint:#81e5cf;--gold:#f1c885;--red:#f8a3a3;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif}
+*{box-sizing:border-box}
+body{margin:0;color:var(--text);background:radial-gradient(ellipse 75% 24% at 70% 0%,#1c2946,transparent),var(--bg)}
+button,input,select{font:inherit}
+a{color:var(--mint);text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+.wrap{max-width:1160px;margin:auto;padding:23px 17px 95px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font-weight:850;font-size:23px;letter-spacing:-.5px}.logo em{color:var(--mint);font-style:normal}
+.back{border:1px solid var(--stroke);border-radius:11px;background:var(--panel);padding:10px 12px;font-size:13px;min-height:43px;display:grid;place-items:center}
+.hero{margin:24px 0 20px}
+.eyebrow{color:var(--mint);font-size:11px;letter-spacing:1px;font-weight:800}
+h1{font-size:clamp(25px,4vw,32px);letter-spacing:-.5px;line-height:1.25;margin:9px 0 10px}
+.lead{color:var(--sub);font-size:14px;line-height:1.6;margin:0}
+.quick{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #38685d;background:#16312f;border-radius:13px;padding:12px 14px;margin:0 0 14px;min-height:64px}
+.quick strong{display:block;font-size:17px;color:#d0fff4;font-variant-numeric:tabular-nums}
+.quick small{display:block;margin-top:4px;color:#9ac9be;font-size:11px;line-height:1.4}
+.quick a{white-space:nowrap;font-size:12px;padding:8px 9px;border:1px solid #547b75;border-radius:8px}
+.layout{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:15px;align-items:start}
+.panel{background:var(--panel);border:1px solid var(--stroke);border-radius:17px;padding:17px;min-width:0}
+.panel h2{margin:0 0 15px;font-size:18px}
+.stack{display:grid;gap:12px}
+label{display:grid;gap:6px;color:var(--sub);font-size:12px;font-weight:700;min-width:0}
+input:not([type=checkbox]),select{border:1px solid #465b76;border-radius:10px;background:#101a2a;color:var(--text);min-height:44px;width:100%;padding:10px 11px;font-size:16px;min-width:0}
+input:disabled{opacity:.45}
+input[type=checkbox]{width:18px;height:18px;accent-color:#81e5cf;flex-shrink:0}
+.check{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5;min-height:32px}
+.check input{margin:1px 0}
+.pair-select{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.section{border-top:1px solid var(--stroke);padding-top:15px;margin-top:16px}
+.section h3{font-size:14px;margin:0 0 8px}
+.tip{font-size:12px;line-height:1.6;color:var(--sub);margin:8px 0}
+.pair-header{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0 7px}
+.pair-header strong{display:block;padding:9px;border-radius:9px;text-align:center;background:#1b3440;color:var(--mint);font-size:13px}
+.pair-header strong:last-child{background:#302b43;color:#d3c8ff}
+.stat-pair{margin:13px 0}
+.stat-pair>span{font-size:13px;font-weight:750;display:block;margin-bottom:7px}
+.pair-input{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:9px}
+.pair-input label{font-size:11px}
+.pair-input input{font-variant-numeric:tabular-nums}
+details.expander{border-top:1px solid var(--stroke);margin-top:15px;padding-top:14px}
+details.expander>summary{cursor:pointer;color:var(--mint);font-size:13px;font-weight:750;min-height:35px;list-style:none;display:flex;align-items:center;justify-content:space-between}
+details.expander>summary::-webkit-details-marker{display:none}
+details.expander>summary::after{content:'展開 ⌄';font-size:11px}
+details.expander[open]>summary::after{content:'收合 ⌃'}
+.alert{border:1px solid #65533d;background:#342b21;border-radius:11px;padding:12px;color:#f1d9ad;font-size:12px;line-height:1.6}
+.notice{border:1px solid #37565a;background:#18333a;border-radius:10px;padding:12px;color:#cceee7;font-size:12px;line-height:1.6}
+.output-status{color:var(--sub);font-size:12px;line-height:1.6;margin:0 0 10px}
+.output-status.error{color:var(--red)}
+.results{display:grid;gap:12px}
+.result{background:var(--panel2);padding:15px;border:1px solid #34465d;border-radius:13px}
+.row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.row h3{margin:0;font-size:17px}
+.row small{display:block;color:var(--sub);font-size:12px;margin-top:5px}
+.wiki{font-size:12px;white-space:nowrap}
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:12px 0}
+.metric{background:#132137;border-radius:9px;padding:10px 8px}
+.metric small{display:block;color:var(--sub);font-size:10px;margin-bottom:5px}
+.metric strong{font-size:15px;word-break:break-word;font-variant-numeric:tabular-nums}
+.gain{border-radius:11px;background:#152f35;padding:13px;margin:12px 0;color:#b8f6e7}
+.gain strong{display:block;font-size:25px;margin-top:3px;font-variant-numeric:tabular-nums}
+.gain.loss{background:#332932;color:#f3b6b6}
+.gain.wait{background:#37301f;color:#f1d9ad}
+.gain span{font-size:12px;font-weight:650}
+.factors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:12px 0}
+.factors>div{font-size:12px;border:1px solid #3b4d65;border-radius:9px;padding:9px;color:var(--sub)}
+.factors strong{display:block;color:var(--text);font-size:15px;margin-top:3px;font-variant-numeric:tabular-nums}
+.explain{font-size:12px;color:var(--sub);line-height:1.7;margin:10px 0 0}
+h2.sectiontitle{margin:0 0 14px}
+@media(max-width:780px){.wrap{padding:16px 14px 75px}.layout{grid-template-columns:minmax(0,1fr)}.hero{margin:17px 0 14px}h1{font-size:25px}.lead{font-size:12px}.panel{padding:14px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.metric strong{font-size:13px}}
+@media(max-width:350px){.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header><div class="logo">Lumi<em>Dex</em></div><a class="back" href="analyzer.html">← 舊版穿透分析</a></header>
+<div class="hero">
+  <div class="eyebrow">V0.8 DEV · 條件式試算</div>
+  <h1>穿透換 ATK% 或爆傷，值得嗎？</h1>
+  <p class="lead">在指定地圖怪物身上比較 A／B 兩套屬性。穿透、命中與暴擊使用官方公開規則；ATK% 為待實測堆疊假設，DEX 則需另行校準，不把條件式估算當成真實掛機效率。</p>
+</div>
+<div class="quick" id="quick-result" role="status" aria-live="polite"><div><strong>正在讀取比較條件…</strong></div><a href="#result-title">查看逐怪結果 ↓</a></div>
+<div class="layout">
+<section class="panel" aria-labelledby="setup-title">
+  <h2 id="setup-title">A／B 屬性配置</h2>
+  <div class="stack">
+    <label for="map">目標地圖<select id="map"></select></label>
+    <label for="monster">分析怪物<select id="monster"><option value="">整張地圖（逐隻列出，不平均）</option></select></label>
+    <label class="check" for="leaders"><input id="leaders" type="checkbox">整張地圖包含 Leader</label>
+    <label for="type">技能傷害類型<select id="type"><option value="physical">物理傷害：DEF／物理穿透／ATK%</option><option value="magic">魔法傷害：MDEF／魔法穿透／MATK%</option></select></label>
+    <label class="check" for="cancrit"><input id="cancrit" type="checkbox" checked>目前比較的技能可以爆擊</label>
+    <label class="check" for="guaranteed"><input id="guaranteed" type="checkbox">技能已確認必中（不計 HIT／FLEE）</label>
+  </div>
+  <div class="section">
+    <h3>比較兩套能力</h3>
+    <p class="tip">預填數值僅為示範，不會讀取你的遊戲角色。A 是目前，B 是打算更換後。</p>
+    <div class="pair-header"><strong>目前 A</strong><strong>替換後 B</strong></div>
+    <div class="stat-pair"><span id="pierce-label">物理穿透（%）</span><div class="pair-input"><label for="pierceA">A 穿透<input id="pierceA" type="number" min="0" step="0.1" inputmode="decimal" value="35"></label><label for="pierceB">B 穿透<input id="pierceB" type="number" min="0" step="0.1" inputmode="decimal" value="25"></label></div></div>
+    <div class="stat-pair"><span id="atk-label">總 ATK% 加成（假定同乘區）</span><div class="pair-input"><label for="atkA">A 總加成<input id="atkA" type="number" min="0" step="0.1" inputmode="decimal" value="20"></label><label for="atkB">B 總加成<input id="atkB" type="number" min="0" step="0.1" inputmode="decimal" value="28"></label></div></div>
+    <div class="stat-pair"><span>爆擊傷害加成（%）</span><div class="pair-input"><label for="critdA">A 爆傷<input id="critdA" type="number" min="0" step="0.1" inputmode="decimal" value="40"></label><label for="critdB">B 爆傷<input id="critdB" type="number" min="0" step="0.1" inputmode="decimal" value="52"></label></div></div>
+    <div class="stat-pair"><span>實際爆擊率（%）</span><div class="pair-input"><label for="critA">A 爆擊率<input id="critA" type="number" min="0" max="100" step="0.1" inputmode="decimal" value="30"></label><label for="critB">B 爆擊率<input id="critB" type="number" min="0" max="100" step="0.1" inputmode="decimal" value="30"></label></div></div>
+    <p class="tip">魔法技能請填「法術爆擊率」，不能直接照抄物理面板 CRIT。若技能不會爆擊，取消上方勾選。</p>
+  </div>
+  <details class="expander" id="extra"><summary>進階：HIT、DEX、面板校準</summary>
+    <div class="stat-pair"><span>角色 HIT（不是額外 HIT）</span><div class="pair-input"><label for="hitA">A HIT<input id="hitA" type="number" min="0" step="1" inputmode="numeric" value="350"></label><label for="hitB">B HIT<input id="hitB" type="number" min="0" step="1" inputmode="numeric" value="350"></label></div></div>
+    <div class="stat-pair"><span>DEX（不自動換算傷害）</span><div class="pair-input"><label for="dexA">A DEX<input id="dexA" type="number" min="0" step="1" inputmode="numeric" value="200"></label><label for="dexB">B DEX<input id="dexB" type="number" min="0" step="1" inputmode="numeric" value="200"></label></div></div>
+    <p class="tip">若 DEX 有變動，請以遊戲面板實測以下兩項；否則只顯示各屬性的已知收益，暫不給總體勝負。</p>
+    <div class="pair-select"><label for="panelatk">目前面板 ATK／MATK<input id="panelatk" type="number" min="0" step="0.1" inputmode="decimal" placeholder="例如 1800"></label><label for="dexrate">每 +1 DEX 的面板 ATK 變化<input id="dexrate" type="number" min="0" step="0.01" inputmode="decimal" placeholder="實測後填寫"></label></div>
+    <p class="tip">注意：DEX 也可能改變 HIT、技能詠唱、多段技能頻率或被動門檻；這些需另外填寫或實測，不會在此自動推定。</p>
+  </details>
+  <div class="section">
+    <h3>單一怪物傷害校準（選填）</h3>
+    <label for="observed">A 配置，命中且未爆擊的單次傷害<input id="observed" type="number" min="1" step="1" inputmode="numeric" placeholder="先選一隻怪物"></label>
+    <p class="tip">請在目前 A 的穿透、技能與相同怪物上實測，且沒有傷害波動或特殊機制。只有選定單一怪物時才可輸入。門檻只是「全部未暴擊且成功命中」的理論次數。</p>
+  </div>
+  <div class="alert" style="margin-top:17px"><strong>公式可信度：</strong>DEF／MDEF、穿透、HIT／FLEE、爆擊 2 倍及爆傷加成依官方 Wiki；「總 ATK%／MATK% 加成同乘區加總」尚待遊戲實測核對。比較結果屬<strong>條件式相對值</strong>，不等於 DPS、清怪速度、EXP/h 或裝備排名。</div>
+</section>
+<section class="panel" aria-labelledby="result-title">
+  <h2 id="result-title" class="sectiontitle">每隻怪物的屬性交換結果</h2>
+  <p class="output-status" id="status" role="status">正在讀取怪物資料…</p>
+  <div class="results" id="results"></div>
+</section>
+</div>
+</main>
+<script src="combat-model.js"></script>
+<script src="tradeoff-model.js"></script>
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const safe=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=n=>Number(n).toLocaleString('zh-TW',{maximumFractionDigits:1});
+const readableError=message=>String(message)
+  .replace('critChance must be at most 100','爆擊率不能超過 100%')
+  .replace('predicted panel attack must be positive','依 DEX 估計的面板攻擊力必須大於 0')
+  .replace(/([A-Za-z]+) must be a finite nonnegative number/g,(_,name)=>name+' 必須是有效的非負數')
+  .replace('observedNoncrit must be positive','實測非爆擊傷害必須大於 0');
+const pct=f=>(f>=1?'+':'')+((f-1)*100).toFixed(1)+'%';
+const elementZh={Earth:'地',Water:'水',Ice:'冰',Wind:'風',Fire:'火',Light:'光',Shadow:'暗',Neutral:'無',Holy:'聖',Dark:'暗',Poison:'毒',Ghost:'念'};
+let db,battle;
+function read(id){
+  const raw=$(id).value.trim();const n=Number(raw);
+  if(!raw||!Number.isFinite(n)||n<0)throw new RangeError('請輸入有效的非負數字：'+id);
+  return n;
+}
+function optional(id){const raw=$(id).value.trim();if(!raw)return null;return read(id)}
+function selectedMap(){return db.maps.find(m=>m.name===$('map').value)}
+function selectedMonsters(){
+  const map=selectedMap();if(!map)return [];
+  const selected=$('monster').value;
+  return db.monsters.filter(m=>m.map===map.name&&(selected?m.id===selected:($('leaders').checked||!m.leader)));
+}
+function build(s){
+  return {attackType:$('type').value,pierce:read('pierce'+s),hit:read('hit'+s),dex:read('dex'+s),attackBonusPct:read('atk'+s),critChance:read('crit'+s),critDamageBonus:read('critd'+s)};
+}
+function options(selected){
+  return {skillCanCrit:$('cancrit').checked,guaranteedHit:$('guaranteed').checked,
+    panelAttack:optional('panelatk'),attackPerDex:optional('dexrate'),
+    observedNoncrit:selected?optional('observed'):null};
+}
+function refreshMonsterOptions(){
+  const map=selectedMap();if(!map)return;
+  const previous=$('monster').value;
+  $('monster').innerHTML='<option value="">整張地圖（逐隻列出，不平均）</option>'+db.monsters.filter(m=>m.map===map.name).map(m=>'<option value="'+safe(m.id)+'">'+safe(m.nameZh||m.name)+' / '+safe(m.name)+(m.leader?' · Leader':'')+'</option>').join('');
+  $('monster').value=db.monsters.some(m=>m.id===previous&&m.map===map.name)?previous:'';
+  $('observed').value='';refresh();
+}
+function resultHtml(mon,m,A,B,opt){
+  const result=LumiTradeoff.compare(m,A,B,opt);
+  const neutral='未輸入；只比較相對變化';
+  const total=result.totalRatio;
+  const title=total===null?'DEX 尚未校準':total>=1?'B 條件式期望傷害變化':'B 條件式期望傷害變化';
+  const body=total===null?'無法比較總收益':pct(total);
+  const badge=total===null?'wait':total<1?'loss':'';
+  const factors=[
+    ['穿透／防禦',result.factors.armor],['ATK／MATK%（假設）',result.factors.attackBonus],
+    ['爆擊期望',result.factors.crit],['HIT 命中',result.factors.hit]
+  ];
+  if(A.dex!==B.dex)factors.push(['DEX 的 ATK 影響',result.factors.dex]);
+  const detail=result.normalDamageA===null?'<p class="explain">'+neutral+'；無法推定實際技能傷害、幾招擊殺。</p>':(result.normalDamageB===null?'<p class="explain">尚缺 DEX 換算校準，無法推估 B 配置的實測傷害與擊殺門檻。</p>':
+    '<div class="notice">A 非暴擊：'+fmt(result.normalDamageA)+' → B 非暴擊（條件估算）：'+fmt(result.normalDamageB)
+    +'；全程未爆擊且命中時，理論擊殺：'+result.hitsNormalA+' 次 → '+result.hitsNormalB+' 次。實戰會有爆擊、未命中、技能與怪物行動影響。</div>');
+  const notes=[...new Set(result.assumptions.concat(result.missing))];
+  return '<article class="result"><div class="row"><div><h3>'+safe(mon.nameZh||mon.name)+'</h3><small>'+safe(mon.name)+' · Lv.'+mon.level+(mon.leader?' · Leader':'')+'</small></div><a class="wiki" href="'+safe(m.wiki)+'" target="_blank" rel="noopener noreferrer">官方資料 ↗</a></div>'
+    +'<div class="metrics"><div class="metric"><small>怪物 HP</small><strong>'+fmt(m.hp)+'</strong></div><div class="metric"><small>'+ (A.attackType==='physical'?'DEF':'MDEF')+'</small><strong>'+result.defense+'</strong></div><div class="metric"><small>FLEE</small><strong>'+fmt(m.flee)+'</strong></div></div>'
+    +'<div class="gain '+badge+'"><span>'+title+'</span><strong>'+body+'</strong></div>'
+    +'<div class="factors">'+factors.map(f=>'<div>'+safe(f[0])+'<strong>'+(f[1]===null?'需校準':pct(f[1]))+'</strong></div>').join('')+'</div>'
+    +'<p class="explain">命中率 A '+fmt(result.hitChanceA*100)+'%／B '+fmt(result.hitChanceB*100)+'%；有效穿透後傷害倍率 A '+fmt(result.armorA*100)+'%／B '+fmt(result.armorB*100)+'%。爆擊加成不會無視防禦。</p>'
+    +detail
+    +(notes.length?'<p class="explain">限制：'+notes.map(safe).join(' ')+'</p>':'')+'</article>';
+}
+function refresh(){
+  if(!db||!battle)return;
+  try{
+    const A=build('A'),B=build('B'),mons=selectedMonsters();
+    $('pierce-label').textContent=A.attackType==='physical'?'物理穿透（百分點）':'魔法穿透（百分點）';
+    $('atk-label').textContent=A.attackType==='physical'?'總 ATK% 加成（假定同乘區）':'總 MATK% 加成（假定同乘區）';
+    $('observed').disabled=!$('monster').value;
+    const opt=options(!!$('monster').value);
+    const sample=mons[0]&&battle.monsters[mons[0].id];
+    if(sample)LumiTradeoff.compare(sample,A,B,opt); // validate once before rendering
+    const quick=$('quick-result');
+    if(mons.length===1&&battle.monsters[mons[0].id]){
+      const quickCompare=LumiTradeoff.compare(battle.monsters[mons[0].id],A,B,opt);
+      const value=quickCompare.totalRatio===null?'DEX 需先校準':'B 相比 A：'+pct(quickCompare.totalRatio)+'（條件式）';
+      quick.querySelector('strong').textContent=value;
+      quick.querySelector('small')?.remove();
+      const name=document.createElement('small');name.textContent=(mons[0].nameZh||mons[0].name)+' · 僅此怪物';
+      quick.querySelector('strong').after(name);
+    }else{
+      quick.querySelector('strong').textContent='逐隻比較 '+mons.length+' 種怪物';
+      quick.querySelector('small')?.remove();
+      const note=document.createElement('small');note.textContent='不同怪物沒有虛構平均值，向下逐一查看';
+      quick.querySelector('strong').after(note);
+    }
+    $('status').textContent='顯示 '+mons.length+' 種怪物 · 不提供地圖平均值 · '+battle.meta.checked+' 資料快照；初始數字為示例';
+    $('status').className='output-status';
+    $('results').innerHTML=mons.map(mon=>battle.monsters[mon.id]?resultHtml(mon,battle.monsters[mon.id],A,B,opt):'').join('')||'<p class="tip">這張地圖沒有符合的怪物。</p>';
+  }catch(err){
+    $('quick-result').querySelector('strong').textContent='請先修正輸入條件';
+    $('status').textContent='請檢查輸入：'+readableError(err.message);$('status').className='output-status error';$('results').innerHTML='';
+  }
+}
+async function boot(){
+  try{
+    const [a,b]=await Promise.all([fetch('data.json'),fetch('monster-stats.json')]);
+    if(!a.ok||!b.ok)throw new Error('無法載入資料，請使用網站而非本機檔案。');
+    db=await a.json();battle=await b.json();
+    if(!db.maps?.length||Object.keys(battle.monsters||{}).length!==db.monsters.length)throw new Error('怪物資料快照與圖鑑不一致');
+    $('map').innerHTML=db.maps.map(m=>'<option value="'+safe(m.name)+'">Lv.'+m.range.join('–')+' · '+safe(m.nameZh||m.zh||m.name)+'</option>').join('');
+    $('map').value=(db.maps.find(m=>m.name==='Amethyst Hollows')||db.maps[0]).name;
+    $('map').addEventListener('change',refreshMonsterOptions);
+    $('monster').addEventListener('change',()=>{$('observed').value='';refresh()});
+    const ids=['leaders','type','cancrit','guaranteed','pierceA','pierceB','atkA','atkB','critdA','critdB','critA','critB','hitA','hitB','dexA','dexB','panelatk','dexrate','observed'];
+    ids.forEach(id=>{ $(id).addEventListener('input',refresh);$(id).addEventListener('change',refresh); });
+    refreshMonsterOptions();
+  }catch(err){$('status').textContent='載入失敗：'+err.message;$('status').className='output-status error';}
+}
+boot();
+})();
+</script>
+</body>
+</html>
