@@ -1,6 +1,6 @@
-# LumiDex v0.8.3 開發規格｜裝備挑選器與官方資料欄位
+# LumiDex v0.8.3｜裝備挑選器、套裝與官方資料欄位
 
-狀態：**Dev／尚未上正式**（2026-11-08），正式版本仍是 v0.8.2。關聯 PR #5： https://github.com/lockgipo/lumidex/pull/5
+狀態：**正式版已發布**（2026-11-08）；iPhone Safari 實機操作仍待驗收。PR #5：https://github.com/lockgipo/lumidex/pull/5
 
 ## 實際查證（不是推測）
 
@@ -15,10 +15,10 @@
 
 ## 資料過濾策略
 
-- Dev `edge/explorer-proxy.mjs` 僅回傳名稱、職業、等級、`gear`／`storage.gear` 及必要裝備欄位：`serial`、`template`、`top`、`slot`、`tier`、`worn`、`bonuses`、`cards`、`refine`。
+- `edge/explorer-proxy.mjs` 僅回傳名稱、職業、等級、`gear`／`storage.gear` 及必要裝備欄位：`serial`、`template`、`top`、`slot`、`tier`、`worn`、`bonuses`、`cards`、`refine`。
 - **不返回** `finder`（可能涉及其他人名稱）、貨幣、消耗品、交易、登入或帳戶資料。原始 API 沒有的套裝歸屬不會捏造。
 - 前端 `explorer-import.js` 驗證欄位、保留裝備來源，`gear-picker.js` 提供職業判斷與詞條排序。
-- 部署中的 Vercel API 仍是 **v0.8.2 舊過濾程式**，未重新部署；前端在 classId 缺失時，對獨佔武器（例：Bow）只做保守的職業推測，其他情況不強迫篩選。
+- Vercel 正式 API 已部署 v0.8.3 的公開欄位裁減版本：`classId`、`serial`、`template`、`top`。前端對未知職業仍保留僅依已穿戴的專屬武器（例：Bow）保守推測的備援。
 
 ## 手機選裝介面
 
@@ -47,4 +47,4 @@
 
 - 純函式單元測試涵蓋 Archer 務必只看 Bow、不同武器不因同 `slot: "sword"` 就視為相容、未知職業不亂過濾、詞條排序、來源搜尋、文字職業代碼、公開裝備欄位裁減及 XSS 安全顯示。
 - Linux CI `node --test`，暫時性的公開 API 欄位調查步驟已完成，最後應從 workflow 移除避免每次 PR 重複查詢。
-- **尚未發布 main／GitHub Pages，尚未更新正式 Vercel Function。** 待使用者同意發布再安排後端更新及 iPhone Safari 實測。
+- **正式版發布**：使用者已授權；Vercel API 已更新、GitHub Pages 發布，CI 與 Gipo API/CORS 驗證通過。iPhone Safari 真機仍待驗收。未納入完整角色最終面板或未驗證的套裝推測。
