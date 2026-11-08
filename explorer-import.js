@@ -30,6 +30,10 @@
     return {
       key:source+':'+index,
       name,slot,source,
+      // serial is a public per-item identifier; never persisted in browser storage.
+      serial:typeof raw.serial==='string'?trim(raw.serial,96):null,
+      template:typeof raw.template==='string'?trim(raw.template,48):null,
+      top:Array.isArray(raw.top)?raw.top.filter(x=>typeof x==='string').slice(0,24).map(x=>trim(x,48)):[],
       tier:Number.isFinite(raw.tier)?Math.max(0,Math.min(99,raw.tier)):null,
       refine:Number.isFinite(raw.refine)?Math.max(0,Math.min(99,raw.refine)):0,
       bonuses,cards,worn:raw.worn===true
@@ -49,7 +53,7 @@
     const storage=Array.isArray(p.storage?.gear)?p.storage.gear.map((g,i)=>sanitizeGear(g,'倉庫',i)).filter(Boolean):[];
     return {
       name,level:Number.isInteger(p.level)?p.level:null,
-      classId:Number.isInteger(p.classId)?p.classId:null,
+      classId:typeof p.classId==='string'&&/^[a-z0-9_]{1,32}$/i.test(p.classId)?p.classId:null,
       equipped:bag.filter(g=>g.worn),
       candidates:[...bag.filter(g=>!g.worn),...storage],
       source:'Lumivara Explorer 公開玩家資料',

@@ -4,7 +4,7 @@ const path=require('node:path');
 const {pathToFileURL}=require('node:url');
 const uri=pathToFileURL(path.join(__dirname,'../edge/explorer-proxy.mjs')).href;
 const origin='https://lockgipo.github.io';
-const sample={player:{name:'Gipo',gear:[{name:'A',slot:'accessory1',worn:true,bonuses:{pierce:3}}],storage:{gear:[{name:'B',slot:'accessory1',bonuses:{critDmg:8}}]},silver:987654,account:'private'}};
+const sample={player:{name:'Gipo',classId:'archer',level:99,gear:[{name:'A',slot:'accessory1',worn:true,serial:'example-gear-001',template:'obsidian_ring',top:['pierce'],finder:'other_player',bonuses:{pierce:3}}],storage:{gear:[{name:'B',slot:'accessory1',bonuses:{critDmg:8}}]},silver:987654,account:'private'}};
 async function run(path,init={},source=()=>new Response(JSON.stringify(sample),{headers:{'content-type':'application/json'}})){
  const m=await import(uri);const calls=[];
  const req=new Request('https://worker.example'+path,{headers:{origin},...init});
@@ -16,6 +16,12 @@ test('proxy sends only public gear from fixed official upstream',async()=>{
  assert.equal(r.response.status,200);
  assert.equal(r.response.headers.get('access-control-allow-origin'),origin);
  assert.equal(r.body.player.gear[0].worn,true);
+ assert.equal(r.body.player.classId,'archer');
+ assert.equal(r.body.player.level,99);
+ assert.equal(r.body.player.gear[0].serial,'example-gear-001');
+ assert.equal(r.body.player.gear[0].template,'obsidian_ring');
+ assert.deepEqual(r.body.player.gear[0].top,['pierce']);
+ assert.equal('finder' in r.body.player.gear[0],false);
  assert.equal(r.body.player.storage.gear[0].name,'B');
  assert.ok(!JSON.stringify(r.body).includes('987654'));
  assert.ok(!JSON.stringify(r.body).includes('private'));

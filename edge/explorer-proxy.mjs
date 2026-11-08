@@ -27,6 +27,10 @@ function cleanGear(raw){
     tier:Number.isFinite(raw.tier)?raw.tier:null,
     refine:Number.isFinite(raw.refine)?raw.refine:0,
     worn:raw.worn===true,
+    // Public item identity/type metadata; intentionally omit "finder" (may identify other players).
+    serial:typeof raw.serial==="string"?raw.serial.slice(0,96):null,
+    template:typeof raw.template==="string"?raw.template.slice(0,48):null,
+    top:Array.isArray(raw.top)?raw.top.filter(x=>typeof x==="string").slice(0,24).map(x=>x.slice(0,48)):[],
     bonuses,
     cards:Array.isArray(raw.cards)?raw.cards.filter(x=>typeof x==="string").slice(0,6).map(x=>x.slice(0,80)):[]
   };
@@ -37,7 +41,7 @@ function sanitized(input,expected){
   const stored=p.storage?.gear;
   if(stored!==undefined&&(!Array.isArray(stored)||stored.length>5000))return null;
   return {player:{
-    name:p.name.slice(0,24),level:Number.isInteger(p.level)?p.level:null,classId:Number.isInteger(p.classId)?p.classId:null,
+    name:p.name.slice(0,24),level:Number.isInteger(p.level)?p.level:null,classId:typeof p.classId==='string'&&/^[a-z0-9_]{1,32}$/i.test(p.classId)?p.classId:null,
     gear:p.gear.map(cleanGear).filter(Boolean),storage:{gear:(stored||[]).map(cleanGear).filter(Boolean)}
   }};
 }

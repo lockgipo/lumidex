@@ -79,3 +79,22 @@ test('invalid or contradictory inputs are rejected',()=>{
   assert.throws(()=>Tradeoff.compare(wyvern,base,{...base,dex:210},{panelAttack:2000,attackPerDex:-1000}),/nonnegative/);
   assert.throws(()=>Tradeoff.compare(wyvern,base,base,{observedNoncrit:-1}),/observedNoncrit/);
 });
+
+test('user-confirmed Blood Lord 6-piece damage penalty is a separate 0.7 multiplier',()=>{
+ const b={...base};
+ const r=Tradeoff.compare(wyvern,b,b,{setDamageFactorA:1,setDamageFactorB:0.7,observedNoncrit:20000});
+ approximate(r.factors.setDamage,0.7);
+ approximate(r.totalRatio,0.7);
+ approximate(r.normalDamageB,14000);
+ assert.ok(r.assumptions.some(s=>s.includes('Blood Lord')));
+ const reverse=Tradeoff.compare(wyvern,b,b,{setDamageFactorA:0.7,setDamageFactorB:1});
+ approximate(reverse.totalRatio,1/0.7);
+});
+test('CRIT points from Lucky Star do not become crit chance; block total when unresolved',()=>{
+ const r=Tradeoff.compare(wyvern,base,base,{setCritUnknown:true});
+ assert.equal(r.totalRatio,null);
+ assert.equal(r.complete,false);
+ assert.ok(r.missing.some(s=>s.includes('CRIT')));
+ const noCrit=Tradeoff.compare(wyvern,base,base,{setCritUnknown:true,skillCanCrit:false});
+ assert.equal(noCrit.complete,true);
+});
