@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="theme-color" content="#101525">
+<meta name="lumidex-explorer-api" content="">
 <title>LumiDex · 屬性交換比較 v0.8.1</title>
 <style>
 :root{color-scheme:dark;--bg:#0b101c;--panel:#141b2b;--panel2:#192237;--stroke:#314158;--text:#eef2fa;--sub:#b0bed0;--mint:#81e5cf;--gold:#f1c885;--red:#f8a3a3;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif}
@@ -119,16 +120,16 @@ h2.sectiontitle{margin:0 0 14px}
   <p class="lead">在指定地圖怪物身上比較 A／B 兩套屬性。穿透、命中與暴擊使用官方公開規則；ATK% 為待實測堆疊假設，DEX 則需另行校準，不把條件式估算當成真實掛機效率。</p>
 </div>
 <details class="import-panel" id="character-import">
-  <summary>從官方 Explorer 匯入角色裝備 <span>實驗功能 · 需橋接腳本</span></summary>
+  <summary>從官方 Explorer 匯入角色裝備 <span>免安裝腳本 · 一鍵讀取</span></summary>
   <div class="import-content">
-    <p class="tip">輸入角色名稱後開啟 Explorer。首次使用需在 Chrome／iPhone Safari 安裝一次 <a href="explorer-bridge.user.js" download>匯入橋接 Userscript</a>。橋接會把官方公開穿戴與倉庫裝備傳回此頁，不會要求登入、修改角色或上傳到 GitHub。</p>
+    <p class="tip">輸入角色名稱即可匯入官方 Explorer 公開裝備，不需要安裝擴充功能或登入遊戲。資料只在瀏覽器內用來比較裝備。</p>
     <div class="import-actions">
-      <label for="character-name">官方角色名稱<input id="character-name" type="text" maxlength="24" autocomplete="off" placeholder="輸入角色名稱（非數字 ID）"></label>
-      <button id="open-explorer" type="button" class="primary-button">開啟 Explorer 並讀取</button>
+      <label for="character-name">官方角色名稱<input id="character-name" type="text" maxlength="24" autocomplete="off" placeholder="例如 Gipo"></label>
+      <button id="open-explorer" type="button" class="primary-button">匯入角色裝備</button>
     </div>
-    <p id="import-status" class="tip" role="status" aria-live="polite">尚未匯入角色。沒有橋接腳本時可以使用下方備援方式。</p>
-    <details class="import-fallback"><summary>沒有自動連線？改用複製貼上</summary>
-      <p class="tip">在官方 Explorer 開啟匯入連結，使用腳本的「複製匯入資料（備援）」按鈕，回到這裡貼上。JSON 只在瀏覽器處理，不會保存或送到伺服器。</p>
+    <p id="import-status" class="tip" role="status" aria-live="polite">尚未匯入角色。</p>
+    <details class="import-fallback"><summary>無法自動匯入？使用 JSON 備援</summary>
+      <p class="tip">如果已取得官方 Explorer 的公開裝備 JSON，可以貼入本頁。JSON 只在瀏覽器處理，不會保存。</p>
       <label for="import-paste">官方角色公開資料 JSON<textarea id="import-paste" rows="3" placeholder="貼上橋接腳本複製的 JSON"></textarea></label>
       <button id="import-paste-button" type="button" class="secondary-button">匯入貼上的資料</button>
     </details>
@@ -207,7 +208,7 @@ const readableError=message=>String(message)
 const pct=f=>(f>=1?'+':'')+((f-1)*100).toFixed(1)+'%';
 const elementZh={Earth:'地',Water:'水',Ice:'冰',Wind:'風',Fire:'火',Light:'光',Shadow:'暗',Neutral:'無',Holy:'聖',Dark:'暗',Poison:'毒',Ghost:'念'};
 let db,battle;
-let importedProfile=null,bridgeTab=null,requestedName='',selectedDelta=null;
+let importedProfile=null,selectedDelta=null,importing=false;
 function importStatus(message){$('import-status').textContent=message}
 function validateName(){
   const name=$('character-name').value.trim();
@@ -275,28 +276,46 @@ function showGearDelta(){
     $('apply-delta').disabled=!Object.keys(delta).some(key=>usable.has(key));
   }catch(error){box.textContent='比較失敗：'+error.message;}
 }
-function openCharacterExplorer(){
+async function importCharacterDirect(){
+  if(importing)return;
+  const button=$('open-explorer');
+  let timeout;
   try{
-    requestedName=validateName();
+    const name=validateName();
+    const endpoint=document.querySelector('meta[name="lumidex-explorer-api"]')?.content.trim();
+    if(!endpoint)throw new Error('一鍵匯入服務尚未連線，目前只能使用手動 JSON 匯入。');
+    const api=new URL(endpoint);
+    if(api.protocol!=='https:'||api.pathname!=='/api/player'
+      ||!(api.hostname.endsWith('.workers.dev')||api.hostname==='api.gipo.cc'))
+      throw new Error('角色資料服務網址設定錯誤');
+    importing=true;button.disabled=true;
     importedProfile=null;selectedDelta=null;$('import-profile').hidden=true;
-    const url='https://lumivaraonline.com/explorer/?name='+encodeURIComponent(requestedName)+'&view=items&lumidex=1';
-    bridgeTab=window.open(url,'_blank');
-    importStatus(bridgeTab?'已開啟官方 Explorer。若已安裝橋接 Userscript，會自動傳回裝備；否則可在官方頁面按「複製匯入資料」。':'瀏覽器封鎖了新分頁，請允許彈出視窗後重試。');
-  }catch(error){importStatus(error.message);}
-}
-window.addEventListener('message',event=>{
-  if(!['https://lumivaraonline.com','https://www.lumivaraonline.com'].includes(event.origin))return;
-  if(!bridgeTab||event.source!==bridgeTab||!event.data||typeof event.data!=='object')return;
-  if(String(event.data.name||'').toLocaleLowerCase()!==requestedName.toLocaleLowerCase())return;
-  if(event.data.type==='lumidex:ready'){
-    bridgeTab.postMessage({type:'lumidex:request',name:requestedName},event.origin);
-  }else if(event.data.type==='lumidex:character'){
-    try{showImported(event.data.payload);}
-    catch(err){importStatus('匯入失敗：'+err.message);}
-  }else if(event.data.type==='lumidex:error'){
-    importStatus('官方資料取得失敗；請返回 Explorer 使用「複製匯入資料」備援。');
+    importStatus('正在向官方讀取 '+name+' 的公開裝備…');
+    const controller=new AbortController();
+    timeout=setTimeout(()=>controller.abort(),15000);
+    api.searchParams.set('name',name);
+    const response=await fetch(api.href,{
+      method:'GET',credentials:'omit',cache:'no-store',
+      signal:controller.signal,headers:{accept:'application/json'}
+    });
+    if(!response.ok){
+      if(response.status===404)throw new Error('沒有找到這個角色');
+      if(response.status===429)throw new Error('查詢太頻繁，請稍後再試');
+      throw new Error('角色資料服務暫時無法讀取（HTTP '+response.status+'）');
+    }
+    const data=await response.json();
+    if($('character-name').value.trim()!==name)throw new Error('角色名稱已更改，請重新匯入');
+    showImported(data);
+  }catch(error){
+    const reason=error.name==='AbortError'?'查詢逾時，請稍後再試':
+      error instanceof TypeError?'連線失敗，請確認網路或代理服務狀態':error.message;
+    importStatus('匯入失敗：'+reason);
+  }finally{
+    if(timeout)clearTimeout(timeout);
+    button.disabled=false;
+    importing=false;
   }
-});
+}
 function read(id){
   const raw=$(id).value.trim();const n=Number(raw);
   if(!raw||!Number.isFinite(n)||n<0)throw new RangeError('請輸入有效的非負數字：'+id);
@@ -392,8 +411,8 @@ async function boot(){
     $('monster').addEventListener('change',()=>{$('observed').value='';refresh()});
     const ids=['leaders','type','cancrit','guaranteed','pierceA','pierceB','atkA','atkB','critdA','critdB','critA','critB','hitA','hitB','dexA','dexB','panelatk','dexrate','observed'];
     ids.forEach(id=>{ $(id).addEventListener('input',refresh);$(id).addEventListener('change',refresh); });
-    $('open-explorer').addEventListener('click',openCharacterExplorer);
-    $('character-name').addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();openCharacterExplorer();}});
+    $('open-explorer').addEventListener('click',importCharacterDirect);
+    $('character-name').addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();importCharacterDirect();}});
     $('import-paste-button').addEventListener('click',()=>{
       try{
         const raw=$('import-paste').value.trim();
@@ -420,6 +439,10 @@ async function boot(){
         importStatus('已以 A 為基準，把 '+Object.keys(updates).length+' 項已知裝備詞條差異帶入 B。ATK 固定值、CRIT 點數、卡片與精煉未換算；請核對 A 面板。');
       }catch(error){importStatus('無法套用：'+error.message);}
     });
+    if(!document.querySelector('meta[name="lumidex-explorer-api"]')?.content.trim()){
+      $('open-explorer').disabled=true;
+      importStatus('一鍵匯入服務準備中；目前可使用下方手動 JSON 備援。');
+    }
     refreshMonsterOptions();
   }catch(err){$('status').textContent='載入失敗：'+err.message;$('status').className='output-status error';}
 }
