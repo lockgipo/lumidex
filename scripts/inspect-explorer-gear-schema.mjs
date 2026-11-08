@@ -41,3 +41,5 @@ console.log('TOP FIELD SHAPE',JSON.stringify({
   setNamedItems:gear.filter(g=>/warlord|hawkeye|archmage|armor breaker|spellbreaker|executioner|phantom dancer/i.test(g?.name||'')).length,
   templateOnEquipped:bag.filter(g=>g?.worn).map(g=>g.template??null)
 }));
+
+console.log('PUBLIC ROLE CLASS ID',JSON.stringify({classId:player.classId,level:player.level}));
