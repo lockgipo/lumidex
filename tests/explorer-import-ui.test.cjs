@@ -34,3 +34,23 @@ test('mobile picker displays ability cards, class/source filters and set unknown
  assert.match(html,/官方 Explorer 未提供個別裝備套裝名稱/);
  assert.doesNotMatch(app,/window\.open\(/);
 });
+
+test('optional manual set panel has A/B independent rows, activation and explicit opt-in',()=>{
+ for(const id of ['gear-set-panel','set-rows-A','set-rows-B','add-set-A','add-set-B','set-summary-A','set-summary-B','copy-sets','set-enabled','set-error'])
+   assert.ok(html.includes('id="'+id+'"'),id);
+ assert.match(html,/套裝效果需手動設定/);
+ assert.match(html,/官方 Explorer 匯入資料不包含裝備的套裝歸屬/);
+ assert.match(html,/2 件、4 件或 6 件/);
+ assert.match(html,/尚未包含套裝加成的基礎值/);
+ assert.match(html,/src="gear-sets\.js"/);
+ assert.match(app,/LumiGearSets\.calculate\(setRows\.A\)/);
+ assert.match(app,/LumiGearSets\.calculate\(setRows\.B\)/);
+ assert.match(app,/LumiGearSets\.apply\(manualA,sets\.A\)/);
+ assert.match(app,/LumiGearSets\.apply\(manualB,sets\.B\)/);
+ assert.match(app,/opt\.setCritUnknown=/);
+ assert.match(app,/opt\.setDamageFactorA=/);
+ assert.match(app,/opt\.setDamageFactorB=/);
+ assert.match(app,/setRows\.B=setRows\.A\.map/);
+ assert.doesNotMatch(app,/localStorage|sessionStorage/);
+ assert.doesNotThrow(()=>new Function(app));
+});
