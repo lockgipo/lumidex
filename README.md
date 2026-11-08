@@ -1,6 +1,6 @@
 # LumiDex — Lumivara Online 繁體中文圖鑑
 
-**v0.8.1｜非官方、免費、非商業個人使用中**
+**v0.8.2｜非官方、免費、非商業個人使用中**
 
 網站：https://lockgipo.github.io/lumidex/
 
@@ -16,11 +16,11 @@
 - 不離開列表的詳情面板、最多四張卡片比較與瀏覽器本地收藏
 - 手機 Safari / Windows Chrome / Edge 的響應式介面
 
-### v0.8.2（Dev，尚未上正式）：網站一鍵匯入準備
-- 以 Cloudflare Worker 唯讀代理取代「每台手機安裝 Userscript」。網站輸入角色名稱即可查官方 Explorer，代理只轉回公開的必要裝備欄位。
-- 前端改為直接匯入，不再開官方分頁；保留 JSON 匯入備援。正式站 v0.8.1 的原有流程不受影響。
-- **目前缺少 Cloudflare Worker 永久部署與 API 網址**，因此開發版匯入按鈕明確停用，避免顯示無法使用的功能。須完成授權部署、設定 `tradeoff.html` 的 `lumidex-explorer-api`、再跑真實資料驗收才可發布正式版。
-- 相關代碼：`edge/explorer-proxy.mjs`、`wrangler.jsonc`；不新增秘密、不借用其他專案 Supabase、不保存角色資訊。
+### v0.8.2（正式發布）：網站免安裝一鍵匯入
+- 以 Vercel Function 唯讀代理取代「每台手機安裝 Userscript」。網站輸入角色名稱即可查官方 Explorer，代理只轉回公開的必要裝備欄位。
+- 前端改為直接匯入，不再開官方分頁；保留 JSON 匯入備援。正式站以 v0.8.2 的單鍵匯入介面取代原有流程。
+- **API 已部署至 Vercel**：`https://lumidex-explorer-api.vercel.app/api/player`，GitHub Actions 對 Gipo 的跨網域實際 GET、CORS 與 OPTIONS 測試通過。Safari 真機操作仍待驗證；API 可能因官方改版或外部服務中斷而暫時不可用。
+- 相關代碼：`api/player.mjs`、`edge/explorer-proxy.mjs`。目前 Vercel 部署來源為本儲存庫的審查版本，但未與 Git 自動同步，後續更新後端須重新部署；不新增秘密、不借用其他專案 Supabase、不保存角色資訊。
 
 ### v0.8.1：屬性交換試算與 Explorer 公開裝備匯入（正式站提供，功能仍在實測）
 

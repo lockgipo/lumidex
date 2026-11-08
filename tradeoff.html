@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="theme-color" content="#101525">
-<meta name="lumidex-explorer-api" content="">
-<title>LumiDex · 屬性交換比較 v0.8.1</title>
+<meta name="lumidex-explorer-api" content="https://lumidex-explorer-api.vercel.app/api/player">
+<title>LumiDex · 屬性交換比較 v0.8.2</title>
 <style>
 :root{color-scheme:dark;--bg:#0b101c;--panel:#141b2b;--panel2:#192237;--stroke:#314158;--text:#eef2fa;--sub:#b0bed0;--mint:#81e5cf;--gold:#f1c885;--red:#f8a3a3;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif}
 *{box-sizing:border-box}
@@ -115,7 +115,7 @@ h2.sectiontitle{margin:0 0 14px}
 <main class="wrap">
 <header><div class="logo">Lumi<em>Dex</em></div><a class="back" href="analyzer.html">← 舊版穿透分析</a></header>
 <div class="hero">
-  <div class="eyebrow">V0.8.1 · 條件式試算</div>
+  <div class="eyebrow">V0.8.2 · 條件式試算</div>
   <h1>穿透換 ATK% 或爆傷，值得嗎？</h1>
   <p class="lead">在指定地圖怪物身上比較 A／B 兩套屬性。穿透、命中與暴擊使用官方公開規則；ATK% 為待實測堆疊假設，DEX 則需另行校準，不把條件式估算當成真實掛機效率。</p>
 </div>
@@ -286,7 +286,7 @@ async function importCharacterDirect(){
     if(!endpoint)throw new Error('一鍵匯入服務尚未連線，目前只能使用手動 JSON 匯入。');
     const api=new URL(endpoint);
     if(api.protocol!=='https:'||api.pathname!=='/api/player'
-      ||!(api.hostname.endsWith('.workers.dev')||api.hostname==='api.gipo.cc'))
+      ||!(api.hostname==='lumidex-explorer-api.vercel.app'))
       throw new Error('角色資料服務網址設定錯誤');
     importing=true;button.disabled=true;
     importedProfile=null;selectedDelta=null;$('import-profile').hidden=true;

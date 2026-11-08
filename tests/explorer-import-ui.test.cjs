@@ -20,8 +20,8 @@ test('LumiDex offers a no-extension, name-based import and keeps gear comparison
   assert.doesNotMatch(app,/localStorage|sessionStorage/);
   assert.doesNotThrow(()=>new Function(app));
 });
-test('missing server endpoint is explicitly disabled rather than pretending to work',()=>{
-  assert.match(html,/<meta name="lumidex-explorer-api" content="">/);
+test('configured endpoint is verified and unavailable endpoints show clear feedback',()=>{
+  assert.match(html,/<meta name="lumidex-explorer-api" content="https:\/\/lumidex-explorer-api\.vercel\.app\/api\/player">/);
   assert.match(app,/button\.disabled=true/);
   assert.match(app,/一鍵匯入服務準備中/);
 });

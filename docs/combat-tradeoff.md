@@ -67,11 +67,11 @@ git diff --check
 - 下一個階段：用同職業、同技能與同怪物實測 A/B 的面板 ATK 與非爆擊命中傷害，核對 ATK% 真正堆疊；再按職業/技能加入 DEX/暴擊/元素的已驗證模型，最後才允許卡片與裝備導入同一核心。
 
 
-## v0.8.2 下一版（尚未部署）：免腳本一鍵匯入
+## v0.8.2（正式發布）：免腳本一鍵匯入
 
-- `tradeoff.html` 直接以 `fetch` 讀取專用 Cloudflare Worker 的 `/api/player?name=...`，不開其他視窗或要求使用者在每台裝置安裝腳本。
-- 官方 Explorer API 不對 GitHub Pages 開放 CORS，**純前端不能解決**。Worker 在後端連線到固定的官方公開玩家端點，僅回傳名稱、等級、職業 ID、背包裝備與倉庫裝備，不回傳貨幣、一般物品、帳戶等欄位。
-- Worker 以來源白名單限制瀏覽器請求，輸入驗證防止任意網址轉送，最多支援 24 字的角色名稱；上游 12 秒超時、最多 3 MB 回應、30 秒快取，其他錯誤以通用訊息顯示。
-- 正式端點需先在有 Cloudflare Workers 權限的帳號部署，並在 `tradeoff.html` 的 `meta[name="lumidex-explorer-api"]` 設定完整 HTTPS `...workers.dev/api/player`，否則匯入按鈕預設停用。
-- 不能僅因前端測試成功就宣稱 API 可用，須用已部署的 Worker 由 GitHub Pages 正式網域做 CORS、角色 Gipo、同部位配裝替換的整合驗收。
+- `tradeoff.html` 直接以 `fetch` 讀取專用 Vercel Function 的 `/api/player?name=...`，不開其他視窗或要求使用者在每台裝置安裝腳本。
+- 官方 Explorer API 不對 GitHub Pages 開放 CORS，**純前端不能解決**。Vercel Function 在後端連線到固定的官方公開玩家端點，僅回傳名稱、等級、職業 ID、背包裝備與倉庫裝備，不回傳貨幣、一般物品、帳戶等欄位。
+- Vercel Function 以來源白名單限制瀏覽器請求，輸入驗證防止任意網址轉送，最多支援 24 字的角色名稱；上游 12 秒超時、最多 3 MB 回應、30 秒快取，其他錯誤以通用訊息顯示。
+- API 已部署在獨立 Vercel 專案 `lumidex-explorer-api`，由 `tradeoff.html` 的 `meta[name="lumidex-explorer-api"]` 指向 `https://lumidex-explorer-api.vercel.app/api/player`；若未配置服務或服務失敗，顯示明確錯誤，不會虛構匯入成功。
+- GitHub Actions 已對部署中的 API 用正式網域 Origin 測試 Gipo 穿戴裝備、倉庫裝備、CORS / OPTIONS 與拒絕非法 Origin；網頁資料解析／同部位配裝差異的單元測試也通過。iPhone Safari 真機仍待驗證。
 - 暫時保留 v0.8.1 Userscript 檔案以免舊版操作中斷，但新版頁面不提供安裝入口。完工後再評估刪除。
