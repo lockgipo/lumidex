@@ -1,5 +1,13 @@
 # 更新紀錄
 
+## v0.8.2（2026-11-08，正式發布；iPhone Safari 真機待驗收）
+
+- 角色匯入介面改為網站直接讀取，不再要求安裝 Userscript。
+- 新增唯讀 Vercel Function 代理，僅接收角色名稱並取回官方公開裝備必要欄位；嚴格限制來源、固定上游網址，預設不保存玩家裝備。
+- 增加後端輸入驗證、CORS、資料裁減與前端串接回歸測試。
+- **部署狀態**：Vercel 公開 API `https://lumidex-explorer-api.vercel.app/api/player` 已就緒；Gipo 從 GitHub Actions 以正式網域來源驗證取得穿戴裝備、倉庫資料及 CORS；網站已直接接入，無需安裝 Userscript。
+
+
 ## v0.8.1（2026-11-08，正式發布；Explorer 匯入仍屬實驗功能）
 
 - 增加官方 Explorer 公開角色資料匯入：輸入角色名稱，首次安裝選用 Userscript，同源讀取官方資料並以來源驗證的跨分頁訊息傳回 LumiDex，另有手動 JSON 備援。
