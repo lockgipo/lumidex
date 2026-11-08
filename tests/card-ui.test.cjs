@@ -81,6 +81,7 @@ test('category and source controls filter rendered cards without changing saved 
   for(const cb of handlers.click||[])cb(mapEvent);
   assert.equal(elem('#mapfilter').value,map);
   assert.equal(elem('#sourcefilter').value,'verifiedMonster');
+  assert.match(elem('#advanced-count').textContent,/2 項/);
   assert.match(elem('#filter-hint').textContent,/已核對怪物掉落/);
   assert.match(elem('#results').innerHTML,/data-open="card-amethyst-wyvern"/);
   assert.doesNotMatch(elem('#results').innerHTML,/data-open="card-golden-fox"/);
@@ -91,5 +92,11 @@ test('category and source controls filter rendered cards without changing saved 
   assert.match(elem('#results').innerHTML,/data-open="card-amethyst-wyvern"/);
   elem('#clear-farming').on_click();
   assert.equal(elem('#farming-label').textContent.includes('只看'),true);
+  elem('#reset-advanced').on_click();
+  assert.equal(elem('#sourcefilter').value,'all');
+  assert.equal(elem('#mapfilter').value,'');
+  assert.equal(elem('#slotfilter').value,'');
+  assert.equal(elem('#advanced-count').textContent,'');
+  assert.match(elem('#result-count').textContent,/88 筆結果/);
   assert.equal(storage.get('lumidex-v1-favs'),'["card-golden-fox"]');
 });

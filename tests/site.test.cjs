@@ -48,16 +48,23 @@ test('special cards have verified Traditional Chinese mechanics instead of place
   assert.ok(app.includes('官方機制名稱'));
 });
 
-test('landing layout shows dataset stats up top without duplicate search chips',()=>{
-  const summary=html.indexOf('<div class="summary">');
-  const lang=html.indexOf('<div class="langbar">');
+test('mobile layout prioritizes compact summary, search and card results',()=>{
+  const header=html.indexOf('<header class="head">');
+  const summary=html.indexOf('<div class="summary"');
   const search=html.indexOf('<div class="searchbox">');
-  assert.ok(summary>0&&summary<lang&&lang<search);
-  assert.ok(html.includes('id="c-card"')&&html.includes('id="c-mon"'));
-  assert.ok(html.includes('id="c-map"')&&html.includes('id="c-mat"'));
+  const effects=html.indexOf('<details class="effect-filters"');
+  const results=html.indexOf('<div class="results"');
+  assert.ok(header>0&&header<summary&&summary<search&&search<effects&&effects<results);
+  assert.match(html,/<details class="tools" id="tools">[\s\S]*?<select id="lang"/);
+  assert.match(html,/<a class="tool-link" href="analyzer.html">/);
+  assert.match(html,/<details class="advanced-filters" id="advanced-filters">/);
+  assert.match(html,/<button type="button" class="reset-advanced" id="reset-advanced">/);
+  assert.match(html,/@media\(max-width:850px\)[\s\S]*?grid-template-columns:repeat\(4,minmax\(0,1fr\)\)/);
+  assert.ok(['c-card','c-mon','c-map','c-mat'].every(id=>html.includes('id="'+id+'"')));
   assert.ok(!html.includes('id="chips"'));
   assert.ok(!app.includes("$('#chips')"));
-  assert.ok(html.includes('data-effect-group'));
-  assert.ok(html.includes('data-effect-option'));
-  assert.ok(html.includes('v0.6.3'));
+  assert.ok(html.includes('data-effect-group')&&html.includes('data-effect-option'));
+  assert.equal((html.match(/data-nav="/g)||[]).length,10);
+  assert.match(html,/<nav class="mobnav"[\s\S]*?<svg viewBox="0 0 24 24"/);
+  assert.ok(html.includes('v0.6.4'));
 });
