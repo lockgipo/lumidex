@@ -31,7 +31,7 @@ test('mobile picker displays ability cards, class/source filters and set unknown
  assert.match(html,/src="gear-picker\.js"/);
  assert.match(app,/LumiGearPicker\.relatedCandidates/);
  assert.match(app,/LumiGearPicker\.inferJobFromEquipped/);
- assert.match(html,/官方 Explorer 未提供個別裝備套裝名稱/);
+ assert.match(html,/匯入的裝備不包含套裝歸屬及加成/);
  assert.doesNotMatch(app,/window\.open\(/);
 });
 
@@ -41,7 +41,7 @@ test('optional manual set panel has A/B independent rows, activation and explici
  assert.match(html,/套裝效果需手動設定/);
  assert.match(html,/官方 Explorer 匯入資料不包含裝備的套裝歸屬/);
  assert.match(html,/2 件、4 件或 6 件/);
- assert.match(html,/尚未包含套裝加成的基礎值/);
+ assert.match(html,/不含套裝加成的基礎值/);
  assert.match(html,/src="gear-sets\.js"/);
  assert.match(app,/LumiGearSets\.calculate\(setRows\.A\)/);
  assert.match(app,/LumiGearSets\.calculate\(setRows\.B\)/);
