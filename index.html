@@ -4880,16 +4880,16 @@ $('#sourcefilter').classList.toggle('hide',tab!=='cards');$('#effect-filters').c
 const activeDetails=Object.values(effectDetailSelections).reduce((total,values)=>total+values.size,0);
 const activeEffectCount=effectFilters.size+activeDetails;
 $('#effect-count').textContent=activeEffectCount?('已選 '+activeEffectCount+' 項'):'點選展開，可複選';
-$('[data-effect]').forEach(b=>b.setAttribute('aria-pressed',String(effectFilters.has(b.dataset.effect))));
-$('[data-effect-group]').forEach(b=>{
+$$('[data-effect]').forEach(b=>b.setAttribute('aria-pressed',String(effectFilters.has(b.dataset.effect))));
+$$('[data-effect-group]').forEach(b=>{
   const id=b.dataset.effectGroup,selected=effectDetailSelections[id]?.size||0;
   b.setAttribute('aria-expanded',String(expandedGroups.has(id)));
   b.setAttribute('data-selected',String(selected>0));
   const indicator=b.querySelector('.group-selection');
   if(indicator)indicator.textContent=selected?'已選 '+selected+' 項':'展開 ⌄';
 });
-$('[data-effect-panel]').forEach(p=>{p.hidden=!expandedGroups.has(p.dataset.effectPanel)});
-$('[data-effect-option]').forEach(b=>{
+$$('[data-effect-panel]').forEach(p=>{p.hidden=!expandedGroups.has(p.dataset.effectPanel)});
+$$('[data-effect-option]').forEach(b=>{
   const [group,id]=b.dataset.effectOption.split(':');
   b.setAttribute('aria-pressed',String(effectDetailSelections[group]?.has(id)||false));
 });
