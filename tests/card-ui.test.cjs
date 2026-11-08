@@ -56,6 +56,26 @@ test('category and source controls filter rendered cards without changing saved 
   assert.match(elem('#result-count').textContent,/88 筆結果/);
   assert.equal(elem('#effect-count').textContent,'點選展開，可複選');
 
+  // Selecting one detail narrows results; two in the same group means either.
+  const choose=value=>elem('#effect-buttons').on_click({target:{closest:()=>({dataset:{effectOption:value}})}});
+  choose('baseStat:str');
+  assert.match(elem('#effect-count').textContent,/已選 1 項/);
+  assert.match(elem('#result-count').textContent,/5 筆結果/);
+  choose('baseStat:dex');
+  assert.match(elem('#result-count').textContent,/9 筆結果/);
+  assert.match(elem('#effect-count').textContent,/已選 2 項/);
+  choose('baseStat:str');
+  assert.match(elem('#result-count').textContent,/4 筆結果/);
+  choose('hpSp:hp');
+  assert.match(elem('#effect-count').textContent,/已選 2 項/);
+  elem('#reset-effects').on_click();
+  assert.match(elem('#result-count').textContent,/88 筆結果/);
+  choose('defense:def');
+  assert.match(elem('#result-count').textContent,/9 筆結果/);
+  choose('defense:mdef');
+  assert.match(elem('#effect-count').textContent,/已選 2 項/);
+  elem('#reset-effects').on_click();
+
   const map='Amethyst Hollows';
   const mapEvent={target:{closest(selector){if(selector==='[data-farm-map],[data-farm-mon]')return {dataset:{farmMap:map}};return null}}};
   for(const cb of handlers.click||[])cb(mapEvent);

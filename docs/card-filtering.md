@@ -29,3 +29,11 @@ git diff --check
 ```
 
 涵蓋：88 卡分類、22 特殊機制排除、AND 過濾、來源驗證、地圖與怪物農卡直達、舊收藏 key 不變、v0.6 分析器回歸。註：v0.6.2 已移除原行情匯入及相應的測試。
+
+## v0.6.3 補充：細項篩選與首頁整理
+
+- 保留 14 種頂層分類與原有群組 ID；「主屬性」、「HP／SP」、「DEF／MDEF」各提供可展開細選，同組採 OR、跨組及頂層能力分類採 AND。
+- STR、AGI、VIT、INT、DEX、LUK、HP、SP、DEF、MDEF 各可單獨選取。比對避免 DEF 混同 MDEF、HP 混同 MaxHP 等非原本固定加成字樣。
+- CRIT 名稱改為「暴擊率」。官網 Spell Crit = floor(LUK/3) + 裝備與卡片 CRIT，等級附加 CRIT 不計入；卡片資料未有獨立 MCRIT 類型。[官方 Wiki](https://lumivaraonline.com/wiki/)
+- 統計移到頁首，數值仍由嵌入資料更新；移除搜尋框下方 keyword chips，保留自由搜尋與桌面側邊入口。
+- 驗證指令 `node --test`；iPhone Safari 實機測試收合、複選、清除與底部導覽。
