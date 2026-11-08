@@ -38,11 +38,12 @@ test('same-slot armor remains visible with unverified class restrictions',()=>{
 test('stat-first info honors focus and never claims set bonuses',()=>{
  const result=p.topStats(items[1],'pierce');
  assert.deepEqual(result[0],{key:'pierce',label:'物理穿透',value:4});
- assert.ok(!Object.hasOwn(p.jobs,'sinister'));
+ assert.ok(Object.hasOwn(p.jobs,'sinister'));
+ assert.equal(Object.keys(p.jobs).length,15);
 });
 
 test('can conservatively infer Archer from worn Bow when production proxy lacks class ID',()=>{
  assert.equal(p.inferJobFromEquipped([equipped]),'archer');
- assert.equal(p.inferJobFromEquipped([{slot:'sword',name:'III Sword'}]),'');
- assert.equal(p.inferJobFromEquipped([{slot:'sword',name:'III Cestus'}]),'');
+ assert.equal(p.inferJobFromEquipped([{slot:'sword',name:'III Sword'}]),'swordsman');
+ assert.equal(p.inferJobFromEquipped([{slot:'sword',name:'III Cestus'}]),'iron_fist');
 });

@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="theme-color" content="#101525">
 <meta name="lumidex-explorer-api" content="https://lumidex-explorer-api.vercel.app/api/player">
-<title>LumiDex · 屬性交換比較 v0.8.3</title>
+<title>LumiDex · 屬性交換比較 v0.8.4</title>
 <style>
 :root{color-scheme:dark;--bg:#0b101c;--panel:#141b2b;--panel2:#192237;--stroke:#314158;--text:#eef2fa;--sub:#b0bed0;--mint:#81e5cf;--gold:#f1c885;--red:#f8a3a3;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif}
 *{box-sizing:border-box}
@@ -158,13 +158,14 @@ h2.sectiontitle{margin:0 0 14px}
 @media(max-width:780px){.set-columns{grid-template-columns:minmax(0,1fr)}.set-panel>summary{flex-wrap:wrap}}
 @media(max-width:380px){.set-row{grid-template-columns:minmax(0,1fr) 70px auto;gap:6px}.set-row .remove-set{padding:7px}.set-row select{padding:6px}}
 
+.gear-card-english{font-size:11px;color:#a6bbcd;line-height:1.45;margin:3px 0 5px;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
 <main class="wrap">
 <header><div class="logo">Lumi<em>Dex</em></div><a class="back" href="analyzer.html">← 舊版穿透分析</a></header>
 <div class="hero">
-  <div class="eyebrow">V0.8.3 · 條件式試算</div>
+  <div class="eyebrow">V0.8.4 · 條件式試算</div>
   <h1>穿透換 ATK% 或爆傷，值得嗎？</h1>
   <p class="lead">在指定地圖怪物身上比較 A／B 兩套屬性。穿透、命中與暴擊使用官方公開規則；ATK% 為待實測堆疊假設，DEX 則需另行校準，不把條件式估算當成真實掛機效率。</p>
 </div>
@@ -184,13 +185,14 @@ h2.sectiontitle{margin:0 0 14px}
     </details>
     <div id="import-profile" hidden>
       <p class="import-summary" id="import-summary"></p>
+      <p class="tip">裝備名稱優先顯示繁中，並保留英文原名供核對與搜尋；未建立對照的名稱維持英文。部分譯名可依遊戲中文化再調整。</p>
       <div class="import-choices">
         <label for="equipped-select">目前穿戴裝備<select id="equipped-select"></select></label>
         <div id="equipped-summary" class="gear-current" role="status"></div>
         <label for="candidate-search">搜尋可替換裝備<input id="candidate-search" type="search" placeholder="裝備名稱、DEX、穿透、數值"></label>
       </div>
       <div class="gear-controls">
-        <label for="job-filter">角色職業<select id="job-filter"><option value="">未指定（不依職業過濾）</option><option value="archer">Archer · 弓箭手</option><option value="swordsman">Swordsman · 劍士</option><option value="mage">Mage · 法師</option><option value="cleric">Cleric · 神官</option><option value="merchant">Merchant · 商人</option><option value="thief">Thief · 盜賊</option><option value="novice">Novice · 初心者</option></select></label>
+        <label for="job-filter">角色職業<select id="job-filter"><option value="">未指定（不依職業過濾）</option></select></label>
         <label for="gear-sort">優先看哪項能力<select id="gear-sort"><option value="dex">DEX（高到低）</option><option value="atk">ATK 固定值</option><option value="pierce">物理穿透</option><option value="critDmg">爆擊傷害</option><option value="hit">HIT</option><option value="agi">AGI</option><option value="int">INT</option><option value="matk">MATK</option></select></label>
         <label for="gear-source">候選來源<select id="gear-source"><option value="all">背包＋倉庫</option><option value="背包">只看背包</option><option value="倉庫">只看倉庫</option></select></label>
         <label class="check" for="hide-unsafe"><input id="hide-unsafe" type="checkbox" checked> 隱藏已確認不能裝備的武器</label>
@@ -282,6 +284,7 @@ h2.sectiontitle{margin:0 0 14px}
 <script src="combat-model.js"></script>
 <script src="tradeoff-model.js"></script>
 <script src="explorer-import.js"></script>
+<script src="gear-localization.js"></script>
 <script src="gear-picker.js"></script>
 <script src="gear-sets.js"></script>
 <script>
@@ -373,8 +376,18 @@ function validateName(){
 function option(label,value){
   const el=document.createElement('option');el.textContent=label;el.value=value;return el;
 }
+function renderJobOptions(){
+  const sel=$('job-filter');sel.replaceChildren(option('未指定（不依職業過濾）',''));
+  for(const [group,label] of [['base','基礎職業'],['advanced','進階／擴充職業']]){
+    const section=document.createElement('optgroup');section.label=label;
+    for(const [id,job] of Object.entries(LumiGearPicker.jobs)){
+      if(job.group===group)section.append(option(job.english+' · '+job.name,id));
+    }
+    sel.append(section);
+  }
+}
 function gearDesc(gear){
-  return (gear.source==='倉庫'?'倉庫 · ':'背包 · ')+gear.name+(gear.tier?' · T'+gear.tier:'');
+  return gear.source+' · '+LumiGearZh.title(gear)+(LumiGearZh.subtitle(gear)?' / '+gear.name:'')+(gear.tier?' · T'+gear.tier:'');
 }
 function showImported(payload){
   const name=validateName();
@@ -387,7 +400,7 @@ function showImported(payload){
   if(!importedProfile.equipped.length)throw new Error('官方資料沒有標記正在穿戴的裝備');
   const select=$('equipped-select');
   select.replaceChildren(...importedProfile.equipped.map((gear,i)=>option(
-    (i+1)+'. '+gear.name+' ['+gear.slot+']',gear.key)));
+    (i+1)+'. '+LumiGearZh.title(gear)+' ['+LumiGearZh.slot(gear.slot)+']'+(LumiGearZh.subtitle(gear)?' · '+gear.name:''),gear.key)));
   $('import-profile').hidden=false;
   $('candidate-search').value='';
   $('import-summary').textContent=importedProfile.name+' · 已辨識 '+importedProfile.equipped.length+
@@ -407,7 +420,9 @@ function renderEquippedSummary(){
   const box=$('equipped-summary');box.replaceChildren();
   const current=importedProfile?.equipped.find(x=>x.key===$('equipped-select').value);
   if(!current)return;
-  const label=document.createElement('strong');label.textContent='目前裝備詞條 · '+current.name;box.append(label);
+  const label=document.createElement('strong');label.textContent='目前裝備詞條 · '+LumiGearZh.title(current);box.append(label);
+  const en=LumiGearZh.subtitle(current);
+  if(en){const sub=document.createElement('div');sub.className='gear-card-english';sub.textContent=en;box.append(sub);}
   const chips=document.createElement('div');chips.className='gear-chiplist';
   for(const [key,value] of Object.entries(current.bonuses||{})){
     const node=document.createElement('span');node.className='gear-chip';
@@ -425,12 +440,14 @@ function renderCandidateCards(){
     const card=document.createElement('button');card.type='button';card.className='gear-card';
     card.dataset.key=g.key;card.setAttribute('aria-pressed',String(g.key===chosen));
     const row=document.createElement('div');row.className='gear-card-top';
-    const title=document.createElement('span');title.className='gear-card-title';title.textContent=g.name;
+    const title=document.createElement('span');title.className='gear-card-title';title.textContent=LumiGearZh.title(g);
     const src=document.createElement('span');src.className='gear-card-source';
     const originalIndex=Number(g.key.split(':').at(-1));
     src.textContent=g.source+(Number.isInteger(originalIndex)?' #'+(originalIndex+1):'')+
       (g.tier?' · T'+g.tier:'')+(g.refine?' · +'+g.refine:'');
     row.append(title,src);card.append(row);
+    const english=LumiGearZh.subtitle(g);
+    if(english){const small=document.createElement('div');small.className='gear-card-english';small.textContent=english;card.append(small);}
     const statList=document.createElement('div');statList.className='gear-chiplist';
     const top=LumiGearPicker.topStats(g,focus,5);
     for(const stat of top){
@@ -487,7 +504,7 @@ function showGearDelta(){
     const delta=LumiExplorerImport.diff(current,next);
     selectedDelta=delta;
     const title=document.createElement('div');title.className='delta-title';
-    title.textContent='替換 '+current.name+' → '+next.name;
+    title.textContent='替換 '+LumiGearZh.title(current)+' → '+LumiGearZh.title(next);
     box.appendChild(title);
     const chips=document.createElement('div');chips.className='delta-chips';
     for(const [key,value] of Object.entries(delta)){
@@ -639,6 +656,7 @@ async function boot(){
     const [a,b]=await Promise.all([fetch('data.json'),fetch('monster-stats.json')]);
     if(!a.ok||!b.ok)throw new Error('無法載入資料，請使用網站而非本機檔案。');
     db=await a.json();battle=await b.json();
+    renderJobOptions();
     if(!db.maps?.length||Object.keys(battle.monsters||{}).length!==db.monsters.length)throw new Error('怪物資料快照與圖鑑不一致');
     $('map').innerHTML=db.maps.map(m=>'<option value="'+safe(m.name)+'">Lv.'+m.range.join('–')+' · '+safe(m.nameZh||m.zh||m.name)+'</option>').join('');
     $('map').value=(db.maps.find(m=>m.name==='Amethyst Hollows')||db.maps[0]).name;

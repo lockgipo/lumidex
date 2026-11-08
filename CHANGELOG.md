@@ -1,5 +1,12 @@
 # 更新紀錄
 
+## v0.8.4（2026-11-08，正式發布）
+
+- 裝備匯入及候選卡片新增獨立繁中顯示對照，保留英文原名、Tier／精煉、官方裝備識別與隨機詞條；搜尋同時支援中英文。未對照名稱維持英文。
+- 職業選單擴充為初心者、6 基礎、8 進階／擴充，共 15 種；各職業主武器依官方 Wiki 規則過濾，包括 Kensei、Iron Fist、Wicked Necromancer、The King、Sinister、Templar、Nekobaku、Mamushi。修正盜賊可持有 Dagger Pair。
+- 不修改 Vercel API、戰鬥公式、裝備數值、套裝選擇、收藏及卡片／怪物／地圖資料集；更新靜態頁面與測試，iPhone 實機操作待驗收。
+
+
 ## v0.8.3（2026-11-08，正式發布，iPhone Safari 實機待驗收）
 
 - 實際檢查官方 Explorer 角色裝備原始欄位：`serial`、`template`、`top` 有提供；套裝、職業適用和個別裝備需求等級沒有隨裝備提供；角色 `classId` 為文字。
