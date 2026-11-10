@@ -10,8 +10,9 @@ const db=require('../data.json');
 const monsterStats=require('../monster-stats.json');
 const Combat=require('../combat-model.js');
 
-test('main catalog links to a complete and loadable combat preview',()=>{
-  assert.match(index,/href="analyzer\.html"/);
+test('legacy combat preview remains complete and loadable but is hidden from the main catalog',()=>{
+  assert.doesNotMatch(index,/href="analyzer\.html"/);
+  assert.match(index,/href="damage\.html"/);
   assert.match(html,/src="combat-model\.js"/);
   assert.match(html,/fetch\('monster-stats\.json'\)/);
   const inline=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].at(-1)[1];

@@ -8,8 +8,9 @@ const index=fs.readFileSync(path.join(root,'index.html'),'utf8');
 const analyzer=fs.readFileSync(path.join(root,'analyzer.html'),'utf8');
 const script=html.split('<script>').at(-1).split('</script>')[0];
 
-test('A/B page has navigable map/monster controls and is linked from catalog',()=>{
-  assert.ok(index.includes('href="tradeoff.html"'));
+test('legacy A/B page retains features and source files but is hidden from main navigation',()=>{
+  assert.ok(!index.includes('href="tradeoff.html"'));
+  assert.ok(index.includes('href="damage.html"'));
   assert.ok(analyzer.includes('href="tradeoff.html"'));
   assert.ok(html.includes('src="combat-model.js"'));
   assert.ok(html.includes('src="tradeoff-model.js"'));

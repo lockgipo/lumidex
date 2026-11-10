@@ -7,8 +7,9 @@ const index=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
 const js=html.split('<script>').at(-1).split('</script>')[0];
 test('new calculator is accessible from index; prior Explorer advanced tool remains untouched',()=>{
   assert.match(index,/href="damage\.html"/);
-  assert.match(index,/href="tradeoff\.html"/);
-  assert.match(html,/href="tradeoff\.html"/);
+  assert.doesNotMatch(index,/href="tradeoff\.html"/);
+  assert.doesNotMatch(html,/href="tradeoff\.html"/);
+  assert.ok(fs.existsSync(path.join(__dirname,'../tradeoff.html')));
   assert.match(html,/src="combat-model\.js"/);
   assert.match(html,/src="damage-model\.js"/);
   assert.doesNotMatch(html,/id="character-import"|id="character-name"|explorer-import\.js/);

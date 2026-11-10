@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="theme-color" content="#101525">
-<title>LumiDex · 簡易裝備傷害收益計算機 v0.8.5</title>
+<title>LumiDex · 簡易裝備傷害收益計算機 v0.8.6</title>
 <style>
 :root{color-scheme:dark;--bg:#0b101c;--panel:#141b2b;--panel2:#192237;--line:#344760;--text:#eef2fa;--sub:#b8c5d5;--mint:#80e6ce;--warning:#f0c784;--bad:#ffc4ca;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif}
 *{box-sizing:border-box}
@@ -63,6 +63,26 @@ output{font-variant-numeric:tabular-nums}
 .hint{font-size:12px;color:#f5d8a7;line-height:1.7}
 .hidden{display:none!important}
 .foot{color:var(--sub);font-size:12px;line-height:1.7;margin-top:16px}
+input.quick-field[readonly]{cursor:pointer;text-align:center;font-weight:750;font-variant-numeric:tabular-nums;color:#c7fff0;border-color:#526f7e;background:#162b3d;caret-color:transparent}
+input.quick-field[readonly]:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+.sheet-backdrop{position:fixed;inset:0;background:#020712b8;z-index:100}
+.delta-editor{position:fixed;inset:auto 0 0;z-index:101;margin:0 auto;max-width:550px;max-height:85dvh;overflow-y:auto;overscroll-behavior:contain;padding:12px 17px calc(18px + env(safe-area-inset-bottom));background:#182338;border:1px solid #50647b;border-radius:22px 22px 0 0;box-shadow:0 -12px 45px #0009}
+.sheet-grip{width:42px;height:5px;border-radius:6px;background:#61778b;margin:0 auto 13px}
+.sheet-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:9px}
+.sheet-head h2{font-size:17px;margin:0}
+.sheet-head button{min-width:76px}
+.sheet-value-row{display:flex;align-items:center;justify-content:space-between;gap:15px;background:#0f1c2d;border-radius:13px;border:1px solid #38556a;padding:10px 12px;margin:11px 0}
+#editor-value{font-size:32px;line-height:1.25;font-weight:800;color:var(--mint);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.step-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:11px 0}
+.step-grid button{min-height:52px;font-size:18px;font-variant-numeric:tabular-nums;border-radius:11px;border:1px solid #536a82;background:#263a52;color:#e8f5ff;cursor:pointer}
+.step-grid button.positive{background:#19493f;border-color:#579d87;color:#b8f9e3}
+.sheet-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.sheet-actions button,.sheet-value-row button{min-height:44px}
+.exact-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px;align-items:end;margin-top:10px}
+.exact-controls label{min-width:0}
+.exact-controls input{font-variant-numeric:tabular-nums}
+body.quick-open{overflow:hidden}
+@media(min-width:791px){.delta-editor{bottom:5%;border-radius:22px;max-height:80dvh}}
 @media(max-width:790px){.layout{grid-template-columns:1fr}.wrap{padding:16px 12px 70px}.panel{padding:14px}.intro{margin:18px 0}}
 @media(max-width:350px){.edit-row{grid-template-columns:83px repeat(2,minmax(0,1fr));gap:5px}.edit-row input{padding:8px 6px}.matrix .number{font-size:17px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
@@ -72,7 +92,7 @@ output{font-variant-numeric:tabular-nums}
 <main class="wrap">
 <header><div class="brand">Lumi<span>Dex</span></div><a class="link" href="index.html">← 返回繁中圖鑑</a></header>
 <div class="intro">
-<div class="kicker">V0.8.5 · 簡易相對收益</div>
+<div class="kicker">V0.8.6 · 簡易相對收益</div>
 <h1>哪件裝備打這隻怪更痛？</h1>
 <p class="lead">不必匯入 Explorer、不必填技能倍率。只用目前面板、裝備淨差異、怪物 DEF／MDEF，比較非爆擊與爆擊兩條傷害收益。</p>
 </div>
@@ -97,15 +117,17 @@ output{font-variant-numeric:tabular-nums}
 <h3>候選裝備 A／B 的淨屬性變化</h3>
 <p class="helper">兩件裝備都相對「目前正在穿」的面板。<strong>新裝備詞條－舊裝備詞條</strong>；減少的部分輸入負數。A 設成 0 表示保持原本裝備。</p>
 <div class="edit-row"><span>變動項目</span><span style="text-align:center;font-size:12px;color:var(--mint)">裝備 A</span><span style="text-align:center;font-size:12px;color:var(--mint)">裝備 B</span></div>
-<div class="edit-row"><span id="delta-pierce-label">穿透（%）</span><input id="a-pierce" type="number" step="0.1" inputmode="decimal" value="0" aria-label="A 穿透變動"><input id="b-pierce" type="number" step="0.1" inputmode="decimal" value="0" aria-label="B 穿透變動"></div>
-<div class="edit-row"><span id="delta-atk-label">ATK% 加成</span><input id="a-atk" type="number" step="0.1" inputmode="decimal" value="0" aria-label="A ATK% 變動"><input id="b-atk" type="number" step="0.1" inputmode="decimal" value="0" aria-label="B ATK% 變動"></div>
-<div class="edit-row"><span>爆擊傷害%</span><input id="a-crit" type="number" step="0.1" inputmode="decimal" value="0" aria-label="A 爆擊傷害變動"><input id="b-crit" type="number" step="0.1" inputmode="decimal" value="0" aria-label="B 爆擊傷害變動"></div>
+<div class="edit-row"><span id="delta-pierce-label">穿透（%）</span><input id="a-pierce" class="quick-field" type="text" inputmode="none" readonly role="button" aria-haspopup="dialog" data-quick="A 穿透變動" value="0" aria-label="A 穿透變動，點選快捷調整"><input id="b-pierce" class="quick-field" type="text" inputmode="none" readonly role="button" aria-haspopup="dialog" data-quick="B 穿透變動" value="0" aria-label="B 穿透變動，點選快捷調整"></div>
+<div class="edit-row"><span id="delta-atk-label">ATK% 加成</span><input id="a-atk" class="quick-field" type="text" inputmode="none" readonly role="button" aria-haspopup="dialog" data-quick="A ATK% 變動" value="0" aria-label="A ATK% 變動，點選快捷調整"><input id="b-atk" class="quick-field" type="text" inputmode="none" readonly role="button" aria-haspopup="dialog" data-quick="B ATK% 變動" value="0" aria-label="B ATK% 變動，點選快捷調整"></div>
+<div class="edit-row"><span>爆擊傷害%</span><input id="a-crit" class="quick-field" type="text" inputmode="none" readonly role="button" aria-haspopup="dialog" data-quick="A 爆擊傷害變動" value="0" aria-label="A 爆擊傷害變動，點選快捷調整"><input id="b-crit" class="quick-field" type="text" inputmode="none" readonly role="button" aria-haspopup="dialog" data-quick="B 爆擊傷害變動" value="0" aria-label="B 爆擊傷害變動，點選快捷調整"></div>
+<div class="actions" aria-label="候選裝備快捷操作"><button type="button" id="swap-gears" class="action secondary">A／B 互換</button><button type="button" id="copy-a-to-b" class="action secondary">B 複製 A</button></div>
+<p class="helper">點選任一 A／B 數值，可直接 ±1、±5、±10 或切換正負；只有需要精確數字時才開啟鍵盤。</p>
 </div>
 <details id="advanced">
 <summary>進階：固定 ATK／MATK、STR／DEX／INT 造成的面板變化</summary>
 <p class="helper">有固定攻擊或主屬性變化時，先確認目前面板的 ATK／MATK；將主屬性帶來的攻擊力變化換算成「等效固定攻擊變動」。若不知道換算方式，請勿猜測。以下推算還有面板乘區假設。</p>
 <label for="panel-attack"><span id="label-panel">目前面板 ATK（選填）</span><input id="panel-attack" type="number" min="0.0001" step="0.1" inputmode="decimal" placeholder="有固定攻擊變化才需輸入"></label>
-<div class="edit-row"><span id="delta-flat-label">等效固定 ATK</span><input id="a-flat" type="number" step="0.1" inputmode="decimal" value="0" aria-label="A 等效固定攻擊變動"><input id="b-flat" type="number" step="0.1" inputmode="decimal" value="0" aria-label="B 等效固定攻擊變動"></div>
+<div class="edit-row"><span id="delta-flat-label">等效固定 ATK</span><input id="a-flat" class="quick-field" type="text" inputmode="none" readonly role="button" aria-haspopup="dialog" data-quick="A 等效固定攻擊變動" value="0" aria-label="A 等效固定攻擊變動，點選快捷調整"><input id="b-flat" class="quick-field" type="text" inputmode="none" readonly role="button" aria-haspopup="dialog" data-quick="B 等效固定攻擊變動" value="0" aria-label="B 等效固定攻擊變動，點選快捷調整"></div>
 <p class="hint">注意：若 STR、DEX、INT 同時影響技能、主屬性門檻、攻擊速度或額外乘區，這個等效固定攻擊欄位無法完整表示；此時應實測，不能以試算排名代替。</p>
 </details>
 <div class="actions"><button class="action" id="example" type="button">填入示範數值</button><button class="action secondary" id="reset" type="button">清除面板設定</button></div>
@@ -141,13 +163,43 @@ output{font-variant-numeric:tabular-nums}
 <summary>官方已確認／尚待玩家實測的公式</summary>
 <p class="helper"><strong>官方：</strong>DEF 或 MDEF 每 3 點減傷 1 個百分點，上限 255＝85%；穿透直接扣掉減傷，最低減到 0；爆擊基本傷害 2 倍，再加額外爆傷，依然受防禦影響。</p>
 <p class="helper"><strong>待實測驗證：</strong>ATK%／MATK% 是否全在同一個加算乘區，以及面板數字是否可拆成「基礎攻擊 ×（1＋總 ATK%）」；涉及這些部分的比較只能作為條件式參考。</p>
-<p class="helper">來源：<a href="https://lumivaraonline.com/wiki/" target="_blank" rel="noopener noreferrer">Lumivara 官方 Wiki</a>。<a href="https://github.com/lockgipo/lumidex/blob/dev/v0.8.5-simple-damage/docs/atk-percent-verification.md" target="_blank" rel="noopener noreferrer">ATK% 實測指引</a>。</p>
+<p class="helper">來源：<a href="https://lumivaraonline.com/wiki/" target="_blank" rel="noopener noreferrer">Lumivara 官方 Wiki</a>。<a href="https://github.com/lockgipo/lumidex/blob/main/docs/atk-percent-verification.md" target="_blank" rel="noopener noreferrer">ATK% 實測指引</a>。</p>
 </details>
 <p class="foot">LumiDex 是非官方個人使用工具。怪物能力取自站內 2026-11-08 快照，遊戲更新後可能不同。若裝備同時改變套裝、主屬性觸發條件、卡片機制或技能公式，請改以實測為準。</p>
-<a href="tradeoff.html" class="link" style="margin-top:6px">舊版進階比較／Explorer 裝備挑選器</a>
+
 </section>
 </div>
 </main>
+<div id="editor-backdrop" class="sheet-backdrop hidden" aria-hidden="true"></div>
+<section id="delta-editor" class="delta-editor hidden" role="dialog" aria-modal="true" aria-labelledby="editor-title" aria-describedby="editor-hint" tabindex="-1">
+ <div class="sheet-grip" aria-hidden="true"></div>
+ <div class="sheet-head"><h2 id="editor-title">調整裝備數值</h2><button id="editor-close" class="action" type="button">完成</button></div>
+ <p id="editor-hint" class="helper">下列按鈕會加減目前數值，正負切換則將目前數值反轉。</p>
+ <div class="sheet-value-row">
+  <div><div class="muted" style="font-size:12px">目前變動</div><output id="editor-value" aria-live="polite">0</output></div>
+  <button id="editor-sign" class="action secondary" type="button" aria-label="正負號切換">± 正負</button>
+ </div>
+ <div class="step-grid" aria-label="增減數值">
+  <button type="button" data-step="-10">−10</button>
+  <button type="button" data-step="-5">−5</button>
+  <button type="button" data-step="-1">−1</button>
+  <button type="button" data-step="1" class="positive">+1</button>
+  <button type="button" data-step="5" class="positive">+5</button>
+  <button type="button" data-step="10" class="positive">+10</button>
+ </div>
+ <div class="sheet-actions">
+  <button id="editor-zero" class="action secondary" type="button">歸零</button>
+  <button id="editor-exact-toggle" class="action secondary" type="button" aria-expanded="false" aria-controls="editor-precise">精確輸入</button>
+ </div>
+ <div id="editor-precise" class="hidden">
+  <p class="helper">可輸入小數；如果 iPhone 鍵盤沒有負號，先輸入正數，再按上方「± 正負」。</p>
+  <div class="exact-controls">
+   <label for="editor-exact">直接輸入數值<input type="text" id="editor-exact" inputmode="decimal" autocomplete="off" spellcheck="false" maxlength="22" placeholder="例如 12.5"></label>
+   <button id="editor-apply" class="action" type="button">套用</button>
+  </div>
+  <p id="editor-error" class="hint" role="status" aria-live="polite"></p>
+ </div>
+</section>
 <script src="combat-model.js"></script>
 <script src="damage-model.js"></script>
 <script>
@@ -257,6 +309,127 @@ function labels(){
  $('delta-flat-label').textContent='等效固定 '+(magic?'MATK':'ATK');
 }
 function inputChanged(){update();if(!example)save()}
+// Eight readonly A/B cells share one quick editor; iPhone never opens its keyboard on cell tap.
+let activeEdit=null;
+function signedValue(n){
+ const value=Number(n.toFixed(3));
+ return (value>0?'+':'')+String(Object.is(value,-0)?0:value);
+}
+function normalizeQuickValues(){
+ for(const id of deltaIds){
+  const value=Number($(id).value);
+  if($(id).value.trim()!==''&&Number.isFinite(value))$(id).value=signedValue(value);
+ }
+}
+function editorLabel(id){
+ const side=id.startsWith('a-')?'A':'B';
+ const kind=id.slice(2);
+ const magic=$('type').value==='magic';
+ const name=kind==='pierce'?(magic?'魔法穿透':'物理穿透'):kind==='atk'?(magic?'MATK%':'ATK%'):kind==='crit'?'爆擊傷害%':(magic?'固定 MATK':'固定 ATK');
+ return '裝備 '+side+' · '+name+' 變動';
+}
+function displayEditorValue(){
+ if(!activeEdit)return;
+ const value=Number($(activeEdit).value);
+ $('editor-value').textContent=signedValue(Number.isFinite(value)?value:0)+(activeEdit.endsWith('-flat')?'':'%');
+}
+function openQuickEditor(id){
+ if(!deltaIds.includes(id))return;
+ activeEdit=id;
+ $('editor-title').textContent=editorLabel(id);
+ $('editor-precise').classList.add('hidden');
+ $('editor-exact-toggle').setAttribute('aria-expanded','false');
+ $('editor-exact').value='';
+ $('editor-error').textContent='';
+ displayEditorValue();
+ $('editor-backdrop').classList.remove('hidden');
+ $('delta-editor').classList.remove('hidden');
+ document.body.classList.add('quick-open');
+ $(id).setAttribute('aria-expanded','true');
+ $('editor-close').focus({preventScroll:true});
+}
+function closeQuickEditor(){
+ if(!activeEdit)return;
+ const prior=activeEdit;
+ $('editor-exact').blur();
+ $('editor-backdrop').classList.add('hidden');
+ $('delta-editor').classList.add('hidden');
+ document.body.classList.remove('quick-open');
+ $(prior).removeAttribute('aria-expanded');
+ activeEdit=null;
+ $(prior).focus({preventScroll:true});
+}
+function changeQuickValue(n){
+ if(!activeEdit||!Number.isFinite(n)||Math.abs(n)>1000000000)return;
+ $(activeEdit).value=signedValue(n);
+ displayEditorValue();
+ $('editor-error').textContent='';
+ inputChanged();
+}
+function swapGears(){
+ for(const field of ['pierce','atk','crit','flat']){
+  const a=$('a-'+field),b=$('b-'+field);
+  const value=a.value;
+  a.value=b.value;b.value=value;
+ }
+ normalizeQuickValues();inputChanged();
+}
+function copyGearAtoB(){
+ for(const field of ['pierce','atk','crit','flat'])$('b-'+field).value=$('a-'+field).value;
+ normalizeQuickValues();inputChanged();
+}
+function initQuickEditor(){
+ for(const id of deltaIds){
+  $(id).addEventListener('click',()=>openQuickEditor(id));
+  $(id).addEventListener('keydown',event=>{
+   if(event.key==='Enter'||event.key===' '){event.preventDefault();openQuickEditor(id)}
+  });
+ }
+ $('editor-close').addEventListener('click',closeQuickEditor);
+ $('editor-backdrop').addEventListener('click',closeQuickEditor);
+ $('editor-sign').addEventListener('click',()=>{
+  if(activeEdit)changeQuickValue(-Number($(activeEdit).value));
+ });
+ $('editor-zero').addEventListener('click',()=>changeQuickValue(0));
+ $('delta-editor').querySelectorAll('[data-step]').forEach(button=>
+  button.addEventListener('click',()=>{
+   if(activeEdit)changeQuickValue(Number($(activeEdit).value)+Number(button.dataset.step));
+  }));
+ $('editor-exact-toggle').addEventListener('click',()=>{
+  const open=$('editor-precise').classList.toggle('hidden')===false;
+  $('editor-exact-toggle').setAttribute('aria-expanded',String(open));
+  if(open){
+   $('editor-exact').value=activeEdit?String(Number($(activeEdit).value)):'';
+   $('editor-exact').focus({preventScroll:true});
+  }
+ });
+ function applyExact(){
+  const raw=$('editor-exact').value.trim().replace(/−/g,'-').replace(/＋/g,'+');
+  // Reject ambiguous input rather than silently treating empty or malformed text as zero.
+  if(!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(raw)||!Number.isFinite(Number(raw))||Math.abs(Number(raw))>1000000000){
+   $('editor-error').textContent='請輸入有效的數字，例如 12.5。負號也能用上方 ± 正負切換。';
+   return;
+  }
+  changeQuickValue(Number(raw));
+  $('editor-exact').blur();
+ }
+ $('editor-apply').addEventListener('click',applyExact);
+ $('editor-exact').addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();applyExact()}});
+ $('swap-gears').addEventListener('click',swapGears);
+ $('copy-a-to-b').addEventListener('click',copyGearAtoB);
+ document.addEventListener('keydown',event=>{
+  if(!activeEdit)return;
+  if(event.key==='Escape'){event.preventDefault();closeQuickEditor();return;}
+  if(event.key==='Tab'){
+   const items=[...$('delta-editor').querySelectorAll('button,input')].filter(el=>el.getClientRects().length);
+   if(items.length){
+    const i=items.indexOf(document.activeElement);
+    if(event.shiftKey&&i===0){event.preventDefault();items.at(-1).focus();}
+    else if(!event.shiftKey&&i===items.length-1){event.preventDefault();items[0].focus();}
+   }
+  }
+ });
+}
 async function init(){
  try{
   const [a,b]=await Promise.all([fetch('data.json'),fetch('monster-stats.json')]);
@@ -264,6 +437,7 @@ async function init(){
   db=await a.json();stats=await b.json();
   if(!db.maps?.length||!db.monsters?.length||!stats.monsters)throw new Error('怪物資料格式不符。');
   const old=restore();
+  normalizeQuickValues();initQuickEditor();
   $('map').replaceChildren(...db.maps.map(m=>option(m.name,(m.nameZh||m.zh||m.name)+' · Lv.'+m.range.join('–'))));
   $('map').value=db.maps.some(m=>m.name===old?.map)?old.map:(db.maps.find(m=>m.name==='Amethyst Hollows')||db.maps[0]).name;
   labels();listMonsters(old?.monster||'monster-amethyst-wyvern');
@@ -277,12 +451,13 @@ async function init(){
    example=true;
    const fields={'base-pierce':'40','base-atk':'50','base-crit':'40','a-pierce':'5','b-atk':'10'};
    [...baseIds,...deltaIds,'panel-attack'].forEach(id=>$(id).value=fields[id]??(id==='panel-attack'?'':'0'));
-   $('type').value='physical';labels();update();
+   normalizeQuickValues();$('type').value='physical';labels();update();
   });
   $('reset').addEventListener('click',()=>{
    example=false;
    for(const id of [...baseIds,'panel-attack'])$(id).value='';
    for(const id of deltaIds)$(id).value='0';
+   closeQuickEditor();
    try{localStorage.removeItem(KEY)}catch(_){}
    update();
   });
