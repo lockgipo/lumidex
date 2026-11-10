@@ -4,9 +4,14 @@
 - Name: LumiDex
 - Repository: https://github.com/lockgipo/lumidex
 - Website URL: https://lockgipo.github.io/lumidex/
-- Production version: 0.8.5 (2026-11-10); main branch, GitHub Pages root; embedded game-data snapshot 0.3.1 (22 official special-card mechanic descriptions localized)
+- Production version: 0.8.6 (2026-11-10); main branch, GitHub Pages root; embedded game-data snapshot 0.3.1 (22 official special-card mechanic descriptions localized)
 - Deployment: GitHub Pages, main branch, root; public static site. No production backend or user accounts.
 - Purpose: Traditional Chinese searchable companion reference for Lumivara Online. Unofficial.
+
+## v0.8.6 production release: streamlined quick gear input
+- User-requested UX adjustment after iPhone screenshots: main catalog sidebar and tools drawer advertise **only** the v0.8.6 damage.html calculator. Removed v0.6 analyzer.html and v0.8.4 tradeoff.html **navigation links only**; both legacy pages, Explorer importer/picker, gear sets, API/proxy and their data/scripts remain intact for later reuse. damage.html no longer links back to the old advanced tool.
+- All eight A/B net-delta fields are readonly, tap/keyboard activated role=button; share a focus-managed modal bottom sheet. Controls -10/-5/-1/+1/+5/+10, sign flip, zero, and opt-in decimal text input; tapping a delta does not summon the iPhone numerical keyboard. Batch swap A/B and copy A→B include flat ATK/MATK fields, retain current panel, recalculate and reuse existing localStorage key lumidex-damage-v1. Accessibility: Escape/backdrop/Done dismiss, focus return, dialog and keydown controls; respect iPhone safe area and narrow widths.
+- Combat formula, game data, ATK% stacking unverified disclaimer, personal storage, Explorer Vercel deployment and production back-end remain unchanged. Low-cost Linux unit and browser mobile-width verification applied before publishing.
 
 ## v0.8.5 production release: simple equipment damage gain calculator
 - Developed on `dev/v0.8.5-simple-damage` starting from v0.8.4, with a temporary isolated worktree to preserve unrelated changes on `feat/explorer-oneclick-proxy`. Released to `main` by user authorization; no backend changes.

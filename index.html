@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#101525">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="description" content="Lumivara Online 非官方繁體中文卡片、怪物與地圖搜尋器。">
-<title>LumiDex v0.8.5 — Lumivara 繁中圖鑑</title>
+<title>LumiDex v0.8.6 — Lumivara 繁中圖鑑</title>
 <link rel="manifest" href="manifest.webmanifest">
 <style>
 :root{color-scheme:dark;--bg:#0b101c;--panel:#141b2b;--panel2:#192237;--panel3:#222d45;--stroke:#2b3750;--text:#f0f3fa;--sub:#9eabc0;--muted:#73829b;--mint:#81e5cf;--mint-dim:#173c3a;--purple:#b5a4fa;--gold:#f1c885;--radius:17px;--shadow:0 18px 48px #0006;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC", "Microsoft JhengHei",sans-serif}
@@ -133,10 +133,8 @@
   <button class="nav" data-quick="物理穿透"><span class="nav-icon">⟡</span> 物理穿透卡片</button>
   <button class="nav" data-quick="ATK"><span class="nav-icon">↗</span> ATK 增益卡片</button>
   <button class="nav" data-quick="DEX"><span class="nav-icon">◈</span> DEX 增益卡片</button>
-  <a class="nav" href="analyzer.html"><span class="nav-icon">◫</span> 地圖屬性分析 <span class="counter">v0.6</span></a>
-  <a class="nav" href="damage.html"><span class="nav-icon">◈</span> 簡易裝備收益 <span class="counter">v0.8.5</span></a>
-  <a class="nav" href="tradeoff.html"><span class="nav-icon">⇆</span> 進階比較（舊版） <span class="counter">v0.8.4</span></a>
-  <div class="side-bottom">非官方玩家製作 · v0.8.5<br>卡片能力為本站繁中暫譯，請以遊戲及官方 Wiki 為準。<br><a href="https://lumivaraonline.com/wiki/" rel="noopener noreferrer" target="_blank">官方 Wiki ↗</a></div>
+  <a class="nav" href="damage.html"><span class="nav-icon">◈</span> 裝備傷害收益計算 <span class="counter">v0.8.6</span></a>
+  <div class="side-bottom">非官方玩家製作 · v0.8.6<br>卡片能力為本站繁中暫譯，請以遊戲及官方 Wiki 為準。<br><a href="https://lumivaraonline.com/wiki/" rel="noopener noreferrer" target="_blank">官方 Wiki ↗</a></div>
 </aside>
 <main class="main">
   <header class="head">
@@ -146,12 +144,10 @@
         <summary aria-label="顯示設定與分析工具">設定與工具 <span aria-hidden="true">⌄</span></summary>
         <div class="tool-panel">
           <div class="langbar"><label for="lang">名稱顯示</label><select id="lang" class="select" aria-label="選擇名稱顯示語言"><option value="both">繁中＋英文</option><option value="zh">繁體中文</option><option value="en">English</option></select></div>
-          <a class="tool-link" href="analyzer.html">地圖屬性效益分析 <span>原 v0.6 穿透與 HIT 比較</span></a>
-          <a class="tool-link" href="damage.html">簡易裝備收益計算 <span>v0.8.5：選怪物、輸入面板與 A／B 裝備淨差異，直接比較非爆擊／爆擊</span></a>
-          <a class="tool-link" href="tradeoff.html">進階比較（舊版） <span>v0.8.4：Explorer 裝備挑選、手動套裝與 A／B 分析</span></a>
+          <a class="tool-link" href="damage.html">裝備傷害收益計算 <span>v0.8.6：A／B 數值快捷加減、正負切換，直接比較非爆擊／爆擊</span></a>
         </div>
       </details>
-      <div class="version">v0.8.5</div>
+      <div class="version">v0.8.6</div>
     </div>
   </header>
   <div class="summary" aria-label="資料收錄數量"><div class="stat"><small>卡片</small><strong id="c-card">88</strong></div><div class="stat"><small>怪物</small><strong id="c-mon">90</strong></div><div class="stat"><small>地圖</small><strong id="c-map">18</strong></div><div class="stat"><small>材料</small><strong id="c-mat">72</strong></div></div>
@@ -162,7 +158,7 @@
   <div class="farming-bar hide" id="farming-bar"><span id="farming-label"></span><button type="button" id="clear-farming">清除指定怪物</button></div>
   <div class="results" id="results" aria-live="polite"></div>
   <div class="note" id="data-note"><strong>資料說明：</strong>卡片裝備部位、掉落來源與 NPC 收購單價取自官方 Wiki；NPC 收購價不代表玩家交易價。特殊卡片以官方效果及來源為準。</div>
-  <div class="footerline">資料快照：2026-11-08 · v0.8.5 · 專注卡片、怪物、地圖與分析 · 不需登入。<a href="https://lumivaraonline.com/wiki/" target="_blank" rel="noopener">前往官方資料 ↗</a></div>
+  <div class="footerline">資料快照：2026-11-08 · v0.8.6 · 專注卡片、怪物、地圖與分析 · 不需登入。<a href="https://lumivaraonline.com/wiki/" target="_blank" rel="noopener">前往官方資料 ↗</a></div>
 </main>
 </div>
 <nav class="mobnav" aria-label="手機分類切換">

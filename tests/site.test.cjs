@@ -56,7 +56,8 @@ test('mobile layout prioritizes compact summary, search and card results',()=>{
   const results=html.indexOf('<div class="results"');
   assert.ok(header>0&&header<summary&&summary<search&&search<effects&&effects<results);
   assert.match(html,/<details class="tools" id="tools">[\s\S]*?<select id="lang"/);
-  assert.match(html,/<a class="tool-link" href="analyzer.html">/);
+  assert.match(html,/<a class="tool-link" href="damage.html">/);
+  assert.doesNotMatch(html,/<a class="tool-link" href="analyzer.html">/);
   assert.match(html,/<details class="advanced-filters" id="advanced-filters">/);
   assert.match(html,/<button type="button" class="reset-advanced" id="reset-advanced">/);
   assert.match(html,/@media\(max-width:850px\)[\s\S]*?grid-template-columns:repeat\(4,minmax\(0,1fr\)\)/);
