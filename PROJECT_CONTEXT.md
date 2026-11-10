@@ -8,6 +8,12 @@
 - Deployment: GitHub Pages, main branch, root; public static site. No production backend or user accounts.
 - Purpose: Traditional Chinese searchable companion reference for Lumivara Online. Unofficial.
 
+## v0.8.5 Dev: simple equipment damage gain calculator (not deployed)
+- Development branch `dev/v0.8.5-simple-damage` starts at actual production `origin/main` v0.8.4; isolated temporary worktree to avoid overwriting unrelated work on `feat/explorer-oneclick-proxy` (including untracked files).
+- `damage.html` with `damage-model.js` is the new quick manually entered panel + net gear A/B delta calculator; supports monster DEF/MDEF and separate noncrit/crit single-hit relative ratios. It explicitly assumes successful hits, same skill/element, no changes to conditional/passive/ASPD effects, and no DPS/EXP/h claims. Dedicated Index menu link; historical `tradeoff.html`/Explorer gear picking remain untouched as advanced legacy.
+- Official verified: `min(DEF,255)/300` damage reduction, pierce cancels percentage-point reduction up to full, crit multiplier 2 + extra crit damage. ATK% all-add-in-one-pool and decomposition of shown ATK/MATK are **unverified** assumptions and visibly labeled. Fixed attack/main stat changes require a manually entered panel baseline and are only approximate; missing required values block results. Critical probability, HIT and LUK are not included by explicit user design.
+- New formula goldens, boundaries, A/B swap deductions, hypothesis signaling and page tests: `tests/damage-model.test.cjs`, `tests/damage-ui.test.cjs`. ATK% two-hypothesis in-game A/B protocol: `docs/atk-percent-verification.md`. No production deploy, Vercel API changes or private secrets. Current game Wiki lists more than the old 90-monster 2026-11-08 snapshot; this task does not claim dataset synchronization.
+
 ## v0.8.4 production release: equipment name localization and all 15 official classes
 - User authorized direct release. Branch `dev/v0.8.4-gear-zh-advanced-jobs`, derived from main v0.8.3.
 - `gear-localization.js` is a *narrow, authored* Traditional Chinese lookup for known Explorer English equipment names, not the complete private V107 translation dictionary. It preserves prefixes (Tier/upgrade), original English and unknown names. Chinese labels are presentation-only; original game IDs, names and stats stay unchanged. Some names remain player-vocabulary approximations pending exact V107 UI verification; no copyrighted file or bundled V107 translation assets committed.
