@@ -1,24 +1,24 @@
 {
   "meta": {
-    "cards": 88,
-    "monsters": 90,
-    "maps": 18,
+    "cards": 100,
+    "monsters": 100,
+    "maps": 20,
     "source": "https://lumivaraonline.com/wiki/",
     "cardIndex": "https://lumivaraonline.com/wiki/cards/",
     "monsterIndex": "https://lumivaraonline.com/wiki/monsters/",
     "mapIndex": "https://lumivaraonline.com/wiki/maps/",
-    "checked": "2026-11-08",
-    "version": "0.3.1",
+    "checked": "2026-11-12",
+    "version": "0.4.0",
     "localized": {
-      "cards": 88,
-      "monsters": 90,
-      "maps": 18,
+      "cards": 100,
+      "monsters": 100,
+      "maps": 20,
       "language": "zh-Hant",
-      "source": "V107 player terminology: names only; pending review"
+      "source": "V119 player terminology for existing names; new names marked tentative pending in-game confirmation"
     },
-    "materials": 72,
-    "verifiedCards": 72,
-    "sourceNote": "Official Wiki displayed card slots, card NPC sell values and material vendor prices. Not player-to-player market prices."
+    "materials": 80,
+    "verifiedCards": 80,
+    "sourceNote": "Official Wiki 2026-11-12 card and monster details. 8 new materials NPC prices from official Wiki drop-system table. No player market prices."
   },
   "cards": [
     {
@@ -2385,8 +2385,8 @@
     {
       "id": "card-crimson-knight",
       "name": "Crimson Knight Card",
-      "effect": "ATK +10, MATK +10, CRIT +5, 暴擊傷害 +12%",
-      "effectOriginal": "ATK +10, MATK +10, CRIT +5, คริดาเมจ +12%",
+      "effect": "ATK +10, MATK +10, CRIT +5, MCRIT +5, 暴擊傷害 +12%",
+      "effectOriginal": "ATK +10, MATK +10, CRIT +5, MCRIT +5, คริดาเมจ +12%",
       "special": false,
       "mapHint": null,
       "relatedMonsters": [],
@@ -2407,8 +2407,8 @@
     {
       "id": "card-bloodcrystal-dragon",
       "name": "Bloodcrystal Dragon Card",
-      "effect": "ATK +3%, MATK +3%, CRIT +7, 暴擊傷害 +15%",
-      "effectOriginal": "ATK +3%, MATK +3%, CRIT +7, คริดาเมจ +15%",
+      "effect": "ATK +3%, MATK +3%, CRIT +7, MCRIT +7, 暴擊傷害 +15%",
+      "effectOriginal": "ATK +3%, MATK +3%, CRIT +7, MCRIT +7, คริดาเมจ +15%",
       "special": false,
       "mapHint": null,
       "relatedMonsters": [],
@@ -2429,8 +2429,8 @@
     {
       "id": "card-critical-king",
       "name": "Critical King Card",
-      "effect": "ATK +5%, MATK +5%, CRIT +7, 暴擊傷害 +20%, 對地屬性傷害 +20%",
-      "effectOriginal": "ATK +5%, MATK +5%, CRIT +7, คริดาเมจ +20%, ดาเมจใส่ธาตุดิน +20%",
+      "effect": "ATK +5%, MATK +5%, CRIT +7, MCRIT +7, 暴擊傷害 +20%, 對地屬性傷害 +20%",
+      "effectOriginal": "ATK +5%, MATK +5%, CRIT +7, MCRIT +7, คริดาเมจ +20%, ดาเมจใส่ธาตุดิน +20%",
       "special": false,
       "mapHint": null,
       "relatedMonsters": [],
@@ -2450,7 +2450,7 @@
     },
     {
       "id": "card-crystal-fox",
-      "name": "Crystal Fox Card",
+      "name": "Crystal Dragon Card",
       "effect": "ATK +1%, CRIT +1, 物理穿透 +2%",
       "effectOriginal": "ATK +1%, CRIT +1, เจาะกาย +2%",
       "special": false,
@@ -2461,18 +2461,21 @@
       "slot": "左手",
       "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
       "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_rare_card/",
-      "nameEnglish": "Crystal Fox Card",
-      "nameZh": "水晶狐卡片",
+      "nameEnglish": "Crystal Dragon Card",
+      "nameZh": "水晶龍卡片（暫譯）",
       "slotList": [
         "左手"
       ],
       "tier": "LM-01 Rare",
       "npcSell": 500,
-      "cardPackRate": null
+      "cardPackRate": null,
+      "previousName": "Crystal Fox Card",
+      "previousNameZh": "水晶狐卡片",
+      "translationStatus": "tentative"
     },
     {
       "id": "card-rose-fox",
-      "name": "Rose Fox Card",
+      "name": "Rose Dragon Card",
       "effect": "ATK +2%, CRIT +2, 物理穿透 +3%",
       "effectOriginal": "ATK +2%, CRIT +2, เจาะกาย +3%",
       "special": false,
@@ -2483,18 +2486,21 @@
       "slot": "左手",
       "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
       "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_epic_card/",
-      "nameEnglish": "Rose Fox Card",
-      "nameZh": "玫瑰狐卡片",
+      "nameEnglish": "Rose Dragon Card",
+      "nameZh": "玫瑰龍卡片（暫譯）",
       "slotList": [
         "左手"
       ],
       "tier": "LM-01 Epic",
       "npcSell": 2000,
-      "cardPackRate": null
+      "cardPackRate": null,
+      "previousName": "Rose Fox Card",
+      "previousNameZh": "玫瑰狐卡片",
+      "translationStatus": "tentative"
     },
     {
       "id": "card-golden-fox",
-      "name": "Golden Fox Card",
+      "name": "Golden Dragon Card",
       "effect": "ATK +3%, CRIT +3, 物理穿透 +5%",
       "effectOriginal": "ATK +3%, CRIT +3, เจาะกาย +5%",
       "special": false,
@@ -2505,18 +2511,21 @@
       "slot": "左手",
       "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
       "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_legendary_card/",
-      "nameEnglish": "Golden Fox Card",
-      "nameZh": "金狐卡片",
+      "nameEnglish": "Golden Dragon Card",
+      "nameZh": "黃金龍卡片（暫譯）",
       "slotList": [
         "左手"
       ],
       "tier": "LM-01 Legendary",
       "npcSell": 8000,
-      "cardPackRate": null
+      "cardPackRate": null,
+      "previousName": "Golden Fox Card",
+      "previousNameZh": "金狐卡片",
+      "translationStatus": "tentative"
     },
     {
       "id": "card-pierce-empress",
-      "name": "Pierce Empress Card",
+      "name": "Pierce Dragon Card",
       "effect": "ATK +5%, CRIT +4, 物理穿透 +7%, 對地屬性傷害 +20%",
       "effectOriginal": "ATK +5%, CRIT +4, เจาะกาย +7%, ดาเมจใส่ธาตุดิน +20%",
       "special": false,
@@ -2527,14 +2536,360 @@
       "slot": "左手",
       "source": "限定卡包 LM-01 Armor Breaker（非怪物掉落）",
       "wiki": "https://lumivaraonline.com/wiki/cards/lm01p_limited_card/",
-      "nameEnglish": "Pierce Empress Card",
-      "nameZh": "穿透女帝卡片",
+      "nameEnglish": "Pierce Dragon Card",
+      "nameZh": "穿透龍卡片（暫譯）",
       "slotList": [
         "左手"
       ],
       "tier": "LM-01 Limited",
       "npcSell": 20000,
+      "cardPackRate": null,
+      "previousName": "Pierce Empress Card",
+      "previousNameZh": "穿透女帝卡片",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "card-gingerbread-man",
+      "name": "Gingerbread Man Card",
+      "effect": "遭怪物普攻或屬性技能命中時，有 25% 機率使該怪物緩速 3 秒（移動速度 -35%、攻擊速度 -15%；Leader／Boss 免疫）",
+      "effectOriginal": "🜂 จับไม่ได้หรอก",
+      "special": true,
+      "mapHint": "Frostbell Toyworks",
+      "relatedMonsters": [
+        "monster-gingerbread-man"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-gingerbread-man",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "鞋子",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/gingerbread_card/",
+      "nameEnglish": "Gingerbread Man Card",
+      "nameZh": "薑餅人卡片（暫譯）",
+      "slotList": [
+        "鞋子"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 2150,
+      "cardPackRate": 0.145161,
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "card-wind-up-teddy",
+      "name": "Wind-up Teddy Card",
+      "effect": "普攻命中怪物時回復自身 MaxHP 的 1%（每 0.5 秒最多一次）；裝備期間藥水與 HP 回復道具效果 -50%",
+      "effectOriginal": "🜂 กอดแน่น",
+      "special": true,
+      "mapHint": "Frostbell Toyworks",
+      "relatedMonsters": [
+        "monster-wind-up-teddy"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-wind-up-teddy",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "頭部上層、頭部中層、頭部下層",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/teddy_card/",
+      "nameEnglish": "Wind-up Teddy Card",
+      "nameZh": "發條泰迪熊卡片（暫譯）",
+      "slotList": [
+        "頭部上層",
+        "頭部中層",
+        "頭部下層"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 2200,
+      "cardPackRate": 0.145161,
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "card-jack-in-the-box",
+      "name": "Jack-in-the-Box Card",
+      "effect": "連續 6 秒未施放技能後的首次施法，該次技能對怪物造成傷害 +35%（含所有目標與每段命中）",
+      "effectOriginal": "🜂 เซอร์ไพรส์!",
+      "special": true,
+      "mapHint": "Frostbell Toyworks",
+      "relatedMonsters": [
+        "monster-jack-in-the-box"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-jack-in-the-box",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "飾品",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/jack_card/",
+      "nameEnglish": "Jack-in-the-Box Card",
+      "nameZh": "驚喜盒怪卡片（暫譯）",
+      "slotList": [
+        "飾品"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 2250,
+      "cardPackRate": 0.145161,
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "card-nutcracker-soldier",
+      "name": "Nutcracker Soldier Card",
+      "effect": "攻擊命中有 5% 機率使怪物 DEF -20%，持續 4 秒（技能每次施放僅判定第一隻命中怪物一次；Leader／Boss 免疫）",
+      "effectOriginal": "🜂 กะเทาะเปลือก",
+      "special": true,
+      "mapHint": "Frostbell Toyworks",
+      "relatedMonsters": [
+        "monster-nutcracker-soldier",
+        "monster-leader-nutcracker-soldier"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-nutcracker-soldier",
+          "rate": 0.01
+        },
+        {
+          "monster": "monster-leader-nutcracker-soldier",
+          "rate": 0.08
+        }
+      ],
+      "dropVerified": true,
+      "slot": "披風",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/nutcracker_card/",
+      "nameEnglish": "Nutcracker Soldier Card",
+      "nameZh": "胡桃鉗士兵卡片（暫譯）",
+      "slotList": [
+        "披風"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 2300,
+      "cardPackRate": 0.145161,
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "card-gummy-bear",
+      "name": "Gummy Bear Card",
+      "effect": "成功閃避怪物普攻或技能後，移動速度 +30%，持續 2 秒（每 4 秒最多一次）",
+      "effectOriginal": "🜂 เด้งหลบ",
+      "special": true,
+      "mapHint": "Frostbell Chocolate Works",
+      "relatedMonsters": [
+        "monster-gummy-bear"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-gummy-bear",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "鞋子",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/gummy_card/",
+      "nameEnglish": "Gummy Bear Card",
+      "nameZh": "軟糖熊卡片（暫譯）",
+      "slotList": [
+        "鞋子"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 2350,
+      "cardPackRate": 0.145161,
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "card-cocoa-imp",
+      "name": "Cocoa Imp Card",
+      "effect": "自身治療技能使目標每秒回復 MaxHP 的 2%，持續 4 秒（不可疊加，再次治療刷新時間）；自身對怪物的技能傷害 -10%",
+      "effectOriginal": "🜂 โกโก้อุ่น",
+      "special": true,
+      "mapHint": "Frostbell Chocolate Works",
+      "relatedMonsters": [
+        "monster-cocoa-imp"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-cocoa-imp",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "頭部上層、頭部中層、頭部下層",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/cocoa_card/",
+      "nameEnglish": "Cocoa Imp Card",
+      "nameZh": "可可小鬼卡片（暫譯）",
+      "slotList": [
+        "頭部上層",
+        "頭部中層",
+        "頭部下層"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 2400,
+      "cardPackRate": 0.145161,
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "card-marshmallow-brute",
+      "name": "Marshmallow Brute Card",
+      "effect": "受到怪物單次傷害超過 MaxHP 15% 時，超過部分減傷 50%（與其他減傷卡組合的總效果受官方 30% 上限限制）",
+      "effectOriginal": "🜂 นุ่มนิ่ม",
+      "special": true,
+      "mapHint": "Frostbell Chocolate Works",
+      "relatedMonsters": [
+        "monster-marshmallow-brute"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-marshmallow-brute",
+          "rate": 0.01
+        }
+      ],
+      "dropVerified": true,
+      "slot": "身體護甲",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/marshmallow_card/",
+      "nameEnglish": "Marshmallow Brute Card",
+      "nameZh": "棉花糖巨漢卡片（暫譯）",
+      "slotList": [
+        "身體護甲"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 2450,
+      "cardPackRate": 0.145161,
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "card-chocolate-golem",
+      "name": "Chocolate Golem Card",
+      "effect": "普攻擊殺怪物後留下 3 秒熔融巧克力，使 100 px 內其他怪物緩速（每 3 秒最多一處；Leader／Boss 免疫；技能擊殺不觸發）",
+      "effectOriginal": "🜂 ช็อกโกแลตละลาย",
+      "special": true,
+      "mapHint": "Frostbell Chocolate Works",
+      "relatedMonsters": [
+        "monster-chocolate-golem",
+        "monster-leader-chocolate-golem"
+      ],
+      "verifiedDrops": [
+        {
+          "monster": "monster-chocolate-golem",
+          "rate": 0.01
+        },
+        {
+          "monster": "monster-leader-chocolate-golem",
+          "rate": 0.08
+        }
+      ],
+      "dropVerified": true,
+      "slot": "飾品",
+      "source": null,
+      "wiki": "https://lumivaraonline.com/wiki/cards/chocogolem_card/",
+      "nameEnglish": "Chocolate Golem Card",
+      "nameZh": "巧克力魔像卡片（暫譯）",
+      "slotList": [
+        "飾品"
+      ],
+      "tier": "🜂 機制卡",
+      "npcSell": 2500,
+      "cardPackRate": 0.145161,
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "card-crystal-fox-arcane",
+      "name": "Crystal Fox Card",
+      "effect": "MATK +1%, MCRIT +1, 魔法穿透 +2%",
+      "effectOriginal": "MATK +1%, MCRIT +1, เจาะเวท +2%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": "左手",
+      "source": "限定卡包 LM-01 Arcane Piercer（非怪物掉落）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01m_rare_card/",
+      "nameEnglish": "Crystal Fox Card",
+      "nameZh": "水晶狐卡片",
+      "slotList": [
+        "左手"
+      ],
+      "tier": "LM-01 Rare",
+      "npcSell": 500,
       "cardPackRate": null
+    },
+    {
+      "id": "card-rose-fox-arcane",
+      "name": "Rose Fox Card",
+      "effect": "MATK +2%, MCRIT +2, 魔法穿透 +3%",
+      "effectOriginal": "MATK +2%, MCRIT +2, เจาะเวท +3%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": "左手",
+      "source": "限定卡包 LM-01 Arcane Piercer（非怪物掉落）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01m_epic_card/",
+      "nameEnglish": "Rose Fox Card",
+      "nameZh": "玫瑰狐卡片",
+      "slotList": [
+        "左手"
+      ],
+      "tier": "LM-01 Epic",
+      "npcSell": 2000,
+      "cardPackRate": null
+    },
+    {
+      "id": "card-golden-fox-arcane",
+      "name": "Golden Fox Card",
+      "effect": "MATK +3%, MCRIT +3, 魔法穿透 +5%",
+      "effectOriginal": "MATK +3%, MCRIT +3, เจาะเวท +5%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": "左手",
+      "source": "限定卡包 LM-01 Arcane Piercer（非怪物掉落）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01m_legendary_card/",
+      "nameEnglish": "Golden Fox Card",
+      "nameZh": "黃金狐卡片",
+      "slotList": [
+        "左手"
+      ],
+      "tier": "LM-01 Legendary",
+      "npcSell": 8000,
+      "cardPackRate": null
+    },
+    {
+      "id": "card-arcane-piercer",
+      "name": "Arcane Piercer Card",
+      "effect": "MATK +5%, MCRIT +4, 魔法穿透 +7%, 對地屬性傷害 +20%",
+      "effectOriginal": "MATK +5%, MCRIT +4, เจาะเวท +7%, ดาเมจใส่ธาตุดิน +20%",
+      "special": false,
+      "mapHint": null,
+      "relatedMonsters": [],
+      "verifiedDrops": [],
+      "dropVerified": false,
+      "slot": "左手",
+      "source": "限定卡包 LM-01 Arcane Piercer（非怪物掉落）",
+      "wiki": "https://lumivaraonline.com/wiki/cards/lm01m_limited_card/",
+      "nameEnglish": "Arcane Piercer Card",
+      "nameZh": "奧術穿透者卡片（暫譯）",
+      "slotList": [
+        "左手"
+      ],
+      "tier": "LM-01 Limited",
+      "npcSell": 20000,
+      "cardPackRate": null,
+      "translationStatus": "tentative"
     }
   ],
   "monsters": [
@@ -3347,6 +3702,106 @@
       "map": "Shattered Moon",
       "nameEnglish": "Leader Eclipse Warlord",
       "nameZh": "首領 蝕月戰將"
+    },
+    {
+      "id": "monster-gingerbread-man",
+      "name": "Gingerbread Man",
+      "level": 141,
+      "leader": false,
+      "map": "Frostbell Toyworks",
+      "nameEnglish": "Gingerbread Man",
+      "nameZh": "薑餅人（暫譯）",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "monster-wind-up-teddy",
+      "name": "Wind-up Teddy",
+      "level": 144,
+      "leader": false,
+      "map": "Frostbell Toyworks",
+      "nameEnglish": "Wind-up Teddy",
+      "nameZh": "發條泰迪熊（暫譯）",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "monster-jack-in-the-box",
+      "name": "Jack-in-the-Box",
+      "level": 147,
+      "leader": false,
+      "map": "Frostbell Toyworks",
+      "nameEnglish": "Jack-in-the-Box",
+      "nameZh": "驚喜盒怪（暫譯）",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "monster-nutcracker-soldier",
+      "name": "Nutcracker Soldier",
+      "level": 150,
+      "leader": false,
+      "map": "Frostbell Toyworks",
+      "nameEnglish": "Nutcracker Soldier",
+      "nameZh": "胡桃鉗士兵（暫譯）",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "monster-gummy-bear",
+      "name": "Gummy Bear",
+      "level": 141,
+      "leader": false,
+      "map": "Frostbell Chocolate Works",
+      "nameEnglish": "Gummy Bear",
+      "nameZh": "軟糖熊（暫譯）",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "monster-cocoa-imp",
+      "name": "Cocoa Imp",
+      "level": 144,
+      "leader": false,
+      "map": "Frostbell Chocolate Works",
+      "nameEnglish": "Cocoa Imp",
+      "nameZh": "可可小鬼（暫譯）",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "monster-marshmallow-brute",
+      "name": "Marshmallow Brute",
+      "level": 147,
+      "leader": false,
+      "map": "Frostbell Chocolate Works",
+      "nameEnglish": "Marshmallow Brute",
+      "nameZh": "棉花糖巨漢（暫譯）",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "monster-chocolate-golem",
+      "name": "Chocolate Golem",
+      "level": 150,
+      "leader": false,
+      "map": "Frostbell Chocolate Works",
+      "nameEnglish": "Chocolate Golem",
+      "nameZh": "巧克力魔像（暫譯）",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "monster-leader-nutcracker-soldier",
+      "name": "Leader Nutcracker Soldier",
+      "level": 155,
+      "leader": true,
+      "map": "Frostbell Toyworks",
+      "nameEnglish": "Leader Nutcracker Soldier",
+      "nameZh": "首領 胡桃鉗士兵（暫譯）",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "monster-leader-chocolate-golem",
+      "name": "Leader Chocolate Golem",
+      "level": 155,
+      "leader": true,
+      "map": "Frostbell Chocolate Works",
+      "nameEnglish": "Leader Chocolate Golem",
+      "nameZh": "首領 巧克力魔像（暫譯）",
+      "translationStatus": "tentative"
     }
   ],
   "maps": [
@@ -3691,6 +4146,46 @@
       "nameEnglish": "Shattered Moon",
       "nameZh": "破碎之月",
       "previousZh": "破碎之月"
+    },
+    {
+      "id": "map-frostbell-toyworks",
+      "name": "Frostbell Toyworks",
+      "zh": "霜鈴玩具工廠（暫譯）",
+      "range": [
+        141,
+        150
+      ],
+      "monsters": [
+        "monster-gingerbread-man",
+        "monster-wind-up-teddy",
+        "monster-jack-in-the-box",
+        "monster-nutcracker-soldier",
+        "monster-leader-nutcracker-soldier"
+      ],
+      "nameEnglish": "Frostbell Toyworks",
+      "nameZh": "霜鈴玩具工廠（暫譯）",
+      "previousZh": null,
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "map-frostbell-chocolate",
+      "name": "Frostbell Chocolate Works",
+      "zh": "霜鈴巧克力工廠（暫譯）",
+      "range": [
+        141,
+        150
+      ],
+      "monsters": [
+        "monster-gummy-bear",
+        "monster-cocoa-imp",
+        "monster-marshmallow-brute",
+        "monster-chocolate-golem",
+        "monster-leader-chocolate-golem"
+      ],
+      "nameEnglish": "Frostbell Chocolate Works",
+      "nameZh": "霜鈴巧克力工廠（暫譯）",
+      "previousZh": null,
+      "translationStatus": "tentative"
     }
   ],
   "synonyms": {
@@ -4728,6 +5223,118 @@
       "weight": 1,
       "wiki": "https://lumivaraonline.com/wiki/items/eclipse_shard/",
       "sourceUrl": "https://lumivaraonline.com/wiki/monsters/eclipse-warlord/"
+    },
+    {
+      "id": "item-gingerbread_crumb",
+      "name": "Gingerbread Crumb",
+      "nameEnglish": "Gingerbread Crumb",
+      "nameZh": "薑餅碎屑（暫譯）",
+      "category": "材料",
+      "sourceMonster": "monster-gingerbread-man",
+      "dropRate": 30,
+      "npcSell": 99,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/gingerbread_crumb/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/gingerbread-man/",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "item-windup_key",
+      "name": "Brass Wind-up Key",
+      "nameEnglish": "Brass Wind-up Key",
+      "nameZh": "黃銅發條鑰匙（暫譯）",
+      "category": "材料",
+      "sourceMonster": "monster-wind-up-teddy",
+      "dropRate": 30,
+      "npcSell": 101,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/windup_key/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/windup-teddy/",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "item-jester_spring",
+      "name": "Jester Spring",
+      "nameEnglish": "Jester Spring",
+      "nameZh": "小丑彈簧（暫譯）",
+      "category": "材料",
+      "sourceMonster": "monster-jack-in-the-box",
+      "dropRate": 30,
+      "npcSell": 105,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/jester_spring/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/jack-in-the-box/",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "item-nutcracker_jaw",
+      "name": "Nutcracker Jaw",
+      "nameEnglish": "Nutcracker Jaw",
+      "nameZh": "胡桃鉗下顎（暫譯）",
+      "category": "材料",
+      "sourceMonster": "monster-nutcracker-soldier",
+      "dropRate": 30,
+      "npcSell": 110,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/nutcracker_jaw/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/nutcracker-soldier/",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "item-gummy_jelly",
+      "name": "Gummy Jelly",
+      "nameEnglish": "Gummy Jelly",
+      "nameZh": "軟糖果凍（暫譯）",
+      "category": "材料",
+      "sourceMonster": "monster-gummy-bear",
+      "dropRate": 30,
+      "npcSell": 99,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/gummy_jelly/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/gummy-bear/",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "item-cocoa_bean",
+      "name": "Cocoa Bean",
+      "nameEnglish": "Cocoa Bean",
+      "nameZh": "可可豆（暫譯）",
+      "category": "材料",
+      "sourceMonster": "monster-cocoa-imp",
+      "dropRate": 30,
+      "npcSell": 101,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/cocoa_bean/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/cocoa-imp/",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "item-toasted_marshmallow",
+      "name": "Toasted Marshmallow",
+      "nameEnglish": "Toasted Marshmallow",
+      "nameZh": "烤棉花糖（暫譯）",
+      "category": "材料",
+      "sourceMonster": "monster-marshmallow-brute",
+      "dropRate": 30,
+      "npcSell": 105,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/toasted_marshmallow/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/marshmallow-brute/",
+      "translationStatus": "tentative"
+    },
+    {
+      "id": "item-chocolate_core",
+      "name": "Chocolate Core",
+      "nameEnglish": "Chocolate Core",
+      "nameZh": "巧克力核心（暫譯）",
+      "category": "材料",
+      "sourceMonster": "monster-chocolate-golem",
+      "dropRate": 30,
+      "npcSell": 110,
+      "weight": 1,
+      "wiki": "https://lumivaraonline.com/wiki/items/chocolate_core/",
+      "sourceUrl": "https://lumivaraonline.com/wiki/monsters/chocolate-golem/",
+      "translationStatus": "tentative"
     }
   ]
 }

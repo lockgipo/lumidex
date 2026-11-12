@@ -41,7 +41,7 @@ test('category and source controls filter rendered cards without changing saved 
   vm.runInContext(fs.readFileSync(path.join(root,'card-filters.js'),'utf8'),context);
   vm.runInContext(app,context);
 
-  assert.match(elem('#result-count').textContent,/88 筆結果/);
+  assert.match(elem('#result-count').textContent,/100 筆結果/);
   elem('#effect-buttons').on_click({target:{closest:()=>({dataset:{effect:'atk'}})}});
   assert.match(elem('#effect-count').textContent,/已選 1 項/);
   assert.doesNotMatch(elem('#results').innerHTML,/data-open="card-prism-hopper"/);
@@ -53,7 +53,7 @@ test('category and source controls filter rendered cards without changing saved 
   assert.equal(storage.get('lumidex-v1-favs'),'["card-golden-fox"]');
 
   elem('#reset-effects').on_click();
-  assert.match(elem('#result-count').textContent,/88 筆結果/);
+  assert.match(elem('#result-count').textContent,/100 筆結果/);
   assert.equal(elem('#effect-count').textContent,'點選展開，可複選');
 
   // Selecting one detail narrows results; two in the same group means either.
@@ -69,7 +69,7 @@ test('category and source controls filter rendered cards without changing saved 
   choose('hpSp:hp');
   assert.match(elem('#effect-count').textContent,/已選 2 項/);
   elem('#reset-effects').on_click();
-  assert.match(elem('#result-count').textContent,/88 筆結果/);
+  assert.match(elem('#result-count').textContent,/100 筆結果/);
   choose('defense:def');
   assert.match(elem('#result-count').textContent,/9 筆結果/);
   choose('defense:mdef');
@@ -97,6 +97,6 @@ test('category and source controls filter rendered cards without changing saved 
   assert.equal(elem('#mapfilter').value,'');
   assert.equal(elem('#slotfilter').value,'');
   assert.equal(elem('#advanced-count').textContent,'');
-  assert.match(elem('#result-count').textContent,/88 筆結果/);
+  assert.match(elem('#result-count').textContent,/100 筆結果/);
   assert.equal(storage.get('lumidex-v1-favs'),'["card-golden-fox"]');
 });

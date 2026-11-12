@@ -8,6 +8,14 @@
 - Deployment: GitHub Pages, main branch, root; public static site. No production backend or user accounts.
 - Purpose: Traditional Chinese searchable companion reference for Lumivara Online. Unofficial.
 
+## v0.8.7-dev (2026-11-12, NOT yet production)
+- Isolated temporary worktree on branch `dev/wiki-refresh-20261112` from origin/main v0.8.6, preserving dirty unrelated primary worktree. No production or Vercel backend changes authorized in this stage.
+- Official public Wiki snapshot v0.4.0: cards 100, monsters 100 (10 new), maps 20 (2 new Frostbell), materials 80 (8 new). Monster stats fetched/checked for all 100. Data indices, `data.json`, embedded index JSON, and damage/analyzer snapshots aligned.
+- Official LM01P pack physical cards formerly mislabeled as Fox/Empress are now Dragon names and keep their previous IDs/favorites; the new LM01M Fox/Arcane magic cards use separate stable new IDs, with `MCRIT` filter distinct from `CRIT`. 8 new conditional mechanic cards remain conditional (not automatic static bonuses).
+- Current local Taiwanese helper `v119` was checked read-only: existing names available, new Frostbell/Dragon/Arcane labels absent; mark newly authored Chinese as tentative alongside official English. No helper ASAR/exe/dictionary was copied to Git.
+- Only dev and test; production still v0.8.6 / dataset v0.3.1. iPhone Safari QA and ATK% formula validation remain open. See `docs/wiki-refresh-2026-11-12.md`.
+
+
 ## v0.8.6 production release: streamlined quick gear input
 - User-requested UX adjustment after iPhone screenshots: main catalog sidebar and tools drawer advertise **only** the v0.8.6 damage.html calculator. Removed v0.6 analyzer.html and v0.8.4 tradeoff.html **navigation links only**; both legacy pages, Explorer importer/picker, gear sets, API/proxy and their data/scripts remain intact for later reuse. damage.html no longer links back to the old advanced tool.
 - All eight A/B net-delta fields are readonly, tap/keyboard activated role=button; share a focus-managed modal bottom sheet. Controls -10/-5/-1/+1/+5/+10, sign flip, zero, and opt-in decimal text input; tapping a delta does not summon the iPhone numerical keyboard. Batch swap A/B and copy A→B include flat ATK/MATK fields, retain current panel, recalculate and reuse existing localStorage key lumidex-damage-v1. Accessibility: Escape/backdrop/Done dismiss, focus return, dialog and keydown controls; respect iPhone safe area and narrow widths.
@@ -35,7 +43,7 @@
 
 ## Implementation status
 - `index.html`: responsive UI and embedded JSON dataset for mobile and desktop. v0.6.2 no longer loads or references the retired card market validation module.
-- `data.json`: same game-data snapshot (88 cards / 90 monsters and Leaders / 18 maps / 72 materials).
+- `data.json`: production v0.8.6 snapshot is 88 cards / 90 monsters / 18 maps / 72 materials; **v0.8.7-dev branch now contains 100 / 100 / 20 / 80**, version 0.4.0. The embedded index data matches the branch snapshot.
 - `manifest.webmanifest`: browser installed-web-app metadata. Not full offline support.
 - Features: alias-aware search, card effects, filters, card/monster/map relationships, detail drawer, local favorites, 4-card compare.
 - V0.2: all indexed 88 card / 90 monster / 18 map names have Traditional Chinese (using V107 player vocabulary as a reference) and English, 3-way display selector, cross-language search; no new IDs; previous local favorites remain compatible. Names are stored as `nameZh` / `nameEnglish` alongside unchanged canonical `name`. The old map `zh` label is preserved in `previousZh`; the new `zh` points at V107 reference wording.
