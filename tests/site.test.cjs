@@ -23,6 +23,13 @@ test('catalog retains the verified game dataset', () => {
   assert.doesNotThrow(() => new vm.Script(app));
 });
 
+test('desktop navigation counters match embedded catalog counts', () => {
+  for (const [tab, count] of Object.entries({cards: data.cards.length, monsters: data.monsters.length, maps: data.maps.length, materials: data.materials.length})) {
+    const re = new RegExp('data-nav="' + tab + '"[^>]*>[^\\n]*?<span class="counter"(?: id="side-mat")?>' + count + '</span>');
+    assert.match(html, re, tab + ' sidebar count must match dataset');
+  }
+});
+
 test('materials keep NPC value and drop rate without per-100 expectation', () => {
   assert.ok(html.includes('NPC 收購單價'));
   assert.ok(html.includes('m.dropRate'));
