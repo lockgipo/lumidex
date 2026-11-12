@@ -1,8 +1,8 @@
-# LumiDex 官方圖鑑同步與中文化 — 2026-11-12（v0.8.7-dev）
+# LumiDex 官方圖鑑同步與中文化 — 2026-11-12（v0.8.7）
 
 ## 發布界線
 - 來源：`dev/wiki-refresh-20261112`，從 GitHub `main` v0.8.6 建立隔離工作樹，保護原本未提交的其他修改。
-- **本次僅開發／驗證，尚未發布正式站**。正式 GitHub Pages 仍為 v0.8.6（資料快照 v0.3.1）。Vercel Explorer API 與正式遊戲資料沒有修改。
+- 本版經使用者明確授權發布至 GitHub Pages 正式站（資料快照 v0.4.0）。Vercel Explorer API 與正式遊戲資料沒有修改。
 - 不重啟玩家市場價錢追蹤；不變更裝備傷害收益公式／ATK% 同乘區假設。
 
 ## 官方資料核對
@@ -12,7 +12,7 @@
 - [20 張官方地圖](https://lumivaraonline.com/wiki/maps/)
 - [官方 Wiki 物品／掉落／NPC 收購價表](https://lumivaraonline.com/wiki/)
 
-| 資料種類 | 原始 v0.8.6 | 本次 v0.8.7-dev | 增量 |
+| 資料種類 | 原始 v0.8.6 | 本次 v0.8.7 | 增量 |
 |---|---:|---:|---:|
 | 卡片 | 88 | 100 | +12 |
 | 怪物及 Leader | 90 | 100 | +10（8 種普通怪，2 位 Leader） |
