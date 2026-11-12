@@ -14,6 +14,7 @@
     {id:'piercePhysical',label:'物理穿透',pattern:/物理穿透\s*\+\s*\d/},
     {id:'pierceMagic',label:'魔法穿透',pattern:/魔法穿透\s*\+\s*\d/},
     {id:'critRate',label:'CRIT 暴擊率',pattern:/\bCRIT\s*\+\s*\d/i},
+    {id:'magicCritRate',label:'MCRIT 魔法暴擊',pattern:/\bMCRIT\s*\+\s*\d/i},
     {id:'critDamage',label:'暴擊傷害',pattern:/暴擊傷害\s*\+\s*\d/},
     {id:'hit',label:'HIT 命中',pattern:/\bHIT\s*\+\s*\d/i},
     {id:'flee',label:'FLEE 閃避',pattern:/\bFLEE\s*\+\s*\d/i},

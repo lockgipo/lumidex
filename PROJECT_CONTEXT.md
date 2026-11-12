@@ -4,9 +4,17 @@
 - Name: LumiDex
 - Repository: https://github.com/lockgipo/lumidex
 - Website URL: https://lockgipo.github.io/lumidex/
-- Production version: 0.8.6 (2026-11-10); main branch, GitHub Pages root; embedded game-data snapshot 0.3.1 (22 official special-card mechanic descriptions localized)
+- Production version: 0.8.7 (2026-11-12); main branch, GitHub Pages root; game-data snapshot 0.4.0 (100 cards, 100 monsters, 20 maps, 80 materials).
 - Deployment: GitHub Pages, main branch, root; public static site. No production backend or user accounts.
 - Purpose: Traditional Chinese searchable companion reference for Lumivara Online. Unofficial.
+
+## v0.8.7 production release (2026-11-12)
+- Developed in isolated worktree on branch `dev/wiki-refresh-20261112` from origin/main v0.8.6, preserving dirty unrelated primary worktree. GitHub Pages production release authorized; Vercel backend remains unchanged.
+- Official public Wiki snapshot v0.4.0: cards 100, monsters 100 (10 new), maps 20 (2 new Frostbell), materials 80 (8 new). Monster stats fetched/checked for all 100. Data indices, `data.json`, embedded index JSON, and damage/analyzer snapshots aligned.
+- Official LM01P pack physical cards formerly mislabeled as Fox/Empress are now Dragon names and keep their previous IDs/favorites; the new LM01M Fox/Arcane magic cards use separate stable new IDs, with `MCRIT` filter distinct from `CRIT`. 8 new conditional mechanic cards remain conditional (not automatic static bonuses).
+- Current local Taiwanese helper `v119` was checked read-only: existing names available, new Frostbell/Dragon/Arcane labels absent; mark newly authored Chinese as tentative alongside official English. No helper ASAR/exe/dictionary was copied to Git.
+- Released to main by explicit user approval after passing Linux CI. iPhone Safari QA and ATK% formula validation remain open. See `docs/wiki-refresh-2026-11-12.md`.
+
 
 ## v0.8.6 production release: streamlined quick gear input
 - User-requested UX adjustment after iPhone screenshots: main catalog sidebar and tools drawer advertise **only** the v0.8.6 damage.html calculator. Removed v0.6 analyzer.html and v0.8.4 tradeoff.html **navigation links only**; both legacy pages, Explorer importer/picker, gear sets, API/proxy and their data/scripts remain intact for later reuse. damage.html no longer links back to the old advanced tool.
@@ -35,7 +43,7 @@
 
 ## Implementation status
 - `index.html`: responsive UI and embedded JSON dataset for mobile and desktop. v0.6.2 no longer loads or references the retired card market validation module.
-- `data.json`: same game-data snapshot (88 cards / 90 monsters and Leaders / 18 maps / 72 materials).
+- `data.json`: current production v0.8.7 snapshot contains **100 cards / 100 monsters / 20 maps / 80 materials**, version 0.4.0. The embedded index data matches the branch snapshot.
 - `manifest.webmanifest`: browser installed-web-app metadata. Not full offline support.
 - Features: alias-aware search, card effects, filters, card/monster/map relationships, detail drawer, local favorites, 4-card compare.
 - V0.2: all indexed 88 card / 90 monster / 18 map names have Traditional Chinese (using V107 player vocabulary as a reference) and English, 3-way display selector, cross-language search; no new IDs; previous local favorites remain compatible. Names are stored as `nameZh` / `nameEnglish` alongside unchanged canonical `name`. The old map `zh` label is preserved in `previousZh`; the new `zh` points at V107 reference wording.

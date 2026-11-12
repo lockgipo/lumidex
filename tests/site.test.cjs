@@ -10,12 +10,12 @@ const scripts = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)];
 const app = scripts.at(-1)[1];
 
 test('catalog retains the verified game dataset', () => {
-  assert.equal(data.meta.version, '0.3.1');
-  assert.deepEqual([data.cards.length, data.monsters.length, data.maps.length, data.materials.length], [88, 90, 18, 72]);
+  assert.equal(data.meta.version, '0.4.0');
+  assert.deepEqual([data.cards.length, data.monsters.length, data.maps.length, data.materials.length], [100, 100, 20, 80]);
   assert.deepEqual(JSON.parse(html.match(/<script id="db" type="application\/json">([\s\S]*?)<\/script>/)[1]), data);
   assert.ok(data.cards.every(c => c.slotList?.length && c.npcSell != null));
   assert.ok(data.materials.every(m => m.dropRate === 30 && m.npcSell >= 0 && data.monsters.some(x => x.id === m.sourceMonster)));
-  assert.equal(data.cards.filter(c => c.verifiedDrops.length).length, 72);
+  assert.equal(data.cards.filter(c => c.verifiedDrops.length).length, 80);
   assert.equal(data.cards.filter(c => c.specialDrop).length, 2);
   assert.ok(html.includes('lumidex-v1-'));
   assert.ok(html.includes('id="slotfilter"'));
@@ -33,7 +33,7 @@ test('materials keep NPC value and drop rate without per-100 expectation', () =>
 
 test('special cards have verified Traditional Chinese mechanics instead of placeholders', () => {
   const special = data.cards.filter(card => card.special);
-  assert.equal(special.length, 22);
+  assert.equal(special.length, 30);
   assert.ok(special.every(card =>
     card.wiki.startsWith('https://lumivaraonline.com/wiki/cards/')
     && card.effect.length > 18

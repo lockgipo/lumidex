@@ -8,8 +8,8 @@ const monsters=require('../data.json').monsters;
 const CardFilters=require('../card-filters.js');
 
 test('effect taxonomy covers every card while keeping conditional effects separate',()=>{
-  assert.equal(cards.length,88);
-  assert.equal(cards.filter(c=>c.special).length,22);
+  assert.equal(cards.length,100);
+  assert.equal(cards.filter(c=>c.special).length,30);
   for(const card of cards){
     const tags=CardFilters.classify(card);
     assert.ok(tags.length>0,card.id+' has no tags');

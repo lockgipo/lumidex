@@ -5,8 +5,8 @@ const db = require('../data.json');
 const stats = require('../monster-stats.json');
 const Combat = require('../combat-model.js');
 
-test('official combat snapshot covers all 90 indexed monsters without altering IDs', () => {
-  assert.equal(stats.meta.count, 90);
+test('official combat snapshot covers all 100 indexed monsters without altering IDs', () => {
+  assert.equal(stats.meta.count, 100);
   assert.deepEqual(Object.keys(stats.monsters), db.monsters.map(m => m.id));
   for (const monster of db.monsters) {
     const row = stats.monsters[monster.id];
